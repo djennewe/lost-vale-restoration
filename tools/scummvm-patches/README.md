@@ -31,7 +31,7 @@ touched the same lines, then update both `BASE_SHA` and the SHA above.
 
 ## What `0001-lost-vale-engine.patch` contains
 
-Three files, +78 lines, no deletions. Detection-table entries are **not**
+27 files under `engines/ultima/ultima8/`. Detection-table entries are **not**
 included here — `build_scummvm.sh` regenerates those itself (md5 + size change
 every build).
 

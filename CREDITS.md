@@ -4,8 +4,9 @@
 
 *The Lost Vale* was designed and built at Origin Systems in 1994. Brian Martin and
 Sheri Graner Ray were its designers, Brian on the maps and Sheri on the
-conversations. Lisa Smith wrote the Thordis, Hrodny, and Ingyald conversations, and
-Andrew wrote the usecode for Lord British, Mythran, and the closing scene. Sheri's
+conversations. Lisa Smith wrote the Thordis, Hrodny, and Ingyald conversations. The 1994 schedule
+assigns the usecode for Lord British, Mythran, and the closing scene to Andrew; the
+Lord British scene is the part that survived. Sheri's
 recollections name Rob Corell, John Watson, Jason E., Micael P., and Steve P. on the
 team, with Warren Spector overseeing. Every recovered line of their code is used as
 evidence first and changed only where it had to be.

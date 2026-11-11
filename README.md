@@ -11,41 +11,58 @@ This is a hobby project I started in March 2026, mainly as an excuse to learn an
 experiment with Claude Code. I wanted a large, messy, real problem to test AI coding
 agents against, and I had always wondered whether the Lost Vale could be
 reconstructed from the surviving screenshots and usecode. It runs in ScummVM against
-your own copy of Ultima 8, and the full quest can be played start to finish.
+your own copy of Ultima 8.
 
 It is very much a hobbyist experiment, so please take it in that spirit.
 
-> **Preview release.** The 18-step quest plays end to end. The maps are a work in
-> progress: they are playable, but outside the areas the 1994 screenshots show they
-> still read as machine-generated. Nobody outside the project has tried the install
-> steps yet, so bug reports are welcome.
+> **Preview release.** The 18-step quest was played end to end on the 18 October
+> build. The maps are a work in progress: they are playable, but outside the areas
+> the 1994 screenshots show they still read as machine-generated. Nobody outside the
+> project has tried the install steps yet, so bug reports are welcome.
 
 ## The 1994 screenshots, rebuilt
 
-The 19 surviving screenshots are the only parts of the Lost Vale whose look is
-actually known, so each one was rebuilt in place: every object identified, given world
-coordinates, and placed in the maps. Captured in the running game, the rebuilt scenes
-match the originals on 84% to 98% of their pixels, and 16 of the 19 reach 89% or
-better (`docs/research/2026-10-16-screenshot-reconstruction/`).
+The 19 surviving screenshots are the only parts of the Lost Vale whose look is known,
+so each one was rebuilt in place: every object identified, given world coordinates,
+and placed in the maps. Where Ultima 8 has no matching art, the art was cut from the
+screenshot itself. Captured in the running game on the 30 October build and compared
+by palette class, the rebuilt scenes match the originals on 84% to 98% of their
+pixels, and 16 of the 19 reach 89% or better
+(`docs/research/2026-10-16-screenshot-reconstruction/ingame/SCORES-2026-10-30.md`).
+The pictures on this page are fresh captures of the published build.
 
-![Four more 1994 screenshots beside their rebuilt in-game versions: Cloud City, the Elemental Dungeon, the Ancient Temple, and a village in the Vale](docs/images/screens-1994-vs-2026.png)
+![The 1994 Cloud City screenshot beside the rebuilt scene in ScummVM](docs/images/pair-screen11.png)
+
+![The 1994 Elemental Dungeon screenshot beside the rebuilt scene in ScummVM](docs/images/pair-screen07.png)
+
+![The 1994 Ancient Temple screenshot beside the rebuilt scene in ScummVM](docs/images/pair-screen04.png)
+
+![The 1994 screenshot of a village in the Vale beside the rebuilt scene in ScummVM](docs/images/pair-screen19.png)
+
+The four elemental pillars in the Elemental Dungeon are the 1994 Pillar of Fire and
+three recolours of it:
+
+![The elemental pillars in the Elemental Dungeon, running in ScummVM](docs/images/elemental-pillars.png)
 
 ## New art
 
-Ultima 8 had no sprites for much of what the expansion needed. The gods, the new
-monsters, and the Tiny Tar body are new; the elder and the spear-carrying children
-were redrawn from the figures in the 1994 screenshots.
+Ultima 8 had no sprites for much of what the expansion needed. The Harpie and the
+freed gods are new drawings. The Water Zombie is the retail ghoul recoloured to match
+the 1994 screenshots, the Tiny Tar body is the Avatar scaled down by the build, and
+the elder and the spear-carrying children are retail figures restyled to match the
+1994 screenshots. The sealed gods, the elemental pillars, and the Cloud City floor
+and columns are pixels cut from the screenshots themselves.
 
-![The three Zealan gods, encased and freed, the Water Zombie, and the Harpie, as sprites read back from the built game files](docs/images/new-art.png)
+![The three Zealan gods sealed in amber (the 1994 pixels) and freed (new drawings), the Water Zombie, and the Harpie, as sprites read from the built game files](docs/images/new-art.png)
 
 <p align="center">
-  <img src="docs/images/anim-water-zombie-walk.gif" height="160" alt="The Water Zombie walking">
+  <img src="docs/images/anim-water-zombie-walk.gif" height="200" alt="The Water Zombie walking">
   &nbsp;&nbsp;
-  <img src="docs/images/anim-tiny-tar-shrink.gif" height="160" alt="The Avatar shrinking after drinking Tiny Tar">
+  <img src="docs/images/anim-tiny-tar-shrink.gif" height="200" alt="The Avatar shrinking after drinking Tiny Tar">
   &nbsp;&nbsp;
-  <img src="docs/images/anim-elder-walk.gif" height="160" alt="The village elder walking with his cane">
+  <img src="docs/images/anim-elder-walk.gif" height="200" alt="The village elder walking with his cane">
   &nbsp;&nbsp;
-  <img src="docs/images/anim-child-walk.gif" height="160" alt="A Zealan child walking with a spear">
+  <img src="docs/images/anim-child-walk.gif" height="200" alt="A Zealan child walking with a spear">
   <br>
   <em>The Water Zombie, the Tiny Tar shrink, the village elder, and a Zealan child, in motion.</em>
 </p>
@@ -55,27 +72,27 @@ slip through cracks the full-size Avatar cannot:
 
 ![The Avatar before and after drinking Tiny Tar](docs/images/tiny-tar.png)
 
-The box cover shows the three imprisoned gods, and the statues in the Inner Sanctum
-were modeled on it:
+The box cover shows a god sealed in amber. The freed figures that step out of the
+amber in the Ancient Temple were modeled on it, and the sealed statues are the ones in
+the 1994 screenshot:
 
-![A detail of Denis Loubet's 1994 box cover beside the three god statues as in-game sprites](docs/images/box-cover-vs-gods.png)
+![A detail of Denis Loubet's 1994 box cover showing one of the three gods, beside the three freed gods as in-game sprites](docs/images/box-cover-vs-gods.png)
 
-Some of the new art came from GPT and Google image models: the three god statues, the
-Harpie, the obelisk, and a few props. The models were shown retail Ultima 8 sprites,
-the 1994 screenshots, and the box cover as references, and the build scripts reduced
-the results to Ultima 8's palette and sprite format. `shared/docs/art-poc/` records
-every prompt and every pick. A real artist replacing any of it would be welcome.
-
-![The elemental pillars in the Elemental Dungeon, redrawn in the style of the 1994 screenshot](docs/images/elemental-pillars.png)
+Some of the new art came from GPT and Google image models: the freed god figures, the
+Harpie, the Sacred Rock, the Message Scroll, and a few plants and props. The models
+were shown retail Ultima 8 sprites, the 1994 screenshots, and the box cover as
+references, and the build scripts reduced the results to Ultima 8's palette and
+sprite format. `shared/docs/art-poc/` and `tools/art/gen_*.sh` record the prompts and
+the picks. A real artist replacing any of it would be welcome.
 
 ## What survived, and what this project adds
 
 The sources:
 
-- Three revisions of the plot and design documents, released through the Origin
-  Museum and the Ultima Codex.
+- The plot and design documents (several revisions, a synopsis, and a walkthrough),
+  released through the Origin Museum and the Ultima Codex.
 - A snapshot of 1994 usecode from Sheri Graner Ray's work diskette, recovered by
-  Dominus Dragon and posted to the Ultima Dragons Discord in January 2025. Armitage's
+  Dominus Dragon and posted to the Ultima Dragons Discord in early 2025. Armitage's
   February 2025 analysis of it was this project's starting point.
 - The 19 development screenshots, published on Dino's Guide to Ultima VIII.
 - Developer interviews, and the 1994 production schedule.
@@ -83,24 +100,26 @@ The sources:
 
 What this repository adds:
 
-- **A usecode compiler** that turns 1994 `.UNK` source into Ultima 8 bytecode, with a
+- A usecode compiler that turns 1994 `.UNK` source into Ultima 8 bytecode, with a
   disassembler, assembler, and round-trip validation against the retail game.
-- **39 usecode source files:** 17 recovered 1994 files with documented repairs
+- 39 usecode source files: 17 recovered 1994 files with documented repairs
   (`agents/usecode-compiler/src/lv-patched/`), and 22 new classes for the parts of
   the plot whose code was never recovered (`lv-new/`). The build compiles 53 in all;
   the rest come from your copy of the recovered archive.
-- **Six new maps** (the Vale, Galjeron's Chamber, the Elemental Dungeon, the Cloud
-  Cliffs, Cloud City, and the Ancient Temple) and changes to the Plateau and
-  Tenebrae, built by scripts from the design documents and the 1994 screenshots.
-- **A ScummVM engine patch** (`tools/scummvm-patches/`, 27 files) that adds the
-  intrinsics and dialogue routing the recovered code needs, movement and NPC
-  behavior fixes, debugger commands, and a larger archive entry limit.
+- Six new maps (the Vale, Galjeron's Chamber, the Elemental Dungeon, the Cloud Cliffs,
+  Cloud City, and the Ancient Temple) and changes to the Plateau and Tenebrae, built
+  by scripts from the design documents and the 1994 screenshots.
+- A ScummVM engine patch (`tools/scummvm-patches/`, 27 files) that adds the
+  intrinsics and dialogue routing the recovered code needs, movement and NPC behavior
+  fixes, a MIDI player change, debugger commands, and a larger archive entry limit.
   `build_scummvm.sh` adds the game's detection entry.
 
-The 18-step main quest, from Lord British's vision to the Bag of Reagents, has been
-completed with cheats off as one continuous save chain on two pinned builds in
-October 2026 (`docs/playtest-2026-10-10-full-run-1-18.md` and the replay legs from
-17 October). Development and testing happen on macOS and Linux. Windows is untested.
+The 18-step main quest, from Lord British's vision to the Bag of Reagents, was
+completed twice in October 2026 with cheats off, each time from a new game on one
+pinned build (`docs/playtest-2026-10-11-replay-leg1.md` to `leg5`, and
+`docs/playtest-2026-10-17-replay-leg1.md` to `leg6`). The maps have changed since,
+and the published build has not had a full replay yet. Development and testing
+happen on macOS and Linux. Windows is untested.
 
 ## What you need
 
@@ -139,8 +158,11 @@ tools/build_artifacts.sh
 # 3. Build ScummVM with the Lost Vale patch (first time, and after engine changes).
 ./build_scummvm.sh
 
-# 4. Install and launch. Run this again whenever you want to play.
+# 4. Install and launch.
 ./install_lv.sh --run
+
+# Later, to play again without reinstalling:
+./play.sh
 ```
 
 Step 4 installs into a separate copy of your game, `shared/u8-lv-patched/`, and
@@ -157,18 +179,16 @@ path is untested.
 ## How it was made
 
 Nearly all the code was written by Claude Code and OpenAI Codex, with me steering,
-reviewing, and playtesting. The project ran on one rule: nothing counts as done until
-it has been exercised in ScummVM and the result written down, because the worst bugs
-along the way were invisible to every static check and obvious after one click in the
-game.
+reviewing, and playtesting. I held to one rule: nothing counts as done until it has
+been exercised in ScummVM and written down, because the worst bugs along the way were
+invisible to every static check and plain after one click in the game.
 
 The written development record is in the repository:
 
 - `PLAN.md` for the roadmap and its decisions, and `TODO.md` for live status.
 - `agents/*/docs/` for each workstream's design notes and devlog.
 - `docs/` for research notes, reviews, and dated playtest reports. The screenshots the
-  reports refer to are kept out of this repository for size, so most of their image
-  links are broken.
+  reports refer to are kept out of this repository for size.
 - `HANDOFF.md` for the session-to-session baton, and `CLAUDE.md` and `.claude/` for
   the instructions the agents worked under.
 
@@ -184,7 +204,8 @@ The written development record is in the repository:
 - `docs/images/` the pictures on this page
 
 `tools/run_all_tests.sh` runs the whole test suite (58 test files), and
-`tools/cleanroom_test.sh` rebuilds everything from a fresh clone.
+`tools/cleanroom_test.sh` rebuilds everything from a fresh clone against game data
+you already have in place.
 
 ## Legal
 

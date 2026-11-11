@@ -1,8 +1,10 @@
 #!/bin/bash
 # play.sh — Launch the already-installed Lost Vale build in ScummVM.
 #
-# This does NOT rebuild or reinstall — it just launches the game with whatever
-# was last installed by ./install_lv.sh. Use this for quick repeat testing.
+# This does NOT rebuild or reinstall. It launches whatever ./install_lv.sh
+# last installed: the separate copy in shared/u8-lv-patched/ (with its own
+# ScummVM config file and save folder, as install_lv.sh --run does), or, with
+# PLAY_IN_PLACE=1, the registered 'ultima8' target an --in-place install used.
 #
 # To rebuild + reinstall + launch instead, use:  ./install_lv.sh --run
 #
@@ -24,9 +26,11 @@ if [ -z "$SCUMMVM" ]; then
     if [ -x "$LV_SCUMMVM" ]; then
         SCUMMVM="$LV_SCUMMVM"
         echo "Using patched ScummVM: $SCUMMVM"
-        if [ -f "$SCRIPT_DIR/scummvm-lv/ultima8.dat" ]; then
-            EXTRA_ARGS="--extrapath=$SCRIPT_DIR/scummvm-lv"
-        fi
+        for d in "$SCRIPT_DIR/scummvm-lv/dists/engine-data" "$SCRIPT_DIR/scummvm-lv"; do
+            if [ -f "$d/ultima.dat" ] || [ -f "$d/ultima8.dat" ]; then
+                EXTRA_ARGS="--extrapath=$d"; break
+            fi
+        done
     else
         echo "ERROR: patched ScummVM not found at $LV_SCUMMVM"
         echo "  Build it:  ./build_scummvm.sh"
@@ -53,4 +57,15 @@ ScummVM debugger: Cmd+Opt+D (Mac), then:
 
 TELEPORTS
 
-exec "$SCUMMVM" --debuglevel=1 $EXTRA_ARGS ultima8
+GAME_DIR="$SCRIPT_DIR/shared/u8-lv-patched"
+if [ "${PLAY_IN_PLACE:-0}" = 1 ]; then
+    exec "$SCUMMVM" --debuglevel=1 $EXTRA_ARGS ultima8
+fi
+if [ ! -d "$GAME_DIR/USECODE" ]; then
+    echo "ERROR: no installed copy at $GAME_DIR. Run: ./install_lv.sh --run"
+    exit 1
+fi
+mkdir -p "$GAME_DIR/saves"
+exec "$SCUMMVM" --debuglevel=1 $EXTRA_ARGS \
+    --config="$GAME_DIR/scummvm-lv.ini" --savepath="$GAME_DIR/saves" \
+    -p "$GAME_DIR" ultima8

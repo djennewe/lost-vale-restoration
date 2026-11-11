@@ -16,7 +16,7 @@
 #      matches the canonical hash in shared/build/ARTIFACTS.sha256.
 #   3b. Runs `tools/build_artifacts.sh` to produce the other four artifacts
 #      (TYPEFLAG.DAT, U8SHAPES.FLX, ANIM.DAT, FIXED.DAT) from the symlinked
-#      game data and verify all five against their canonical hashes. Since M22 the
+#      game data and verify all six against their canonical hashes. Since M22 the
 #      artifacts are no longer committed, so the clean room builds them the
 #      way a player will.
 #   4. Corrupts lv-new/MYTHRDLG.UNK, asserts the build exits nonzero with a
@@ -191,14 +191,14 @@ fi
 # owned game data — which is also what makes Step 6's map tests meaningful
 # here at all.
 echo
-echo "-- Step 3b: build the remaining artifacts + verify all five --"
+echo "-- Step 3b: build the remaining artifacts and verify all six --"
 set +e
 ARTIFACTS_OUTPUT="$(cd "$CLONE" && tools/build_artifacts.sh 2>&1)"
 ARTIFACTS_EXIT=$?
 set -e
 echo "$ARTIFACTS_OUTPUT" | tail -12
 if [ "$ARTIFACTS_EXIT" -eq 0 ]; then
-    pass "build_artifacts.sh (all five match the canonical hashes)"
+    pass "build_artifacts.sh (all six match the canonical hashes)"
 else
     fail "build_artifacts.sh" "exit=$ARTIFACTS_EXIT — see output above"
 fi
