@@ -1,52 +1,106 @@
 # Ultima 8: The Lost Vale, a fan restoration
 
-*The Lost Vale* was the expansion to *Ultima 8: Pagan* that a team of about seven
-people at Origin Systems built between April and August 1994. It was ready for
-duplication when Electronic Arts cancelled it, and the disks were lost.
+![A 1994 development screenshot of the Cloud Cliffs beside the same scene rebuilt and running in ScummVM](docs/images/hero-screen13.png)
 
-This project rebuilds it from what survived. The expansion runs as real Ultima 8
-usecode and maps, in ScummVM's Ultima 8 engine with a patch, against your own copy of
-the game.
+*The Lost Vale* was the expansion to *Ultima 8: Pagan* that a small team at Origin
+Systems finished in 1994. It was ready for duplication when Electronic Arts
+cancelled it, and the disks were lost. What survived was a set of design documents,
+19 screenshots, the box, and a diskette of usecode from one of its designers.
 
-> **Preview release.** The quest can be completed start to finish. A visual-quality
-> pass is finishing, the final full replay on the current build is still ahead, and
-> nobody outside the project has tried the install steps below yet. Bug reports are
-> welcome.
+This is a hobby project I started in March 2026, mainly as an excuse to learn and
+experiment with Claude Code. I wanted a large, messy, real problem to test AI coding
+agents against, and I had always wondered whether the Lost Vale could be
+reconstructed from the surviving screenshots and usecode. It runs in ScummVM against
+your own copy of Ultima 8, and the full quest can be played start to finish.
+
+It is very much a hobbyist experiment, so please take it in that spirit.
+
+> **Preview release.** The 18-step quest plays end to end. The maps are a work in
+> progress: they are playable, but outside the areas the 1994 screenshots show they
+> still read as machine-generated. Nobody outside the project has tried the install
+> steps yet, so bug reports are welcome.
+
+## The 1994 screenshots, rebuilt
+
+The 19 surviving screenshots are the only parts of the Lost Vale whose look is
+actually known, so each one was rebuilt in place: every object identified, given world
+coordinates, and placed in the maps. Captured in the running game, the rebuilt scenes
+match the originals on 84% to 98% of their pixels, and 16 of the 19 reach 89% or
+better (`docs/research/2026-10-16-screenshot-reconstruction/`).
+
+![Four more 1994 screenshots beside their rebuilt in-game versions: Cloud City, the Elemental Dungeon, the Ancient Temple, and a village in the Vale](docs/images/screens-1994-vs-2026.png)
+
+## New art
+
+Ultima 8 had no sprites for much of what the expansion needed. The gods, the new
+monsters, and the Tiny Tar body are new; the elder and the spear-carrying children
+were redrawn from the figures in the 1994 screenshots.
+
+![The three Zealan gods, encased and freed, the Water Zombie, and the Harpie, as sprites read back from the built game files](docs/images/new-art.png)
+
+<p align="center">
+  <img src="docs/images/anim-water-zombie-walk.gif" height="160" alt="The Water Zombie walking">
+  &nbsp;&nbsp;
+  <img src="docs/images/anim-tiny-tar-shrink.gif" height="160" alt="The Avatar shrinking after drinking Tiny Tar">
+  &nbsp;&nbsp;
+  <img src="docs/images/anim-elder-walk.gif" height="160" alt="The village elder walking with his cane">
+  &nbsp;&nbsp;
+  <img src="docs/images/anim-child-walk.gif" height="160" alt="A Zealan child walking with a spear">
+  <br>
+  <em>The Water Zombie, the Tiny Tar shrink, the village elder, and a Zealan child, in motion.</em>
+</p>
+
+Tiny Tar was a potion in the recovered code. Drinking it shrinks the Avatar so he can
+slip through cracks the full-size Avatar cannot:
+
+![The Avatar before and after drinking Tiny Tar](docs/images/tiny-tar.png)
+
+The box cover shows the three imprisoned gods, and the statues in the Inner Sanctum
+were modeled on it:
+
+![A detail of Denis Loubet's 1994 box cover beside the three god statues as in-game sprites](docs/images/box-cover-vs-gods.png)
+
+Some of the new art came from GPT and Google image models: the three god statues, the
+Harpie, the obelisk, and a few props. The models were shown retail Ultima 8 sprites,
+the 1994 screenshots, and the box cover as references, and the build scripts reduced
+the results to Ultima 8's palette and sprite format. `shared/docs/art-poc/` records
+every prompt and every pick. A real artist replacing any of it would be welcome.
+
+![The elemental pillars in the Elemental Dungeon, redrawn in the style of the 1994 screenshot](docs/images/elemental-pillars.png)
 
 ## What survived, and what this project adds
 
-The sources this restoration is built from:
+The sources:
 
 - Three revisions of the plot and design documents, released through the Origin
   Museum and the Ultima Codex.
 - A snapshot of 1994 usecode from Sheri Graner Ray's work diskette, recovered by
-  Dominus Dragon and posted to the Ultima Dragons Discord in January 2025.
-- Nineteen in-game screenshots from development builds, published on Dino's Guide to
-  Ultima VIII.
+  Dominus Dragon and posted to the Ultima Dragons Discord in January 2025. Armitage's
+  February 2025 analysis of it was this project's starting point.
+- The 19 development screenshots, published on Dino's Guide to Ultima VIII.
 - Developer interviews, and the 1994 production schedule.
 - The Ultima 8 file formats as documented by the Pentagram project.
 
-What this repository contributes:
+What this repository adds:
 
 - **A usecode compiler** that turns 1994 `.UNK` source into Ultima 8 bytecode, with a
   disassembler, assembler, and round-trip validation against the retail game.
-- **39 usecode source files in this repository:** 17 recovered 1994 files with
-  documented repairs (`agents/usecode-compiler/src/lv-patched/`), and 22 new classes
-  for the parts of the plot whose code was never recovered (`lv-new/`). The build
-  compiles 53 in all; the rest come from your copy of the recovered archive.
-- **Six new maps** (map slots 9, 10, 11, 13, 17, and 18) and changes to retail maps 8
-  and 39, built by scripts from the design documents and the 1994 screenshots.
-- **New art:** shapes cut pixel-exact from the 1994 screenshots, recolours of retail
-  shapes, and sprites made with image-generation models (see "How it was made").
+- **39 usecode source files:** 17 recovered 1994 files with documented repairs
+  (`agents/usecode-compiler/src/lv-patched/`), and 22 new classes for the parts of
+  the plot whose code was never recovered (`lv-new/`). The build compiles 53 in all;
+  the rest come from your copy of the recovered archive.
+- **Six new maps** (the Vale, Galjeron's Chamber, the Elemental Dungeon, the Cloud
+  Cliffs, Cloud City, and the Ancient Temple) and changes to the Plateau and
+  Tenebrae, built by scripts from the design documents and the 1994 screenshots.
 - **A ScummVM engine patch** (`tools/scummvm-patches/`, 27 files) that adds the
   intrinsics and dialogue routing the recovered code needs, movement and NPC
   behavior fixes, debugger commands, and a larger archive entry limit.
   `build_scummvm.sh` adds the game's detection entry.
 
-The 18-step main quest has been completed start to finish with cheats off, as one
-continuous save chain, on two pinned builds in October 2026
-(`docs/playtest-2026-10-10-full-run-1-18.md` and the replay legs from 17 October).
-Development and testing happen on macOS and Linux. Windows is untested.
+The 18-step main quest, from Lord British's vision to the Bag of Reagents, has been
+completed with cheats off as one continuous save chain on two pinned builds in
+October 2026 (`docs/playtest-2026-10-10-full-run-1-18.md` and the replay legs from
+17 October). Development and testing happen on macOS and Linux. Windows is untested.
 
 ## What you need
 
@@ -102,25 +156,19 @@ path is untested.
 
 ## How it was made
 
-Douglas Jennewein directed the project, made the design calls, and reviewed the
-results. Most of the implementation was written by AI coding agents (Claude Code and
-OpenAI Codex) working under that direction, with a rule that nothing counts as done
-until it has been exercised in ScummVM and the result recorded.
-
-Some of the new art was produced with image-generation models and then reduced to
-Ultima 8's palette and sprite format by the build scripts: the three Zealan god
-statues, the Harpie, the obelisk, and a few static props. The models were shown
-retail Ultima 8 sprites, the 1994 screenshots, and Denis Loubet's box cover as style
-references. `shared/docs/art-poc/` records every prompt and every pick. A future
-artist replacing any of it would be welcome.
+Nearly all the code was written by Claude Code and OpenAI Codex, with me steering,
+reviewing, and playtesting. The project ran on one rule: nothing counts as done until
+it has been exercised in ScummVM and the result written down, because the worst bugs
+along the way were invisible to every static check and obvious after one click in the
+game.
 
 The written development record is in the repository:
 
 - `PLAN.md` for the roadmap and its decisions, and `TODO.md` for live status.
 - `agents/*/docs/` for each workstream's design notes and devlog.
 - `docs/` for research notes, reviews, and dated playtest reports. The screenshots the
-  reports refer to are kept out of this repository for size, so their image links are
-  broken.
+  reports refer to are kept out of this repository for size, so most of their image
+  links are broken.
 - `HANDOFF.md` for the session-to-session baton, and `CLAUDE.md` and `.claude/` for
   the instructions the agents worked under.
 
@@ -133,6 +181,7 @@ The written development record is in the repository:
 - `tools/` build, install, test, art, and playtest scripts
 - `shared/corpus/` notes on the plot documents, interviews, and Pentagram docs
 - `shared/build/` published hashes (`ARTIFACTS.sha256`) and pinned ids (`lv_manifest.json`)
+- `docs/images/` the pictures on this page
 
 `tools/run_all_tests.sh` runs the whole test suite (58 test files), and
 `tools/cleanroom_test.sh` rebuilds everything from a fresh clone.
@@ -147,4 +196,5 @@ the licenses cover and which files remain Origin's.
 ## Credits and license
 
 See `CREDITS.md`. Code is GPL-3.0-or-later (`LICENSE`); documentation is CC BY 4.0;
-details are in `NOTICE.md`.
+details are in `NOTICE.md`. Happy to compare notes with anyone working on the Lost
+Vale or on Ultima 8.

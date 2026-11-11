@@ -36,6 +36,8 @@ This project claims no rights in them and grants none:
 - `shared/data/lv-screenshots/`: the 1994 development screenshots.
 - `shared/data/lv-1994-art/`: crops and reconstructions cut from those screenshots,
   which the build uses as art.
+- `docs/images/`: in-game screenshots and animations, the 1994 screenshots, and a
+  detail of Denis Loubet's box cover, shown for comparison and commentary.
 - Recoloured or redrawn retail shapes (for example the Water Zombie, built from the
   ghoul's frames), and art generated with retail sprites, the 1994 screenshots, or
   Denis Loubet's box cover as references. `shared/docs/art-poc/` documents which is
