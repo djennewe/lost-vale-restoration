@@ -15,9 +15,11 @@ your own copy of Ultima 8.
 
 It is very much a hobbyist experiment, so please take it in that spirit.
 
-> **Preview release.** The 18-step quest was played end to end on the 18 October
-> build. The maps are a work in progress: they are playable, but outside the areas
-> the 1994 screenshots show they still read as machine-generated. Nobody outside the
+> **Preview release.** AI agents have played the 18-step quest end to end through
+> ordinary keyboard and mouse input, so it is in a state a person can play. I have
+> not played it through myself yet; I am starting now and will share what I find as I
+> go. The maps are a work in progress: they are playable, but outside the areas the
+> 1994 screenshots show they still read as machine-generated. Nobody outside the
 > project has tried the install steps yet, so bug reports are welcome.
 
 ## The 1994 screenshots, rebuilt
@@ -116,7 +118,7 @@ What this repository adds:
 
 The 18-step main quest, from Lord British's vision to the Bag of Reagents, was
 completed twice in October 2026 with cheats off, each time from a new game on one
-pinned build (`docs/playtest-2026-10-11-replay-leg1.md` to `leg5`, and
+pinned build, by AI agents driving the game through keyboard and mouse input (`docs/playtest-2026-10-11-replay-leg1.md` to `leg5`, and
 `docs/playtest-2026-10-17-replay-leg1.md` to `leg6`). The maps have changed since,
 and the published build has not had a full replay yet. Development and testing
 happen on macOS and Linux. Windows is untested.
@@ -178,8 +180,9 @@ path is untested.
 
 ## How it was made
 
-Nearly all the code was written by Claude Code and OpenAI Codex, with me steering,
-reviewing, and playtesting. I held to one rule: nothing counts as done until it has
+Nearly all the code was written by Claude Code and OpenAI Codex, with me steering
+and reviewing. The agents did the playtesting too; my own first playthrough starts
+now. I held to one rule: nothing counts as done until it has
 been exercised in ScummVM and written down, because the worst bugs along the way were
 invisible to every static check and plain after one click in the game.
 
