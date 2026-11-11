@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "class": "cave",
+  "sample_step": 256,
+  "inherited_black": [],
+  "occlusion_allow": [],
+  "frame_allow": [],
+  "pins": {
+    "walkable_black_specified": 0,
+    "walkable_black_prop": 19,
+    "leg_cells_below_half": 60,
+    "cells_below_half_share": 0.05333333333333334,
+    "cells_hidden_share": 0.0,
+    "median_min_visible": 1.0,
+    "frame_black_mean": 0.20353208705357143,
+    "frame_black_p95": 0.4133509765624999,
+    "frame_black_max": 0.5182421875,
+    "records": 1596,
+    "expanded_records": 1596
+  },
+  "report_step128": {
+    "walkable_black_specified": 0,
+    "walkable_black_prop": 19,
+    "leg_cells_below_half": 68,
+    "cells_below_half_share": 0.16119402985074627,
+    "cells_hidden_share": 0.01791044776119403,
+    "median_min_visible": 1.0,
+    "frame_black_mean": 0.2417440998134328,
+    "frame_black_p95": 0.5179886718750001,
+    "frame_black_max": 0.64307421875,
+    "records": 1226,
+    "expanded_records": 1556
+  },
+  "frame_step": 512,
+  "report_artifact_hashes": {
+    "TYPEFLAG.DAT": "ac0b33486fc167d98c07c32011de348c11ae0cefb8d89fc2597ef984133a5fd1",
+    "U8SHAPES.FLX": "aad6ed7b8961f416b6fae225d467427899a4487db768b6fb486ed5b5cb3e73ba",
+    "ANIM.DAT": "97ae5fc9ddaa6ef515427103264a3095a6d42776ac51e530954fb4846b4d0443",
+    "EUSECODE.FLX": "b47c324cdad77646c27755acfdd5bca53a9d92e16268db229f18e7dd780d4205",
+    "FIXED.DAT": "fcc45a0431cc366a5d6097688a1acb67b19455a97d10933d2a19b5f24b9b8975"
+  },
+  "pins_note": "2026-11-10 phase 4: frame black re-pinned up after the masons' threshold enclosure gave way to darkness (direction D3), inside the cave class limits 0.47/0.77/0.91; records rise within the 1,800 ceiling; leg visibility lowered (68 -> 60)."
+}

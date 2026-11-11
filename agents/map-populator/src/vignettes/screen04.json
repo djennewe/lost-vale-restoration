@@ -1,0 +1,1152 @@
+{
+ "shot": "screen04",
+ "map": 18,
+ "origin_note": "Vignette-local coords: the 301 floor tile whose hotspot is shot pixel (62,38) is at (1023,1023,0); flats on x,y = 127 mod 128. Camera in the painter sign (see camera.convention; until 2026-10-16 this file stored it negated). world = local + placement.origin_world. Effects (shape 202 sparkles) and the Avatar are in actors.",
+ "camera": {
+  "sx0": -62,
+  "sy0": 216,
+  "crop": [
+   320,
+   185
+  ],
+  "convention": "painter sign, vignette-local frame: screen_x = x/4 - y/4 - sx0, screen_y = x/8 + y/8 - z - sy0 (C division per term; x,y = footprint max corner). vignette_replay.py paints in world coordinates (origin_world + local) with the camera shifted by (ox/4 - oy/4, ox/8 + oy/8 - oz)."
+ },
+ "items": [
+  {
+   "shape": 301,
+   "frame": 10,
+   "x": 767,
+   "y": 1023,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 4,
+   "x": 895,
+   "y": 895,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 895,
+   "y": 1023,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 895,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1023,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1023,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 1023,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 6,
+   "x": 1023,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1023,
+   "y": 1279,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1151,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1151,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 1151,
+   "y": 895,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 1151,
+   "y": 1023,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 4,
+   "x": 1151,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1151,
+   "y": 1279,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 1151,
+   "y": 1407,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 33,
+   "x": 1279,
+   "y": 511,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1279,
+   "y": 639,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 1279,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 6,
+   "x": 1279,
+   "y": 895,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 1279,
+   "y": 1023,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 1279,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 1279,
+   "y": 1279,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 6,
+   "x": 1279,
+   "y": 1407,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 1279,
+   "y": 1535,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 12,
+   "x": 1407,
+   "y": 383,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 1407,
+   "y": 511,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 33,
+   "x": 1407,
+   "y": 639,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1407,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1407,
+   "y": 895,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1407,
+   "y": 1023,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 1407,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1407,
+   "y": 1279,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1407,
+   "y": 1407,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1407,
+   "y": 1535,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 1407,
+   "y": 1663,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 12,
+   "x": 1535,
+   "y": 383,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1535,
+   "y": 511,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1535,
+   "y": 639,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1535,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1535,
+   "y": 895,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 1535,
+   "y": 1023,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 6,
+   "x": 1535,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1535,
+   "y": 1279,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1535,
+   "y": 1407,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 1535,
+   "y": 1535,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 6,
+   "x": 1535,
+   "y": 1663,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1535,
+   "y": 1791,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 33,
+   "x": 1663,
+   "y": 511,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1663,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1663,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 1663,
+   "y": 895,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 1663,
+   "y": 1023,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 4,
+   "x": 1663,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1663,
+   "y": 1279,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 1663,
+   "y": 1407,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 1663,
+   "y": 1535,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 4,
+   "x": 1663,
+   "y": 1663,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1663,
+   "y": 1791,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1791,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 1791,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 6,
+   "x": 1791,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 1791,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 1791,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 1791,
+   "y": 1279,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 6,
+   "x": 1791,
+   "y": 1407,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 1791,
+   "y": 1535,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 1791,
+   "y": 1663,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1919,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1919,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1919,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 1919,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1919,
+   "y": 1279,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1919,
+   "y": 1407,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1919,
+   "y": 1535,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 2047,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 2047,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 6,
+   "x": 2047,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 2047,
+   "y": 1279,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 2047,
+   "y": 1407,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 2175,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 4,
+   "x": 2175,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 2175,
+   "y": 1279,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 31,
+   "frame": 0,
+   "x": 1535,
+   "y": 607,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 0,
+   "x": 895,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 27,
+   "frame": 0,
+   "x": 1407,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 29,
+   "frame": 0,
+   "x": 1535,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 28,
+   "frame": 0,
+   "x": 1503,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 550,
+   "frame": 0,
+   "x": 1719,
+   "y": 1263,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 37,
+   "frame": 10,
+   "x": 1407,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 37,
+   "frame": 13,
+   "x": 1407,
+   "y": 1151,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 37,
+   "frame": 10,
+   "x": 1663,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 37,
+   "frame": 13,
+   "x": 1663,
+   "y": 1023,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 37,
+   "frame": 10,
+   "x": 1663,
+   "y": 1535,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 37,
+   "frame": 13,
+   "x": 1663,
+   "y": 1535,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 29,
+   "frame": 0,
+   "x": 1439,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 29,
+   "frame": 8,
+   "x": 1311,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 29,
+   "frame": 4,
+   "x": 1567,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 1,
+   "x": 895,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 2013,
+   "frame": 0,
+   "x": 1703,
+   "y": 1255,
+   "z": 16,
+   "why": "1994-art",
+   "replaces": 828
+  },
+  {
+   "shape": 2014,
+   "frame": 0,
+   "x": 1407,
+   "y": 1119,
+   "z": 16,
+   "why": "1994-art"
+  },
+  {
+   "shape": 2010,
+   "frame": 0,
+   "x": 1375,
+   "y": 1119,
+   "z": 16,
+   "why": "1994-art",
+   "replaces": 860,
+   "replaces_frame": 0
+  },
+  {
+   "shape": 2011,
+   "frame": 0,
+   "x": 1631,
+   "y": 991,
+   "z": 16,
+   "why": "1994-art",
+   "replaces": 860,
+   "replaces_frame": 1
+  },
+  {
+   "shape": 2012,
+   "frame": 0,
+   "x": 1631,
+   "y": 1503,
+   "z": 16,
+   "why": "1994-art",
+   "replaces": 860,
+   "replaces_frame": 2
+  },
+  {
+   "shape": 32,
+   "frame": 3,
+   "x": 895,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 566,
+   "frame": 0,
+   "x": 1535,
+   "y": 639,
+   "z": 48,
+   "why": "matched"
+  }
+ ],
+ "actors": [
+  {
+   "what": "avatar",
+   "shape": 1,
+   "frame": 6,
+   "x": 1848,
+   "y": 1240,
+   "z": 0
+  },
+  {
+   "what": "effect",
+   "shape": 202,
+   "frame": 9,
+   "x": 1471,
+   "y": 1215,
+   "z": 16,
+   "note": "retail sparkle effect 202 (flat, 384x416); placed at z=16 so it draws over the plinths and under the amber, as in the shot"
+  },
+  {
+   "what": "effect",
+   "shape": 202,
+   "frame": 10,
+   "x": 1695,
+   "y": 1567,
+   "z": 16,
+   "note": "retail sparkle effect 202 (flat, 384x416); placed at z=16 so it draws over the plinths and under the amber, as in the shot"
+  },
+  {
+   "what": "effect",
+   "shape": 202,
+   "frame": 10,
+   "x": 1759,
+   "y": 1087,
+   "z": 16,
+   "note": "retail sparkle effect 202 (flat, 384x416); placed at z=16 so it draws over the plinths and under the amber, as in the shot"
+  }
+ ],
+ "art_1994": [
+  {
+   "id": 2010,
+   "frames": [
+    0
+   ],
+   "name": "god_P1_west (Felicitar by elimination [INFERENCE]: hunched figure in profile)",
+   "replaces": 860,
+   "replaces_frame": 0,
+   "note": "42 px at the right foot filled from the row to their left (hidden behind the striped prop) [INFERENCE]"
+  },
+  {
+   "id": 2011,
+   "frames": [
+    0
+   ],
+   "name": "god_P2_northeast (Doloras: kneeling figure in a horizontal block, matches our 860:1 cube composition)",
+   "replaces": 860,
+   "replaces_frame": 1,
+   "note": ""
+  },
+  {
+   "id": 2012,
+   "frames": [
+    0
+   ],
+   "name": "god_P3_south (Timyra: standing, hand at her face, matches box-cover pose of our 860:2)",
+   "replaces": 860,
+   "replaces_frame": 2,
+   "note": ""
+  },
+  {
+   "id": 2013,
+   "frames": [
+    0
+   ],
+   "name": "Sacred Shield on the altar: retail 828:0 disc with 1994 emblems (yellow sun, red ring, blue drop) instead of retail hand/bell/ankh",
+   "note": "828 is retail (base game uses it): ship as a new LV shape or LV-only frame, not an overwrite"
+  },
+  {
+   "id": 2014,
+   "frames": [
+    0
+   ],
+   "name": "black/white striped prop lying on P1 plinth (bones/ribcage? unidentified; no retail frame matches, best 146/690)",
+   "note": ""
+  }
+ ],
+ "verify": {
+  "render": "docs/research/2026-10-16-screenshot-reconstruction/screen04_render.png",
+  "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen04_diff.png",
+  "residuals": "~49 px: top-right wall-top fragment (273-298,0-6), right-edge column x=319 (item entering frame), 6 px sparkle residue at (178-184,82)",
+  "frame_px": 59200,
+  "all_frame_strict": 99.902,
+  "all_frame_class": 99.914,
+  "void_as_black_points": 0.0,
+  "excluded_actor_points": 0.0,
+  "provenance_points": {
+   "retail": 91.252,
+   "cross_shot_validated_1994": 1.029,
+   "single_shot_1994": 7.633,
+   "inferred": 0.0,
+   "unmatched": 0.086
+  },
+  "published_render_identical": true,
+  "replay": "python3 agents/map-populator/src/vignette_replay.py screen04",
+  "phase_c": {
+   "date": "2026-10-17",
+   "built": "build_map_18.py stamps this vignette verbatim at origin_world (lv_cave_vignette.Cave closes the cave round it). art_map: 2010-2012 -> 860 frames 0-2 (the 1994 statues, index-equal), 2013 -> 879, 2014 -> 881 (single-shot). The 2013 Shield is NOT placed: it is the ceremony's, popped by AOSCENE.UNK to (3111,8167,16), the item's world spot here.",
+   "built_window_class": 95.4,
+   "built_window_actors_class": 98.887,
+   "built_window_actors_plus_popped_shield_class": 99.914,
+   "px_differing_from_replay_ceremony_state": 0,
+   "report": "docs/research/2026-10-16-screenshot-reconstruction/phaseC/map18/REPORT.md"
+  }
+ },
+ "placement": {
+  "map": 18,
+  "origin_world": [
+   1408,
+   6912,
+   0
+  ],
+  "why": "Anchored on the altar: the shot is the ceremony moment (Shield 828 already on the altar, AOSCENE.UNK pop), so the altar is the vignette's fixed point. Offset must be a multiple of 128 to keep the 301 lattice on the room's 127-mod-128 grid; (1408,6912) puts the altar at (3120..3127, 8168..8175) - 55 units east / 17 north of its pin, the nearest lattice-compatible fit (the other candidate, 1280, is 73 west). Gods sit 0-512 units from the altar exactly as the 1994 shot shows, inside the existing sanctum (x 1024-5119, y 6144-8703), south of the crack lane (x 2700-2880, y<=6800).",
+  "pin_moves": [
+   {
+    "what": "860 frame 0 Felicitar q301 (god P1, west)",
+    "to": [
+     2783,
+     8031,
+     16
+    ],
+    "from": [
+     3840,
+     7680,
+     0
+    ]
+   },
+   {
+    "what": "860 frame 1 Doloras q302 (god P2, north-east)",
+    "to": [
+     3039,
+     7903,
+     16
+    ],
+    "from": [
+     3072,
+     6656,
+     0
+    ]
+   },
+   {
+    "what": "860 frame 2 Timyra q303 (god P3, south)",
+    "to": [
+     3039,
+     8415,
+     16
+    ],
+    "from": [
+     2304,
+     7680,
+     0
+    ]
+   },
+   {
+    "what": "550 altar q310",
+    "to": [
+     3127,
+     8175,
+     0
+    ],
+    "note": "z 24->0: the shot has no dais; any x 3120..3127 / y 8168..8175 projects identically",
+    "from": [
+     3072,
+     8192,
+     24
+    ]
+   },
+   {
+    "what": "EggAOCeremony q296 npcnum 0x66",
+    "to": [
+     3072,
+     8320,
+     0
+    ],
+    "note": "z follows the altar; x,y stay (Avatar stand spot in the shot (3256,8152) is inside the +/-192 box)",
+    "from": [
+     3072,
+     8320,
+     24
+    ]
+   },
+   {
+    "what": "skull 331 npcnum 228 TYPEMONSKUL",
+    "to": [
+     2496,
+     8448,
+     0
+    ],
+    "note": "its current spot projects to shot pixel (150,132), open floor in the 1994 shot; moved off-frame [INFERENCE: any off-frame spot works]",
+    "from": [
+     2976,
+     8128,
+     24
+    ]
+   },
+   {
+    "what": "AOSCENE.UNK shield.pop",
+    "to": [
+     3111,
+     8167,
+     16
+    ],
+    "note": "shot puts the shield at altar+(-16,-8,+16); test_paint_cycles reads these numbers",
+    "from": [
+     3056,
+     8176,
+     40
+    ]
+   },
+   {
+    "what": "AOSCENE.UNK camera move_to/scrollTo god coordinates",
+    "to": [
+     [
+      3039,
+      8415,
+      36
+     ],
+     [
+      2783,
+      8031,
+      36
+     ],
+     [
+      3039,
+      7903,
+      36
+     ]
+    ],
+    "note": "Timyra, Felicitar, Doloras order kept; all three now fit one 320-px frame",
+    "from": [
+     [
+      2304,
+      7680,
+      20
+     ],
+     [
+      3840,
+      7680,
+      20
+     ],
+     [
+      3072,
+      6656,
+      20
+     ]
+    ]
+   },
+   {
+    "what": "sanctum south wall (shape 15:1, three courses at y=8703, x 2175..3839)",
+    "to": [
+     null,
+     9215,
+     null
+    ],
+    "note": "at y=8703 the wall paints 12,769 px into the shot frame; at >=9215 it paints none. Room floor must extend south with it",
+    "from": [
+     null,
+     8703,
+     null
+    ]
+   }
+  ],
+  "collides_with": [
+   "two-tier dais: 113 tiles x 2815..3327 y 7935..8447 z0/8 and 70 paving z16 (remove: shot shows bare 301 floor)",
+   "processional way 113 x 2943..3199 y 7295..7807 (in frame: remove or end north of y~7200)",
+   "candelabra 452:10 at (2783,7903,8),(3327,7903,8); rune columns 512:1 at (2751,8447,8),(3327,8447,8); cushions 812 at y 7775 (all in frame, absent from the shot)",
+   "GLOB_SANCTUM_FLOOR glob eggs (shape 2) at x 2559/3071/3583, y 7679/8191/8703: replace by the vignette 301 tiles (no glob under direct tiles - overlay order undefined)",
+   "test_sanctum_clearance.py GOD_POS and footpad check (6x6x8 for 860) must follow the new god positions/footprint",
+   "TEMPLENT.UNK foreach TypeZealanGod within 2200 of egg (2864,6240): Timyra at y 8415 is 2175 away in y - inside, but by 25 units",
+   "new cave walls in the vignette: 32 run at x=2303 (y 7807..8063) and 27/28/29/31/566 pieces at y 7423..7551 x 2719..2975 - the route from the crack must come round their west end (gap x 2304..2687 at y~7551); run exact_reach from the crack"
+  ]
+ },
+ "source": "ReconInteriors (2026-10-16 reconstruction)"
+}

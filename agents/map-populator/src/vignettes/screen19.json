@@ -1,0 +1,1087 @@
+{
+ "shot": "screen19",
+ "map": 10,
+ "origin_note": "vignette origin = world point mapped to (0,0,0); yard/hut lattice: tiles at x,y = 128k+127 (z=0 = yard dirt). Rock plateau/cliff pieces sit on the half-lattice (128k+63) at z=48 (rock 125 tops at 56).",
+ "camera": {
+  "sx0": -226,
+  "sy0": 26,
+  "crop": [
+   320,
+   183
+  ],
+  "convention": "painter sign, vignette-local frame: screen_x = x/4 - y/4 - sx0, screen_y = x/8 + y/8 - z - sy0 (C division per term; x,y = footprint max corner). vignette_replay.py paints in world coordinates (origin_world + local) with the camera shifted by (ox/4 - oy/4, ox/8 + oy/8 - oz)."
+ },
+ "items": [
+  {
+   "shape": 32,
+   "frame": 3,
+   "x": 191,
+   "y": 959,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 1,
+   "x": 191,
+   "y": 831,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 447,
+   "y": 1215,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 6,
+   "x": 447,
+   "y": 1087,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 649,
+   "frame": 2,
+   "x": 639,
+   "y": 703,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 13,
+   "x": 959,
+   "y": 1087,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 14,
+   "x": 1087,
+   "y": 959,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 32,
+   "x": 383,
+   "y": 511,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 32,
+   "x": 383,
+   "y": 639,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 32,
+   "x": 511,
+   "y": 639,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 33,
+   "x": 511,
+   "y": 383,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 34,
+   "x": 511,
+   "y": 511,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 33,
+   "x": 639,
+   "y": 511,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 34,
+   "x": 639,
+   "y": 639,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 13,
+   "x": 1087,
+   "y": 831,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 33,
+   "x": 639,
+   "y": 383,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 25,
+   "x": 255,
+   "y": 639,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 31,
+   "frame": 1,
+   "x": 447,
+   "y": 1087,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 43,
+   "x": 383,
+   "y": 383,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 26,
+   "x": 255,
+   "y": 511,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 33,
+   "x": 511,
+   "y": 255,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 2,
+   "x": 191,
+   "y": 1087,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 11,
+   "x": 831,
+   "y": 1087,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 9,
+   "x": 319,
+   "y": 1087,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 9,
+   "x": 575,
+   "y": 1343,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 9,
+   "x": 703,
+   "y": 1343,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 145,
+   "frame": 0,
+   "x": 639,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 12,
+   "x": 959,
+   "y": 1215,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 13,
+   "x": 1087,
+   "y": 1087,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 3,
+   "x": 703,
+   "y": 1471,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 23,
+   "x": 831,
+   "y": 1343,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 0,
+   "x": 1215,
+   "y": 959,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 6,
+   "x": 191,
+   "y": 1087,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 145,
+   "frame": 1,
+   "x": 639,
+   "y": 383,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 0,
+   "x": 127,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 255,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 150,
+   "frame": 0,
+   "x": 255,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 511,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 511,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 146,
+   "frame": 0,
+   "x": 639,
+   "y": 607,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 194,
+   "frame": 1,
+   "x": 607,
+   "y": 607,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 319,
+   "y": 1215,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 2,
+   "x": 575,
+   "y": 1471,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 18,
+   "x": 447,
+   "y": 1343,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 383,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 10,
+   "x": 191,
+   "y": 1087,
+   "z": 48,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 31,
+   "frame": 0,
+   "x": 191,
+   "y": 703,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 383,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 13,
+   "x": 1087,
+   "y": 703,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 33,
+   "x": 639,
+   "y": 255,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 8,
+   "x": 287,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 15,
+   "x": 159,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 29,
+   "frame": 7,
+   "x": 447,
+   "y": 991,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 48,
+   "x": 383,
+   "y": 255,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 13,
+   "x": 831,
+   "y": 1471,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 410,
+   "frame": 3,
+   "x": 287,
+   "y": 703,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 410,
+   "frame": 3,
+   "x": 671,
+   "y": 703,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 3,
+   "x": 671,
+   "y": 671,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 3,
+   "x": 671,
+   "y": 415,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 410,
+   "frame": 3,
+   "x": 415,
+   "y": 703,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 410,
+   "frame": 3,
+   "x": 543,
+   "y": 703,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 4,
+   "x": 671,
+   "y": 543,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 5,
+   "x": 127,
+   "y": 639,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 5,
+   "x": 127,
+   "y": 511,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 0,
+   "x": 639,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 8,
+   "x": 959,
+   "y": 831,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 8,
+   "x": 831,
+   "y": 1215,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 7,
+   "x": 959,
+   "y": 959,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 7,
+   "x": 959,
+   "y": 703,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 8,
+   "x": 959,
+   "y": 575,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 1,
+   "x": 127,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 1,
+   "x": 1215,
+   "y": 831,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 150,
+   "frame": 0,
+   "x": 511,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 511,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 639,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 14,
+   "x": 1087,
+   "y": 1215,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 9,
+   "x": 1343,
+   "y": 959,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 0,
+   "x": 1215,
+   "y": 1087,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 2,
+   "x": 959,
+   "y": 1343,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 4,
+   "x": 191,
+   "y": 959,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 29,
+   "x": 255,
+   "y": 383,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 28,
+   "x": 511,
+   "y": 127,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 5,
+   "x": 191,
+   "y": 1215,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 17,
+   "x": 255,
+   "y": 1147,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 13,
+   "x": 447,
+   "y": 1215,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 127,
+   "y": 127,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 127,
+   "y": 255,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 127,
+   "y": 383,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 127,
+   "y": 511,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 255,
+   "y": 127,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 255,
+   "y": 255,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 255,
+   "y": 383,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 255,
+   "y": 511,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 255,
+   "y": 639,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 383,
+   "y": 127,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 383,
+   "y": 255,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 383,
+   "y": 383,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 383,
+   "y": 511,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 383,
+   "y": 639,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 511,
+   "y": 127,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 511,
+   "y": 255,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 511,
+   "y": 383,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 511,
+   "y": 511,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 511,
+   "y": 639,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 639,
+   "y": 127,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 639,
+   "y": 255,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 639,
+   "y": 383,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 639,
+   "y": 511,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 639,
+   "y": 639,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 127,
+   "y": 895,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 127,
+   "y": 1023,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 127,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 255,
+   "y": 895,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 639,
+   "y": 895,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 639,
+   "y": 1023,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 639,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 767,
+   "y": 767,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 767,
+   "y": 895,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 767,
+   "y": 1023,
+   "z": 0,
+   "why": "lattice-fill"
+  }
+ ],
+ "actors": [
+  {
+   "what": "avatar",
+   "shape": 1,
+   "frame": 11,
+   "x": 415,
+   "y": 799,
+   "z": 0,
+   "note": "retail shape 1 frame 11 (walk, facing SW? matched 790/790 px exactly), hotspot screen (130,124)"
+  },
+  {
+   "what": "npc 107 Atli (the 1994 Zealan elder; ours = 888)",
+   "shape": 888,
+   "frame": 71,
+   "x": 380,
+   "y": 672,
+   "z": 0,
+   "npcnum": 107,
+   "note": "built 888 frame 71 (the SE talk) is registry 2041:0 index for index (lv_actor_art.ELDER_POSES); x,y,z solved (2026-10-25) so its pixels land on the shot's exactly, replacing the estimate (375,659,0) from feet point screen (155,102). World (19196,6944,0), 35 units west of Atli's start (19231,6943,0): the shot's elder stands in the door gap, not on the start point. `npcnum`: the built window paints this in place of the map's npc 107. `built`: painted only from shared/build (vignette_replay.py --built, vignette_built_window.py); the retail replay leaves it out and excludes its art_1994 pixels",
+   "built": true,
+   "art_1994": {
+    "id": 2041,
+    "frame": 0
+   },
+   "screen_xy": [
+    140,
+    60
+   ]
+  }
+ ],
+ "art_1994": [
+  {
+   "id": 2040,
+   "frames": [
+    0
+   ],
+   "name": "Zealan elder (white hair, brown robe) \u2014 actor sprite, 1 frame (facing SW/left, standing in doorway)",
+   "note": "REFERENCE CROP, not a sprite: includes the doorway fill above and right of the head and the jamb plank down the right edge. Do not feed it to any builder; the clean re-cut is art_registry 2041 frame 0. Footprint/hotspot proposed [INFERENCE] (actor-style 32x32x80 box, hotspot at the feet). No retail actor shape matches; our NPCs use retail 707 for elders."
+  },
+  {
+   "id": null,
+   "name": "hut doorway interior (flat palette 188 dark maroon fill with 223/220 jamb pixels)",
+   "note": "Not extracted as a shape: 128-wide door gap in the +y wall between post 148:8 (138,88) and wall 150:0 (194,116) shows a flat index-188 fill; no retail frame matches. [INFERENCE] the 1994 engine/build drew the dark hut interior (unlit floor/back wall); our build will show whatever is inside the hut."
+  }
+ ],
+ "verify": {
+  "render": "docs/research/2026-10-16-screenshot-reconstruction/screen19_render.png",
+  "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen19_diff.png",
+  "frame_px": 58560,
+  "all_frame_strict": 95.775,
+  "all_frame_class": 96.066,
+  "void_as_black_points": 0.017,
+  "excluded_actor_points": 1.162,
+  "provenance_points": {
+   "retail": 96.066,
+   "cross_shot_validated_1994": 0.0,
+   "single_shot_1994": 0.0,
+   "inferred": 0.0,
+   "unmatched": 3.934
+  },
+  "published_render_identical": true,
+  "replay": "python3 agents/map-populator/src/vignette_replay.py screen19",
+  "built": {
+   "render": "docs/research/2026-10-16-screenshot-reconstruction/screen19_render_built.png",
+   "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen19_diff_built.png",
+   "frame_px": 58560,
+   "all_frame_strict": 96.974,
+   "all_frame_class": 97.261,
+   "void_as_black_points": 0.017,
+   "excluded_actor_points": 0.0,
+   "provenance_points": {
+    "retail": 96.06,
+    "cross_shot_validated_1994": 0.0,
+    "single_shot_1994": 1.2,
+    "inferred": 0.0,
+    "unmatched": 2.739
+   },
+   "published_render_identical": true,
+   "replay": "python3 agents/map-populator/src/vignette_replay.py screen19 --built"
+  }
+ },
+ "placement": {
+  "map": 10,
+  "origin_world": [
+   18816,
+   6272,
+   0
+  ],
+  "village": "Gunnar",
+  "lot": "Gunnar hut lot 1 = Atli's hut at (18944,6144); the 1994 hut lands at x 18943..19455, y 6271(+)..6911 (front wall line y=6911, door gap x 19103..19231, trench yard y 6911..7295)",
+  "transform_shot_world_to_map": [
+   14336,
+   2688,
+   0
+  ],
+  "why": "elder in the doorway = Atli (male elder: ATLI.UNK:33 'Atli, Elder of Clan Gunnar', French 'Fr\u00e8re A\u00een\u00e9'; Hoskuld's elder is female: THORDIS.UNK:880-883 'Back to your Elder, go. Her duty, it is'); dx is chosen (multiple of 128) so Atli's pinned home (19231,6943,0) falls inside the 128-wide door gap flush with its east jamb, standing on yard dirt z=0, i.e. exactly where the 1994 elder stands (shot feet point -> (19191,6931)).",
+  "pin_moves": [
+   {
+    "what": "npc 107 Atli, map start",
+    "from": [
+     19232,
+     6944,
+     0
+    ],
+    "to": [
+     19231,
+     6943,
+     0
+    ],
+    "why": "the start's 64x64 body box (x 19168..19232, half-open) met the door's east jamb, the shot's 150:0 (x 19231..19327); one unit in puts it ON ATLI.UNK S1's 'Lab 1' point (19231,6943,0), the 1994 elder's doorway, clear of both jambs"
+   }
+  ],
+  "collides_with": [
+   "Gunnar hut 1 prefab (wood walls 856/857/858 + roof 426/427/412) \u2014 replaced by the 1994 hut",
+   "npc 107 Atli: map start moved one unit, (19232,6944,0) -> (19231,6943,0), see pin_moves; body box x 19167..19231 now clears the east jamb (wall 150:0 from x 19231, half-open) and stands on the schedule point. Moving the vignette by -128 x instead would put Atli on the west post 148:8.",
+   "npc 111 child (19712,6656,0): outside every vignette item (east of the hut, beyond the shot) \u2014 no move"
+  ]
+ },
+ "source": "ReconVillage (2026-10-16 reconstruction)"
+}

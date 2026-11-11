@@ -1,0 +1,282 @@
+{
+  "regions": {
+    "guardian chamber": {
+      "kind": "cave",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          7.441860465116279
+        ],
+        "ground.seam_density": [
+          "min",
+          0.11936339522546419
+        ],
+        "props.small_per_100": [
+          "min",
+          5.5813953488372094
+        ],
+        "props.dressed_share": [
+          "min",
+          0.6372093023255814
+        ],
+        "props.grouped_share": [
+          "min",
+          0.75
+        ],
+        "props.bare_share": [
+          "max",
+          0.027906976744186046
+        ],
+        "ground.top1": [
+          "max",
+          0.5395348837209303
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.5395348837209303
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.16666666666666666
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.8527313266443701
+        ],
+        "records.raw": [
+          "max",
+          604
+        ]
+      }
+    },
+    "hall": {
+      "kind": "cave",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          13.28125
+        ],
+        "ground.seam_density": [
+          "min",
+          0.06875
+        ],
+        "props.small_per_100": [
+          "min",
+          10.546875
+        ],
+        "props.dressed_share": [
+          "min",
+          0.796875
+        ],
+        "props.grouped_share": [
+          "min",
+          0.9259259259259259
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "props.stride_share": [
+          "max",
+          0.4375
+        ],
+        "ground.top1": [
+          "max",
+          0.91796875
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.91796875
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.0625
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.1
+        ],
+        "records.raw": [
+          "max",
+          394
+        ]
+      }
+    },
+    "passage": {
+      "kind": "cave",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          12.5
+        ],
+        "ground.seam_density": [
+          "min",
+          0.23255813953488372
+        ],
+        "props.small_per_100": [
+          "min",
+          11.458333333333334
+        ],
+        "props.dressed_share": [
+          "min",
+          0.7916666666666666
+        ],
+        "props.grouped_share": [
+          "min",
+          0.5454545454545454
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "ground.top1": [
+          "max",
+          0.4583333333333333
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.4583333333333333
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.16666666666666666
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.11363636363636363
+        ],
+        "records.raw": [
+          "max",
+          172
+        ]
+      }
+    }
+  },
+  "whole": {
+    "props.props_per_100": [
+      "min",
+      10.934744268077601
+    ],
+    "ground.seam_density": [
+      "min",
+      0.11641221374045801
+    ],
+    "props.small_per_100": [
+      "min",
+      8.818342151675486
+    ],
+    "props.dressed_share": [
+      "min",
+      0.7513227513227513
+    ],
+    "props.grouped_share": [
+      "min",
+      0.8
+    ],
+    "props.bare_share": [
+      "max",
+      0.010582010582010581
+    ],
+    "props.stride_share": [
+      "max",
+      0.3548387096774194
+    ],
+    "ground.top1": [
+      "max",
+      0.6490299823633157
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.6437389770723104
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.03571428571428571
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.14476787693356952
+    ],
+    "records.raw": [
+      "max",
+      1596
+    ]
+  },
+  "budget": {
+    "props.props_per_100": [
+      "min",
+      10.934744268077601
+    ],
+    "ground.seam_density": [
+      "min",
+      0.11641221374045801
+    ],
+    "props.small_per_100": [
+      "min",
+      8.818342151675486
+    ],
+    "props.dressed_share": [
+      "min",
+      0.7513227513227513
+    ],
+    "props.grouped_share": [
+      "min",
+      0.8
+    ],
+    "props.bare_share": [
+      "max",
+      0.010582010582010581
+    ],
+    "props.stride_share": [
+      "max",
+      0.3548387096774194
+    ],
+    "ground.top1": [
+      "max",
+      0.6490299823633157
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.6437389770723104
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.03571428571428571
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.14476787693356952
+    ],
+    "records.raw": [
+      "max",
+      1596
+    ]
+  },
+  "map": 9,
+  "artifact_hashes": {
+    "TYPEFLAG.DAT": "999bc6afa6dae596a1e0062ab1fb1c882489366eadc2e9afe77432692400667a",
+    "U8SHAPES.FLX": "99ac982244eae904a61e4ff688a721a4bb86ec458dca7614661f3d2dd95529d5",
+    "ANIM.DAT": "97ae5fc9ddaa6ef515427103264a3095a6d42776ac51e530954fb4846b4d0443",
+    "EUSECODE.FLX": "b47c324cdad77646c27755acfdd5bca53a9d92e16268db229f18e7dd780d4205",
+    "FIXED.DAT": "f64db239878f1530836fe2d338433c0466f97a6c3bcf63c059b351e7e59dbcf4",
+    "GLOB.FLX": "aabc1ad36f42c6bdd01cfcb7271f0765983a9914489d62a96a9bcb5e1d7c88ca"
+  },
+  "allowances": [
+    {
+      "region": "hall",
+      "metric": "ground.top1",
+      "bound": 0.93,
+      "reason": "Direction 3.6 asks for an earth patch round Galjeron's body so the eye lands there, the rest of the hall cave rock. The run that met the 0.65 target did it with a hall-wide earth sheet, rejected in review 2026-11-10 as reading like a second floor. Baseline 0.98."
+    }
+  ],
+  "target_failures": [
+    {
+      "region": "hall",
+      "metric": "ground.top1",
+      "value": 0.91796875,
+      "direction": "max",
+      "bound": 0.65
+    }
+  ],
+  "expanded_per_ground_cell": 2.814814814814815
+}

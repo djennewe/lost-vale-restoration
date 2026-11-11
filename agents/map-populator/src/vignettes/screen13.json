@@ -1,0 +1,1154 @@
+{
+ "shot": "screen13",
+ "map": 13,
+ "origin_note": "Map decision [INFERENCE]: screen13 is NOT Cloud City proper: brown retail earth (4 f30-33), a dead tree 74, mushrooms 65 and spires 66 are Vale/Cliffs props, and the gold-brick corner (the city street) enters bottom-right -> the Map 13 summit / city edge. Earth z=0 on the 128 lattice. The cloud patches and the gold corner FLOAT over the earth (Douglas 2026-10-30): in 1994 they draw over the tree crown (74 f0 tops out at local 80), the mushroom behind it and the spires' feet, while the Avatar's legs draw over the lower patch, so he stands on the cloud and the props stand on ground below it. They are laid at local z 97 (cloud 96 + 1), 12 view-ray steps up from the shot's z 1 (+384,+384,+96: every pixel unchanged), clear of the tree's top by 16; origin_world must add the summit z (120).",
+ "camera": {
+  "sx0": -71,
+  "sy0": 510,
+  "crop": [
+   282,
+   183
+  ],
+  "convention": "painter sign, vignette-local frame: screen_x = x/4 - y/4 - sx0, screen_y = x/8 + y/8 - z - sy0 (C division per term; x,y = footprint max corner). vignette_replay.py paints in world coordinates (origin_world + local) with the camera shifted by (ox/4 - oy/4, ox/8 + oy/8 - oz)."
+ },
+ "items": [
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2047,
+   "y": 2175,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2175,
+   "y": 2047,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2303,
+   "y": 1919,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2431,
+   "y": 1791,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2559,
+   "y": 1663,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2047,
+   "y": 2303,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2175,
+   "y": 2175,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2431,
+   "y": 1919,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2559,
+   "y": 1791,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 2175,
+   "y": 2303,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 2559,
+   "y": 1919,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 2687,
+   "y": 1791,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2175,
+   "y": 2431,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2687,
+   "y": 1919,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2687,
+   "y": 2047,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2303,
+   "y": 2431,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2303,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2687,
+   "y": 2175,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 2815,
+   "y": 2175,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 2687,
+   "y": 2303,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2815,
+   "y": 2303,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2687,
+   "y": 2431,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2431,
+   "y": 2687,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2815,
+   "y": 2431,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2687,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2559,
+   "y": 2815,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2815,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2943,
+   "y": 2431,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2687,
+   "y": 2687,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 2815,
+   "y": 2687,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2687,
+   "y": 2943,
+   "z": 0,
+   "why": "matched (retail earth 4)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 1791,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 1919,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2047,
+   "y": 1919,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2175,
+   "y": 1791,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2303,
+   "y": 1663,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2431,
+   "y": 1535,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 1919,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2047,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2175,
+   "y": 1919,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2303,
+   "y": 1791,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2431,
+   "y": 1663,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 1919,
+   "y": 2303,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2303,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 2047,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2303,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2431,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2303,
+   "y": 2303,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2431,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2559,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2175,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2431,
+   "y": 2303,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2559,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2815,
+   "y": 1919,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2431,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2559,
+   "y": 2303,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2815,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2303,
+   "y": 2687,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 2431,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2559,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2943,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2559,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2943,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2431,
+   "y": 2815,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2559,
+   "y": 2687,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2943,
+   "y": 2303,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 3071,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 3071,
+   "y": 2303,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 2559,
+   "y": 2943,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 2687,
+   "y": 2815,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 2943,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 3071,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 3199,
+   "y": 2303,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 2815,
+   "y": 2815,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2943,
+   "y": 2687,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 3071,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 3199,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2687,
+   "y": 3071,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 2815,
+   "y": 2943,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 2943,
+   "y": 2815,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 3071,
+   "y": 2687,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 3199,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 3327,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 2015,
+   "frame": 0,
+   "x": 2751,
+   "y": 2751,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 1,
+   "x": 3007,
+   "y": 2879,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 2,
+   "x": 3359,
+   "y": 2975,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 3,
+   "x": 3359,
+   "y": 2591,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 4,
+   "x": 2751,
+   "y": 2623,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 5,
+   "x": 3359,
+   "y": 2719,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 6,
+   "x": 2655,
+   "y": 2623,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 7,
+   "x": 2879,
+   "y": 2655,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 8,
+   "x": 2815,
+   "y": 2527,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 9,
+   "x": 2975,
+   "y": 2655,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 10,
+   "x": 2879,
+   "y": 2783,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 11,
+   "x": 2655,
+   "y": 2719,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 12,
+   "x": 2943,
+   "y": 2911,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 13,
+   "x": 3359,
+   "y": 3103,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 14,
+   "x": 3455,
+   "y": 2719,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 15,
+   "x": 3231,
+   "y": 3231,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 16,
+   "x": 3455,
+   "y": 2847,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 17,
+   "x": 2847,
+   "y": 2879,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 18,
+   "x": 3455,
+   "y": 2975,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 19,
+   "x": 3455,
+   "y": 2591,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 20,
+   "x": 2984,
+   "y": 2760,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 21,
+   "x": 3231,
+   "y": 3103,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 22,
+   "x": 2719,
+   "y": 2495,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 23,
+   "x": 2888,
+   "y": 2472,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 24,
+   "x": 2920,
+   "y": 2408,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 25,
+   "x": 2792,
+   "y": 2472,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 26,
+   "x": 3359,
+   "y": 2879,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 27,
+   "x": 2655,
+   "y": 2527,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 28,
+   "x": 2943,
+   "y": 2591,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 29,
+   "x": 2792,
+   "y": 2408,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 30,
+   "x": 2783,
+   "y": 2527,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 31,
+   "x": 2760,
+   "y": 2440,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 32,
+   "x": 3359,
+   "y": 2847,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2015,
+   "frame": 33,
+   "x": 2975,
+   "y": 2751,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 74,
+   "frame": 0,
+   "x": 2719,
+   "y": 2847,
+   "z": 40,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 65,
+   "frame": 0,
+   "x": 2783,
+   "y": 2911,
+   "z": 0,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 66,
+   "frame": 7,
+   "x": 2879,
+   "y": 2111,
+   "z": 0,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 66,
+   "frame": 8,
+   "x": 3007,
+   "y": 2143,
+   "z": 0,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 2015,
+   "frame": 34,
+   "x": 3487,
+   "y": 2719,
+   "z": 97,
+   "why": "phase D: screen13 floor tile with its own rim (registry 2015); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2004,
+   "frame": 0,
+   "x": 3615,
+   "y": 2719,
+   "z": 97,
+   "why": "matched (1994 gold brick floor, the street corner; added 2026-10-17 at the registry hits (232,136),(232,168),(200,152) and their lattice neighbour, frame by match); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2008,
+   "frame": 2,
+   "x": 3487,
+   "y": 2847,
+   "z": 97,
+   "why": "phase D: gold/cloud edge f2 (registry 2008), the same tile screen12 shows; cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 2004,
+   "frame": 1,
+   "x": 3615,
+   "y": 2847,
+   "z": 97,
+   "why": "matched (1994 gold brick floor, the street corner; added 2026-10-17 at the registry hits (232,136),(232,168),(200,152) and their lattice neighbour, frame by match); cloud13 2026-10-30: floats 96 over the earth, slid 12 steps up the view ray (+384,+384,+96: same pixels)"
+  },
+  {
+   "shape": 74,
+   "frame": 1,
+   "x": 2719,
+   "y": 2847,
+   "z": 0
+  },
+  {
+   "shape": 65,
+   "frame": 0,
+   "x": 2687,
+   "y": 2719,
+   "z": 0,
+   "why": "cloud13 (2026-10-30): the mushroom behind the tree, retail 65:0, 290 px exact at screen (48,109); the tree draws over its left, the cloud over its top"
+  },
+  {
+   "shape": 66,
+   "frame": 7,
+   "x": 2367,
+   "y": 2175,
+   "z": 0,
+   "why": "cloud13 (2026-10-30): the spire at the top edge, retail 66:7, 171 of 174 px exact at screen (88,-13); the floating cloud hides its foot"
+  }
+ ],
+ "actors": [
+  {
+   "what": "avatar",
+   "shape": 1,
+   "frame": 197,
+   "x": 3291,
+   "y": 2715,
+   "z": 96,
+   "why": "phase D: 1:197 matches 745/816 px at (205,97); cloud13 2026-10-30: stands on the floating cloud, slid with it (+384,+384,+96)"
+  }
+ ],
+ "art_1994": [
+  {
+   "id": 2000,
+   "frames": [
+    0,
+    1,
+    2
+   ],
+   "name": "cloud_floor_f0-f2",
+   "replaces": 862,
+   "note": "same frames as screen11, here placed on a 32-unit grid (8px/4px screen steps), overlapping, floating at z=97 over the z=0 earth (cloud13 2026-10-30)"
+  },
+  {
+   "id": 2000,
+   "frames": [
+    3
+   ],
+   "name": "cloud_floor_f3",
+   "replaces": 862,
+   "note": "partial from screen11 (288 px), re-found exactly at screen13 (168,136); completed 2026-10-16 as mirror(f0) (f3 is f0 mirrored) - art_registry.json 2000:3"
+  },
+  {
+   "id": 2000,
+   "frames": [
+    4
+   ],
+   "name": "cloud_floor_f4",
+   "replaces": 862,
+   "note": "partial from screen11 (481 px), re-found at screen13 (96,76) 480/481; completed 2026-10-16 as mirror(f2) - art_registry.json 2000:4"
+  },
+  {
+   "id": 2004,
+   "frames": [
+    0,
+    1
+   ],
+   "name": "gold_brick_floor_f0/f1",
+   "note": "same two gold frames as screen12 (exact hits at (232,136),(200,152),(232,168))"
+  },
+  {
+   "id": null,
+   "name": "cloud_rim_lobes",
+   "note": "NOT RECOVERED: lobed rim frames over earth; one rim frame repeats at (24,-4)/(48,8) steps along the platform top edge and again in the lower band (repeat evidence in REPORT); ~6.8k px unexplained",
+   "footprint": [
+    4,
+    4,
+    0
+   ],
+   "hotspot": [
+    31,
+    31
+   ]
+  }
+ ],
+ "verify": {
+  "render": "docs/research/2026-10-16-screenshot-reconstruction/screen13_render.png",
+  "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen13_diff.png",
+  "residuals": [
+   "the Avatar's pose: 1:197 is the nearest retail frame (sword arm and stride differ)",
+   "a few cloud-shading pixels along the tree crown where the 1994 rim's branches and the cloud cross"
+  ],
+  "frame_px": 51606,
+  "all_frame_strict": 98.173,
+  "all_frame_class": 98.944,
+  "void_as_black_points": 0.0,
+  "excluded_actor_points": 0.0,
+  "provenance_points": {
+   "retail": 50.576,
+   "cross_shot_validated_1994": 1.98,
+   "single_shot_1994": 46.388,
+   "inferred": 0.0,
+   "unmatched": 1.056
+  },
+  "published_render_identical": true,
+  "replay": "python3 agents/map-populator/src/vignette_replay.py screen13",
+  "phase_d": "2026-10-25: tree 74 stacked (f1 stump + f0 at z 40), Avatar 1:197, earth frames by match, every floor tile of the window cut to its own shot pixels (2015 -> 886), the gold corner as 2008 f2",
+  "cloud13": "2026-10-30: the cloud and gold float 96 over the earth (build_map_13.FLOATING), so they draw over the tree crown, the mushrooms and the spires' feet as in 1994; the mushroom behind the tree (65:0) and the spire at the top edge (66:7) placed; the floor tiles' pixels the props used to cover are the tiles' own (registry 2015)"
+ },
+ "placement": {
+  "map": 13,
+  "origin_world": [
+   3456,
+   -384,
+   120
+  ],
+  "world_bbox": [
+   5247,
+   7167,
+   1151,
+   3071,
+   120,
+   217
+  ],
+  "note": "map position = vignette position + origin_world. 2026-10-17 (phase B pass d): the 13 x 13-cell earth diamond lies level with the summit (earth local 0 = z 120) east of the climb's turn onto the summit leg, over the cloud sea, its west corner (40,13) on the turn's east lane: the only place on Map 13 at z 120 that neither the summit (screen01's window) nor the climb covers. Duplicate cloud tiles at one position are reduced to the frame that draws (the replay is unchanged); the gold street corner is laid at its registry hits. 2026-10-30 (cloud13): the cloud patches, the gold corner and the Avatar float 96 over the earth, 384 south-east of where they lay on it (same pixels); the earth island stays walkable at 120 under them, and the floating layer is out of reach (build_map_13.FLOATING).",
+  "pin_moves": [
+   {
+    "what": "none: pad 208 (5119,2303,120) stays on the north leg three cells south-west of the diamond's west corner; the composition is laid beside it, as the 1994 note asked (the summit arrival gets the earth+cloud platform). A pad on the diamond itself bounced back to Map 17 (keyboard W/N runs wall-followed onto the summit leg into trigger 209: phaseB/map13/REPORT.md pass d)",
+    "from": null,
+    "to": null
+   }
+  ],
+  "collides_with": []
+ },
+ "source": "ReconCloud (2026-10-16 reconstruction)"
+}

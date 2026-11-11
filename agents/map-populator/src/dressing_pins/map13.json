@@ -1,0 +1,295 @@
+{
+  "regions": {
+    "valley": {
+      "kind": "barren",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          3.75
+        ],
+        "ground.seam_density": [
+          "min",
+          0.1111111111111111
+        ],
+        "props.small_per_100": [
+          "min",
+          0.46875
+        ],
+        "props.dressed_share": [
+          "min",
+          0.2671875
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "ground.top1": [
+          "max",
+          0.48125
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.403125
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.175
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.17002118644067798
+        ],
+        "records.raw": [
+          "max",
+          103
+        ]
+      }
+    },
+    "climb": {
+      "kind": "cave",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          8.542525290370925
+        ],
+        "ground.seam_density": [
+          "min",
+          0.1494914603722894
+        ],
+        "props.small_per_100": [
+          "min",
+          4.983139752716373
+        ],
+        "props.dressed_share": [
+          "min",
+          0.7242412888722368
+        ],
+        "props.grouped_share": [
+          "min",
+          0.6090225563909775
+        ],
+        "props.bare_share": [
+          "max",
+          0.027351067815661295
+        ],
+        "props.stride_share": [
+          "max",
+          0.1889763779527559
+        ],
+        "ground.top1": [
+          "max",
+          0.49906331959535405
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.48782315473960286
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.06
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.13894306698198167
+        ],
+        "records.raw": [
+          "max",
+          2897
+        ]
+      }
+    },
+    "summit": {
+      "kind": "sky",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          2.2189349112426036
+        ],
+        "ground.seam_density": [
+          "min",
+          0.0777000777000777
+        ],
+        "props.small_per_100": [
+          "min",
+          1.7751479289940828
+        ],
+        "props.dressed_share": [
+          "min",
+          0.33579881656804733
+        ],
+        "props.grouped_share": [
+          "min",
+          0.6666666666666666
+        ],
+        "props.bare_share": [
+          "max",
+          0.2692307692307692
+        ],
+        "props.stride_share": [
+          "max",
+          0.5
+        ],
+        "ground.top1": [
+          "max",
+          0.7633136094674556
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.7633136094674556
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.05128205128205128
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.061762311762311756
+        ],
+        "records.raw": [
+          "max",
+          566
+        ]
+      }
+    }
+  },
+  "whole": {
+    "props.props_per_100": [
+      "min",
+      6.3689776733254995
+    ],
+    "ground.seam_density": [
+      "min",
+      0.13399926909489585
+    ],
+    "props.small_per_100": [
+      "min",
+      3.4782608695652173
+    ],
+    "props.dressed_share": [
+      "min",
+      0.5565217391304348
+    ],
+    "props.grouped_share": [
+      "min",
+      0.6216216216216216
+    ],
+    "props.bare_share": [
+      "max",
+      0.09142185663924794
+    ],
+    "props.stride_share": [
+      "max",
+      0.18571428571428572
+    ],
+    "ground.top1": [
+      "max",
+      0.3487661574618096
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.3238542890716804
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.06504065040650407
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.1220625606715385
+    ],
+    "records.raw": [
+      "max",
+      4496
+    ]
+  },
+  "budget": {
+    "props.props_per_100": [
+      "min",
+      6.3689776733254995
+    ],
+    "ground.seam_density": [
+      "min",
+      0.13399926909489585
+    ],
+    "props.small_per_100": [
+      "min",
+      3.4782608695652173
+    ],
+    "props.dressed_share": [
+      "min",
+      0.5565217391304348
+    ],
+    "props.grouped_share": [
+      "min",
+      0.6216216216216216
+    ],
+    "props.bare_share": [
+      "max",
+      0.09142185663924794
+    ],
+    "props.stride_share": [
+      "max",
+      0.18571428571428572
+    ],
+    "ground.top1": [
+      "max",
+      0.3487661574618096
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.3238542890716804
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.06504065040650407
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.1220625606715385
+    ],
+    "records.raw": [
+      "max",
+      4496
+    ]
+  },
+  "map": 13,
+  "artifact_hashes": {
+    "TYPEFLAG.DAT": "8839ab2f5e6fbe5fe5d303938760a99a819204d96c4318b35269b39f52171ef0",
+    "U8SHAPES.FLX": "074e00be59d1a361fc9876c7daae2f56b6981d3a8c63c44b0ec228334a6d88c3",
+    "ANIM.DAT": "97ae5fc9ddaa6ef515427103264a3095a6d42776ac51e530954fb4846b4d0443",
+    "EUSECODE.FLX": "b47c324cdad77646c27755acfdd5bca53a9d92e16268db229f18e7dd780d4205",
+    "FIXED.DAT": "da23baed62522731f54f874423124c8cf494fc050c9dabaa3f3dd2f2aeee2be1",
+    "GLOB.FLX": "be461c342a0cecbb36146442d54e7f71c1d9bec930a29b63e748c576bc6c1475"
+  },
+  "allowances": [
+    {
+      "region": "summit",
+      "metric": "props.props_per_100",
+      "bound": 1.331360946745562,
+      "reason": "The summit has 15 props on 676 measured cells, including protected open cloud. Per-prop placement adds six pebbles beside the city fall. The shared stride policy now permits its measurable sample. The remaining density shortfall concerns the target area and the shot-fixed cloud composition."
+    },
+    {
+      "region": "summit",
+      "metric": "props.bare_share",
+      "bound": 0.27958579881656803,
+      "reason": "The summit has 182 bare cells among 676 measured cells; the target permits 169. Six accepted pebbles reduce the prior 189 bare cells. The shot-fixed cloud composition and target-area question remain."
+    }
+  ],
+  "target_failures": [
+    {
+      "region": "summit",
+      "metric": "props.props_per_100",
+      "value": 2.2189349112426036,
+      "direction": "min",
+      "bound": 7.0
+    },
+    {
+      "region": "summit",
+      "metric": "props.bare_share",
+      "value": 0.2692307692307692,
+      "direction": "max",
+      "bound": 0.25
+    }
+  ],
+  "expanded_per_ground_cell": 2.5856639247943596
+}

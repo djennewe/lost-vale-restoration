@@ -1,0 +1,963 @@
+{
+ "shot": "screen20",
+ "map": 10,
+ "origin_note": "vignette origin = world point mapped to (0,0,0); yard dirt 4 at z=0 on lattice 128k+127; left rock plateau 125 at z=48 (half-lattice 128k+63, walk z=56) on 48-high faces 31/29/32/35 standing on the yard; dark cliff 26/29 at the top right; hut roof 412/118/647 at z=40 = a hut standing on the yard (pixel test: roof at z=-24, i.e. hut one tier lower, loses 2,410 px).",
+ "camera": {
+  "sx0": -151,
+  "sy0": 96,
+  "crop": [
+   319,
+   181
+  ],
+  "convention": "painter sign, vignette-local frame: screen_x = x/4 - y/4 - sx0, screen_y = x/8 + y/8 - z - sy0 (C division per term; x,y = footprint max corner). vignette_replay.py paints in world coordinates (origin_world + local) with the camera shifted by (ox/4 - oy/4, ox/8 + oy/8 - oz)."
+ },
+ "items": [
+  {
+   "shape": 26,
+   "frame": 6,
+   "x": 1119,
+   "y": 447,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 959,
+   "y": 1471,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 6,
+   "x": 959,
+   "y": 1343,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 6,
+   "x": 703,
+   "y": 1215,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 6,
+   "x": 575,
+   "y": 1087,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 31,
+   "frame": 1,
+   "x": 959,
+   "y": 1343,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 6,
+   "x": 959,
+   "y": 1471,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 511,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 5,
+   "x": 1023,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 6,
+   "x": 1023,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 24,
+   "x": 895,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 29,
+   "x": 1407,
+   "y": 895,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 511,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 895,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 383,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 511,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 639,
+   "y": 383,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 29,
+   "x": 1407,
+   "y": 1023,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 14,
+   "x": 895,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 639,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 48,
+   "x": 1535,
+   "y": 1023,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 639,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 29,
+   "x": 1407,
+   "y": 1151,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 24,
+   "x": 1023,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 639,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 25,
+   "x": 895,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 9,
+   "x": 831,
+   "y": 1343,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 5,
+   "x": 1087,
+   "y": 447,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 383,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 767,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 639,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 255,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 15,
+   "x": 767,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 14,
+   "x": 1023,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 4,
+   "x": 1023,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 31,
+   "x": 1407,
+   "y": 767,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 44,
+   "x": 1535,
+   "y": 895,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 15,
+   "x": 895,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 25,
+   "x": 1151,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 6,
+   "x": 895,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 7,
+   "x": 1151,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 25,
+   "x": 895,
+   "y": 383,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 4,
+   "x": 1023,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 511,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 2,
+   "x": 1151,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 26,
+   "x": 1023,
+   "y": 1279,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 639,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 255,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 383,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 511,
+   "y": 383,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 639,
+   "y": 255,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 2,
+   "x": 959,
+   "y": 1599,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 29,
+   "x": 1407,
+   "y": 1279,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 519,
+   "frame": 152,
+   "x": 1119,
+   "y": 735,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 29,
+   "frame": 12,
+   "x": 991,
+   "y": 447,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 29,
+   "frame": 7,
+   "x": 959,
+   "y": 1247,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 4,
+   "x": 351,
+   "y": 991,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 35,
+   "frame": 32,
+   "x": 607,
+   "y": 1247,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 43,
+   "x": 1535,
+   "y": 1151,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 35,
+   "frame": 38,
+   "x": 511,
+   "y": 1119,
+   "z": 1,
+   "why": "matched"
+  },
+  {
+   "shape": 267,
+   "frame": 0,
+   "x": 959,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 267,
+   "frame": 4,
+   "x": 927,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 267,
+   "frame": 4,
+   "x": 895,
+   "y": 863,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 5,
+   "x": 1279,
+   "y": 1023,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 5,
+   "x": 1279,
+   "y": 1151,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 5,
+   "x": 1279,
+   "y": 767,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 5,
+   "x": 1279,
+   "y": 895,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 5,
+   "x": 1279,
+   "y": 1279,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 267,
+   "frame": 0,
+   "x": 927,
+   "y": 863,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 647,
+   "frame": 1,
+   "x": 1471,
+   "y": 1143,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 519,
+   "frame": 162,
+   "x": 503,
+   "y": 1223,
+   "z": 1,
+   "why": "matched"
+  },
+  {
+   "shape": 519,
+   "frame": 90,
+   "x": 735,
+   "y": 543,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 14,
+   "x": 767,
+   "y": 255,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 15,
+   "x": 767,
+   "y": 383,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 4,
+   "x": 1183,
+   "y": 671,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 14,
+   "x": 767,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 520,
+   "frame": 151,
+   "x": 1183,
+   "y": 1247,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 15,
+   "x": 767,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 3,
+   "x": 1311,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 31,
+   "frame": 1,
+   "x": 575,
+   "y": 1087,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 767,
+   "y": 127,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 15,
+   "x": 767,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 31,
+   "frame": 1,
+   "x": 703,
+   "y": 1215,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 4,
+   "x": 959,
+   "y": 1599,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 29,
+   "frame": 8,
+   "x": 1183,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 11,
+   "x": 447,
+   "y": 1087,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 127,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 35,
+   "frame": 21,
+   "x": 1151,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 838,
+   "frame": 0,
+   "x": 1119,
+   "y": 799,
+   "z": 16,
+   "why": "matched"
+  },
+  {
+   "shape": 838,
+   "frame": 0,
+   "x": 1087,
+   "y": 799,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 838,
+   "frame": 0,
+   "x": 1119,
+   "y": 767,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 767,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 1151,
+   "y": 639,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 1279,
+   "y": 767,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 1279,
+   "y": 895,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 1279,
+   "y": 1023,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 1407,
+   "y": 895,
+   "z": 0,
+   "why": "lattice-fill"
+  }
+ ],
+ "actors": [
+  {
+   "what": "avatar",
+   "shape": 1,
+   "frame": 252,
+   "x": 767,
+   "y": 959,
+   "z": 0,
+   "note": "retail shape 1 frame 252 (lying on the ground: knocked-out/dead pose), exact 838/838 on-screen px, hotspot screen (103,118)"
+  },
+  {
+   "what": "npc 107 Atli (the 1994 Zealan elder with staff; ours = 888)",
+   "shape": 888,
+   "frame": 60,
+   "x": 792,
+   "y": 671,
+   "z": 0,
+   "npcnum": 107,
+   "note": "built 888 frame 60 (stand SE) is registry 2041:1 index for index (lv_actor_art.ELDER_POSES); x,y,z solved (2026-10-25) so its pixels land on the shot's exactly, replacing the estimate (791,671,0) from feet point (181,84). `built`: painted only from shared/build (vignette_replay.py --built, vignette_built_window.py); the retail replay leaves it out and excludes its art_1994 pixels",
+   "built": true,
+   "art_1994": {
+    "id": 2041,
+    "frame": 1
+   },
+   "screen_xy": [
+    167,
+    44
+   ]
+  },
+  {
+   "what": "npc 104 (the 1994 dark-haired spear child; ours = 889)",
+   "shape": 889,
+   "frame": 1,
+   "flags": 32,
+   "x": 628,
+   "y": 784,
+   "z": 0,
+   "npcnum": 104,
+   "note": "built 889 frame 1 is registry 2042:0 mirrored, index for index (lv_actor_art.CHILD_POSES), drawn flipped (flags 0x20) as the table draws it facing W; x,y,z solved (2026-10-25) so its pixels land on the shot's exactly, replacing the estimate (623,783,0) from feet (111,78). `built`: painted only from shared/build (vignette_replay.py --built, vignette_built_window.py); the retail replay leaves it out and excludes its art_1994 pixels",
+   "built": true,
+   "art_1994": {
+    "id": 2042,
+    "frame": 0
+   },
+   "screen_xy": [
+    99,
+    55
+   ]
+  },
+  {
+   "what": "npc 111 (the 1994 blond spear child; ours = 890)",
+   "shape": 890,
+   "frame": 1,
+   "flags": 32,
+   "x": 720,
+   "y": 783,
+   "z": 0,
+   "npcnum": 111,
+   "note": "built 890 frame 1 is registry 2042:1 mirrored, index for index (lv_actor_art.CHILD_POSES), drawn flipped (flags 0x20) as the table draws it facing W; x,y,z solved (2026-10-25) so its pixels land on the shot's exactly, replacing the estimate (719,783,0) from feet (135,89). `built`: painted only from shared/build (vignette_replay.py --built, vignette_built_window.py); the retail replay leaves it out and excludes its art_1994 pixels",
+   "built": true,
+   "art_1994": {
+    "id": 2042,
+    "frame": 1
+   },
+   "screen_xy": [
+    123,
+    66
+   ]
+  }
+ ],
+ "art_1994": [
+  {
+   "id": 2041,
+   "frames": [
+    1
+   ],
+   "name": "Zealan elder with staff (same white-haired brown-robed elder as screen19, different pose: staff in right hand, facing SE)",
+   "note": "actor sprite; no retail actor frame matches; hotspot at feet [INFERENCE]"
+  },
+  {
+   "id": 2042,
+   "frames": [
+    0
+   ],
+   "name": "small spear-carrier, dark hair (child/youth), facing NW with spear raised",
+   "note": "actor sprite, ~24 px tall vs Avatar ~45: child-sized; spear tip extends beyond the extracted box. No retail actor (incl. 708 child) matches"
+  },
+  {
+   "id": 2042,
+   "frames": [
+    1
+   ],
+   "name": "small spear-carrier, blond hair (child/youth), facing NW with spear raised",
+   "note": "as above"
+  }
+ ],
+ "verify": {
+  "render": "docs/research/2026-10-16-screenshot-reconstruction/screen20_render.png",
+  "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen20_diff.png",
+  "frame_px": 57739,
+  "all_frame_strict": 94.659,
+  "all_frame_class": 95.435,
+  "void_as_black_points": 0.002,
+  "excluded_actor_points": 1.957,
+  "provenance_points": {
+   "retail": 95.435,
+   "cross_shot_validated_1994": 0.0,
+   "single_shot_1994": 0.0,
+   "inferred": 0.0,
+   "unmatched": 4.565
+  },
+  "published_render_identical": true,
+  "replay": "python3 agents/map-populator/src/vignette_replay.py screen20",
+  "built": {
+   "render": "docs/research/2026-10-16-screenshot-reconstruction/screen20_render_built.png",
+   "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen20_diff_built.png",
+   "frame_px": 57739,
+   "all_frame_strict": 96.673,
+   "all_frame_class": 97.444,
+   "void_as_black_points": 0.002,
+   "excluded_actor_points": 0.0,
+   "provenance_points": {
+    "retail": 95.412,
+    "cross_shot_validated_1994": 0.0,
+    "single_shot_1994": 2.032,
+    "inferred": 0.0,
+    "unmatched": 2.556
+   },
+   "published_render_identical": true,
+   "replay": "python3 agents/map-populator/src/vignette_replay.py screen20 --built"
+  }
+ },
+ "placement": {
+  "map": 10,
+  "origin_world": [
+   19712,
+   7552,
+   0
+  ],
+  "village": "Gunnar",
+  "lot": "Gunnar hut lot 4 = Hrodny's home at (20992,8192); the 1994 hut's roof NW corner lands on (20991,8191); the campfire yard lies west of it (x 20095..20991, y 7679..8831)",
+  "transform_shot_world_to_map": [
+   15744,
+   4096,
+   0
+  ],
+  "why": "same 1994 elder sprite as screen19 (=Atli, Gunnar); Gunnar is the clan of the camp/crops (SHADES.UNK:380 Atli 'Grow again, our crops shall!'); Hrodny's lot is the Gunnar hut with open ground on its west side that does not overlap the screen19 or screen22 vignettes (footprint overlap test: 0 shared item boxes between any two placed vignettes). [INFERENCE] the story has no village 'capture' scene (the Avatar's poisoning/waking is at the Passage Test grounds, PLNTST.UNK:98-108); this yard is placed as the village commons.",
+  "pin_moves": [
+   {
+    "what": "Hrodny's locked chest (shape 618, lock 20, quest_item)",
+    "from": [
+     21024,
+     8832,
+     0
+    ],
+    "to": [
+     21216,
+     8768,
+     0
+    ],
+    "why": "its 96x64 box (x 20928..21024) straddles the 1994 hut's west wall line (roof west tiles start x=20991, walls flush with the roof edge as in screen19's hut) [INFERENCE: that wall is hidden in the shot], so it goes inside the hut. A first cut at +96 x (21120,8832) stood flush against that wall inside, with no walk along its west face (test_route_reach chest_west_side, 2026-10-17); +192 x, -64 y leaves 96 of open floor west of it and its south face 32 north of the two potions"
+   }
+  ],
+  "collides_with": [
+   "Gunnar hut 4 prefab \u2014 replaced by the 1994 hut",
+   "npc 114 Changtar (20224,7680,0): on yard dirt z=0 at the yard's north edge \u2014 no move",
+   "typed potions 859 (21216,8832),(21280,8832): inside the hut \u2014 no move",
+   "npc 112 Ingjald (20767,7455): north of the vignette's dark cliff (x 20895..21023, y 7807..8191) \u2014 no move"
+  ]
+ },
+ "source": "ReconVillage (2026-10-16 reconstruction)"
+}

@@ -1,0 +1,89 @@
+// Cloud Cliffs — Climbing Traversal + Tyorvi
+// Missing dialogue segment #4. Cliff traversal encounter.
+// Based on dialogue-cloud-cliffs.md
+//
+// THE KEY IS TYORVI'S, QUALITY 170 (2026-10-10). Shape 82 (TypeCliffKey)
+// is every key in the game; the quality is what tells them apart, so the
+// handholds accept only the quality lv-patched/TYORVI.UNK T7 gives the Key
+// to the Clouds. Testing the shape alone let any key climb: a Pagan q99
+// key in the pack climbed before Tyorvi gave his
+// (docs/playtest-2026-10-10-replies.md finding 2). He made it at quality 0
+// in 1994, which retail KEY::look (class 0x52) names "key blank" and
+// retail U8SAVE.000 NONFIXED places on Map 40, so 0 could not be kept.
+// Why 170:
+//  - it is already the Key to the Clouds' number in the map builders
+//    (build_map_10.py CLIFF_KEY_ID, the terrace gate's quality);
+//  - no key uses it: retail FIXED.DAT has q57, retail NONFIXED 0, 9, 16,
+//    17, 18, 30, 31, 33, 34, 35, 38, 50, 58, 59, 66, 71, 72, 80, 83, 84,
+//    97, 98, 102, 20736 and 20992, and the LV builders add 20 (Hrodny)
+//    and 99 (Map 8); test_uc_eggs.py P1d re-checks the maps;
+//  - it opens nothing: KEYRING (0x4F:0119) matches a door's quality low
+//    byte or a chest TRAP's against the key's quality, and no retail or
+//    LV door or TRAP uses 170; retail usecode pushes no literal 170;
+//  - KEY::look has no case for it, so it reads "key", not "key blank".
+
+uses "egg";
+uses "free";
+uses "flags";
+uses "item";
+
+globalflag climbedCliffs;
+globalflag attemptedCliffs;
+globalflag toldCliffs;
+
+eggclass EggCloudCliffs inherits Egg
+{
+	process hatch();
+}
+
+process EggCloudCliffs::hatch()
+{
+	if climbedCliffs
+	{
+		return;
+	}
+
+	item:Item;
+	hasKey:Number = 0;
+
+	// Check if Avatar has the Key to the Clouds: Tyorvi's quality only
+	// (see the header).
+	foreach recursive item where (type = TypeCliffKey) within container Avatar
+	{
+		if item.getQ() = 170
+		{
+			hasKey = true;
+		}
+	}
+
+	if hasKey
+	{
+		attemptedCliffs = true;
+		setAvatarInStasis(true);
+
+		Avatar.bark("The ancient handholds carved into the cliff face glow faintly as I approach. This must be the path.");
+
+		wait(90);
+
+		spawn safePlaySFX(WIND4, 150) -> return;
+
+		Avatar.bark("The wind howls around me, but the handholds hold firm. The Zealans built well.");
+
+		wait(120);
+
+		climbedCliffs = true;
+		setAvatarInStasis(false);
+	}
+	else
+	{
+		if not attemptedCliffs
+		{
+			Avatar.bark("The cliff face rises before me. There are handholds carved into the stone, but they seem to require some sort of key or token to activate.");
+			attemptedCliffs = true;
+		}
+		else
+		{
+			Avatar.bark("I need something to activate these handholds.");
+		}
+	}
+}

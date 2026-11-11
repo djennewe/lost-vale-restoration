@@ -1,0 +1,60 @@
+// The Shield of the Ancients, restored: look() for shape 828.
+//
+// WHY THIS CLASS REPLACES RETAIL AORTA (0x033C). The engine picks the
+// usecode class for an item's events from its SHAPE NUMBER (item.cpp:1516,
+// `uint32 class_id = _shape`), and the restored shield is shape 828,
+// "Zealan ceremonial shield" (Douglas, 2026-10-08). Retail already has a
+// class at 828, named AORTA, whose only event is a look() barking
+// "Zealan ceremonial shield ". This file is declared under that name, so
+// build_eusecode.py REPLACEs 0x033C rather than pinning a new id (a pin on
+// a retail id is refused). No retail class calls into 0x033C at a fixed
+// offset (a scan of every 0x11 call / 0x57 spawn operand in
+// shared/data/USECODE.FLX, 2026-10-08), so the replacement disturbs nothing
+// but this look().
+//
+// WHY NOT THE TypeAOFrizbee CLASS. ZEALSHLD.UNK's look() has the 1994 text
+// for the restored shield on its frame-2 branch, but that class (1260) is
+// reached only through npcnum 236, which the Map 17 halves carry and a
+// create()d item does not (U8 has no setNpcNum intrinsic). The restored
+// shield never reached it even when it was 539 frame 2: it dispatched
+// retail SHIELD and said "shield".
+//
+// QUALITY 83 IS THE RESTORED SHIELD. Retail Pagan places two 828s of its
+// own (U8SAVE.000 NONFIXED, Map 8 and Map 54; retail ANCTONES 0x048B
+// searches for one), and EZREKAL.UNK's forgery speech is about exactly that
+// copy: "the same shape it is and the wrong symbols it has ... I found it in
+// the Temple in Pagan." So 828 alone does not identify the Shield of the
+// Ancients. lv-patched/SHADES.UNK creates it and then `setQ(83)`s it,
+// continuing the halves' 81/82. 828 is SF_GENERIC, which the getQuality/
+// setQuality intrinsics ignore, so the read and the write both use the
+// unconditional getQ/setQ (0x19/0x1A). Pagan's copies carry quality 0 and
+// keep their retail text.
+//
+// The text is ZEALSHLD.UNK:15's, the 1994 name, kept as written
+// ("Ancients Ones" included).
+//
+// KEPT FOR SAVE COMPATIBILITY since 2026-10-17. The restored Shield is now
+// shape 879 (TypeSacredShield, the 1994 art; its look() is class 879,
+// lv-new/SACSHLD.UNK), and SHADES no longer creates an 828 q83. But a save
+// made before that day, between the Sacred Circle ceremony and the temple
+// altar, still holds the Shield as 828 quality 83, and AOSCENE's altar
+// still accepts it (its legacy TypeAOArtifact search). This class keeps
+// that item's 1994 name. Pagan's quality-0 828s keep the retail text.
+
+uses "item";
+
+typeclass Aorta inherits Item
+{
+	process look();
+}
+
+process Aorta::look()
+{
+	if getQ() = 83
+	{
+		bark("Ceremonial Shield of the Ancients Ones");
+		return;
+	}
+
+	bark("Zealan ceremonial shield ");
+}

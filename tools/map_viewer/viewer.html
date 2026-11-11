@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>__TITLE__</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+html,body{margin:0;height:100%;background:#000;color:#ddd;
+ font:13px/1.35 system-ui,sans-serif;overflow:hidden}
+#side{position:absolute;left:0;top:0;bottom:0;width:270px;background:#15151b;
+ border-right:1px solid #333;overflow-y:auto;padding:10px 12px;box-sizing:border-box}
+#view{position:absolute;left:270px;top:0;right:0;bottom:0;cursor:grab}
+#view.drag{cursor:grabbing}
+canvas{display:block;image-rendering:pixelated}
+h1{font-size:15px;margin:0 0 2px;color:#e8c872}
+h2{font-size:12px;margin:12px 0 4px;color:#9a9;text-transform:uppercase;letter-spacing:.05em}
+a{color:#e8c872}
+.nav a{margin-right:6px}
+#locs{list-style:none;margin:0;padding:0}
+#locs li{padding:3px 5px;border-radius:3px;cursor:pointer}
+#locs li:hover{background:#2a2a35}
+#locs li.cur{background:#3a3220;color:#fff}
+#locs small{display:block;color:#888}
+.ro{font-family:ui-monospace,monospace;font-size:12px;white-space:pre}
+label{display:block;cursor:pointer}
+.sw{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:middle}
+#tip{position:absolute;pointer-events:none;background:#000d;border:1px solid #666;
+ padding:4px 6px;max-width:380px;display:none;font-size:12px;z-index:5}
+#help{color:#999;font-size:12px}
+kbd{background:#333;border-radius:3px;padding:0 3px;font-size:11px}
+select{background:#222;color:#ddd;border:1px solid #444}
+#fbstat{font-size:12px;color:#888}
+#fbstat .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#666;margin-right:4px}
+#fbstat.live .dot{background:#4c4}
+#notes{list-style:none;margin:4px 0 0;padding:0}
+#notes li{padding:4px 5px;border-radius:3px;cursor:pointer;border-left:3px solid #555;margin-bottom:2px}
+#notes li:hover{background:#2a2a35}
+#notes li.cur{background:#2c2a3a}
+#notes li.done{opacity:.55}
+#notes .meta{color:#888;font-size:11px}
+#notes .body{white-space:pre-wrap}
+#notes .thread{margin:4px 0 0 6px;font-size:12px}
+#notes .thread div{border-left:2px solid #555;padding-left:5px;margin-top:3px;white-space:pre-wrap}
+#notes .thread .agent{border-color:#6af}
+#notes .near{font-family:ui-monospace,monospace;font-size:11px;color:#aaa;margin-top:3px;white-space:pre}
+#notes .acts{margin-top:4px}
+#notes textarea{width:100%;box-sizing:border-box;min-height:34px}
+button{background:#2a2a35;color:#ddd;border:1px solid #555;border-radius:3px;padding:1px 7px;cursor:pointer;font-size:12px}
+button:hover{background:#3a3a48}
+input[type=text],textarea{background:#222;color:#ddd;border:1px solid #444;border-radius:3px;font:inherit}
+#composer{position:absolute;z-index:6;display:none;background:#1c1c24f0;border:1px solid #888;
+ border-radius:4px;padding:8px;width:300px;box-shadow:0 4px 18px #000a}
+#composer textarea{width:100%;box-sizing:border-box;min-height:70px;margin:5px 0}
+#composer .where{font-family:ui-monospace,monospace;font-size:11px;color:#aaa}
+#toast{position:absolute;right:12px;bottom:12px;z-index:7;background:#223;border:1px solid #6af;
+ padding:6px 10px;border-radius:4px;max-width:360px;display:none;white-space:pre-wrap}
+</style></head><body>
+<div id="side">
+ <h1 id="title"></h1>
+ <div class="nav" id="nav"></div>
+ <h2>Walk</h2>
+ <div id="help"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrows walk
+ (screen directions, as the game's mouse does), <kbd>Shift</kbd> runs,
+ <kbd>Q</kbd>/<kbd>E</kbd> step to the surface above/below, <kbd>C</kbd> centres.
+ Drag to pan, wheel to zoom. No collision: you walk through walls.
+ <kbd>F</kbd> leaves a note where the Avatar stands; right-click leaves one on the spot under the cursor.</div>
+ <div class="ro" id="avro"></div>
+ <h2>Feedback</h2>
+ <div id="fbstat"><span class="dot"></span><span id="fbtext">connecting…</span></div>
+ <label style="margin-top:4px">Name <input type="text" id="who" size="14"></label>
+ <label><input type="checkbox" id="fball"> show fixed and won't-fix notes</label>
+ <label><input type="checkbox" id="fbpins" checked> show note pins on the map</label>
+ <ul id="notes"></ul>
+ <h2>Cursor</h2>
+ <div class="ro" id="curro">-</div>
+ <h2>View</h2>
+ <label>Zoom <select id="zoom"></select></label>
+ <label><input type="checkbox" id="follow" checked> view follows the Avatar</label>
+ <label id="roofrow"><input type="checkbox" id="roofs"> roofs off everywhere<br><small style="color:#888">(automatic while the Avatar stands under a roof, as the game cuts them)</small></label>
+ <div id="scale" class="ro"></div>
+ <h2>Overlay</h2>
+ <div id="ovl"></div>
+ <h2>Locations</h2>
+ <ul id="locs"></ul>
+ <h2>About</h2>
+ <div id="about" style="color:#888;font-size:12px"></div>
+</div>
+<div id="view"><canvas id="cv"></canvas></div>
+<div id="tip"></div>
+<div id="composer">
+ <div class="where" id="cwhere"></div>
+ <select id="ckind">
+  <option value="bug">bug</option><option value="visual">visual</option>
+  <option value="walk">walkability</option><option value="idea">idea</option>
+  <option value="good">looks right</option>
+ </select>
+ <textarea id="ctext" placeholder="What's wrong here? Enter saves, Shift+Enter is a new line, Esc cancels."></textarea>
+ <label><input type="checkbox" id="cshot" checked> attach a snapshot of the view</label>
+ <div style="margin-top:6px"><button id="csave">Save note</button> <button id="ccancel">Cancel</button></div>
+</div>
+<div id="toast"></div>
+<script>
+'use strict';
+const C = /*__CONFIG__*/null;
+const AV = /*__AVATAR__*/null;
+const NAV = /*__NAV__*/null;
+
+const ZOOMS = [0.125, 0.25, 0.5, 1, 2, 3, 4];
+const TICK = 1 / 30;            // Kernel::FRAMES_PER_SECOND
+const STEP_UP = 8;              // scanForValidPosition probes 0, +-4, +-8
+// Direction (U8, 8-way): x/y factors, N = -y. Screen: N is up-right.
+const DX = [0, 1, 1, 1, 0, -1, -1, -1], DY = [-1, -1, 0, 1, 1, 1, 0, -1];
+const OVL = {
+  monster: {name: 'monster eggs', col: '#ff4040', on: true},
+  trigger: {name: 'monster triggers', col: '#ff9a30', on: true},
+  egg: {name: 'usecode eggs', col: '#e060ff', on: true},
+  teleporter: {name: 'teleport triggers', col: '#ffe040', on: true},
+  tele_target: {name: 'arrival pads', col: '#40e0ff', on: true},
+  pin: {name: 'map_pins (NPC starts, quest items)', col: '#60ff80', on: false},
+  editor: {name: 'other editor-only items (rails 497/498)', col: '#a0a0a0', on: false},
+};
+let showOverlay = true, showRanges = true;
+
+// ---------------------------------------------------------------- geometry
+const tdiv = (a, b) => Math.trunc(a / b);     // C integer division
+function project(x, y, z) {                   // SortItem::setBoxBounds
+  return [tdiv(x, 4) - tdiv(y, 4), tdiv(x, 8) + tdiv(y, 8) - z];
+}
+function unproject(sx, sy, z) {               // inverse at a given z
+  const s = sy + z;
+  return [Math.round(2 * sx + 4 * s), Math.round(4 * s - 2 * sx)];
+}
+
+// ---------------------------------------------------------------- heights
+let H = null;                                  // Uint8ClampedArray RGBA
+function surfaces(x, y) {
+  if (!H) return [];
+  const hc = C.heights;
+  const cx = Math.floor((x - 1) / hc.cell) - hc.gx0, cy = Math.floor((y - 1) / hc.cell) - hc.gy0;
+  if (cx < 0 || cy < 0 || cx >= hc.w || cy >= hc.h) return [];
+  const o = (cy * hc.w + cx) * 4, out = [];
+  for (let k = 0; k < 4; k++) if (H[o + k] !== 255) out.push(H[o + k]);
+  return out;
+}
+function settleZ(x, y, z) {
+  // highest surface a walker could step onto (<= z + 8); else drop to the
+  // highest one below; no surface (void) keeps z.
+  const ss = surfaces(x, y);
+  let best = null;
+  for (const t of ss) if (t <= z + STEP_UP && (best === null || t > best)) best = t;
+  return best === null ? (ss.length ? Math.min(...ss) : z) : best;
+}
+function surfaceUnderCursor(sx, sy) {
+  // highest z whose unprojected cell holds a surface at that z
+  for (let z = 254; z >= 0; z--) {
+    const [x, y] = unproject(sx, sy, z);
+    const ss = surfaces(x, y);
+    for (const t of ss) if (Math.abs(t - z) <= 1) return [x, y, t];
+  }
+  const [x, y] = unproject(sx, sy, 0);
+  return [x, y, null];
+}
+
+// ---------------------------------------------------------------- state
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+const view = document.getElementById('view');
+let W = 0, Hh = 0, dpr = 1;
+let zoom = 1, camX = 0, camY = 0;              // camera centre, screen px at 1x
+let roofsOff = false, follow = true;
+const av = {x: 0, y: 0, z: 0, dir: 3, act: 'stand', i: 0, acc: 0, rep: 0};
+const keys = new Set();
+let dirty = true;
+
+const sheet = new Image();
+sheet.src = 'avatar.png';
+sheet.onload = () => { dirty = true; };
+
+// ---------------------------------------------------------------- tiles
+const tileSet = {};
+for (const layer of Object.keys(C.tiles))
+  tileSet[layer] = C.tiles[layer].map(a => new Set(a));
+const cache = new Map();
+function tileImg(layer, lv, tx, ty) {
+  const key = layer + '/' + lv + '/' + tx + '_' + ty;
+  let im = cache.get(key);
+  if (!im) {
+    im = new Image();
+    im.onload = () => { im.ok = true; dirty = true; };
+    im.src = 'map' + String(C.map).padStart(2, '0') + '/' + key + '.' + C.ext;
+    cache.set(key, im);
+  }
+  return im;
+}
+const roofCells = new Set();
+for (let i = 0; i < (C.roofcells || []).length; i += 2) roofCells.add(C.roofcells[i] + ',' + C.roofcells[i + 1]);
+function underRoof() {          // CameraProcess::findRoof, centre of the 64x64 box
+  const c = C.heights.cell;
+  return roofCells.has(Math.floor((av.x - 32) / c) + ',' + Math.floor((av.y - 32) / c));
+}
+function layerFor(lv, k) {
+  return (roofsOff || underRoof()) && tileSet.noroof[lv].has(k) ? 'noroof' : 'base';
+}
+
+function levelFor(z) {
+  let lv = 0;
+  while (lv < C.levels - 1 && z <= 0.5 / (1 << lv) + 1e-9) lv++;
+  return lv;
+}
+
+function draw() {
+  const Z = zoom * dpr;
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, cv.width, cv.height);
+  ctx.imageSmoothingEnabled = false;
+  const lv = levelFor(zoom), f = 1 << lv, ts = C.tile * f;   // screen px per tile
+  const [ox, oy] = C.origin;
+  const left = camX - cv.width / 2 / Z, top = camY - cv.height / 2 / Z;
+  const right = camX + cv.width / 2 / Z, bot = camY + cv.height / 2 / Z;
+  const tx0 = Math.floor((left - ox) / ts), tx1 = Math.floor((right - ox) / ts);
+  const ty0 = Math.floor((top - oy) / ts), ty1 = Math.floor((bot - oy) / ts);
+  const toCanvas = (sx, sy) => [(sx - camX) * Z + cv.width / 2, (sy - camY) * Z + cv.height / 2];
+  for (let ty = ty0; ty <= ty1; ty++) for (let tx = tx0; tx <= tx1; tx++) {
+    const k = tx + '_' + ty;
+    if (!tileSet.base[lv].has(k)) continue;
+    const im = tileImg(layerFor(lv, k), lv, tx, ty);
+    const [px, py] = toCanvas(ox + tx * ts, oy + ty * ts);
+    const sz = ts * Z;
+    if (im.ok) { ctx.drawImage(im, Math.round(px), Math.round(py), Math.round(px + sz) - Math.round(px), Math.round(py + sz) - Math.round(py)); continue; }
+    // fallback: a coarser loaded ancestor, cropped
+    for (let pl = lv + 1; pl < C.levels; pl++) {
+      const d = 1 << (pl - lv), ptx = Math.floor(tx / d), pty = Math.floor(ty / d);
+      const pk = ptx + '_' + pty;
+      if (!tileSet.base[pl].has(pk)) break;
+      const pim = cache.get(layerFor(pl, pk) + '/' + pl + '/' + pk);
+      if (pim && pim.ok) {
+        const sub = C.tile / d;
+        ctx.drawImage(pim, (tx - ptx * d) * sub, (ty - pty * d) * sub, sub, sub, px, py, sz, sz);
+        break;
+      }
+    }
+  }
+  if (showOverlay) drawOverlay(toCanvas, Z);
+  drawAvatar(toCanvas, Z);
+  if (showPins) drawNotes(toCanvas, Z);
+  drawScale(Z);
+}
+
+function diamond(toCanvas, x0, y0, x1, y1, z) {   // world box x0..x1, y0..y1
+  const pts = [[x1, y1], [x0, y1], [x0, y0], [x1, y0]].map(([x, y]) => toCanvas(...project(x, y, z)));
+  ctx.beginPath(); ctx.moveTo(...pts[0]);
+  for (const p of pts.slice(1)) ctx.lineTo(...p);
+  ctx.closePath();
+}
+
+let ovlHits = [];
+function drawOverlay(toCanvas, Z) {
+  ovlHits = [];
+  const stacked = new Map();                  // labels at one spot stack down
+  const lw = Math.max(1, Math.round(dpr * 1.5));
+  for (const o of C.overlay) {
+    const st = OVL[o.k];
+    if (!st || !st.on) continue;
+    const [px, py] = toCanvas(...project(o.x, o.y, o.z));
+    if (px < -400 || py < -400 || px > cv.width + 400 || py > cv.height + 400) continue;
+    ctx.strokeStyle = st.col; ctx.lineWidth = lw;
+    if (o.w && (o.k === 'editor' || zoom >= 0.5)) {      // footprint
+      ctx.globalAlpha = 0.9;
+      diamond(toCanvas, o.x - o.w, o.y - o.d, o.x, o.y, o.z); ctx.stroke();
+    }
+    if (showRanges && o.rx !== undefined && (o.rx || o.ry)) {
+      ctx.globalAlpha = 0.85; ctx.setLineDash([6 * dpr, 4 * dpr]);
+      diamond(toCanvas, o.x - o.rx, o.y - o.ry, o.x + o.rx, o.y + o.ry, o.z); ctx.stroke();
+      ctx.setLineDash([]);
+    }
+    ctx.globalAlpha = 1; ctx.lineWidth = 1;
+    if (o.k === 'editor') { ovlHits.push([px, py, o]); continue; }
+    const r = Math.max(3, Math.min(7, 5 * zoom)) * dpr;
+    ctx.fillStyle = st.col;
+    ctx.beginPath(); ctx.arc(px, py, r, 0, 7); ctx.fill();
+    ctx.strokeStyle = '#000'; ctx.stroke();
+    if (zoom >= 1) {
+      const key = o.x + ',' + o.y, n = stacked.get(key) || 0;
+      stacked.set(key, n + 1);
+      const ly = py + 4 * dpr + n * 13 * dpr;
+      ctx.font = (11 * dpr) + 'px system-ui'; ctx.fillStyle = '#000';
+      ctx.fillText(o.label, px + r + 3, ly + 1);
+      ctx.fillStyle = st.col; ctx.fillText(o.label, px + r + 2, ly);
+    }
+    ovlHits.push([px, py, o]);
+  }
+}
+
+function avFrame() {
+  const a = AV.actions[av.act];
+  const seq = a.dirs[av.dir];
+  return seq[Math.min(av.i, seq.length - 1)];
+}
+function drawAvatar(toCanvas, Z) {
+  const [px, py] = toCanvas(...project(av.x, av.y, av.z));
+  // footpad (Avatar is 64x64x40 world units) so he can be found behind walls
+  ctx.strokeStyle = '#ffd040'; ctx.globalAlpha = 0.9;
+  diamond(toCanvas, av.x - 64, av.y - 64, av.x, av.y, av.z); ctx.stroke();
+  ctx.globalAlpha = 1;
+  if (zoom < 0.5) {               // too small to see: ring him
+    ctx.lineWidth = 2 * dpr; ctx.strokeStyle = '#ffd040';
+    ctx.beginPath(); ctx.arc(px, py - 25 * Z, 14 * dpr, 0, 7); ctx.stroke(); ctx.lineWidth = 1;
+  }
+  if (!sheet.complete || !sheet.naturalWidth) return;
+  const [fn, , flip] = avFrame();
+  const c = AV.cells[fn];
+  if (!c) return;
+  const [sx, sy, w, h, xo, yo] = c;
+  ctx.save();
+  if (flip) {
+    ctx.translate(px + (xo) * Z, py - yo * Z); ctx.scale(-1, 1);
+    ctx.drawImage(sheet, sx, sy, w, h, 0, 0, w * Z, h * Z);
+  } else {
+    ctx.drawImage(sheet, sx, sy, w, h, Math.round(px - xo * Z), Math.round(py - yo * Z), w * Z, h * Z);
+  }
+  ctx.restore();
+}
+
+function drawScale(Z) {
+  // one 128x128 floor tile and a 256-unit ruler along world x, bottom left
+  const bx = 20 * dpr, by = cv.height - 20 * dpr;
+  const at = (x, y) => [bx + (x - y) / 4 * Z + 64 * Z, by + (x + y) / 8 * Z - 64 * Z];
+  ctx.strokeStyle = '#fff'; ctx.fillStyle = '#fff'; ctx.lineWidth = 1;
+  ctx.beginPath();
+  const p = [[0, 0], [128, 0], [128, 128], [0, 128]].map(([x, y]) => at(x, y));
+  ctx.moveTo(...p[0]); for (const q of p.slice(1)) ctx.lineTo(...q); ctx.closePath(); ctx.stroke();
+  ctx.font = (11 * dpr) + 'px system-ui';
+  ctx.fillText('128 x 128 units', bx + 132 * Z / 2 + 70 * Z, by - 4);
+}
+
+// ---------------------------------------------------------------- walking
+function heldDir() {
+  const up = keys.has('w') || keys.has('arrowup'), dn = keys.has('s') || keys.has('arrowdown');
+  const lf = keys.has('a') || keys.has('arrowleft'), rt = keys.has('d') || keys.has('arrowright');
+  const v = (dn ? 1 : 0) - (up ? 1 : 0), h = (rt ? 1 : 0) - (lf ? 1 : 0);
+  if (!v && !h) return -1;
+  // screen up = NW(7), right = NE(1), down = SE(3), left = SW(5)
+  const table = {'-1,0': 7, '-1,1': 0, '0,1': 1, '1,1': 2, '1,0': 3, '1,-1': 4, '0,-1': 5, '-1,-1': 6};
+  return table[v + ',' + h];
+}
+function stepAvatar() {
+  const d = heldDir();
+  if (d < 0) {
+    if (av.act !== 'stand') { av.act = 'stand'; av.i = 0; dirty = true; }
+    return;
+  }
+  const act = keys.has('shift') ? 'run' : 'walk';
+  if (av.act !== act || av.dir !== d) { av.act = act; av.dir = d; av.i = 0; }
+  const seq = AV.actions[act].dirs[d];
+  // looping walk: frames 1..n-1 (frame 0 is the start-up pose, delta 0)
+  av.i = av.i % (seq.length - 1) + 1;
+  const delta = seq[av.i][1];
+  av.x += DX[d] * delta; av.y += DY[d] * delta;
+  av.z = settleZ(av.x, av.y, av.z);
+  if (follow) [camX, camY] = project(av.x, av.y, av.z);
+  dirty = true;
+  updateAvRO();
+}
+let last = performance.now();
+function loop(now) {
+  let dt = (now - last) / 1000; last = now;
+  if (dt > 0.25) dt = 0.25;
+  av.acc += dt;
+  while (av.acc >= TICK) {
+    av.acc -= TICK;
+    const a = AV.actions[heldDir() < 0 ? 'stand' : (keys.has('shift') ? 'run' : 'walk')];
+    if (++av.rep > a.repeat) { av.rep = 0; stepAvatar(); }
+  }
+  if (dirty) { dirty = false; draw(); }
+  requestAnimationFrame(loop);
+}
+const DIRN = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+let hashTimer = 0;
+function updateAvRO() {
+  document.getElementById('avro').textContent =
+    `Avatar  x ${av.x}  y ${av.y}  z ${av.z}\nfacing  ${DIRN[av.dir]}   ${av.act}`;
+  clearTimeout(hashTimer);
+  hashTimer = setTimeout(() => history.replaceState(null, '', `#${av.x},${av.y},${av.z},${zoom}`), 300);
+}
+
+function jump(x, y, z) {
+  av.x = x; av.y = y;
+  const ss = surfaces(x, y);
+  av.z = z !== undefined && z !== null ? z : (ss.length ? Math.min(...ss) : 0);
+  av.act = 'stand'; av.i = 0;
+  [camX, camY] = project(av.x, av.y, av.z);
+  dirty = true; updateAvRO();
+}
+
+// ---------------------------------------------------------------- UI
+function resize() {
+  dpr = window.devicePixelRatio || 1;
+  W = view.clientWidth; Hh = view.clientHeight;
+  cv.width = Math.round(W * dpr); cv.height = Math.round(Hh * dpr);
+  cv.style.width = W + 'px'; cv.style.height = Hh + 'px';
+  dirty = true;
+}
+function setZoom(z, ax, ay) {
+  if (ax !== undefined) {          // keep the screen point under (ax, ay)
+    const sx = camX + (ax - W / 2) / zoom, sy = camY + (ay - Hh / 2) / zoom;
+    camX = sx - (ax - W / 2) / z; camY = sy - (ay - Hh / 2) / z;
+  }
+  zoom = z;
+  document.getElementById('zoom').value = String(z);
+  const ah = Math.round(50 * z);
+  document.getElementById('scale').textContent =
+    `${z >= 1 ? z + 'x' : '1/' + (1 / z) + 'x'}: Avatar ~${ah} px tall\n(50 px at 1x; a floor tile is\n 64x32 px at 1x)`;
+  dirty = true; updateAvRO();
+}
+
+function init() {
+  document.getElementById('title').textContent = `Map ${C.map} - ${C.title}`;
+  document.title = `Map ${C.map} - ${C.title} (Lost Vale)`;
+  const nav = document.getElementById('nav');
+  nav.innerHTML = '<a href="index.html">all maps</a> ' + NAV.map(n =>
+    n.map === C.map ? `<b>${n.map}</b>` : `<a href="map${String(n.map).padStart(2, '0')}.html" title="${n.title}">${n.map}</a>`).join(' ');
+  const zs = document.getElementById('zoom');
+  for (const z of ZOOMS) {
+    const o = document.createElement('option');
+    o.value = String(z); o.textContent = z >= 1 ? `${z}x${z > 1 ? ' (pixelated)' : ' (game pixels)'}` : `1/${1 / z}x`;
+    zs.appendChild(o);
+  }
+  zs.onchange = () => setZoom(parseFloat(zs.value), W / 2, Hh / 2);
+  document.getElementById('follow').onchange = e => { follow = e.target.checked; };
+  if (!C.roofs) document.getElementById('roofrow').style.display = 'none';
+  document.getElementById('roofs').onchange = e => { roofsOff = e.target.checked; dirty = true; };
+  const ovl = document.getElementById('ovl');
+  const counts = {};
+  for (const o of C.overlay) counts[o.k] = (counts[o.k] || 0) + 1;
+  const mk = (html, chk, fn) => {
+    const l = document.createElement('label');
+    l.innerHTML = `<input type="checkbox" ${chk ? 'checked' : ''}> ${html}`;
+    l.querySelector('input').onchange = e => { fn(e.target.checked); dirty = true; };
+    ovl.appendChild(l);
+  };
+  mk('<b>show overlay</b>', showOverlay, v => { showOverlay = v; });
+  mk('hatch ranges (dashed)', showRanges, v => { showRanges = v; });
+  for (const [k, st] of Object.entries(OVL)) {
+    if (!counts[k]) continue;
+    mk(`<span class="sw" style="background:${st.col}"></span>${st.name} (${counts[k]})`, st.on, v => { st.on = v; });
+  }
+  const ul = document.getElementById('locs');
+  C.locations.forEach((l, i) => {
+    const li = document.createElement('li');
+    li.innerHTML = `${l.name}<small>${l.note || ''}</small>`;
+    li.title = `(${l.x}, ${l.y}, ${l.z})  ${l.src || ''}`;
+    li.dataset.i = i;
+    li.onclick = () => {
+      for (const e of ul.children) e.classList.remove('cur');
+      li.classList.add('cur');
+      jump(l.x, l.y, l.z);
+      cv.focus();
+    };
+    ul.appendChild(li);
+  });
+  const st = C.stats;
+  document.getElementById('about').innerHTML =
+    `${st.drawn} sprites drawn (${st.culled} occlusion-culled), ${st.overlay} editor-only items in the overlay; ` +
+    `${st.raw} FIXED.DAT records, ${st.items} after glob expansion. NPCs stand at their FIXED.DAT start positions; monsters hatch from eggs in-game and are not drawn. ` +
+    `<a href="README.txt">README</a>`;
+
+  resize();
+  window.addEventListener('resize', resize);
+  // start: URL hash, else the first location, else the content centre
+  const m = location.hash.match(/^#(-?\d+),(-?\d+),(-?\d+)(?:,([\d.]+))?/);
+  let z0 = 1;
+  if (m) { jump(+m[1], +m[2], +m[3]); if (m[4] && ZOOMS.includes(+m[4])) z0 = +m[4]; }
+  else if (C.locations.length) { const l = C.locations[0]; jump(l.x, l.y, l.z); }
+  else { const b = C.bounds; camX = (b[0] + b[2]) / 2; camY = (b[1] + b[3]) / 2; }
+  setZoom(z0);
+  requestAnimationFrame(loop);
+}
+
+// heights first (walking needs them), then start
+const himg = new Image();
+himg.onload = () => {
+  const c = document.createElement('canvas');
+  c.width = himg.width; c.height = himg.height;
+  const g = c.getContext('2d', {willReadFrequently: true});
+  g.drawImage(himg, 0, 0);
+  H = g.getImageData(0, 0, c.width, c.height).data;
+  init();
+  fbInit();
+};
+himg.onerror = () => { init(); fbInit(); };
+himg.src = 'map' + String(C.map).padStart(2, '0') + '/heights.png';
+
+// keyboard
+const MOVE = new Set(['w', 'a', 's', 'd', 'arrowup', 'arrowdown', 'arrowleft', 'arrowright', 'shift']);
+window.addEventListener('keydown', e => {
+  if (e.target.tagName === 'SELECT' && e.key.startsWith('Arrow')) return;
+  if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT' && e.target.type === 'text') return;
+  const k = e.key.toLowerCase();
+  if (MOVE.has(k)) { keys.add(k); if (k !== 'shift') follow = document.getElementById('follow').checked; e.preventDefault(); }
+  else if (k === 'q' || k === 'e') {
+    const ss = surfaces(av.x, av.y).sort((a, b) => a - b);
+    const nz = k === 'q' ? ss.find(t => t > av.z) : [...ss].reverse().find(t => t < av.z);
+    if (nz !== undefined) { av.z = nz; if (follow) [camX, camY] = project(av.x, av.y, av.z); dirty = true; updateAvRO(); }
+  } else if (k === 'c') { [camX, camY] = project(av.x, av.y, av.z); dirty = true; }
+  else if (k === 'f' && fb.live) { openComposer(av.x, av.y, av.z); e.preventDefault(); }
+  else if (k === '+' || k === '=') { const i = ZOOMS.indexOf(zoom); if (i < ZOOMS.length - 1) setZoom(ZOOMS[i + 1], W / 2, Hh / 2); }
+  else if (k === '-') { const i = ZOOMS.indexOf(zoom); if (i > 0) setZoom(ZOOMS[i - 1], W / 2, Hh / 2); }
+});
+window.addEventListener('keyup', e => keys.delete(e.key.toLowerCase()));
+window.addEventListener('blur', () => keys.clear());
+
+// mouse: drag pan, wheel zoom, cursor readout, overlay tooltip
+let drag = null;
+const tip = document.getElementById('tip');
+view.addEventListener('mousedown', e => {
+  if (e.button !== 0) return;
+  drag = {x: e.clientX, y: e.clientY, cx: camX, cy: camY}; view.classList.add('drag');
+});
+window.addEventListener('mouseup', e => {
+  if (drag && Math.hypot(e.clientX - drag.x, e.clientY - drag.y) < 4) {
+    const r = view.getBoundingClientRect();
+    const n = noteAt((e.clientX - r.left) * dpr, (e.clientY - r.top) * dpr);
+    if (n) selectNote(n.id, true);
+  }
+  drag = null; view.classList.remove('drag');
+});
+view.addEventListener('contextmenu', e => {
+  e.preventDefault();
+  if (!fb.live) return;
+  const r = view.getBoundingClientRect();
+  const sx = camX + (e.clientX - r.left - W / 2) / zoom, sy = camY + (e.clientY - r.top - Hh / 2) / zoom;
+  const [x, y, z] = surfaceUnderCursor(Math.round(sx), Math.round(sy));
+  openComposer(x, y, z === null ? 0 : z);
+});
+window.addEventListener('mousemove', e => {
+  const r = view.getBoundingClientRect();
+  const mx = e.clientX - r.left, my = e.clientY - r.top;
+  if (drag) {
+    camX = drag.cx - (e.clientX - drag.x) / zoom; camY = drag.cy - (e.clientY - drag.y) / zoom;
+    dirty = true;
+  }
+  if (mx < 0 || my < 0 || mx > W || my > Hh) { tip.style.display = 'none'; return; }
+  const sx = Math.round(camX + (mx - W / 2) / zoom), sy = Math.round(camY + (my - Hh / 2) / zoom);
+  const [x, y, z] = surfaceUnderCursor(sx, sy);
+  document.getElementById('curro').textContent = z === null
+    ? `x ${x}  y ${y}  (z 0, no surface)\nscreen ${sx}, ${sy}`
+    : `x ${x}  y ${y}  z ${z}\nscreen ${sx}, ${sy}`;
+  // tooltip
+  let best = null, bd = 10 * dpr;
+  for (const [px, py, o] of ovlHits) {
+    const d = Math.hypot(px - mx * dpr, py - my * dpr);
+    if (d < bd) { bd = d; best = o; }
+  }
+  if (best) {
+    tip.style.display = 'block';
+    tip.style.left = (e.clientX + 14) + 'px'; tip.style.top = (e.clientY + 10) + 'px';
+    tip.innerHTML = `<b>${best.label}</b><br>(${best.x}, ${best.y}, ${best.z}) shape ${best.s}:${best.f} q ${best.q} npc ${best.n}` +
+      (best.why ? `<br><span style="color:#bbb">${best.why.replace(/</g, '&lt;')}</span>` : '');
+  } else {
+    const n = noteAt(mx * dpr, my * dpr);
+    if (n) {
+      tip.style.display = 'block';
+      tip.style.left = (e.clientX + 14) + 'px'; tip.style.top = (e.clientY + 10) + 'px';
+      tip.innerHTML = `<b>#${n.id} ${n.kind}</b> (${n.status}) ${esc(n.who)}<br>${esc(n.text).slice(0, 300)}` +
+        (n.thread.length ? `<br><span style="color:#9bf">${n.thread.length} repl${n.thread.length > 1 ? 'ies' : 'y'}</span>` : '');
+    } else tip.style.display = 'none';
+  }
+});
+view.addEventListener('dblclick', e => {
+  const r = view.getBoundingClientRect();
+  const sx = camX + (e.clientX - r.left - W / 2) / zoom, sy = camY + (e.clientY - r.top - Hh / 2) / zoom;
+  const [x, y, z] = surfaceUnderCursor(Math.round(sx), Math.round(sy));
+  jump(x, y, z === null ? 0 : z);
+});
+view.addEventListener('wheel', e => {
+  e.preventDefault();
+  const r = view.getBoundingClientRect();
+  const i = ZOOMS.indexOf(zoom), j = e.deltaY < 0 ? Math.min(ZOOMS.length - 1, i + 1) : Math.max(0, i - 1);
+  if (j !== i) setZoom(ZOOMS[j], e.clientX - r.left, e.clientY - r.top);
+}, {passive: false});
+
+// ---------------------------------------------------------------- feedback
+// Talks to feedback_server.py (api/ relative to the page). Opened as a plain
+// file or from a static host, the section just reports "offline".
+const KCOL = {bug: '#ff5050', visual: '#ffb040', walk: '#40c0ff', idea: '#c080ff', good: '#60e070'};
+const fb = {live: false, notes: new Map(), sel: null, pending: null, fixed: null};
+let showPins = true, noteHits = [];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+const whoEl = document.getElementById('who');
+
+function setLive(on, text) {
+  fb.live = on;
+  document.getElementById('fbstat').className = on ? 'live' : '';
+  document.getElementById('fbtext').textContent = text;
+}
+function toast(text) {
+  const t = document.getElementById('toast');
+  t.textContent = text; t.style.display = 'block';
+  clearTimeout(toast.tm); toast.tm = setTimeout(() => { t.style.display = 'none'; }, 6000);
+}
+async function api(path, body) {
+  const r = await fetch('api/' + path, body === undefined ? {} :
+    {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)});
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.error || r.status);
+  return j;
+}
+
+async function fbInit() {
+  whoEl.value = localStorage.getItem('lvWho') || 'Douglas';
+  whoEl.onchange = () => localStorage.setItem('lvWho', whoEl.value.trim() || 'Douglas');
+  document.getElementById('fball').onchange = renderNotes;
+  document.getElementById('fbpins').onchange = e => { showPins = e.target.checked; dirty = true; };
+  document.getElementById('csave').onclick = saveNote;
+  document.getElementById('ccancel').onclick = closeComposer;
+  document.getElementById('ckind').onchange = e => { if (fb.pending) { fb.pending.kind = e.target.value; dirty = true; } };
+  document.getElementById('ctext').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); saveNote(); }
+    else if (e.key === 'Escape') closeComposer();
+  });
+  try {
+    const st = await api('state');
+    fb.fixed = st.fixed;
+    for (const n of st.notes) fb.notes.set(n.id, n);
+  } catch (err) {
+    setLive(false, 'offline: open this page through feedback_server.py to leave notes');
+    return;
+  }
+  renderNotes(); dirty = true;
+  connect();
+}
+function connect() {
+  const es = new EventSource('api/events');
+  es.onopen = () => setLive(true, `live, FIXED.DAT ${fb.fixed || '?'}`);
+  es.onerror = () => setLive(false, 'reconnecting…');
+  es.onmessage = m => {
+    const ev = JSON.parse(m.data);
+    const me = (whoEl.value || 'Douglas').trim();
+    if (ev.ev === 'note') {
+      fb.notes.set(ev.note.id, ev.note);
+      if (ev.note.who !== me && ev.note.map === C.map) toast(`New note #${ev.note.id} from ${ev.note.who}:\n${ev.note.text}`);
+    } else {
+      const n = fb.notes.get(ev.id);
+      if (!n) return;
+      if (ev.ev === 'reply') n.thread.push({who: ev.who, text: ev.text, ts: ev.ts});
+      else { n.status = ev.status; n.thread.push({who: ev.who, ts: ev.ts, text: 'status: ' + ev.status}); }
+      if (ev.who !== me) toast(`#${n.id} (Map ${n.map}) ${ev.who}:\n${ev.ev === 'reply' ? ev.text : 'marked ' + ev.status}`);
+    }
+    renderNotes(); dirty = true;
+  };
+}
+
+function mapNotes() {
+  const all = document.getElementById('fball').checked;
+  return [...fb.notes.values()].filter(n => n.map === C.map && (all || n.status === 'open'))
+    .sort((a, b) => b.id - a.id);
+}
+function renderNotes() {
+  const ul = document.getElementById('notes');
+  const list = mapNotes();
+  const others = [...fb.notes.values()].filter(n => n.map !== C.map && n.status === 'open');
+  const byMap = {};
+  for (const n of others) byMap[n.map] = (byMap[n.map] || 0) + 1;
+  ul.innerHTML = '';
+  if (!list.length) ul.innerHTML = '<li style="border:0;cursor:default;color:#888">No notes on this map yet.</li>';
+  for (const n of list) {
+    const li = document.createElement('li');
+    li.style.borderLeftColor = KCOL[n.kind] || '#888';
+    if (n.status !== 'open') li.classList.add('done');
+    if (n.id === fb.sel) li.classList.add('cur');
+    li.dataset.id = n.id;
+    let h = `<div class="meta">#${n.id} ${n.kind} · ${esc(n.who)} · ${n.ts.slice(5, 16).replace('T', ' ')}` +
+      `${n.status !== 'open' ? ' · <b>' + n.status + '</b>' : ''}${n.thread.length ? ' · ' + n.thread.length + ' repl.' : ''}</div>` +
+      `<div class="body">${esc(n.text)}</div>`;
+    if (n.id === fb.sel) {
+      h += `<div class="meta">(${n.x}, ${n.y}, ${n.z}) FIXED ${n.fixed || '?'}${n.fixed && fb.fixed && n.fixed !== fb.fixed ? ' (older build)' : ''}` +
+        (n.shot ? ` · <a href="${n.shot}" target="_blank">snapshot</a>` : '') + '</div>';
+      if (n.near && n.near.length)
+        h += '<div class="near">' + n.near.slice(0, 6).map(it =>
+          `${it.shape}:${it.frame} ${esc(it.name || '')}${it.editor ? ' (ed)' : ''} @${it.x},${it.y},${it.z}`).join('\n') + '</div>';
+      h += '<div class="thread">' + n.thread.map(t =>
+        `<div class="${t.who.startsWith('agent') ? 'agent' : ''}"><b>${esc(t.who)}</b> ${esc(t.text)}</div>`).join('') + '</div>';
+      h += `<div class="acts"><textarea placeholder="Reply (Enter sends)"></textarea>` +
+        (n.status === 'open' ? '<button data-st="fixed">mark fixed</button> <button data-st="wontfix">won\'t fix</button>'
+          : '<button data-st="open">reopen</button>') + '</div>';
+    }
+    li.innerHTML = h;
+    li.onclick = e => {
+      if (e.target.closest('.acts') || e.target.tagName === 'A') return;
+      selectNote(n.id === fb.sel ? null : n.id, false);
+      if (fb.sel) jump(n.x, n.y, n.z);
+    };
+    const ta = li.querySelector('textarea');
+    if (ta) ta.addEventListener('keydown', async e => {
+      if (e.key === 'Enter' && !e.shiftKey && ta.value.trim()) {
+        e.preventDefault();
+        try { await api(`notes/${n.id}/reply`, {who: whoEl.value, text: ta.value}); } catch (err) { toast('Reply failed: ' + err.message); }
+      }
+    });
+    for (const b of li.querySelectorAll('button[data-st]'))
+      b.onclick = async () => {
+        try { await api(`notes/${n.id}/status`, {who: whoEl.value, status: b.dataset.st}); } catch (err) { toast('Failed: ' + err.message); }
+      };
+    ul.appendChild(li);
+  }
+  const om = Object.entries(byMap);
+  if (om.length) {
+    const li = document.createElement('li');
+    li.style.cssText = 'border:0;cursor:default;color:#888;font-size:12px';
+    li.innerHTML = 'Open elsewhere: ' + om.map(([m, c]) =>
+      `<a href="map${String(m).padStart(2, '0')}.html">Map ${m}</a> (${c})`).join(', ');
+    ul.appendChild(li);
+  }
+}
+function selectNote(id, scroll) {
+  fb.sel = id;
+  renderNotes(); dirty = true;
+  if (scroll && id) {
+    const li = document.querySelector(`#notes li[data-id="${id}"]`);
+    if (li) li.scrollIntoView({block: 'nearest'});
+    else { document.getElementById('fball').checked = true; renderNotes(); }
+  }
+}
+
+function drawNotes(toCanvas, Z) {
+  noteHits = [];
+  const pts = mapNotes();
+  if (fb.pending) pts.push(fb.pending);
+  for (const n of pts) {
+    const [px, py] = toCanvas(...project(n.x, n.y, n.z));
+    if (px < -50 || py < -50 || px > cv.width + 50 || py > cv.height + 50) continue;
+    const r = 9 * dpr, col = KCOL[n.kind] || '#fff';
+    ctx.globalAlpha = n.status === 'open' ? 1 : 0.5;
+    // a map pin: stem down to the spot, numbered head above it
+    ctx.strokeStyle = '#000'; ctx.lineWidth = 3 * dpr;
+    ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px, py - 2.6 * r); ctx.stroke();
+    ctx.strokeStyle = col; ctx.lineWidth = 1.5 * dpr; ctx.stroke();
+    ctx.beginPath(); ctx.arc(px, py - 2.6 * r, r, 0, 7);
+    ctx.fillStyle = col; ctx.fill();
+    ctx.lineWidth = (n.id === fb.sel ? 3 : 1.5) * dpr; ctx.strokeStyle = n.id === fb.sel ? '#fff' : '#000'; ctx.stroke();
+    ctx.fillStyle = '#000'; ctx.font = `bold ${10 * dpr}px system-ui`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(n.id === undefined ? '?' : String(n.id), px, py - 2.6 * r + 0.5);
+    ctx.textAlign = 'start'; ctx.textBaseline = 'alphabetic';
+    ctx.globalAlpha = 1; ctx.lineWidth = 1;
+    if (n.id !== undefined) noteHits.push([px, py - 2.6 * r, n]);
+  }
+}
+function noteAt(cx, cy) {
+  let best = null, bd = 12 * dpr;
+  for (const [px, py, n] of noteHits) {
+    const d = Math.hypot(px - cx, py - cy);
+    if (d < bd) { bd = d; best = n; }
+  }
+  return best;
+}
+
+function openComposer(x, y, z) {
+  keys.clear();
+  fb.pending = {x, y, z, kind: document.getElementById('ckind').value, status: 'open'};
+  dirty = true;
+  const box = document.getElementById('composer');
+  document.getElementById('cwhere').textContent = `Map ${C.map}  (${x}, ${y}, ${z})`;
+  const [sx, sy] = project(x, y, z);
+  const r = view.getBoundingClientRect();
+  let left = r.left + (sx - camX) * zoom + W / 2 + 16, top = r.top + (sy - camY) * zoom + Hh / 2 - 40;
+  left = Math.min(Math.max(left, r.left + 8), window.innerWidth - 320);
+  top = Math.min(Math.max(top, 8), window.innerHeight - 230);
+  box.style.left = left + 'px'; box.style.top = top + 'px'; box.style.display = 'block';
+  const ta = document.getElementById('ctext');
+  ta.value = ''; setTimeout(() => ta.focus(), 0);
+}
+function closeComposer() {
+  document.getElementById('composer').style.display = 'none';
+  fb.pending = null; dirty = true;
+  cv.focus();
+}
+function snapshot() {
+  draw();                                   // pending pin included
+  const s = Math.min(1, 1600 / cv.width);
+  const c = document.createElement('canvas');
+  c.width = Math.round(cv.width * s); c.height = Math.round(cv.height * s);
+  const g = c.getContext('2d');
+  g.imageSmoothingEnabled = s < 1;
+  g.drawImage(cv, 0, 0, c.width, c.height);
+  const webp = c.toDataURL('image/webp', 0.9);
+  return webp.startsWith('data:image/webp') ? webp : c.toDataURL('image/png');
+}
+async function saveNote() {
+  const p = fb.pending, text = document.getElementById('ctext').value.trim();
+  if (!p || !text) return;
+  const kind = document.getElementById('ckind').value;
+  p.kind = kind;
+  let shot;
+  try { if (document.getElementById('cshot').checked) shot = snapshot(); } catch (err) { shot = undefined; }
+  try {
+    const n = await api('notes', {map: C.map, x: p.x, y: p.y, z: p.z, zoom, kind, text, who: whoEl.value, shot});
+    fb.notes.set(n.id, n);
+    closeComposer();
+    selectNote(n.id, true);
+    toast(`Saved note #${n.id}` + (n.near && n.near.length ? ` (${n.near.length} items nearby recorded)` : ''));
+  } catch (err) { toast('Save failed: ' + err.message); }
+}
+</script>
+</body></html>

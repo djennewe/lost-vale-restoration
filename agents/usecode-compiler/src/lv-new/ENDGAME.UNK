@@ -1,0 +1,452 @@
+// Endgame — Restoration Sequence
+// Missing dialogue segment #6. The final restoration sequence.
+// Based on dialogue-endgame.md
+
+uses "egg";
+uses "free";
+uses "flags";
+uses "item";
+uses "snddefs";
+
+globalflag godsFree;
+globalflag endgameStarted;
+globalflag hasBag;
+
+eggclass EggEndgame inherits Egg
+{
+	process hatch();
+	process topUpReagents();
+}
+
+process EggEndgame::hatch()
+{
+	if endgameStarted
+	{
+		return;
+	}
+
+	if not godsFree
+	{
+		return;
+	}
+
+	endgameStarted = true;
+	setAvatarInStasis(true);
+
+	// The restoration begins
+	FadeToBlack();
+	wait(60);
+
+	FadeFromBlack();
+	wait(30);
+
+	Avatar.bark("With the Ancient Ones freed, their power flows through the land. The Vale begins to change.");
+
+	wait(120);
+
+	spawn safePlaySFX(WIND4, 200) -> return;
+	wait(30);
+
+	Avatar.bark("Green returns to the withered earth. Water flows where dust once lay. The vale is healing.");
+
+	wait(120);
+
+	spawn safePlaySFX(MAGIC1, 200) -> return;
+
+	Avatar.bark("The Zealans gather around me. Their faces show something I have not seen here before -- hope.");
+
+	wait(120);
+
+	Avatar.bark("An elder steps forward. Though I cannot understand all the words, the meaning is clear. They are thanking me. The Vale is restored.");
+
+	wait(120);
+
+	// THE BAG MOVED TO EZREKAL (2026-09-26). This scene handed over the Bag
+	// of Reagents until then, from "an elder". The 1994 dialogue has
+	// Ezrekal give it: her "I have freed your gods!" case barks "A magical
+	// bag it is... Take it, with our heartfelt thanks!" and its other branch
+	// reads hasBag ("the bag I gave you"). The hand-over code now sits in
+	// that branch (lv-patched/EZREKAL.UNK, B1), and this scene keeps only
+	// the Vale's restoration. topUpReagents below still keeps the stacks
+	// stocked (refilling 5 per poll), from whenever hasBag is set.
+
+	// The last line BEFORE the fade (2026-09-26). A bark is drawn in the
+	// world, so FadeToBlack covers it: barked after the fade it played for
+	// about 22 s on a black screen and was never seen
+	// (docs/playtest-2026-09-26-steps-15-18-unbroken.md). The bark blocks
+	// until it is done, so the fade follows it. Two barks, split at the
+	// sentence: as one, the last word overflowed the five-line bark box
+	// (194x55, bark_gump.cpp) onto a page of its own that showed for
+	// about 0.6 s. Each half fits one page.
+	Avatar.bark("And with the power of the Ancient Ones now restored, I feel the path to Britannia opening before me at last.");
+	Avatar.bark("The Guardian's prison weakens. It is time to go home.");
+
+	wait(60);
+
+	FadeToBlack();
+	wait(120);
+
+	FadeFromBlack();
+	wait(30);
+
+	setAvatarInStasis(false);
+
+	// The endgame proper would trigger here
+	// playEndgame();
+
+	// LAST. Ezrekal's "Provide you it will with any magical reagents you
+	// need" is a promise the pouch could not keep -- six stacks of 25 is a
+	// quantity, and
+	// it cannot just be a bigger number because reagent weight scales at ~1
+	// per unit against a 600 capacity. topUpReagents is what makes the line
+	// true, and it never returns.
+	//
+	// It stays the last statement. Before compiler wave 2 (2026-10-07)
+	// `spawn X -> return` also waited on the spawned process, so anything
+	// after it never ran: spawned mid-scene it left the endgame unfinished
+	// (no fades, no closing bark, the Avatar stuck in stasis). It no longer
+	// waits (retail rule c), but nothing here needs to follow it.
+	spawn topUpReagents() -> return;
+}
+
+
+// ---------------------------------------------------------------------------
+// The bottomless bag.
+//
+// WHY A PROCESS AND NOT A USECODE CLASS ON THE BAG. A U8 item's usecode
+// class comes from its SHAPE, and this bag is shape 637 -- the same TypeBag
+// that RAGNAR pops for the Passage-stone bag and HRODNY for the stolen-key
+// bag. Retail class 027D BAG already exists (look() barks "bag ", use()
+// toggles the gump: closeGump if status & 0100h, else openGump(3)).
+// Replacing it is dispatch-safe -- a scan of every retail class for call and
+// spawn operands finds ZERO callers of 027D, the same test that clears
+// AVATAR -- but it is not *expressible*: this dialect has no bitwise and, so
+// the `status & 0100h` toggle cannot be reproduced, and a version that can
+// only ever open the gump would change how the two quest bags behave.
+//
+// The fork's npcnum + 1024 dispatch would sidestep the shape entirely, but
+// I_setNpcNum is not in the U8 intrinsic table, so a bag created at runtime
+// cannot be given an npcnum from usecode.
+//
+// Hence a process. It owns no shape, collides with nothing, and it is
+// started once: EggEndgame::hatch is guarded by endgameStarted, and U8 saves
+// its process list, so a reload resumes this one rather than spawning a
+// second.
+//
+// WHY TOPPING UP AND NOT A BIGGER NUMBER. Reagent weight scales at about 1
+// per unit against the Avatar's 600 capacity -- FREE::give()'s 666-per-stack
+// ceiling took him to 4296 and he could not pick anything up again. "Endless"
+// has to come from refilling.
+//
+// Reagents take setQuantity() alone: no quanFrame() (it skips REAGENT_FAMILY
+// because the frame IS the reagent's identity) and no combine().
+// ---------------------------------------------------------------------------
+
+process EggEndgame::topUpReagents()
+{
+	item, bag, reagent, stack : Item;
+	found, q, total : Number;
+
+	// Forever, topping up only once he has the bag. This scene starts the
+	// process on the walk out of the temple, and since 2026-09-26 the bag
+	// comes later, from Ezrekal, so the loop cannot end on hasBag = false
+	// the way it did when this scene set hasBag itself. endgameStarted is
+	// the loop condition because hatch() set it before spawning this and
+	// nothing clears it: the same `while (flag = true)` form the loop had,
+	// with a flag that is already true.
+	while (endgameStarted = true)
+	{
+		wait(1200);
+
+		if hasBag
+		{
+			// Find THE bag Ezrekal gave: the tagged TypeBag among
+			// whatever the Avatar carries. An npcnum cannot be assigned
+			// to an item created at runtime (I_setNpcNum is not an
+			// intrinsic; see the header comment above), so quality is
+			// the tag. EZREKAL.UNK's hand-over (B1a) calls bag.setQ(1)
+			// right after bag.create(). getQ reads it back: shape 637 is
+			// SF_CONTAINER, and I_getQuality answers 0 for any family but
+			// SF_QUALITY (COLPUZZL.UNK carries the same note). Ragnar's
+			// and Hrodny's quest bags are also TypeBag/637, and a player
+			// can carry both (ScummVM 2026-10-03 found them in the pack);
+			// neither ever carries a quality (both read 0), so they cannot
+			// match here.
+			// Recursive, since the bag may sit inside the backpack.
+			bag.referent = 0;
+			foreach recursive item where (type = TypeBag) within container Avatar
+			{
+				if item.getQ() = 1
+				{
+					bag.referent = item.referent;
+				}
+			}
+
+			if bag
+			{
+				// docs/playtest-2026-09-29-endgame-egg-pad.md finding 4:
+				// the old rule refilled any depleted stack it found
+				// anywhere the Avatar carried it, bag or not. Splitting
+				// 12 off a stack and dropping the split on the ground
+				// left the in-bag remainder below 25, and the next poll
+				// put it straight back, so three splits in a minute made
+				// 36 reagents for free, and a stray reagent carried
+				// outside the bag got topped up too.
+				//
+				// Douglas's 2026-10-01 correction: the bag's whole point
+				// is that it tops up a stack that drops below 25
+				// (Ezrekal's line promises exactly that, and in U8
+				// casting a reagent IS dragging part of a stack out, so
+				// refusing a partial refill would starve ordinary play).
+				// What has to stay closed is (1) a stack outside this bag
+				// ever getting refilled, which is the actual duplication,
+				// and (2) dragging a WHOLE stack out minting a free 25
+				// faster than a player could plausibly use that many.
+				//
+				// Douglas's 2026-10-02 decision: a slow refill. Dropping
+				// reagents on the ground let the bag refill them at
+				// about 24-25 per poll, unlimited. So the refill is
+				// metered. Each frame below runs two checks. First,
+				// inside the bag only: a stack of that frame gains 5
+				// per poll, capped at 25 (12 -> 17 -> 22 -> 25 on
+				// successive polls). This is the only place an existing
+				// stack gets written. Second, only when the bag has
+				// NOTHING of that frame left: look across the WHOLE
+				// Avatar (read-only, no write) for any stack of that
+				// frame. When that comes up empty too, a fresh stack is
+				// created at 5 and then climbs 5 per poll like any
+				// other. Dragging a full stack out and keeping it on
+				// him never regenerates a second one. Nothing outside
+				// the bag is ever written.
+				//
+				// The cap is on the bag's TOTAL of a frame, summed over
+				// every stack of it in the bag, and one stack takes the
+				// refill. Capping each stack alone let a split dropped on
+				// the bag's own floor become a second stack that refilled
+				// too: frame 9 went 25 -> 50 in about 38 s in ScummVM
+				// (docs/playtest-2026-10-03-batch-merge.md, finding 1).
+				//
+				// Farming ceiling with a 1200-tick poll: the kernel runs
+				// 60 ticks a second (kernel.h:137), so a poll every 20 s,
+				// the pace Douglas approved on 2026-10-04 (600 measured
+				// 10.0 s in ScummVM; round 1's 6-13 s readings for 200
+				// included console pauses). A partial drag to the ground
+				// yields at most 5 reagents per frame per poll, so 30 per
+				// poll across all six frames. A whole stack to the
+				// ground makes the frame read as missing, so it is
+				// recreated at 5 and yields 5 per frame on that poll.
+				// Either way 5 per frame per poll replaces the old 25.
+				//
+				// Six blocks follow, one per frame (0, 6, 8, 9, 10, 14,
+				// the same set EZREKAL's hand-over creates), each one
+				// inlined: a shared routine here would be file-local, and
+				// a file-local routine resolves as a call into base-game
+				// class 0 (.claude/rules/usecode-local-routines.md).
+
+				total = 0;
+				stack.referent = 0;
+				foreach recursive item where (type = TypeReagent) and (frame = 0) within container bag.referent
+				{
+					total = total + item.getQuantity();
+					stack.referent = item.referent;
+				}
+				if stack
+				{
+					q = stack.getQuantity();
+					if total < 20
+					{
+						stack.setQuantity(q + 5);
+					}
+					else if total < 25
+					{
+						stack.setQuantity(q + 25 - total);
+					}
+				}
+				else
+				{
+					found = 0;
+					foreach recursive item where (type = TypeReagent) and (frame = 0) within container Avatar
+					{
+						found = 1;
+					}
+					if not found
+					{
+						reagent.create(TypeReagent, 0);
+						reagent.setQuantity(5);
+						reagent.pop(bag.referent);
+					}
+				}
+
+				total = 0;
+				stack.referent = 0;
+				foreach recursive item where (type = TypeReagent) and (frame = 6) within container bag.referent
+				{
+					total = total + item.getQuantity();
+					stack.referent = item.referent;
+				}
+				if stack
+				{
+					q = stack.getQuantity();
+					if total < 20
+					{
+						stack.setQuantity(q + 5);
+					}
+					else if total < 25
+					{
+						stack.setQuantity(q + 25 - total);
+					}
+				}
+				else
+				{
+					found = 0;
+					foreach recursive item where (type = TypeReagent) and (frame = 6) within container Avatar
+					{
+						found = 1;
+					}
+					if not found
+					{
+						reagent.create(TypeReagent, 6);
+						reagent.setQuantity(5);
+						reagent.pop(bag.referent);
+					}
+				}
+
+				total = 0;
+				stack.referent = 0;
+				foreach recursive item where (type = TypeReagent) and (frame = 8) within container bag.referent
+				{
+					total = total + item.getQuantity();
+					stack.referent = item.referent;
+				}
+				if stack
+				{
+					q = stack.getQuantity();
+					if total < 20
+					{
+						stack.setQuantity(q + 5);
+					}
+					else if total < 25
+					{
+						stack.setQuantity(q + 25 - total);
+					}
+				}
+				else
+				{
+					found = 0;
+					foreach recursive item where (type = TypeReagent) and (frame = 8) within container Avatar
+					{
+						found = 1;
+					}
+					if not found
+					{
+						reagent.create(TypeReagent, 8);
+						reagent.setQuantity(5);
+						reagent.pop(bag.referent);
+					}
+				}
+
+				total = 0;
+				stack.referent = 0;
+				foreach recursive item where (type = TypeReagent) and (frame = 9) within container bag.referent
+				{
+					total = total + item.getQuantity();
+					stack.referent = item.referent;
+				}
+				if stack
+				{
+					q = stack.getQuantity();
+					if total < 20
+					{
+						stack.setQuantity(q + 5);
+					}
+					else if total < 25
+					{
+						stack.setQuantity(q + 25 - total);
+					}
+				}
+				else
+				{
+					found = 0;
+					foreach recursive item where (type = TypeReagent) and (frame = 9) within container Avatar
+					{
+						found = 1;
+					}
+					if not found
+					{
+						reagent.create(TypeReagent, 9);
+						reagent.setQuantity(5);
+						reagent.pop(bag.referent);
+					}
+				}
+
+				total = 0;
+				stack.referent = 0;
+				foreach recursive item where (type = TypeReagent) and (frame = 10) within container bag.referent
+				{
+					total = total + item.getQuantity();
+					stack.referent = item.referent;
+				}
+				if stack
+				{
+					q = stack.getQuantity();
+					if total < 20
+					{
+						stack.setQuantity(q + 5);
+					}
+					else if total < 25
+					{
+						stack.setQuantity(q + 25 - total);
+					}
+				}
+				else
+				{
+					found = 0;
+					foreach recursive item where (type = TypeReagent) and (frame = 10) within container Avatar
+					{
+						found = 1;
+					}
+					if not found
+					{
+						reagent.create(TypeReagent, 10);
+						reagent.setQuantity(5);
+						reagent.pop(bag.referent);
+					}
+				}
+
+				total = 0;
+				stack.referent = 0;
+				foreach recursive item where (type = TypeReagent) and (frame = 14) within container bag.referent
+				{
+					total = total + item.getQuantity();
+					stack.referent = item.referent;
+				}
+				if stack
+				{
+					q = stack.getQuantity();
+					if total < 20
+					{
+						stack.setQuantity(q + 5);
+					}
+					else if total < 25
+					{
+						stack.setQuantity(q + 25 - total);
+					}
+				}
+				else
+				{
+					found = 0;
+					foreach recursive item where (type = TypeReagent) and (frame = 14) within container Avatar
+					{
+						found = 1;
+					}
+					if not found
+					{
+						reagent.create(TypeReagent, 14);
+						reagent.setQuantity(5);
+						reagent.pop(bag.referent);
+					}
+				}
+			}
+		}
+	}
+}

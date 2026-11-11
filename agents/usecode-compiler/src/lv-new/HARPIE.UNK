@@ -1,0 +1,26 @@
+// The Harpie: look() for shape 873.
+//
+// WHY THIS CLASS IS PINNED TO 873. The engine picks the usecode class for
+// an item's events from its SHAPE NUMBER (item.cpp:1516), and a monster is
+// an item: a double-click on one runs look() in the class equal to its
+// shape. The Cloud Cliffs' harpie-zone eggs hatch shape 873 (build_map_13.py,
+// lv_shapes SHAPE_MON_HARPIE) since Douglas picked its art on 2026-10-11
+// (docs/art-track.md contract 9), and retail EUSECODE has no class there,
+// so without this one the monster would say nothing where the torax it
+// replaces said "torax". `lv_manifest.json` pins TYPEHARPIE to 873.
+//
+// THE CLASS IS THE RETAIL TORAX'S, renamed: TORAX (class 120) has look()
+// alone and barks its name. The name is the 1994 Art List's spelling,
+// "Harpie", the one the expansion's maps and flags use.
+
+uses "item";
+
+typeclass TypeHarpie inherits Item
+{
+	process look();
+}
+
+process TypeHarpie::look()
+{
+	bark("harpie");
+}

@@ -1,0 +1,169 @@
+{
+  "regions": {
+    "lane and lawn": {
+      "kind": "town",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          46.45161290322581
+        ],
+        "ground.seam_density": [
+          "min",
+          0.01763668430335097
+        ],
+        "props.small_per_100": [
+          "min",
+          35.483870967741936
+        ],
+        "props.dressed_share": [
+          "min",
+          0.8612903225806452
+        ],
+        "props.grouped_share": [
+          "min",
+          0.990909090909091
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "props.stride_share": [
+          "max",
+          0.7475728155339806
+        ],
+        "ground.top1": [
+          "max",
+          0.9419354838709677
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.9290322580645162
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.05263157894736842
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.591019910605445
+        ],
+        "records.raw": [
+          "max",
+          217
+        ]
+      }
+    }
+  },
+  "whole": {
+    "props.props_per_100": [
+      "min",
+      23.117808904452225
+    ],
+    "ground.seam_density": [
+      "min",
+      0.13703042285860068
+    ],
+    "props.small_per_100": [
+      "min",
+      19.759879939969984
+    ],
+    "props.dressed_share": [
+      "min",
+      0.48993246623311654
+    ],
+    "props.grouped_share": [
+      "min",
+      0.9417721518987342
+    ],
+    "props.bare_share": [
+      "max",
+      0.11061780890445222
+    ],
+    "props.stride_share": [
+      "max",
+      0.7297209604153148
+    ],
+    "ground.top1": [
+      "max",
+      0.6146823411705853
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.13225362681340672
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.3948220064724919
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.2880450945716344
+    ],
+    "records.raw": [
+      "max",
+      5118
+    ]
+  },
+  "budget": {
+    "props.props_per_100": [
+      "min",
+      23.117808904452225
+    ],
+    "ground.seam_density": [
+      "min",
+      0.13703042285860068
+    ],
+    "props.small_per_100": [
+      "min",
+      19.759879939969984
+    ],
+    "props.dressed_share": [
+      "min",
+      0.48993246623311654
+    ],
+    "props.grouped_share": [
+      "min",
+      0.9417721518987342
+    ],
+    "props.bare_share": [
+      "max",
+      0.11061780890445222
+    ],
+    "props.stride_share": [
+      "max",
+      0.7297209604153148
+    ],
+    "ground.top1": [
+      "max",
+      0.6146823411705853
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.13225362681340672
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.3948220064724919
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.2880450945716344
+    ],
+    "records.raw": [
+      "max",
+      5118
+    ]
+  },
+  "map": 39,
+  "artifact_hashes": {
+    "TYPEFLAG.DAT": "999bc6afa6dae596a1e0062ab1fb1c882489366eadc2e9afe77432692400667a",
+    "U8SHAPES.FLX": "99ac982244eae904a61e4ff688a721a4bb86ec458dca7614661f3d2dd95529d5",
+    "ANIM.DAT": "97ae5fc9ddaa6ef515427103264a3095a6d42776ac51e530954fb4846b4d0443",
+    "EUSECODE.FLX": "b47c324cdad77646c27755acfdd5bca53a9d92e16268db229f18e7dd780d4205",
+    "FIXED.DAT": "54ff31389503124006bc91dbd915661aecb138a96fd1ef273876ec4ef39e3c2e",
+    "GLOB.FLX": "aabc1ad36f42c6bdd01cfcb7271f0765983a9914489d62a96a9bcb5e1d7c88ca"
+  },
+  "allowances": [],
+  "target_failures": [],
+  "expanded_per_ground_cell": 1.8820660330165082
+}

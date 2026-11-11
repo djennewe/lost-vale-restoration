@@ -1,0 +1,6 @@
+# Compiled by build.sh; sources are tracked, binaries are not.
+postkey
+postchord
+postmouse
+*.dSYM/
+winid

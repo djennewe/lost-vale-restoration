@@ -1,0 +1,2741 @@
+{
+ "generated": "2026-11-10",
+ "fixed_sha256_prefix": "70f90c1f867d5d41",
+ "maps": {
+  "8": [
+   {
+    "shape": 82,
+    "frame": 0,
+    "quality": 99,
+    "npcnum": 0,
+    "x": 1,
+    "y": 8221,
+    "z": 0,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "The Map 8 door key, quality 99 (build_map_08.py DOOR_LOCK_ID): KEYRING opens the retail double doors (lock 99, U8SAVE.000 NONFIXED) on the way to the Vale with it; CONTAINED item \u2014 x/y are the container slot, not a world position",
+    "reads": [
+     "agents/map-populator/src/build_map_10.py HRODNY_KEY_ID / build_map_08.py DOOR_LOCK_ID"
+    ]
+   },
+   {
+    "shape": 411,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 0,
+    "x": 2200,
+    "y": 2208,
+    "z": 8,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "the quest step 1 apparition the egg animates: matched by the compiled filter at agents/usecode-compiler/src/lv-new/LBSCENE.UNK:36 (`type = TypeLordBritish` -> shape 411, within 256 of).",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/LBSCENE.UNK:36 (TypeLordBritish -> shape 411)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 304,
+    "npcnum": 68,
+    "x": 2200,
+    "y": 2230,
+    "z": 8,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1455 EGGLBSCENE (class = quality + 0x47F). Hatch box +/-128x128 (npcNum 0x44); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGLBSCENE",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 200,
+    "npcnum": 0,
+    "x": 20111,
+    "y": 3175,
+    "z": 8,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 200 \u2014 the destination every trigger with quality 456 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 213,
+    "npcnum": 0,
+    "x": 20143,
+    "y": 3175,
+    "z": 8,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 213 \u2014 the destination every trigger with quality 469 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 0,
+    "quality": 457,
+    "npcnum": 201,
+    "x": 20415,
+    "y": 2783,
+    "z": 1,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport TRIGGER 201 -> map 9. Hatch box +/-384x288 (npcNum 0xC9). Frozen: the quest spine walks through it.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 308,
+    "npcnum": 17,
+    "x": 20575,
+    "y": 3903,
+    "z": 0,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1459 EGGVALERETURN (class = quality + 0x47F). Hatch box +/-32x32 (npcNum 0x11); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGVALERETURN",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   }
+  ],
+  "9": [
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 201,
+    "npcnum": 0,
+    "x": 13696,
+    "y": 14208,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 201 \u2014 the destination every trigger with quality 457 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 0,
+    "quality": 456,
+    "npcnum": 200,
+    "x": 13759,
+    "y": 12031,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport TRIGGER 200 -> map 8. Hatch box +/-384x256 (npcNum 0xC8). Frozen: the quest spine walks through it.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 613,
+    "frame": 6,
+    "quality": 1,
+    "npcnum": 0,
+    "x": 13888,
+    "y": 14368,
+    "z": 0,
+    "class": "decorative",
+    "kind": "quest_item",
+    "why": "Galjeron's journal. The builder comment says 'quality triggers usecode read', but TypeBook/TypeScroll/TypeNSGoldPlaque all resolve to 158, not 613, and no compiled LV filter names shape 613. It is not inert, though: the engine dispatches a shape's use()/look() from the class whose number equals the shape (item.cpp:1516) and EUSECODE.FLX entry 615 (= class 613) is 7,482 bytes of Origin's own book handler, so double-clicking it runs base-game Pagan code with quality 1. Decorative until an LV class is compiled at 613 \u2014 a manifest decision, not a two-file edit.",
+    "reads": [
+     "agents/map-populator/src/build_map_09.py Galjeron's Journal (SHAPE_BOOK_CLOSED, quality=1)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 14208,
+    "y": 13952,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 1 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 202,
+    "npcnum": 0,
+    "x": 14336,
+    "y": 16128,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 202 \u2014 the destination every trigger with quality 458 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 0,
+    "quality": 459,
+    "npcnum": 203,
+    "x": 14336,
+    "y": 16760,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport TRIGGER 203 -> map 11. Hatch box +/-384x352 (npcNum 0xCB). Frozen: the quest spine walks through it.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12371,
+    "npcnum": 1,
+    "x": 14720,
+    "y": 13408,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 83, activity 1, when a MONEGG trigger of group 1 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   }
+  ],
+  "10": [
+   {
+    "shape": 859,
+    "frame": 8,
+    "quality": 0,
+    "npcnum": 229,
+    "x": 1,
+    "y": -1,
+    "z": 0,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "the Tiny Tar potions the crack hint looks for. Picked up and then matched by agents/usecode-compiler/src/lv-new/CRACKHNT.UNK:131 (`type = TypePotion` -> shape 859, frame 8 within the Avatar's container); CONTAINED item \u2014 x/y are the container slot, not a world position",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/CRACKHNT.UNK:131 (TypePotion -> shape 859)",
+     "shared/build/lv_manifest.json classes.TYPEPOTION",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 859,
+    "frame": 8,
+    "quality": 0,
+    "npcnum": 229,
+    "x": 1,
+    "y": -1,
+    "z": 0,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "the Tiny Tar potions the crack hint looks for. Picked up and then matched by agents/usecode-compiler/src/lv-new/CRACKHNT.UNK:131 (`type = TypePotion` -> shape 859, frame 8 within the Avatar's container); CONTAINED item \u2014 x/y are the container slot, not a world position",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/CRACKHNT.UNK:131 (TypePotion -> shape 859)",
+     "shared/build/lv_manifest.json classes.TYPEPOTION",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 859,
+    "frame": 8,
+    "quality": 0,
+    "npcnum": 229,
+    "x": 1,
+    "y": -1,
+    "z": 0,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "the Tiny Tar potions the crack hint looks for. Picked up and then matched by agents/usecode-compiler/src/lv-new/CRACKHNT.UNK:131 (`type = TypePotion` -> shape 859, frame 8 within the Avatar's container); CONTAINED item \u2014 x/y are the container slot, not a world position",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/CRACKHNT.UNK:131 (TypePotion -> shape 859)",
+     "shared/build/lv_manifest.json classes.TYPEPOTION",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 707,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 100,
+    "x": 4352,
+    "y": 6912,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 100 (no compiled class at 1124 \u2014 Actor promotion only). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "docs/reviews/2026-09-14-map-cleanup-plan.md section 3 (every NPC start position is pinned)"
+    ]
+   },
+   {
+    "shape": 707,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 106,
+    "x": 4416,
+    "y": 7424,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 106 (dispatches class 1130 THORDIS). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "shared/build/lv_manifest.json npc_classes"
+    ]
+   },
+   {
+    "shape": 707,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 103,
+    "x": 4608,
+    "y": 9472,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 103 (no compiled class at 1127 \u2014 Actor promotion only). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "docs/reviews/2026-09-14-map-cleanup-plan.md section 3 (every NPC start position is pinned)"
+    ]
+   },
+   {
+    "shape": 707,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 102,
+    "x": 4896,
+    "y": 8992,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 102 (dispatches class 1126 SIGRID). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "shared/build/lv_manifest.json npc_classes"
+    ]
+   },
+   {
+    "shape": 889,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 104,
+    "x": 5376,
+    "y": 7424,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 104 (no compiled class at 1128 \u2014 Actor promotion only). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "docs/reviews/2026-09-14-map-cleanup-plan.md section 3 (every NPC start position is pinned)"
+    ]
+   },
+   {
+    "shape": 574,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 105,
+    "x": 5440,
+    "y": 10528,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 105 (dispatches class 1129 RAGNAR). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "shared/build/lv_manifest.json npc_classes"
+    ]
+   },
+   {
+    "shape": 574,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 101,
+    "x": 6656,
+    "y": 7680,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 101 (no compiled class at 1125 \u2014 Actor promotion only). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "docs/reviews/2026-09-14-map-cleanup-plan.md section 3 (every NPC start position is pinned)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 307,
+    "npcnum": 68,
+    "x": 7168,
+    "y": 23296,
+    "z": 8,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1458 EGGREAPPLY (class = quality + 0x47F). Hatch box +/-128x128 (npcNum 0x44); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGREAPPLY",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 206,
+    "npcnum": 0,
+    "x": 7168,
+    "y": 23296,
+    "z": 8,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 206 \u2014 the destination every trigger with quality 462 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 114,
+    "frame": 0,
+    "quality": 170,
+    "npcnum": 0,
+    "x": 7168,
+    "y": 23552,
+    "z": 8,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "Key to the Clouds gate, quality 170 (build_map_10.py CLIFF_KEY_ID), the number Tyorvi's key carries (lv-patched/TYORVI.UNK T7). Shape 114 has no door behaviour, so no key opens it; open lanes pass it (docs/reviews/2026-09-25-keyless-gates.md).",
+    "reads": [
+     "agents/map-populator/src/build_map_10.py CLIFF_KEY_ID / build_map_10.py HRODNY_KEY_ID / build_map_08.py DOOR_LOCK_ID"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 0,
+    "quality": 463,
+    "npcnum": 207,
+    "x": 7168,
+    "y": 24064,
+    "z": 8,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport TRIGGER 207 -> map 13. Hatch box +/-384x480 (npcNum 0xCF). Frozen: the quest spine walks through it.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 707,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 115,
+    "x": 7424,
+    "y": 7520,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 115 (dispatches class 1139 TYORVI). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "shared/build/lv_manifest.json npc_classes"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13095,
+    "npcnum": 1,
+    "x": 8500,
+    "y": 13000,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 807, activity 1, when a MONEGG trigger of group 5 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 9044,
+    "y": 13544,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 5 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 9860,
+    "y": 19532,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 7 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 10144,
+    "y": 16512,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 3 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12364,
+    "npcnum": 1,
+    "x": 10463,
+    "y": 17312,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 76, activity 1, when a MONEGG trigger of group 3 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13095,
+    "npcnum": 1,
+    "x": 10500,
+    "y": 19500,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 807, activity 1, when a MONEGG trigger of group 7 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 0,
+    "quality": 460,
+    "npcnum": 204,
+    "x": 11904,
+    "y": 2048,
+    "z": 1,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport TRIGGER 204 -> map 11. Hatch box +/-384x384 (npcNum 0xCC). Frozen: the quest spine walks through it.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 614,
+    "frame": 0,
+    "quality": 66,
+    "npcnum": 235,
+    "x": 12255,
+    "y": 22208,
+    "z": 16,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1259 TYPENSGOLDPLAQUE (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPENSGOLDPLAQUE",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 534,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 231,
+    "x": 12672,
+    "y": 12800,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1255 TYPEBEDROLL (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPEBEDROLL",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 0,
+    "quality": 469,
+    "npcnum": 213,
+    "x": 12800,
+    "y": 1792,
+    "z": 1,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport TRIGGER 213 -> map 8. Hatch box +/-416x160 (npcNum 0xD5). Frozen: the quest spine walks through it.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 307,
+    "npcnum": 68,
+    "x": 12800,
+    "y": 2560,
+    "z": 0,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1458 EGGREAPPLY (class = quality + 0x47F). Hatch box +/-128x128 (npcNum 0x44); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGREAPPLY",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 205,
+    "npcnum": 0,
+    "x": 12800,
+    "y": 2560,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 205 \u2014 the destination every trigger with quality 461 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 200,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 116,
+    "x": 12800,
+    "y": 12544,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 116 (dispatches class 1140 EZREKAL). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "shared/build/lv_manifest.json npc_classes"
+    ]
+   },
+   {
+    "shape": 871,
+    "frame": 0,
+    "quality": 10,
+    "npcnum": 0,
+    "x": 12800,
+    "y": 29408,
+    "z": 64,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "the Test Plant EggPlantTest::hatch() bursts: matched by the compiled filter at agents/usecode-compiler/src/lv-patched/PLNTST.UNK:86 (`type = TypeShortmushroom` -> shape 871, frame 0, within 100 cells of).",
+    "reads": [
+     "agents/usecode-compiler/src/lv-patched/PLNTST.UNK:86 (TypeShortmushroom -> shape 871)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 283,
+    "npcnum": 68,
+    "x": 12800,
+    "y": 29440,
+    "z": 64,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1434 EGGPLANTTEST (class = quality + 0x47F). Hatch box +/-128x128 (npcNum 0x44); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGPLANTTEST",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 65,
+    "x": 13312,
+    "y": 18816,
+    "z": 8,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 8 within 3584 units. Hatch box +/-128x32 (npcNum 0x41).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13160,
+    "npcnum": 1,
+    "x": 13344,
+    "y": 19008,
+    "z": 8,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 872, activity 1, when a MONEGG trigger of group 2 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 859,
+    "frame": 2,
+    "quality": 0,
+    "npcnum": 229,
+    "x": 13696,
+    "y": 12800,
+    "z": 4,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1253 TYPEPOTION (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPEPOTION",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 859,
+    "frame": 1,
+    "quality": 0,
+    "npcnum": 229,
+    "x": 13760,
+    "y": 12800,
+    "z": 4,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1253 TYPEPOTION (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPEPOTION",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13160,
+    "npcnum": 1,
+    "x": 13792,
+    "y": 19744,
+    "z": 8,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 872, activity 1, when a MONEGG trigger of group 1 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 307,
+    "npcnum": 68,
+    "x": 13824,
+    "y": 2560,
+    "z": 0,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1458 EGGREAPPLY (class = quality + 0x47F). Hatch box +/-128x128 (npcNum 0x44); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGREAPPLY",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 212,
+    "npcnum": 0,
+    "x": 13824,
+    "y": 2560,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 212 \u2014 the destination every trigger with quality 468 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 65,
+    "x": 13824,
+    "y": 19456,
+    "z": 8,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 2 within 3584 units. Hatch box +/-128x32 (npcNum 0x41).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 66,
+    "x": 13824,
+    "y": 20352,
+    "z": 8,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 1 within 3584 units. Hatch box +/-128x64 (npcNum 0x42).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13160,
+    "npcnum": 1,
+    "x": 13855,
+    "y": 18271,
+    "z": 8,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 872, activity 1, when a MONEGG trigger of group 8 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 798,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 0,
+    "x": 13888,
+    "y": 18368,
+    "z": 8,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "the Passage stone EggPlantTest::hatch() consumes. Picked up and then matched by agents/usecode-compiler/src/lv-patched/PLNTST.UNK:73 (`type = TypeBushKey` -> shape 798, frame 0 within the Avatar's container)",
+    "reads": [
+     "agents/usecode-compiler/src/lv-patched/PLNTST.UNK:73 (TypeBushKey -> shape 798)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13160,
+    "npcnum": 1,
+    "x": 13888,
+    "y": 19936,
+    "z": 8,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 872, activity 1, when a MONEGG trigger of group 1 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13160,
+    "npcnum": 1,
+    "x": 14016,
+    "y": 18400,
+    "z": 8,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 872, activity 1, when a MONEGG trigger of group 8 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12364,
+    "npcnum": 1,
+    "x": 15232,
+    "y": 22016,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 76, activity 1, when a MONEGG trigger of group 4 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13095,
+    "npcnum": 1,
+    "x": 15500,
+    "y": 13000,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 807, activity 1, when a MONEGG trigger of group 6 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 15776,
+    "y": 21696,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 4 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 16044,
+    "y": 12360,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 6 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 533,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 232,
+    "x": 16095,
+    "y": 26015,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1256 TYPEBULLWHIP (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPEBULLWHIP",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 531,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 234,
+    "x": 16159,
+    "y": 25983,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1258 TYPEFEDORA (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPEFEDORA",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 299,
+    "npcnum": 134,
+    "x": 18432,
+    "y": 22719,
+    "z": 112,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1450 EGGENDGAME (class = quality + 0x47F). Hatch box +/-256x192 (npcNum 0x86); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGENDGAME",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 307,
+    "npcnum": 68,
+    "x": 18432,
+    "y": 22719,
+    "z": 112,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1458 EGGREAPPLY (class = quality + 0x47F). Hatch box +/-128x128 (npcNum 0x44); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGREAPPLY",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 210,
+    "npcnum": 0,
+    "x": 18432,
+    "y": 22719,
+    "z": 112,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 210 \u2014 the destination every trigger with quality 466 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 0,
+    "quality": 467,
+    "npcnum": 51,
+    "x": 18432,
+    "y": 23552,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport TRIGGER 211 -> map 18. Hatch box +/-96x96 (npcNum 0x33). Frozen: the quest spine walks through it.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 707,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 110,
+    "x": 18688,
+    "y": 9728,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 110 (no compiled class at 1134 \u2014 Actor promotion only). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "docs/reviews/2026-09-14-map-cleanup-plan.md section 3 (every NPC start position is pinned)"
+    ]
+   },
+   {
+    "shape": 888,
+    "frame": 60,
+    "quality": 0,
+    "npcnum": 107,
+    "x": 19231,
+    "y": 6943,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 107 (dispatches class 1131 ATLI). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "shared/build/lv_manifest.json npc_classes"
+    ]
+   },
+   {
+    "shape": 890,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 111,
+    "x": 19712,
+    "y": 6656,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 111 (no compiled class at 1135 \u2014 Actor promotion only). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "docs/reviews/2026-09-14-map-cleanup-plan.md section 3 (every NPC start position is pinned)"
+    ]
+   },
+   {
+    "shape": 200,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 114,
+    "x": 20224,
+    "y": 7680,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 114 (no compiled class at 1138 \u2014 Actor promotion only). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "docs/reviews/2026-09-14-map-cleanup-plan.md section 3 (every NPC start position is pinned)"
+    ]
+   },
+   {
+    "shape": 863,
+    "frame": 0,
+    "quality": 100,
+    "npcnum": 0,
+    "x": 20415,
+    "y": 16831,
+    "z": 0,
+    "class": "decorative",
+    "kind": "custom_art",
+    "why": "The Sacred Circle's central stone, custom art since 2026-09-20 (docs/art-track.md contract 3: a ninth standing stone kin to the eight shape-38 monoliths on the ring; was a 66 rubble lump, and a 721 chimney before that). Nothing reads it. TypeSealingBoulder resolves to 66 and COLPUZZL.UNK:175 reads it, but guarded by getQ() = 299 within 2200 of a Map 11 referent, so the swap to 863 left that filter's targets alone. Decoration until a wiring claims quality 100. The POSITION is frozen: the box clears map_walkability's MAP10_ROOT_SEED (20480, 16896) by one world unit on each axis.",
+    "reads": [
+     "agents/map-populator/src/build_map_10.py build_sacred_circle (SHAPE_SACRED_ROCK, quality=100)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 294,
+    "npcnum": 136,
+    "x": 20480,
+    "y": 17152,
+    "z": 0,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1445 EGGSHADES (class = quality + 0x47F). Hatch box +/-256x256 (npcNum 0x88); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGSHADES",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 574,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 112,
+    "x": 20768,
+    "y": 7456,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 112 (dispatches class 1136 INGJALD). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "shared/build/lv_manifest.json npc_classes"
+    ]
+   },
+   {
+    "shape": 618,
+    "frame": 0,
+    "quality": 20,
+    "npcnum": 0,
+    "x": 21216,
+    "y": 8768,
+    "z": 0,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "Hrodny's locked chest, lock id 20 (build_map_10.py HRODNY_KEY_ID). It holds the three Tiny Tar potions, so it is on the quest spine for step 16.",
+    "reads": [
+     "agents/map-populator/src/build_map_10.py CLIFF_KEY_ID / build_map_10.py HRODNY_KEY_ID / build_map_08.py DOOR_LOCK_ID"
+    ]
+   },
+   {
+    "shape": 859,
+    "frame": 5,
+    "quality": 0,
+    "npcnum": 229,
+    "x": 21216,
+    "y": 8832,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1253 TYPEPOTION (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPEPOTION",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 859,
+    "frame": 7,
+    "quality": 0,
+    "npcnum": 229,
+    "x": 21280,
+    "y": 8832,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1253 TYPEPOTION (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPEPOTION",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 869,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 0,
+    "x": 21376,
+    "y": 16640,
+    "z": 0,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "the special root for Tyorvi's nightmare elixir. Picked up and then matched by agents/usecode-compiler/src/lv-patched/EZREKAL.UNK:717 (`type = TypeWeedz` -> shape 869, frame 0 within the Avatar's container)",
+    "reads": [
+     "agents/usecode-compiler/src/lv-patched/EZREKAL.UNK:717 (TypeWeedz -> shape 869)"
+    ]
+   },
+   {
+    "shape": 707,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 109,
+    "x": 21632,
+    "y": 7744,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 109 (no compiled class at 1133 \u2014 Actor promotion only). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "docs/reviews/2026-09-14-map-cleanup-plan.md section 3 (every NPC start position is pinned)"
+    ]
+   },
+   {
+    "shape": 707,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 108,
+    "x": 21632,
+    "y": 9792,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 108 (no compiled class at 1132 \u2014 Actor promotion only). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "docs/reviews/2026-09-14-map-cleanup-plan.md section 3 (every NPC start position is pinned)"
+    ]
+   },
+   {
+    "shape": 707,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 113,
+    "x": 21760,
+    "y": 8448,
+    "z": 0,
+    "class": "active",
+    "kind": "npc",
+    "why": "NPC start position, npcNum 113 (dispatches class 1137 HRODNY). The Actor-promotion window is npcNum 100-116; the start position and its loiter leash are frozen.",
+    "reads": [
+     "shared/build/lv_manifest.json npc_classes"
+    ]
+   },
+   {
+    "shape": 375,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 230,
+    "x": 21836,
+    "y": 9808,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1254 TYPEABACUS (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPEABACUS",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   }
+  ],
+  "11": [
+   {
+    "shape": 596,
+    "frame": 0,
+    "quality": 101,
+    "npcnum": 0,
+    "x": 2047,
+    "y": 5631,
+    "z": 4,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "the four elemental talismans the receptacles consume. Picked up and then matched by agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:114 (`type = TypeTalisman` -> shape 596 within the Avatar's container) Placed at z=4 on purpose (docs/playtest-2026-09-06-step4-talismans.md); do not lower them.",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:114 (TypeTalisman -> shape 596)",
+     "docs/playtest-2026-09-06-step4-talismans.md"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12502,
+    "npcnum": 1,
+    "x": 2688,
+    "y": 2496,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 214, activity 1, when a MONEGG trigger of group 7 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12384,
+    "npcnum": 1,
+    "x": 2688,
+    "y": 19072,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 96, activity 1, when a MONEGG trigger of group 13 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12384,
+    "npcnum": 1,
+    "x": 2752,
+    "y": 17408,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 96, activity 1, when a MONEGG trigger of group 11 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12384,
+    "npcnum": 1,
+    "x": 2880,
+    "y": 15104,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 96, activity 1, when a MONEGG trigger of group 3 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12502,
+    "npcnum": 1,
+    "x": 3040,
+    "y": 2240,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 214, activity 1, when a MONEGG trigger of group 1 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 51,
+    "x": 3200,
+    "y": 2208,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 7 within 3584 units. Hatch box +/-96x96 (npcNum 0x33).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 3232,
+    "y": 18368,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 13 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12384,
+    "npcnum": 1,
+    "x": 3264,
+    "y": 15872,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 96, activity 1, when a MONEGG trigger of group 10 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12384,
+    "npcnum": 1,
+    "x": 3264,
+    "y": 18816,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 96, activity 1, when a MONEGG trigger of group 12 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 3296,
+    "y": 17408,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 11 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 3520,
+    "y": 15104,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 3 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 3584,
+    "y": 2240,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 1 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 3808,
+    "y": 15872,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 10 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 3808,
+    "y": 18816,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 12 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12502,
+    "npcnum": 1,
+    "x": 4608,
+    "y": 2048,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 214, activity 1, when a MONEGG trigger of group 5 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 4608,
+    "y": 2592,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 5 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12502,
+    "npcnum": 1,
+    "x": 5376,
+    "y": 2720,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 214, activity 1, when a MONEGG trigger of group 6 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 5376,
+    "y": 3264,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 6 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 596,
+    "frame": 2,
+    "quality": 103,
+    "npcnum": 0,
+    "x": 5631,
+    "y": 18943,
+    "z": 4,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "the four elemental talismans the receptacles consume. Picked up and then matched by agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:114 (`type = TypeTalisman` -> shape 596 within the Avatar's container) Placed at z=4 on purpose (docs/playtest-2026-09-06-step4-talismans.md); do not lower them.",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:114 (TypeTalisman -> shape 596)",
+     "docs/playtest-2026-09-06-step4-talismans.md"
+    ]
+   },
+   {
+    "shape": 865,
+    "frame": 0,
+    "quality": 201,
+    "npcnum": 0,
+    "x": 7680,
+    "y": 20480,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "TypeReceptacle::use() destroys the pillar beside it: matched by the compiled filter at agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:154 (`type = TypeElementalColumn` -> shape 865, within 300 of).",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:154 (TypeElementalColumn -> shape 865)"
+    ]
+   },
+   {
+    "shape": 866,
+    "frame": 0,
+    "quality": 201,
+    "npcnum": 120,
+    "x": 7680,
+    "y": 20736,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1144 TYPERECEPTACLE (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPERECEPTACLE",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 865,
+    "frame": 2,
+    "quality": 203,
+    "npcnum": 0,
+    "x": 7680,
+    "y": 21504,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "TypeReceptacle::use() destroys the pillar beside it: matched by the compiled filter at agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:154 (`type = TypeElementalColumn` -> shape 865, within 300 of).",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:154 (TypeElementalColumn -> shape 865)"
+    ]
+   },
+   {
+    "shape": 866,
+    "frame": 0,
+    "quality": 203,
+    "npcnum": 120,
+    "x": 7935,
+    "y": 21759,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1144 TYPERECEPTACLE (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPERECEPTACLE",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 307,
+    "npcnum": 68,
+    "x": 8291,
+    "y": 22639,
+    "z": 0,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1458 EGGREAPPLY (class = quality + 0x47F). Hatch box +/-128x128 (npcNum 0x44); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGREAPPLY",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 204,
+    "npcnum": 0,
+    "x": 8291,
+    "y": 22639,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 204 \u2014 the destination every trigger with quality 460 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 66,
+    "frame": 0,
+    "quality": 299,
+    "npcnum": 0,
+    "x": 8576,
+    "y": 22528,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "the doorway plug the four-pillar puzzle removes: matched by the compiled filter at agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:190 (`type = TypeSealingBoulder` -> shape 66, within 2200 of). Route 11 in test_route_reach.py proves BOTH states \u2014 plugged with them, open without \u2014 so the pair is frozen at these exact coordinates.",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:190 (TypeSealingBoulder -> shape 66)",
+     "agents/map-populator/src/test_route_reach.py:59"
+    ]
+   },
+   {
+    "shape": 865,
+    "frame": 1,
+    "quality": 202,
+    "npcnum": 0,
+    "x": 8704,
+    "y": 20480,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "TypeReceptacle::use() destroys the pillar beside it: matched by the compiled filter at agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:154 (`type = TypeElementalColumn` -> shape 865, within 300 of).",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:154 (TypeElementalColumn -> shape 865)"
+    ]
+   },
+   {
+    "shape": 866,
+    "frame": 0,
+    "quality": 202,
+    "npcnum": 120,
+    "x": 8704,
+    "y": 20736,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1144 TYPERECEPTACLE (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPERECEPTACLE",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 865,
+    "frame": 3,
+    "quality": 204,
+    "npcnum": 0,
+    "x": 8704,
+    "y": 21504,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "TypeReceptacle::use() destroys the pillar beside it: matched by the compiled filter at agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:154 (`type = TypeElementalColumn` -> shape 865, within 300 of).",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:154 (TypeElementalColumn -> shape 865)"
+    ]
+   },
+   {
+    "shape": 866,
+    "frame": 0,
+    "quality": 204,
+    "npcnum": 120,
+    "x": 8704,
+    "y": 21760,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1144 TYPERECEPTACLE (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPERECEPTACLE",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 66,
+    "frame": 0,
+    "quality": 299,
+    "npcnum": 0,
+    "x": 8704,
+    "y": 22528,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "the doorway plug the four-pillar puzzle removes: matched by the compiled filter at agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:190 (`type = TypeSealingBoulder` -> shape 66, within 2200 of). Route 11 in test_route_reach.py proves BOTH states \u2014 plugged with them, open without \u2014 so the pair is frozen at these exact coordinates.",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:190 (TypeSealingBoulder -> shape 66)",
+     "agents/map-populator/src/test_route_reach.py:59"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 0,
+    "quality": 461,
+    "npcnum": 205,
+    "x": 8960,
+    "y": 23296,
+    "z": 1,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport TRIGGER 205 -> map 10. Hatch box +/-384x416 (npcNum 0xCD). Frozen: the quest spine walks through it.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 0,
+    "quality": 458,
+    "npcnum": 202,
+    "x": 9728,
+    "y": 1152,
+    "z": 1,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport TRIGGER 202 -> map 9. Hatch box +/-384x320 (npcNum 0xCA). Frozen: the quest spine walks through it.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 307,
+    "npcnum": 68,
+    "x": 9728,
+    "y": 1792,
+    "z": 0,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1458 EGGREAPPLY (class = quality + 0x47F). Hatch box +/-128x128 (npcNum 0x44); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGREAPPLY",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 203,
+    "npcnum": 0,
+    "x": 9728,
+    "y": 1792,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 203 \u2014 the destination every trigger with quality 459 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 596,
+    "frame": 3,
+    "quality": 104,
+    "npcnum": 0,
+    "x": 12799,
+    "y": 18943,
+    "z": 4,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "the four elemental talismans the receptacles consume. Picked up and then matched by agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:114 (`type = TypeTalisman` -> shape 596 within the Avatar's container) Placed at z=4 on purpose (docs/playtest-2026-09-06-step4-talismans.md); do not lower them.",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:114 (TypeTalisman -> shape 596)",
+     "docs/playtest-2026-09-06-step4-talismans.md"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 31,
+    "x": 13056,
+    "y": 14880,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 4 within 3584 units. Hatch box +/-32x480 (npcNum 0x1F).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13094,
+    "npcnum": 1,
+    "x": 13504,
+    "y": 14688,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 806, activity 1, when a MONEGG trigger of group 4 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13094,
+    "npcnum": 1,
+    "x": 13504,
+    "y": 15200,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 806, activity 1, when a MONEGG trigger of group 4 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13094,
+    "npcnum": 1,
+    "x": 13632,
+    "y": 14944,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 806, activity 1, when a MONEGG trigger of group 4 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13094,
+    "npcnum": 1,
+    "x": 13792,
+    "y": 14688,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 806, activity 1, when a MONEGG trigger of group 4 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13094,
+    "npcnum": 1,
+    "x": 13792,
+    "y": 15200,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 806, activity 1, when a MONEGG trigger of group 4 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12797,
+    "npcnum": 1,
+    "x": 16384,
+    "y": 2048,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 509, activity 1, when a MONEGG trigger of group 2 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 16384,
+    "y": 2592,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 2 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 596,
+    "frame": 1,
+    "quality": 102,
+    "npcnum": 0,
+    "x": 17152,
+    "y": 5120,
+    "z": 0,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "the four elemental talismans the receptacles consume. Picked up and then matched by agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:114 (`type = TypeTalisman` -> shape 596 within the Avatar's container) Placed at z=4 on purpose (docs/playtest-2026-09-06-step4-talismans.md); do not lower them.",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/COLPUZZL.UNK:114 (TypeTalisman -> shape 596)",
+     "docs/playtest-2026-09-06-step4-talismans.md"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12797,
+    "npcnum": 1,
+    "x": 17408,
+    "y": 2048,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 509, activity 1, when a MONEGG trigger of group 8 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 17408,
+    "y": 2592,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 8 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12797,
+    "npcnum": 1,
+    "x": 17792,
+    "y": 2816,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 509, activity 1, when a MONEGG trigger of group 9 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 85,
+    "x": 17792,
+    "y": 3360,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 9 within 3584 units. Hatch box +/-160x160 (npcNum 0x55).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   }
+  ],
+  "13": [
+   {
+    "shape": 508,
+    "frame": 0,
+    "quality": 462,
+    "npcnum": 206,
+    "x": 3328,
+    "y": 11520,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport TRIGGER 206 -> map 10. Hatch box +/-384x448 (npcNum 0xCE). Frozen: the quest spine walks through it.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 297,
+    "npcnum": 136,
+    "x": 4096,
+    "y": 11264,
+    "z": 0,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1448 EGGCLOUDCLIFFS (class = quality + 0x47F). Hatch box +/-256x256 (npcNum 0x88); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGCLOUDCLIFFS",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 207,
+    "npcnum": 0,
+    "x": 4096,
+    "y": 11776,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 207 \u2014 the destination every trigger with quality 463 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13161,
+    "npcnum": 1,
+    "x": 4287,
+    "y": 2175,
+    "z": 120,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 873, activity 1, when a MONEGG trigger of group 2 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 0,
+    "quality": 465,
+    "npcnum": 209,
+    "x": 4351,
+    "y": 2303,
+    "z": 120,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport TRIGGER 209 -> map 17. Hatch box +/-416x32 (npcNum 0xD1). Frozen: the quest spine walks through it.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 22,
+    "x": 4863,
+    "y": 1663,
+    "z": 120,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 2 within 3584 units. Hatch box +/-32x192 (npcNum 0x16).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 208,
+    "npcnum": 0,
+    "x": 5119,
+    "y": 2303,
+    "z": 120,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 208 \u2014 the destination every trigger with quality 464 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 98,
+    "x": 5119,
+    "y": 2687,
+    "z": 120,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 4 within 3584 units. Hatch box +/-192x64 (npcNum 0x62).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 98,
+    "x": 5119,
+    "y": 4479,
+    "z": 84,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 1 within 3584 units. Hatch box +/-192x64 (npcNum 0x62).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 98,
+    "x": 5119,
+    "y": 6143,
+    "z": 76,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 3 within 3584 units. Hatch box +/-192x64 (npcNum 0x62).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13161,
+    "npcnum": 1,
+    "x": 5183,
+    "y": 2175,
+    "z": 120,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 873, activity 1, when a MONEGG trigger of group 4 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13161,
+    "npcnum": 1,
+    "x": 5183,
+    "y": 3967,
+    "z": 96,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 873, activity 1, when a MONEGG trigger of group 1 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 13161,
+    "npcnum": 1,
+    "x": 5183,
+    "y": 5631,
+    "z": 76,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 873, activity 1, when a MONEGG trigger of group 3 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   }
+  ],
+  "17": [
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 280,
+    "npcnum": 0,
+    "x": -1,
+    "y": -1,
+    "z": -1,
+    "class": "deferred",
+    "kind": "egg",
+    "why": "NOT PLACED. Would dispatch class 1431 EGGCANDLETRICK. The candle trick. EGGCANDLETRICK (class 1431, quality 280) is compiled and unplaced, and no builder comment names a coordinate for it, so this row records only that it is deliberately absent: x/y/z are -1. CANTRK.UNK reads candle.getFrame() but nothing writes it, TypeMagicCandle resolves to shape 295 (a stone wall relief, SI_FIXED), and no base-game shape is unlit at frame 0 with a lit frame 1. Do not place shape-295 items to satisfy this.",
+    "reads": [
+     "agents/map-populator/src/build_map_17.py (blockers 2 and 3 of the deferred-MAGNET note)",
+     "shared/data/lv-usecode/LOST VALE/CANTRK.UNK"
+    ]
+   },
+   {
+    "shape": 864,
+    "frame": 0,
+    "quality": 80,
+    "npcnum": 0,
+    "x": 3328,
+    "y": 1536,
+    "z": 8,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "The Cloud City message scroll (QUALITY_MSG_SCROLL 80), custom art 864 since 2026-09-21 (art track item 4; it was the 158 stool). Nothing compiled finds it by type: MAGNET.UNK's two TypeMagicScroll foreach are 'within container Avatar' and EZREKAL.UNK filters TypeWeedz and TypeShields. Route 17 in test_route_reach.py floods to its coordinate, so the position is pinned by a test, and route_cite finds that line by grepping for the literal '3328, 1536,', so a move of one unit drops this row with no complaint. Its quality is live now that donor 159 makes the shape SF_QUALITY (item.cpp:2841), and class 864 (lv-new/MSGSCRL.UNK, pinned TYPEMESSAGESCROLL) dispatches its look() and use() off the shape number, so the shape may not be renumbered either.",
+    "reads": [
+     "agents/map-populator/src/test_route_reach.py:1243"
+    ]
+   },
+   {
+    "shape": 878,
+    "frame": 1,
+    "quality": 82,
+    "npcnum": 236,
+    "x": 3559,
+    "y": 3311,
+    "z": 0,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "the Sacred Shield halves the ceremony fuses. Picked up and then matched by agents/usecode-compiler/src/lv-patched/SHADES.UNK:171 (`type = TypeAOFrizbee` -> shape 878 within the Avatar's container)",
+    "reads": [
+     "agents/usecode-compiler/src/lv-patched/SHADES.UNK:171 (TypeAOFrizbee -> shape 878)",
+     "shared/build/lv_manifest.json classes.TYPEAOFRIZBEE",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 614,
+    "frame": 0,
+    "quality": 69,
+    "npcnum": 235,
+    "x": 3615,
+    "y": 4544,
+    "z": 16,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1259 TYPENSGOLDPLAQUE (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPENSGOLDPLAQUE",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 281,
+    "npcnum": 0,
+    "x": 4127,
+    "y": 7199,
+    "z": 0,
+    "class": "deferred",
+    "kind": "egg",
+    "why": "NOT PLACED. Would dispatch class 1432 EGGMAGNET. The MAGNET egg that used to sit on the obelisk (it carried quality 3, which dispatched the base game's BARENTRY). Removed 2026-07-26 and still deferred on four blockers listed in build_map_17.py: H1 process semantics, MAGNET.UNK's hard-coded pop target (15615,19839,120) which is nowhere near this obelisk, the six ritual candles, and the ankh arrangement. Coordinates are the obelisk's, where it would go.",
+    "reads": [
+     "agents/map-populator/src/build_map_17.py (the MAGNET note after OBELISK_FRONT_DRUM)",
+     "shared/data/lv-usecode/LOST VALE/MAGNET.UNK"
+    ]
+   },
+   {
+    "shape": 875,
+    "frame": 1,
+    "quality": 90,
+    "npcnum": 0,
+    "x": 4127,
+    "y": 7199,
+    "z": 0,
+    "class": "decorative",
+    "kind": "custom_art",
+    "why": "The magnetic obelisk's front drum. Since 2026-10-17 the obelisk is screen11's 1994 composite, retail pieces (12 f14-f17, cap 545, skull 814) on four banded white columns (875 f1), and custom art 861 is retired; the drum nearest the camera carries QUALITY_OBELISK where the vignette's pin_moves put the MAGNET egg. Its MAGNET egg is deliberately absent (build_map_17.py's MAGNET note), so nothing reads it today. The position is the shot's.",
+    "reads": [
+     "agents/map-populator/src/build_map_17.py:QUALITY_OBELISK"
+    ]
+   },
+   {
+    "shape": 614,
+    "frame": 0,
+    "quality": 55,
+    "npcnum": 235,
+    "x": 4127,
+    "y": 8256,
+    "z": 16,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1259 TYPENSGOLDPLAQUE (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPENSGOLDPLAQUE",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 614,
+    "frame": 0,
+    "quality": 68,
+    "npcnum": 235,
+    "x": 4127,
+    "y": 9600,
+    "z": 16,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1259 TYPENSGOLDPLAQUE (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPENSGOLDPLAQUE",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 878,
+    "frame": 0,
+    "quality": 81,
+    "npcnum": 236,
+    "x": 4259,
+    "y": 7199,
+    "z": 0,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "the Sacred Shield halves the ceremony fuses. Picked up and then matched by agents/usecode-compiler/src/lv-patched/SHADES.UNK:171 (`type = TypeAOFrizbee` -> shape 878 within the Avatar's container)",
+    "reads": [
+     "agents/usecode-compiler/src/lv-patched/SHADES.UNK:171 (TypeAOFrizbee -> shape 878)",
+     "shared/build/lv_manifest.json classes.TYPEAOFRIZBEE",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 307,
+    "npcnum": 68,
+    "x": 4608,
+    "y": 9984,
+    "z": 0,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1458 EGGREAPPLY (class = quality + 0x47F). Hatch box +/-128x128 (npcNum 0x44); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGREAPPLY",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 209,
+    "npcnum": 0,
+    "x": 4608,
+    "y": 9984,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 209 \u2014 the destination every trigger with quality 465 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 0,
+    "quality": 464,
+    "npcnum": 208,
+    "x": 4608,
+    "y": 11008,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport TRIGGER 208 -> map 13. Hatch box +/-416x0 (npcNum 0xD0). Frozen: the quest spine walks through it.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 614,
+    "frame": 0,
+    "quality": 70,
+    "npcnum": 235,
+    "x": 4671,
+    "y": 4544,
+    "z": 16,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1259 TYPENSGOLDPLAQUE (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPENSGOLDPLAQUE",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   }
+  ],
+  "18": [
+   {
+    "shape": 331,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 228,
+    "x": 2496,
+    "y": 8448,
+    "z": 0,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "npcNum dispatch: class = npcNum + 1024 = 1252 TYPEMONSKUL (the engine patch in Item::callUsecodeEvent).",
+    "reads": [
+     "shared/build/lv_manifest.json classes.TYPEMONSKUL",
+     "agents/map-populator/src/lv_shapes.py NPCNUM_BANDS"
+    ]
+   },
+   {
+    "shape": 860,
+    "frame": 0,
+    "quality": 301,
+    "npcnum": 0,
+    "x": 2783,
+    "y": 8031,
+    "z": 16,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "the temple-entry scene wakes the three gods: matched by the compiled filter at agents/usecode-compiler/src/lv-new/TEMPLENT.UNK:58 (`type = TypeZealanGod` -> shape 860, within 2400 of).",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/TEMPLENT.UNK:58 (TypeZealanGod -> shape 860)"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 306,
+    "npcnum": 102,
+    "x": 2864,
+    "y": 6048,
+    "z": 0,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1457 EGGCRACKHINT (class = quality + 0x47F). Hatch box +/-192x192 (npcNum 0x66); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGCRACKHINT",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 305,
+    "npcnum": 132,
+    "x": 2864,
+    "y": 6240,
+    "z": 0,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1456 EGGTEMPLEENTRY (class = quality + 0x47F). Hatch box +/-256x128 (npcNum 0x84); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGTEMPLEENTRY",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 860,
+    "frame": 1,
+    "quality": 302,
+    "npcnum": 0,
+    "x": 3039,
+    "y": 7903,
+    "z": 16,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "the temple-entry scene wakes the three gods: matched by the compiled filter at agents/usecode-compiler/src/lv-new/TEMPLENT.UNK:58 (`type = TypeZealanGod` -> shape 860, within 2400 of).",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/TEMPLENT.UNK:58 (TypeZealanGod -> shape 860)"
+    ]
+   },
+   {
+    "shape": 860,
+    "frame": 2,
+    "quality": 303,
+    "npcnum": 0,
+    "x": 3039,
+    "y": 8415,
+    "z": 16,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "the Sacred Shield ceremony animates the three gods: matched by the compiled filter at agents/usecode-compiler/src/lv-new/AOSCENE.UNK:191 (`type = TypeZealanGod` -> shape 860, frame 2, within 2000 of).",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/AOSCENE.UNK:191 (TypeZealanGod -> shape 860)",
+     "agents/usecode-compiler/src/lv-new/TEMPLENT.UNK:58 (TypeZealanGod -> shape 860)"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 0,
+    "quality": 466,
+    "npcnum": 210,
+    "x": 3072,
+    "y": 1408,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport TRIGGER 210 -> map 10. Hatch box +/-416x64 (npcNum 0xD2). Frozen: the quest spine walks through it.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 508,
+    "frame": 1,
+    "quality": 211,
+    "npcnum": 0,
+    "x": 3072,
+    "y": 1792,
+    "z": 0,
+    "class": "active",
+    "kind": "teleport",
+    "why": "Teleport ARRIVAL PAD 211 \u2014 the destination every trigger with quality 467 lands on. Frozen: moving it moves the player's arrival point.",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.teleporter / MapItem.teleport_target (frame 0 = trigger, quality = 256 + id, mapNum = destination map; frame 1 = arrival pad, quality = id)",
+     "agents/map-populator/src/build_all_maps.py verify_teleport_pairs"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 2,
+    "quality": 2,
+    "npcnum": 130,
+    "x": 3072,
+    "y": 2752,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_trigger",
+    "why": "MONEGG trigger (UnkEgg q2 -> retail class 1153): hatches monster-egg group 1 within 3584 units. Hatch box +/-256x64 (npcNum 0x82).",
+    "reads": [
+     "agents/map-populator/src/lv_monster_eggs.py",
+     "agents/map-populator/src/test_monster_eggs.py"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 306,
+    "npcnum": 136,
+    "x": 3072,
+    "y": 4800,
+    "z": 0,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1457 EGGCRACKHINT (class = quality + 0x47F). Hatch box +/-256x256 (npcNum 0x88); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGCRACKHINT",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 296,
+    "npcnum": 102,
+    "x": 3072,
+    "y": 8320,
+    "z": 0,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1447 EGGAOCEREMONY (class = quality + 0x47F). Hatch box +/-192x192 (npcNum 0x66); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGAOCEREMONY",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 550,
+    "frame": 0,
+    "quality": 310,
+    "npcnum": 0,
+    "x": 3127,
+    "y": 8175,
+    "z": 0,
+    "class": "decorative",
+    "kind": "placeholder",
+    "why": "The Inner Sanctum altar. No TypeX resolves to shape 550 and no egg or npcnum dispatches it; quality 310 is map-side bookkeeping kept for a future wiring.",
+    "reads": [
+     "agents/map-populator/src/build_map_18.py:QUALITY_ALTAR"
+    ]
+   },
+   {
+    "shape": 114,
+    "frame": 0,
+    "quality": 180,
+    "npcnum": 0,
+    "x": 3136,
+    "y": 640,
+    "z": 0,
+    "class": "active",
+    "kind": "quest_item",
+    "why": "Temple gate, lock id 180 (build_map_10.py / build_map_18.py `quality=180  # temple gate`). Engine-side lock, on the quest spine to the Ancient Temple.",
+    "reads": [
+     "agents/map-populator/src/build_map_10.py CLIFF_KEY_ID / build_map_10.py HRODNY_KEY_ID / build_map_08.py DOOR_LOCK_ID"
+    ]
+   },
+   {
+    "shape": 500,
+    "frame": 1,
+    "quality": 12502,
+    "npcnum": 1,
+    "x": 4352,
+    "y": 3584,
+    "z": 0,
+    "class": "active",
+    "kind": "monster_egg",
+    "why": "Monster egg: spawns actor shape 214, activity 1, when a MONEGG trigger of group 1 hatches it (prob 6/31, count 1: neither is read).",
+    "reads": [
+     "agents/map-populator/src/u8_map.py MapItem.monster_egg (quality = (prob << 11) | monster_shape)"
+    ]
+   }
+  ],
+  "39": [
+   {
+    "shape": 73,
+    "frame": 0,
+    "quality": 304,
+    "npcnum": 68,
+    "x": 17150,
+    "y": 19700,
+    "z": 48,
+    "class": "active",
+    "kind": "egg",
+    "why": "UnkEgg -> class 1455 EGGLBSCENE (class = quality + 0x47F). Hatch box +/-128x128 (npcNum 0x44); npcNum 0 would mean zero range and the egg could never be walked into.",
+    "reads": [
+     "shared/build/lv_manifest.json classes.EGGLBSCENE",
+     "agents/map-populator/src/map_walkability.py run_event_eggs"
+    ]
+   },
+   {
+    "shape": 411,
+    "frame": 0,
+    "quality": 0,
+    "npcnum": 0,
+    "x": 17150,
+    "y": 19850,
+    "z": 48,
+    "class": "active",
+    "kind": "typed_item",
+    "why": "the quest step 1 apparition the egg animates: matched by the compiled filter at agents/usecode-compiler/src/lv-new/LBSCENE.UNK:36 (`type = TypeLordBritish` -> shape 411, within 256 of).",
+    "reads": [
+     "agents/usecode-compiler/src/lv-new/LBSCENE.UNK:36 (TypeLordBritish -> shape 411)"
+    ]
+   }
+  ]
+ }
+}

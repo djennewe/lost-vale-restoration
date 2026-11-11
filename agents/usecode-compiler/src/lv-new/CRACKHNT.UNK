@@ -1,0 +1,151 @@
+// Crack Hint — the "far too narrow" bark at the sanctum wall (DD-005)
+//
+// The Tiny Tar crack is a 32-unit gap in a stone wall. It is a fair puzzle
+// only if the player can SEE that it is a way through and that they are too
+// big for it; 32 units is about a third of a floor tile and easy to read as
+// masonry damage rather than a door. Hrodny deliberately cannot help — she
+// says the potions are "For the moment of miracles, they are, or so told, I
+// was", i.e. she does not know what they do — so the connection has to be
+// made at the wall, which is where the player is standing when it matters.
+//
+// This is a SEPARATE class from EggTempleEntry, and it has to be. In U8 an
+// egg hatches at most once per fast-area load: Egg::hatch() early-returns on
+// _hatched, and Egg::unhatch() is a Crusader-only no-op, so nothing clears it
+// while the player stays put. One egg spanning both sides of the wall would
+// therefore fire the hint at full size and then be spent — never setting
+// templeOpen when the player came back through shrunken.
+//
+// Placed on the HALL side of the wall; EggTempleEntry (1456) sits on the
+// sanctum side. Once the player is through, templeOpen silences this, and
+// the class's only job from then on is to reopen the breach (below).
+//
+// FINDABILITY (2026-10-03). The bark names the gap as narrow but not
+// where along 2,048 units of wall to look. build_map_18.py's rubble on the
+// sanctum side (build_breach_rubble) shows over the wall from y 5620 on the
+// hall approach and is the ground-level cue; the second bark
+// points at it. (A grit plate on the hall floor was tried and removed: the
+// wall hid it from the camera.)
+//
+// WHERE (2026-10-08, TODO "Lining up on the crack is fiddly", option C).
+// Even found, the gap was hard to enter: the shrunken body (32 wide) has
+// to stand with its x in 2848..2879, a 32-unit strip, and a walk step is
+// 76-96 units. The strip starts at the east end of the shape-47 stub
+// (box x 2753..2816), the 64-wide block build_map_18.py stands in the
+// wall just west of the gap: it draws as a column of pale dressed stone
+// against the rough glob wall, the only one on that line, and is in view
+// from the hall approach with the rubble
+// (docs/playtest-2026-10-01-breach-rubble/C1-*-zoom.png). So the hint
+// names it: the crack lies hard against its east side. That sentence is
+// spoken with the observation, and again on every hatch while the player
+// carries Hrodny's potions, because that is when lining up matters.
+//
+// ONCE ONLY (2026-10-03). makeAvatarBig()'s teleport round trip resets
+// every egg's _hatched in range, so with templeOpen still clear this egg
+// re-hatched at the Tiny Tar regrow and barked again
+// (docs/reviews/2026-09-30-four-anomalies.md finding 3). crackHintGiven
+// records that the hint has been spoken.
+
+uses "egg";
+uses "flags";
+uses "item";
+
+globalflag templeOpen;
+globalflag crackHintGiven;
+
+eggclass EggCrackHint inherits Egg
+{
+	process hatch();
+}
+
+process EggCrackHint::hatch()
+{
+	item : Item;
+	carrying : Number;
+	firstTime : Number;
+
+	// THE BREACH, RE-APPLIED (2026-09-26). Once the temple is open the
+	// crack is a full-size doorway: EggTempleEntry destroys the six wall
+	// records build_map_18 tags BREACH_QUALITY (307). Map 18's fixed items
+	// are re-read from FIXED.DAT on every map switch, so the wall is whole
+	// again each time the player comes back, and this class is what the
+	// player crosses on the way in. Two eggs carry it: this one by the
+	// wall, and a second at the hall's north doorway (y 4800) that reopens
+	// the breach before it comes into view.
+	//
+	// getQ, not getQuality: walls are family 0, and I_getQuality answers
+	// 0 for any non-SF_QUALITY family (COLPUZZL:180). Two loops, one per
+	// shape; destroying inside a foreach is COLPUZZL's idiom too.
+	if templeOpen
+	{
+		foreach item where type = TypeTempleWallPiece within 2000 of referent
+		{
+			if item.getQ() = 307
+			{
+				item.destroy();
+			}
+		}
+		foreach item where type = TypeTempleWallStub within 2000 of referent
+		{
+			if item.getQ() = 307
+			{
+				item.destroy();
+			}
+		}
+		return;
+	}
+
+	// The doorway egg is the breach re-opener only; the hint belongs to
+	// the egg at the wall.
+	if getY() < 5500
+	{
+		return;
+	}
+
+	// Once only: a re-hatch (the regrow) must not repeat the observation.
+	// The guard covers these three barks alone, so a player who first came
+	// here empty-handed still gets the potion nudge below on a later visit
+	// with Hrodny's potions in the pack.
+	firstTime = 0;
+	if crackHintGiven = false
+	{
+		crackHintGiven = true;
+		firstTime = 1;
+
+		// Three short barks, one per sentence: each stays well inside the
+		// 194x55 box (five lines), so no page can end on a dangling word.
+		Avatar.bark("The stone here is split from top to bottom, and there
+				is open air beyond it.");
+		Avatar.bark("Grit has sifted down from the crack and lies heaped on
+				the flags below it.");
+		Avatar.bark("But the gap is no wider than my hand.");
+	}
+
+	// A stronger nudge only for a player who is actually carrying the
+	// answer. Anyone who has not yet prised open Hrodny's chest just gets
+	// the observation above, and no spoiler.
+
+	// Once per hatch, however many she gave him: barking inside the loop
+	// played the line once per potion, three times running with Hrodny's
+	// three (docs/playtest-2026-10-03-batch-merge.md, finding 7).
+	carrying = 0;
+	foreach recursive item where (type = TypePotion) and (frame = 8)
+	within container Avatar
+	{
+		carrying = 1;
+	}
+
+	// Where to stand (see WHERE above): with the observation, and on any
+	// hatch while the potions are carried. It names the crack rather than
+	// "it" because the potion-carrier hears it without the observation.
+	if firstTime or carrying
+	{
+		Avatar.bark("The crack lies hard against the east side of the pale
+				block set into the wall.");
+	}
+
+	if carrying
+	{
+		Avatar.bark("Hrodny's dark potions are in my pack. For the moment of
+				miracles, she said they were. I wonder.");
+	}
+}

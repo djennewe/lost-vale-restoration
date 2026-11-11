@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "class": "cave",
+  "sample_step": 256,
+  "inherited_black": [],
+  "occlusion_allow": [
+    {
+      "box": [
+        2624,
+        5983,
+        3007,
+        6143
+      ],
+      "reason": "Crack pier remains drawn and keyed, Douglas D11, 3 November 2026"
+    }
+  ],
+  "frame_allow": [],
+  "pins": {
+    "walkable_black_specified": 0,
+    "walkable_black_prop": 0,
+    "leg_cells_below_half": 13,
+    "cells_below_half_share": 0.09032258064516129,
+    "cells_hidden_share": 0.0064516129032258064,
+    "median_min_visible": 1.0,
+    "frame_black_mean": 0.09291225961538462,
+    "frame_black_p95": 0.26849023437499997,
+    "frame_black_max": 0.30276171875,
+    "records": 1870,
+    "expanded_records": 2864
+  },
+  "report_step128": {
+    "walkable_black_specified": 0,
+    "walkable_black_prop": 0,
+    "leg_cells_below_half": 13,
+    "cells_below_half_share": 0.06223479490806223,
+    "cells_hidden_share": 0.004243281471004243,
+    "median_min_visible": 1.0,
+    "frame_black_mean": 0.14933431311881187,
+    "frame_black_p95": 0.4204398437499996,
+    "frame_black_max": 0.56106640625,
+    "records": 1870,
+    "expanded_records": 2864
+  },
+  "frame_step": 512,
+  "report_artifact_hashes": {
+    "TYPEFLAG.DAT": "999bc6afa6dae596a1e0062ab1fb1c882489366eadc2e9afe77432692400667a",
+    "U8SHAPES.FLX": "99ac982244eae904a61e4ff688a721a4bb86ec458dca7614661f3d2dd95529d5",
+    "ANIM.DAT": "97ae5fc9ddaa6ef515427103264a3095a6d42776ac51e530954fb4846b4d0443",
+    "EUSECODE.FLX": "b47c324cdad77646c27755acfdd5bca53a9d92e16268db229f18e7dd780d4205",
+    "FIXED.DAT": "54ce08d74d5eb519aa69b8b2e69252dca069ea80deaa2301b5c7713ae3118127",
+    "GLOB.FLX": "da2dec98858fc5b15208217fb897defb91f2cf194e7e17dff2704cd4f62f4f9f"
+  }
+}

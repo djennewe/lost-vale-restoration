@@ -1,0 +1,45 @@
+// The Shield of the Ancients, restored: look() for shape 879.
+//
+// WHY THIS CLASS IS PINNED TO 879 AND CANNOT MOVE. The engine picks the
+// usecode class for an item's events from its SHAPE NUMBER:
+//
+//     uint32 class_id = _shape;          // item.cpp:1516
+//
+// so shape 879's look() lands in class 879 and nowhere else, the way the
+// elixir's lands in 868 (ELIXIR.UNK). `lv_manifest.json` pins
+// TYPESACREDSHIELD to 879 for that reason.
+//
+// THE ITEM. Ezrekal's ceremony reforges the two halves into it
+// (lv-patched/SHADES.UNK change 6, create(TypeSacredShield, 0) and
+// setQ(83)), and the temple altar takes it and lays it on its top face
+// (lv-new/AOSCENE.UNK). TypeSacredShield is 879 in u8c_symbols
+// TYPE_SHAPES, lv_shapes.SHAPE_SACRED_SHIELD_1994: the 1994 art, retail
+// 828's disc with the 1994 emblems, on 828's TYPEFLAG row (footpad 1x3x3,
+// carryable, SF_GENERIC). Since 2026-10-17; from 2026-10-08 it was 828 at
+// quality 83, named by lv-new/AORTA.UNK, which replaces retail class 828
+// and stays for saves made before that day that still carry it (the
+// altar accepts that legacy Shield too). Three things set
+// the shape: screen04 shows it on the sanctum altar; EZREKAL's forgery
+// speech says Pagan's 828 is "the same shape it is and the wrong symbols
+// it has" (EZREKAL.UNK:1535); and the Map 17 halves are already the 1994
+// art 878 (sun + eye), which reassemble 879.
+//
+// WHY NOT THE TypeAOFrizbee CLASS. ZEALSHLD.UNK's look() has the 1994 text
+// for the restored shield on its frame-2 branch (:15-17), but that class
+// (1260) is reached only through npcnum 236, which the Map 17 halves carry
+// and a create()d item does not (U8 has no setNpcNum intrinsic).
+//
+// The text is ZEALSHLD.UNK:17's, the 1994 name, kept as written
+// ("Ancients Ones" included).
+
+uses "item";
+
+typeclass TypeSacredShield inherits Item
+{
+	process look();
+}
+
+process TypeSacredShield::look()
+{
+	bark("Ceremonial Shield of the Ancients Ones");
+}

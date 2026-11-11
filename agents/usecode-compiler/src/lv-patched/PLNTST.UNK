@@ -1,0 +1,213 @@
+// PLNTST.UNK  — lv-patched tier (quest step 8, the Passage Test)
+// ============================================================================
+// PATCH (2026-07-05): merge the Passage Test SCENE into the egg hatch.
+//
+// The recovered 1994 sources split the Rite of Passage across two classes:
+//   - EggPlantTest::hatch()  (PLNTST.UNK)  — the map-wired trigger: it finds
+//       the Passage stone (TypeBushKey) in the Avatar's pack, consumes it,
+//       and blows away the nearby TypeShortmushroom. It does NOTHING else.
+//   - TypePoisonPlant::use() (TESTPLAN.UNK) — the ACTUAL scene: teleport the
+//       Avatar to the SW test grounds (13055,30079,64), teleport Atli/Thordis
+//       in, pop five whirlwind+plant pairs, grant the Zealan Mark, and poison
+//       the Avatar (haveMark / avatarPoisoned / firstPoisoned).
+//
+// In the restoration the map places the Test Plant as a plain TypeShortmushroom
+// and the trigger is the EGG (quality 283 = EggPlantTest 1434 - 0x47F), NOT a
+// double-clickable TypePoisonPlant. So the stock hatch would consume the stone
+// and clear a plant, and the Passage Test would never fire. This patch makes
+// EggPlantTest::hatch() run the full TESTPLAN scene at its hard 1994
+// coordinates — the ones build_map_10.build_test_grounds() now paves with a
+// z=64 plateau reachable on foot (previously void).
+//
+// Deviations from a byte-faithful TESTPLAN copy, and why:
+//   - the poison flags (avatarPoisoned/firstPoisoned) are set DIRECTLY here,
+//     not inside a spawned poisonAvatar() process. The compiler drops
+//     startup{}/process{} blocks (u8c_codegen emits only func_def.body), so a
+//     spawned poison process would set nothing at all — TESTPLAN's flags never
+//     actually latched. Setting them inline is what the quest state reads.
+//   - the ongoing poison DAMAGE ticks (receiveHit every 10000) and the cure
+//     (Ezrekal) are deliberately NOT wired here — separate workstream.
+//   - the createNear(WorldPoint,...) mark fallback is dropped; give() alone
+//     grants the Mark, and haveMark is the flag the quest checks.
+//   - the per-pop `spawn safePlaySFX(MAGIC1,...)` audio cues are dropped:
+//     they are purely cosmetic, and the headless simulator (test_uc_plntst.py)
+//     cannot execute the FREE-provider safePlaySFX body — so omitting them
+//     keeps the scene proof clean. The visual whirlwind frame animation is
+//     kept; only the sound cue is gone.
+//   - `if haveMark = true return;` at the hatch head (2026-10-11). The egg
+//     is a fixed record with no latch, so any Passage stone carried in
+//     after the Test ran it again: a second teleport, five more plants,
+//     and the Avatar poisoned again after the ceremony's cure. The island
+//     stone is a fixed record and respawns on every entry to Map 10
+//     (docs/playtest-2026-10-11-static-art.md finding 2;
+//     test_uc_reentry.py R10). haveMark is set only by the Test (here, or
+//     TESTPLAN's 1994 copy, which no placed item reaches) and is never
+//     cleared. A stone carried in afterwards stays in the pack.
+// ============================================================================
+
+uses "egg";
+uses "free";
+uses "flags";
+uses "npc";
+uses "snddefs";
+
+
+eggclass EggPlantTest inherits Egg
+{
+	process hatch();
+}
+
+process EggPlantTest::hatch()
+{
+	hasKey:Number = 0;
+	item:Item;
+	plant,wind:Item;
+	counter:Number;
+
+	if haveMark = true	// the Test has run; see the header
+	{
+		return;
+	}
+
+	// --- Consume the Passage stone (TypeBushKey, frame 0) from the pack ---
+	foreach recursive item where (type = TypeBushKey) and (frame = 0)
+	within container Avatar
+	{
+		hasKey = true;
+		item.destroy();
+	}
+
+	if (hasKey = true)
+	{
+		setAvatarInStasis(true);
+
+		// Clear the approach plant the Avatar walked up to (it "bursts" as
+		// the vision takes hold).
+		foreach plant where (type = TypeShortmushroom) and (frame = 0)
+		within 100 cells of referent
+		{
+			plant.destroy();
+		}
+
+		// --- The vision: fall, black out, wake in the SW test grounds ---
+		Avatar.realDoAnim(AS_FALL_DOWN,0);
+		FadeToBlack();
+		Avatar.teleport(13055,30079,64,Avatar.getMap());
+		plantScene = true;
+		if thordisToldTest = true
+		{
+			killProcess(Atli:Referent,PT_ACTIVITY);
+			Atli.teleport(12927,29823,64,Avatar.getMap());
+			Atli.turnToFace(Atli.getDirToItem(Avatar:Referent),false,10);
+		}
+		else
+		{
+			killProcess(Thordis:Referent,PT_ACTIVITY);
+			Thordis.teleport(12927,29823,64,Avatar.getMap());
+			Thordis.turnToFace(Thordis.getDirToItem(Avatar:Referent),false,10);
+		}
+		FadeFromBlack();
+
+		// --- Five whirlwind + plant pops across the grounds ---
+		wind.create(TypeMiniAirTitan,0);
+		wind.pop(12777,29801,64);
+		for counter = 0 to 9
+		{
+			wind.setFrame(counter);
+			wait(10);
+		}
+		plant.create(TypeShortmushroom,0);
+		plant.pop(12767,29791,64);
+		for counter = 25 to 34
+		{
+			wind.setFrame(counter);
+			wait(10);
+		}
+		wind.destroy();
+
+		wind.create(TypeMiniAirTitan,0);
+		wind.pop(12873,29737,64);
+		for counter = 0 to 9
+		{
+			wind.setFrame(counter);
+			wait(10);
+		}
+		plant.create(TypeShortmushroom,0);
+		plant.pop(12863,29727,64);
+		for counter = 25 to 34
+		{
+			wind.setFrame(counter);
+			wait(10);
+		}
+		wind.destroy();
+
+		wind.create(TypeMiniAirTitan,0);
+		wind.pop(12745,29673,64);
+		for counter = 0 to 9
+		{
+			wind.setFrame(counter);
+			wait(10);
+		}
+		plant.create(TypeShortmushroom,0);
+		plant.pop(12735,29663,64);
+		for counter = 25 to 34
+		{
+			wind.setFrame(counter);
+			wait(10);
+		}
+		wind.destroy();
+
+		wind.create(TypeMiniAirTitan,0);
+		wind.pop(12649,29705,64);
+		for counter = 0 to 9
+		{
+			wind.setFrame(counter);
+			wait(10);
+		}
+		plant.create(TypeShortmushroom,0);
+		plant.pop(12639,29695,64);
+		for counter = 25 to 34
+		{
+			wind.setFrame(counter);
+			wait(10);
+		}
+		wind.destroy();
+
+		wind.create(TypeMiniAirTitan,0);
+		wind.pop(12777,29577,64);
+		for counter = 0 to 9
+		{
+			wind.setFrame(counter);
+			wait(10);
+		}
+		plant.create(TypeShortmushroom,0);
+		plant.pop(12767,29567,64);
+		for counter = 25 to 34
+		{
+			wind.setFrame(counter);
+			wait(10);
+		}
+		wind.destroy();
+
+		// --- Grant the Zealan Mark; mark + poison the Avatar ---
+		// give() is a `free` routine: in the headless sim it returns 0
+		// (push-0), so the Mark ITEM is not created there, but haveMark is
+		// the flag the quest reads. See the header for the poison-flag note.
+		if give(Avatar:Referent,TypeZealMark,0,0,1)
+		{
+		}
+
+		haveMark = true;
+		// RE-ENABLED 2026-07-27 with the EGGSHADES wiring. Decision A
+		// (orphan triage, 2026-07-26) disabled this line while the cure —
+		// SHADES.UNK:429, the only avatarPoisoned clear in the corpus —
+		// sat behind an unplaced trigger. The EggShades egg is now placed
+		// (Map 10 Sacred Circle, quality 294, lv-patched/SHADES.UNK), so
+		// the poison arc is whole again: poisoned at the Passage Test,
+		// cured at the shield-restoration ceremony.
+		avatarPoisoned = true;
+		firstPoisoned = true;
+
+		setAvatarInStasis(false);
+	}
+}

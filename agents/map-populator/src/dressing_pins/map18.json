@@ -1,0 +1,324 @@
+{
+  "regions": {
+    "exterior": {
+      "kind": "temple",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          12.109375
+        ],
+        "ground.seam_density": [
+          "min",
+          0.06666666666666667
+        ],
+        "props.small_per_100": [
+          "min",
+          11.71875
+        ],
+        "props.dressed_share": [
+          "min",
+          0.67578125
+        ],
+        "props.grouped_share": [
+          "min",
+          0.4
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "props.stride_share": [
+          "max",
+          0.6666666666666666
+        ],
+        "ground.top1": [
+          "max",
+          0.75
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.375
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.0625
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.12276785714285715
+        ],
+        "records.raw": [
+          "max",
+          120
+        ]
+      }
+    },
+    "outer hall": {
+      "kind": "temple",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          10.416666666666666
+        ],
+        "ground.seam_density": [
+          "min",
+          0.08791208791208792
+        ],
+        "props.small_per_100": [
+          "min",
+          10.416666666666666
+        ],
+        "props.dressed_share": [
+          "min",
+          0.6067708333333334
+        ],
+        "props.grouped_share": [
+          "min",
+          0.425
+        ],
+        "props.bare_share": [
+          "max",
+          0.013020833333333334
+        ],
+        "props.stride_share": [
+          "max",
+          0.7142857142857143
+        ],
+        "ground.top1": [
+          "max",
+          0.625
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.625
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.041666666666666664
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.08003717117804038
+        ],
+        "records.raw": [
+          "max",
+          127
+        ]
+      }
+    },
+    "transition hall": {
+      "kind": "temple",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          15.104166666666666
+        ],
+        "ground.seam_density": [
+          "min",
+          0.0898876404494382
+        ],
+        "props.small_per_100": [
+          "min",
+          15.104166666666666
+        ],
+        "props.dressed_share": [
+          "min",
+          0.859375
+        ],
+        "props.grouped_share": [
+          "min",
+          0.5172413793103449
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "props.stride_share": [
+          "max",
+          0.6666666666666666
+        ],
+        "ground.top1": [
+          "max",
+          0.625
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.625
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.08333333333333333
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.11666666666666664
+        ],
+        "records.raw": [
+          "max",
+          162
+        ]
+      }
+    },
+    "sanctum": {
+      "kind": "cave",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          6.474820143884892
+        ],
+        "ground.seam_density": [
+          "min",
+          0.14901960784313725
+        ],
+        "props.small_per_100": [
+          "min",
+          6.115107913669065
+        ],
+        "props.dressed_share": [
+          "min",
+          0.6007194244604317
+        ],
+        "props.grouped_share": [
+          "min",
+          0.7647058823529411
+        ],
+        "props.bare_share": [
+          "max",
+          0.007194244604316547
+        ],
+        "ground.top1": [
+          "max",
+          0.6366906474820144
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.579136690647482
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.1111111111111111
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.12462846478191747
+        ],
+        "records.raw": [
+          "max",
+          848
+        ]
+      }
+    }
+  },
+  "whole": {
+    "props.props_per_100": [
+      "min",
+      10.32370953630796
+    ],
+    "ground.seam_density": [
+      "min",
+      0.11467889908256881
+    ],
+    "props.small_per_100": [
+      "min",
+      10.148731408573928
+    ],
+    "props.dressed_share": [
+      "min",
+      0.6806649168853893
+    ],
+    "props.grouped_share": [
+      "min",
+      0.49137931034482757
+    ],
+    "props.bare_share": [
+      "max",
+      0.006124234470691163
+    ],
+    "props.stride_share": [
+      "max",
+      0.6404494382022472
+    ],
+    "ground.top1": [
+      "max",
+      0.37095363079615046
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.3569553805774278
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.01639344262295082
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.09680021891749074
+    ],
+    "records.raw": [
+      "max",
+      1870
+    ]
+  },
+  "budget": {
+    "props.props_per_100": [
+      "min",
+      10.32370953630796
+    ],
+    "ground.seam_density": [
+      "min",
+      0.11467889908256881
+    ],
+    "props.small_per_100": [
+      "min",
+      10.148731408573928
+    ],
+    "props.dressed_share": [
+      "min",
+      0.6806649168853893
+    ],
+    "props.grouped_share": [
+      "min",
+      0.49137931034482757
+    ],
+    "props.bare_share": [
+      "max",
+      0.006124234470691163
+    ],
+    "props.stride_share": [
+      "max",
+      0.6404494382022472
+    ],
+    "ground.top1": [
+      "max",
+      0.37095363079615046
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.3569553805774278
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.01639344262295082
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.09680021891749074
+    ],
+    "records.raw": [
+      "max",
+      1870
+    ]
+  },
+  "map": 18,
+  "artifact_hashes": {
+    "TYPEFLAG.DAT": "999bc6afa6dae596a1e0062ab1fb1c882489366eadc2e9afe77432692400667a",
+    "U8SHAPES.FLX": "99ac982244eae904a61e4ff688a721a4bb86ec458dca7614661f3d2dd95529d5",
+    "ANIM.DAT": "97ae5fc9ddaa6ef515427103264a3095a6d42776ac51e530954fb4846b4d0443",
+    "EUSECODE.FLX": "b47c324cdad77646c27755acfdd5bca53a9d92e16268db229f18e7dd780d4205",
+    "FIXED.DAT": "54ce08d74d5eb519aa69b8b2e69252dca069ea80deaa2301b5c7713ae3118127",
+    "GLOB.FLX": "da2dec98858fc5b15208217fb897defb91f2cf194e7e17dff2704cd4f62f4f9f"
+  },
+  "allowances": [],
+  "target_failures": [],
+  "expanded_per_ground_cell": 2.505686789151356
+}

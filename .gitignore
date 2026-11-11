@@ -1,0 +1,73 @@
+.DS_Store
+*.pkg
+
+# Extracted binary data (too large for git, regenerable from gog/)
+shared/data/u8-pkg-expanded/
+shared/data/u8-install/
+shared/data/extracted/
+shared/data/lv-usecode/
+shared/data/USECODE.FLX
+shared/data/lv-usecode.zip
+shared/data/discord/
+MT32_*.ROM
+__pycache__/
+*.pyc
+
+# Large game binaries (not suitable for git)
+gog/
+scummvm-lv/
+# Second ScummVM tree: the --enable-text-console build, whose debugger
+# reads stdin. Same rationale as scummvm-lv/ above (large, regenerable,
+# and it carries its own .git, so an unignored path commits a gitlink).
+scummvm-lv-console/
+shared/u8-lv-patched/
+
+# Claude Code worktrees (embedded git repos, not tracked)
+.claude/worktrees/
+
+# Claude Code per-machine state. .claude/projects/ is keyed by absolute path,
+# so a committed copy is dead weight on every other machine — one was tracked
+# from 2026-05-20 to 2026-08-11 under a macOS path key that never matched
+# again. Shared config (commands/, rules/, skills/) IS tracked; this is not.
+.claude/projects/
+CLAUDE.local.md
+
+# The six MERGED game-data artifacts (M22, PLAN 4.3). Each is our work
+# fused with Origin-copyrighted bytes we have no right to redistribute, so
+# the repo must never carry them — rebuild from your own install with
+# tools/build_artifacts.sh, which verifies against the tracked, byte-free
+# shared/build/ARTIFACTS.sha256. (These were tracked until 2026-07-25; the
+# history purge that removes them from past commits is planned in
+# docs/history-purge-plan.md and must run before any visibility change.)
+# ANIM.DAT joined them 2026-10-08 (the Tiny Tar body, shape 867) and was
+# never tracked.
+shared/build/ANIM.DAT
+shared/build/EUSECODE.FLX
+shared/build/GLOB.FLX
+shared/build/FIXED.DAT
+shared/build/TYPEFLAG.DAT
+shared/build/U8SHAPES.FLX
+
+# Same rationale, found during the M22 audit and missed by the review's
+# inventory: a March-era prototype archive that is the base game's 42 maps
+# plus one 122-item test map. No code reads it — only the map-builder
+# devlogs mention it — and it is superseded by the real build.
+shared/maps/FIXED_TEST.DAT
+
+# Preview / scratch render output (regenerable, large)
+shared/build/overlay/
+shared/build/map_manifest.json
+shared/build/map_previews/
+shared/build/village_previews/
+shared/build/shape_viewer.html
+shared/build/previews/
+# Build byproducts of the staged-write gates (P2 for EUSECODE.FLX, L12 for
+# FIXED.DAT): a build writes <artifact>.staging, verifies it, then promotes
+# it. A REJECTED build is quarantined as <artifact>.failed for inspection.
+# MapArchive.save() also uses a unique <name>.<random>.staging temp file for
+# write atomicity. None of these should ever be committed — .failed in
+# particular is a known-corrupt artifact.
+shared/build/*.staging
+shared/build/*.failed
+map_*.png
+lv_run.log

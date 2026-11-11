@@ -1,0 +1,1437 @@
+{
+ "shot": "screen12",
+ "map": 17,
+ "origin_note": "Phase C z=0 encoding (2026-10-17, as screen11; phaseC-art.md section 3, phaseC/map17/REPORT.md): floors 874 cloud / 876 gold / 877 walkway (were 1994 ids 2000/2004/2003) at z-1 = 0 with the built hotspots (yoff+1); every object z-2 at resolve(): the 32k positions to the 31 residue, the stacked posts' upper drums at z 40. Strips: 128x128x8 slabs at z=0, the lower row's y on the 31 residue (3583 world), the upper row 480 units further -y. Origin_world (1024,1024,0): the throne nook between the strips of the city's walkway, build_map_17's layout around it.",
+ "camera": {
+  "sx0": -60,
+  "sy0": 507,
+  "crop": [
+   319,
+   185
+  ],
+  "convention": "painter sign, vignette-local frame: screen_x = x/4 - y/4 - sx0, screen_y = x/8 + y/8 - z - sy0 (C division per term; x,y = footprint max corner). vignette_replay.py paints in world coordinates (origin_world + local) with the camera shifted by (ox/4 - oy/4, ox/8 + oy/8 - oz)."
+ },
+ "items": [
+  {
+   "shape": 876,
+   "frame": 0,
+   "x": 1919,
+   "y": 2175,
+   "z": 0,
+   "why": "matched (1994 gold brick floor)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2047,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2175,
+   "y": 1919,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2303,
+   "y": 1791,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2431,
+   "y": 1663,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2559,
+   "y": 1535,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 876,
+   "frame": 1,
+   "x": 2047,
+   "y": 2175,
+   "z": 0,
+   "why": "matched+lattice-fill (1994 gold brick floor under cloud lobes); frame 1 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2175,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2303,
+   "y": 1919,
+   "z": 0,
+   "why": "lattice-fill; frame 1 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2431,
+   "y": 1791,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2559,
+   "y": 1663,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2687,
+   "y": 1535,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 876,
+   "frame": 0,
+   "x": 2047,
+   "y": 2303,
+   "z": 0,
+   "why": "matched+lattice-fill (1994 gold brick floor under cloud lobes)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2175,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2303,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2431,
+   "y": 1919,
+   "z": 0,
+   "why": "lattice-fill; frame 2 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2559,
+   "y": 1791,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2687,
+   "y": 1663,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2175,
+   "y": 2303,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2303,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill; frame 2 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2431,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2559,
+   "y": 1919,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2687,
+   "y": 1791,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2815,
+   "y": 1663,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2175,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2303,
+   "y": 2303,
+   "z": 0,
+   "why": "lattice-fill; frame 1 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2431,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill; frame 1 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2559,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2687,
+   "y": 1919,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2815,
+   "y": 1791,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2303,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2431,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2559,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill; frame 2 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2687,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2815,
+   "y": 1919,
+   "z": 0,
+   "why": "lattice-fill; frame 1 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2943,
+   "y": 1791,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2303,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2431,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill; frame 1 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2559,
+   "y": 2303,
+   "z": 0,
+   "why": "lattice-fill; frame 1 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2687,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2815,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2943,
+   "y": 1919,
+   "z": 0,
+   "why": "lattice-fill; frame 1 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2431,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2559,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill; frame 2 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2687,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2815,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2943,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3071,
+   "y": 1919,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 884,
+   "frame": 0,
+   "x": 2431,
+   "y": 2687,
+   "z": 0,
+   "why": "phase D: gold/cloud edge (1994, registry 2008)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2559,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2687,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill; frame 2 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2815,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2943,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3071,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 884,
+   "frame": 0,
+   "x": 2559,
+   "y": 2687,
+   "z": 0,
+   "why": "phase D: gold/cloud edge (1994, registry 2008)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2687,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2815,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill; frame 2 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2943,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 3071,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill; frame 1 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3199,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 876,
+   "frame": 0,
+   "x": 2559,
+   "y": 2815,
+   "z": 0,
+   "why": "matched (1994 gold brick floor)"
+  },
+  {
+   "shape": 884,
+   "frame": 1,
+   "x": 2687,
+   "y": 2687,
+   "z": 0,
+   "why": "phase D: gold/cloud edge (1994, registry 2008)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2815,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2943,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 3071,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3199,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 876,
+   "frame": 1,
+   "x": 2687,
+   "y": 2815,
+   "z": 0,
+   "why": "matched (1994 gold brick floor)"
+  },
+  {
+   "shape": 884,
+   "frame": 1,
+   "x": 2815,
+   "y": 2687,
+   "z": 0,
+   "why": "phase D: gold/cloud edge (1994, registry 2008)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2943,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 3071,
+   "y": 2431,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3199,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3327,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 876,
+   "frame": 0,
+   "x": 2687,
+   "y": 2943,
+   "z": 0,
+   "why": "matched (1994 gold brick floor)"
+  },
+  {
+   "shape": 876,
+   "frame": 0,
+   "x": 2815,
+   "y": 2815,
+   "z": 0,
+   "why": "matched (1994 gold brick floor)"
+  },
+  {
+   "shape": 884,
+   "frame": 0,
+   "x": 2943,
+   "y": 2687,
+   "z": 0,
+   "why": "phase D: gold/cloud edge (1994, registry 2008)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3071,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 3199,
+   "y": 2431,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 884,
+   "frame": 2,
+   "x": 3327,
+   "y": 2303,
+   "z": 0,
+   "why": "phase D: gold/cloud edge (1994, registry 2008)"
+  },
+  {
+   "shape": 876,
+   "frame": 1,
+   "x": 2815,
+   "y": 2943,
+   "z": 0,
+   "why": "matched (1994 gold brick floor); frame 1 by match (phase C)"
+  },
+  {
+   "shape": 876,
+   "frame": 1,
+   "x": 2943,
+   "y": 2815,
+   "z": 0,
+   "why": "matched (1994 gold brick floor); frame 1 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 3,
+   "x": 3071,
+   "y": 2687,
+   "z": 0,
+   "why": "lattice-fill; frame 3 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3199,
+   "y": 2559,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 3,
+   "x": 3327,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill; frame 3 by match (phase C)"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3455,
+   "y": 2303,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 1535,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 1663,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 1791,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 1919,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2047,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2175,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2303,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2431,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2559,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2687,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2815,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2943,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, lower)"
+  },
+  {
+   "shape": 883,
+   "frame": 0,
+   "x": 3071,
+   "y": 2559,
+   "z": 0,
+   "why": "phase D: walkway east end (1994, registry 2007)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 1535,
+   "y": 2079,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, upper; y offset -480 from lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 1663,
+   "y": 2079,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, upper; y offset -480 from lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 1791,
+   "y": 2079,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, upper; y offset -480 from lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 1919,
+   "y": 2079,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, upper; y offset -480 from lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2047,
+   "y": 2079,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, upper; y offset -480 from lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2303,
+   "y": 2079,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, upper; y offset -480 from lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2431,
+   "y": 2079,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, upper; y offset -480 from lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2559,
+   "y": 2079,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, upper; y offset -480 from lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2687,
+   "y": 2079,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, upper; y offset -480 from lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2815,
+   "y": 2079,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, upper; y offset -480 from lower)"
+  },
+  {
+   "shape": 877,
+   "frame": 0,
+   "x": 2943,
+   "y": 2079,
+   "z": 0,
+   "why": "matched (1994 marble walkway strip, upper; y offset -480 from lower)"
+  },
+  {
+   "shape": 883,
+   "frame": 0,
+   "x": 3071,
+   "y": 2079,
+   "z": 0,
+   "why": "phase D: walkway east end (1994, registry 2007)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2207,
+   "y": 2399,
+   "z": 0,
+   "why": "matched (1994 banded column)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2399,
+   "y": 2399,
+   "z": 0,
+   "why": "matched (1994 banded column)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2655,
+   "y": 2399,
+   "z": 0,
+   "why": "matched (1994 banded column)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2815,
+   "y": 2399,
+   "z": 0,
+   "why": "matched (1994 banded column)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 3103,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 banded column, lower of a 2-stack)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 3103,
+   "y": 2559,
+   "z": 40,
+   "why": "matched (1994 banded column, upper of a 2-stack)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 3199,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (1994 banded column, lower of a 2-stack)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 3199,
+   "y": 2559,
+   "z": 40,
+   "why": "matched (1994 banded column, upper of a 2-stack)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2719,
+   "y": 1951,
+   "z": 8,
+   "why": "matched (1994 banded column)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 3199,
+   "y": 2303,
+   "z": 0,
+   "why": "matched (1994 banded column, lower of a 2-stack)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 3199,
+   "y": 2303,
+   "z": 40,
+   "why": "matched (1994 banded column, upper of a 2-stack)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2879,
+   "y": 1951,
+   "z": 8,
+   "why": "matched (1994 banded column)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2943,
+   "y": 1919,
+   "z": 0,
+   "why": "matched (1994 banded column)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2399,
+   "y": 1951,
+   "z": 8,
+   "why": "matched (1994 banded column)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2159,
+   "y": 2351,
+   "z": 0,
+   "why": "matched (1994 banded column, lower of a 2-stack)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2159,
+   "y": 2351,
+   "z": 40,
+   "why": "matched (1994 banded column, upper of a 2-stack)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2047,
+   "y": 2079,
+   "z": 0,
+   "why": "matched (1994 banded column)"
+  },
+  {
+   "shape": 235,
+   "frame": 1,
+   "x": 2431,
+   "y": 2303,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 237,
+   "frame": 1,
+   "x": 2655,
+   "y": 2207,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 526,
+   "frame": 6,
+   "x": 2335,
+   "y": 2175,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 526,
+   "frame": 6,
+   "x": 2463,
+   "y": 2143,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 526,
+   "frame": 7,
+   "x": 2527,
+   "y": 2143,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 526,
+   "frame": 7,
+   "x": 2463,
+   "y": 2399,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 526,
+   "frame": 7,
+   "x": 2567,
+   "y": 2375,
+   "z": 2,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 553,
+   "frame": 6,
+   "x": 2271,
+   "y": 2239,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 553,
+   "frame": 8,
+   "x": 2303,
+   "y": 2207,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 553,
+   "frame": 8,
+   "x": 2367,
+   "y": 2143,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 553,
+   "frame": 1,
+   "x": 2239,
+   "y": 2303,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 553,
+   "frame": 6,
+   "x": 2303,
+   "y": 2239,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 553,
+   "frame": 2,
+   "x": 2399,
+   "y": 2143,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 553,
+   "frame": 5,
+   "x": 2463,
+   "y": 2303,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 553,
+   "frame": 4,
+   "x": 2463,
+   "y": 2335,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 471,
+   "frame": 6,
+   "x": 2271,
+   "y": 2335,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 471,
+   "frame": 6,
+   "x": 2599,
+   "y": 2119,
+   "z": 2,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 843,
+   "frame": 0,
+   "x": 2407,
+   "y": 2267,
+   "z": 1,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 720,
+   "frame": 0,
+   "x": 2431,
+   "y": 2239,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 720,
+   "frame": 0,
+   "x": 2559,
+   "y": 2271,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 663,
+   "frame": 1,
+   "x": 2543,
+   "y": 2383,
+   "z": 4,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 504,
+   "frame": 0,
+   "x": 2463,
+   "y": 2175,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 471,
+   "frame": 7,
+   "x": 2495,
+   "y": 2367,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 878,
+   "frame": 1,
+   "x": 2535,
+   "y": 2287,
+   "z": 0,
+   "why": "phase D"
+  },
+  {
+   "shape": 223,
+   "frame": 3,
+   "x": 2271,
+   "y": 2143,
+   "z": 0,
+   "why": "matched (retail, nook)"
+  },
+  {
+   "shape": 882,
+   "frame": 0,
+   "x": 2207,
+   "y": 2207,
+   "z": 0,
+   "why": "phase D: nook dais (1994, registry 2006)"
+  },
+  {
+   "shape": 882,
+   "frame": 1,
+   "x": 2207,
+   "y": 2335,
+   "z": 0,
+   "why": "phase D: nook dais (1994, registry 2006)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 3103,
+   "y": 2079,
+   "z": 0,
+   "why": "phase D"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 3103,
+   "y": 2079,
+   "z": 40,
+   "why": "phase D"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3327,
+   "y": 2559,
+   "z": 0,
+   "why": "phase D"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3455,
+   "y": 2559,
+   "z": 0,
+   "why": "phase D"
+  },
+  {
+   "shape": 885,
+   "frame": 0,
+   "x": 2239,
+   "y": 2391,
+   "z": 0,
+   "why": "phase D: the side throne (1994, registry 2009)"
+  },
+  {
+   "shape": 720,
+   "frame": 0,
+   "x": 2463,
+   "y": 2367,
+   "z": 0,
+   "why": "phase D"
+  },
+  {
+   "shape": 720,
+   "frame": 0,
+   "x": 2399,
+   "y": 2367,
+   "z": 0,
+   "why": "phase D"
+  },
+  {
+   "shape": 882,
+   "frame": 2,
+   "x": 2207,
+   "y": 2079,
+   "z": 0,
+   "why": "phase D: nook dais (1994, registry 2006)"
+  }
+ ],
+ "actors": [
+  {
+   "shape": 1,
+   "frame": 72,
+   "x": 2783,
+   "y": 2207,
+   "z": 0
+  }
+ ],
+ "art_1994": [
+  {
+   "id": 2000,
+   "frames": [
+    0,
+    1,
+    2
+   ],
+   "name": "cloud_floor_f0-f2",
+   "replaces": 862,
+   "note": "same 3 frames as screen11, lattice phase (29,3)"
+  },
+  {
+   "id": 2001,
+   "frames": [
+    1
+   ],
+   "name": "white_column_banded",
+   "note": "stacked x2 (z2,z42) for the colonnade posts, single elsewhere"
+  },
+  {
+   "id": 2003,
+   "frames": [
+    0
+   ],
+   "name": "marble_walkway_strip_tile",
+   "note": "one frame repeats every 128 along x for BOTH strips (period-consensus over 32 cells); 128x128x8 slab on the floor lattice; includes back gold/white rim and front gold-trimmed face; 34 rim px always hidden behind posts were inferred from the rim run [INFERENCE]; right face (strip end) never visible"
+  },
+  {
+   "id": 2004,
+   "frames": [
+    0
+   ],
+   "name": "gold_brick_floor_f0",
+   "note": "complete 1024 px, 9 cells; also screen13"
+  },
+  {
+   "id": 2004,
+   "frames": [
+    1
+   ],
+   "name": "gold_brick_floor_f1",
+   "note": "1016/1024 px; also seen in screen13 (232,168)"
+  },
+  {
+   "id": 2005,
+   "frames": [
+    0
+   ],
+   "name": "shield_half_eye",
+   "replaces": 870,
+   "note": "DRAFT colour-keyed cut of the blue-rimmed red-eye half in the throne nook (right half); partly occluded by rubble; replaces 870 frame 1 [INFERENCE on mask]"
+  }
+ ],
+ "verify": {
+  "render": "docs/research/2026-10-16-screenshot-reconstruction/screen12_render.png",
+  "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen12_diff.png",
+  "residuals": [
+   "the dais's far-left sliver (x 0-4, y 38-54): a fourth dais tile would overlap strip B",
+   "rubble/strip-rim sort ties in the nook (~200 px)",
+   "the mouse cursor (245,55)"
+  ],
+  "frame_px": 59015,
+  "all_frame_strict": 97.623,
+  "all_frame_class": 97.943,
+  "phase_c": "Re-solved 2026-10-17 to the z=0 encoding with the built shape ids (116 floors z-1, 41 objects z-2 at resolve()): class 83.179 / strict 82.840 on the built artifacts (phaseC-art.md's proof number; 82.823 / 82.489 before). Then the open gaps: the eye Shield half 878 f1 placed where the shot shows it (274/274 px at screen (122,94) -> (2535,2287,0); it is the quest half 2), the Avatar actor 1 f72 (742/742 px at (204,115) -> (2783,2207,0)), each lattice-fill cloud and gold tile's frame chosen by match (19 tiles; 0-4 and 0-1), one nook 877 slab: class 87.413 / strict 87.095 (+4.59 over the z=1 replay). Scored with vignette_paint.Painter(typeflag=, shapes=) on the built TYPEFLAG.DAT/U8SHAPES.FLX and vignette_replay.score, which counts 874-879 as retail in provenance_points; the split above is the z=1 replay's. Built window (FIXED.DAT) equals this replay pixel for pixel.",
+  "void_as_black_points": 0.0,
+  "excluded_actor_points": 0.0,
+  "provenance_points": {
+   "retail": 97.943,
+   "cross_shot_validated_1994": 0.0,
+   "single_shot_1994": 0.0,
+   "inferred": 0.0,
+   "unmatched": 2.057
+  },
+  "published_render_identical": true,
+  "replay": "python3 agents/map-populator/src/vignette_replay.py screen12",
+  "phase_d": "2026-10-25 (phaseD/static/REPORT.md): nook dais 882, walkway east ends 883 (both strips end at local x 3071 behind the two-drum post at 3103, which the shot showed missing at the right edge), gold/cloud edges 884, side throne 885, the helmet 843 lifted onto the skeleton (z 1), straw 720 f0 x4, back posts over the strip rim (x+32, y+32, z 8)"
+ },
+ "placement": {
+  "map": 17,
+  "origin_world": [
+   1024,
+   1024,
+   0
+  ],
+  "note": "map position = vignette position + origin_world",
+  "pin_moves": [
+   {
+    "what": "870 frame 1 q82 shield half 2 -> throne nook (screen12); since 2026-10-17 the quest half is 878 frame 1, the 1994 eye half, at the vignette's own item",
+    "from": [
+     7232,
+     1568,
+     0
+    ],
+    "to": [
+     3559,
+     3311,
+     0
+    ]
+   },
+   {
+    "what": "God hall thrones 289 on three-tier daises -> retail 223 f3 in the walkway nook at z0 (the shot's second throne has no retail match); daises removed",
+    "from": "gods_hall_a/b",
+    "to": [
+     3295,
+     3167,
+     0
+    ]
+   }
+  ],
+  "collides_with": [
+   {
+    "what": "{10: 20, 564: 15, 2: 6, 249: 2, 113: 1, 812: 1}",
+    "where": [
+     2944,
+     2432,
+     4479,
+     3711
+    ]
+   }
+  ]
+ },
+ "source": "ReconCloud (2026-10-16 reconstruction)"
+}

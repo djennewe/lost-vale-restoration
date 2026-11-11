@@ -1,0 +1,195 @@
+// Mythran — Lost Vale Introduction Dialogue
+// Missing dialogue segment #1: Mythran tells Avatar about the Zealans,
+// Galjeron, the double doors, and the key.
+// Authored for the Lost Vale restoration project.
+//
+// Wiring: patch_mythran.py wraps the base Mythran (0x421) use() and routes
+// every post-lbDone conversation here. The intro plays until the player has
+// heard the key hint and said Farewell (mythranIntroDone). Later visits get
+// a short follow-up menu. "Let us speak of other matters." sets
+// mythranStockVisit, which tells the wrapper to chain into Mythran's full
+// stock base-game conversation.
+
+uses "free";
+uses "flags";
+uses "item";
+
+globalflag lbDone;
+globalflag mythranToldZealans;
+globalflag mythranToldGaljeron;
+globalflag mythranToldDoors;
+globalflag mythranToldKey;
+globalflag mythranIntroDone;
+globalflag mythranStockVisit;
+
+typeclass TypeMythranLVDlg inherits Item
+{
+	process use();
+}
+
+process TypeMythranLVDlg::use()
+{
+	enterConvo();
+
+	answer:String = "";
+	askList:String List;
+
+	if lbDone
+	{
+		if not mythranIntroDone
+		{
+			if not mythranToldZealans
+			{
+				bark("Ah. So the message has arrived at last. I confess, my friend, I have been expecting you -- or someone very much like you. Some time ago, I received a vision. In it, I saw a stranger from another world who would come seeking knowledge of an ancient people -- a people long thought destroyed. I did not understand the vision at the time. But now, looking at you, I believe I do.");
+				mythranToldZealans = true;
+			}
+			else
+			{
+				bark("Welcome back, my friend. You have more questions about the Zealans, I trust?");
+			}
+
+			askList = <<"Tell me of this ancient race.",
+				"Lord British says they can help me.">>;
+
+			if mythranToldGaljeron
+			{
+				askList += <<"Where are these double doors?">>;
+			}
+
+			if mythranToldDoors
+			{
+				askList += <<"How do I open the doors?">>;
+			}
+
+			while answer != "Farewell."
+			{
+				askList -= <<"Let us speak of other matters.">>;
+				askList += <<"Let us speak of other matters.">>;
+				askList -= <<"Farewell.">>;
+				askList += <<"Farewell.">>;
+				answer = ask(askList);
+
+				switch answer
+				{
+					case "Tell me of this ancient race."
+					{
+						bark("They were called the Zealans. Before the Pagans, before the Titans claimed dominion over this world, there existed a people who worshipped a different set of gods -- the Ancient Ones. The Zealans were devout, peaceful, and by all accounts rather more civilized than the Pagans who came after them. When the Titans arose and the Destroyer threatened the world, the Zealans were caught in the middle. Their gods were overwhelmed, and the Zealans themselves were thought to have perished in the Great Cataclysm that followed.");
+						askList -= <<"Tell me of this ancient race.">>;
+						askList += <<"You mean they survived?">>;
+					}
+
+					case "You mean they survived?"
+					{
+						bark("That is the question, is it not? Most scholars believe the Zealans were wiped out entirely. I, however, have never been entirely convinced. You see, there are references in very old texts to a hidden valley -- a place sealed away from the rest of Pagan during the great upheaval. A place the Zealans called the Vale. Whether any Zealans survived there, I cannot say with certainty. But I can say that the possibility has occupied my thoughts for some years.");
+						askList -= <<"You mean they survived?">>;
+					}
+
+					case "Lord British says they can help me."
+					{
+						bark("Does he? Hmm. That is an intriguing notion. If the Zealans yet live, and if their gods yet possess any measure of their former power, then yes -- I can see how they might offer assistance that no Pagan could provide. The Titans have no claim over Zealan magic. Very well. If you are determined to pursue this, I can tell you of a man who sought the Zealans before you.");
+						askList -= <<"Lord British says they can help me.">>;
+						askList += <<"Who searched for the Zealans?">>;
+						mythranToldGaljeron = true;
+					}
+
+					case "Who searched for the Zealans?"
+					{
+						bark("His name was Galjeron. An explorer -- perhaps the only true explorer Pagan has produced since the Cataclysm. He was driven by a conviction that the Zealans had not perished, and that their hidden valley could still be reached. I assisted him with what knowledge I could provide, and he set off with great enthusiasm. That was a very long time ago, my friend. He never returned.");
+						askList -= <<"Who searched for the Zealans?">>;
+						askList += <<"What happened to him?">>;
+					}
+
+					case "What happened to him?"
+					{
+						bark("I do not know. I feared the worst, of course, but I had no means to follow him. He told me he had discovered a passage -- a set of enormous double doors deep within a cavern on the Plateau. He believed those doors led to the path the Zealans had used to reach their hidden valley. Whether he succeeded in opening them, I cannot say. But if you wish to follow in his footsteps, that is where you must begin.");
+						askList -= <<"What happened to him?">>;
+						askList += <<"Where are these double doors?">>;
+						mythranToldDoors = true;
+					}
+
+					case "Where are these double doors?"
+					{
+						bark("Galjeron described the location as a cavern in the Plateau, not far from where we stand. I believe you may know it -- it is the same cave system where the creature called Bonecrusher once made its lair. Deep within that cave, Galjeron found a massive set of double doors carved from stone older than anything the Pagans have built. The doors are sealed, of course. I would not expect the Zealans to leave their sanctuary unguarded.");
+						askList -= <<"Where are these double doors?">>;
+						askList += <<"How do I open the doors?">>;
+						mythranToldKey = true;
+					}
+
+					case "How do I open the doors?"
+					{
+						bark("Galjeron spoke of a key, and on this matter he was less cryptic than usual. He told me that when at last he stood before the great doors, he found the chamber about them strewn with bones -- the remains, I should think, of beasts, or perhaps of others who sought the Vale and were not so fortunate. And there, amid the bones, stood a chest. He was certain the key lay within it. The Zealans, it seems, did not hide their key across half of Pagan after all -- they set it before the very doors it opens, trusting that any who reached so far had earned the right to pass. So search the bone-strewn ground near the doors, my friend, and look to the chest you find there. The key should be yours for the taking.");
+						askList -= <<"How do I open the doors?">>;
+					}
+
+					case "Let us speak of other matters."
+					{
+						bark("But of course, my friend. Ask, and I shall answer as I always have.");
+						mythranStockVisit = true;
+						answer = "Farewell.";
+					}
+
+					case "Farewell."
+					{
+						bark("Go carefully, my friend. The path you walk leads into the unknown -- and in my experience, the unknown rarely welcomes visitors. But if anyone can find the Zealans, I suspect it is you.");
+						if mythranToldKey
+						{
+							mythranIntroDone = true;
+						}
+					}
+				}
+			}
+		}
+		else
+		{
+			bark("Welcome back, my friend. The Vale still calls, I trust? Ask what you will.");
+
+			askList = <<"Where are these double doors?",
+				"How do I open the doors?">>;
+
+			while answer != "Farewell."
+			{
+				askList -= <<"Let us speak of other matters.">>;
+				askList += <<"Let us speak of other matters.">>;
+				askList -= <<"Farewell.">>;
+				askList += <<"Farewell.">>;
+				answer = ask(askList);
+
+				switch answer
+				{
+					case "Where are these double doors?"
+					{
+						bark("The same cave system where the creature called Bonecrusher once made its lair, on the Plateau. Deep within it, Galjeron found the great double doors of the Zealans. That is where the path begins.");
+					}
+
+					case "How do I open the doors?"
+					{
+						bark("Recall what Galjeron found: the chamber before the doors, strewn with bones, and amid the bones a chest. He was certain the key lay within it. Search the bone-strewn ground near the doors, my friend, and look to the chest you find there.");
+					}
+
+					case "Let us speak of other matters."
+					{
+						bark("But of course, my friend. Ask, and I shall answer as I always have.");
+						mythranStockVisit = true;
+						answer = "Farewell.";
+					}
+
+					case "Farewell."
+					{
+						bark("Go carefully, my friend. And do return to tell me what you find -- the scholar in me insists upon it.");
+					}
+				}
+			}
+		}
+	}
+	else
+	{
+		bark("Ah, my friend! Welcome. I trust you have been well? These are peculiar times, are they not?");
+	}
+
+	// exitConvo() is retail Npc::exitConvo (METHOD 0x57C 1090), which
+	// scrolls the camera back to the Avatar. Until 2026-10-09 our
+	// exitConvo did not, and this called scrollBack(25) itself after
+	// patch_mythran's copied preamble centred the camera on Mythran
+	// (docs/playtest-2026-10-07-wave2-a.md, finding 2).
+	exitConvo();
+}

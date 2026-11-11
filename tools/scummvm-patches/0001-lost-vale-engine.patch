@@ -1,0 +1,1208 @@
+diff --git a/engines/ultima/ultima8/audio/midi_player.cpp b/engines/ultima/ultima8/audio/midi_player.cpp
+index f5e7a59e..9fbc9008 100644
+--- a/engines/ultima/ultima8/audio/midi_player.cpp
++++ b/engines/ultima/ultima8/audio/midi_player.cpp
+@@ -70,14 +70,23 @@ MidiPlayer::MidiPlayer() : _parser(nullptr), _transitionParser(nullptr), _playin
+ }
+ 
+ MidiPlayer::~MidiPlayer() {
+-	if (_parser) {
+-		_parser->unloadMusic();
+-		delete _parser;
+-	}
++	{
++		// The audio thread may be inside onTimer(); take the parsers away
++		// from it first. The driver is closed outside the lock: close()
++		// stops the mixer stream, which takes the mixer mutex, and the
++		// audio thread holds that mutex while it waits for ours.
++		Common::StackLock lock(_mutex);
++		if (_parser) {
++			_parser->unloadMusic();
++			delete _parser;
++			_parser = nullptr;
++		}
+ 
+-	if (_transitionParser) {
+-		_transitionParser->unloadMusic();
+-		delete _transitionParser;
++		if (_transitionParser) {
++			_transitionParser->unloadMusic();
++			delete _transitionParser;
++			_transitionParser = nullptr;
++		}
+ 	}
+ 
+ 	if (_driver) {
+@@ -91,6 +100,7 @@ void MidiPlayer::load(byte *data, size_t size, int seqNo) {
+ 		return;
+ 
+ 	assert(seqNo == 0 || seqNo == 1);
++	Common::StackLock lock(_mutex);
+ 
+ 	if (_parser) {
+ 		_parser->unloadMusic();
+@@ -119,6 +129,7 @@ void MidiPlayer::load(byte *data, size_t size, int seqNo) {
+ void MidiPlayer::loadTransitionData(byte* data, size_t size) {
+ 	if (!_driver)
+ 		return;
++	Common::StackLock lock(_mutex);
+ 
+ 	if (size < 4)
+ 		error("loadTransitionData() wrong music resource size");
+@@ -136,6 +147,7 @@ void MidiPlayer::loadTransitionData(byte* data, size_t size) {
+ }
+ 
+ void MidiPlayer::play(int trackNo, int branchIndex) {
++	Common::StackLock lock(_mutex);
+ 	if (!_parser || !_driver)
+ 		return;
+ 
+@@ -166,6 +178,7 @@ void MidiPlayer::play(int trackNo, int branchIndex) {
+ }
+ 
+ void MidiPlayer::playTransition(int trackNo, bool overlay) {
++	Common::StackLock lock(_mutex);
+ 	if (!overlay && _parser)
+ 		_parser->stopPlaying();
+ 
+@@ -186,6 +199,7 @@ void MidiPlayer::playTransition(int trackNo, bool overlay) {
+ }
+ 
+ void MidiPlayer::stop() {
++	Common::StackLock lock(_mutex);
+ 	if (_parser)
+ 		_parser->stopPlaying();
+ 	if (_transitionParser) {
+@@ -195,6 +209,7 @@ void MidiPlayer::stop() {
+ }
+ 
+ void MidiPlayer::pause(bool pause) {
++	Common::StackLock lock(_mutex);
+ 	if (pause) {
+ 		if (_parser)
+ 			_parser->pausePlaying();
+@@ -209,6 +224,7 @@ void MidiPlayer::pause(bool pause) {
+ }
+ 
+ bool MidiPlayer::isPlaying() {
++	Common::StackLock lock(_mutex);
+ 	return (_parser && _parser->isPlaying()) || _playingTransition;
+ }
+ 
+@@ -227,10 +243,12 @@ void MidiPlayer::syncSoundSettings() {
+ }
+ 
+ bool MidiPlayer::hasBranchIndex(uint8 index) {
++	Common::StackLock lock(_mutex);
+ 	return _parser && _parser->hasJumpIndex(index);
+ }
+ 
+ void MidiPlayer::setLooping(bool loop) {
++	Common::StackLock lock(_mutex);
+ 	if (_parser)
+ 		_parser->property(MidiParser::mpAutoLoop, loop);
+ }
+@@ -243,6 +261,7 @@ void MidiPlayer::xmidiCallback(byte eventData, void *data) {
+ }
+ 
+ void MidiPlayer::onTimer() {
++	Common::StackLock lock(_mutex);
+ 	if (_parser)
+ 		_parser->onTimer();
+ 	if (_transitionParser) {
+diff --git a/engines/ultima/ultima8/audio/midi_player.h b/engines/ultima/ultima8/audio/midi_player.h
+index 7890eb0a..a39c7213 100644
+--- a/engines/ultima/ultima8/audio/midi_player.h
++++ b/engines/ultima/ultima8/audio/midi_player.h
+@@ -25,6 +25,7 @@
+ #include "audio/mixer.h"
+ #include "audio/mididrv_ms.h"
+ #include "audio/midiparser.h"
++#include "common/mutex.h"
+ 
+ namespace Ultima {
+ namespace Ultima8 {
+@@ -124,6 +125,14 @@ private:
+ 	bool _isFMSynth;
+ 	bool _playingTransition;
+ 	static byte _callbackData[2];
++
++	/**
++	 * Guards the parsers and _playingTransition. onTimer() runs on the audio
++	 * thread (inside the mixer callback for emulated OPL), while every other
++	 * method runs on the game thread; resetting a parser under a running
++	 * MidiParser::onTimer() leaves it re-dispatching a stale event forever.
++	 */
++	Common::Mutex _mutex;
+ };
+ 
+ } // End of namespace Ultima8
+diff --git a/engines/ultima/ultima8/filesys/flex_file.cpp b/engines/ultima/ultima8/filesys/flex_file.cpp
+index a57ff3ac..355d17ac 100644
+--- a/engines/ultima/ultima8/filesys/flex_file.cpp
++++ b/engines/ultima/ultima8/filesys/flex_file.cpp
+@@ -66,9 +66,11 @@ bool FlexFile::readMetadata() {
+ 	_rs->seek(FLEX_HDR_SIZE + 2);
+ 	uint32 count = _rs->readUint32LE();
+ 
+-	if (count > 4095) {
+-		// In practice the largest flex in either Crusader or U8 games has
+-		// 3074 entries, so this seems invalid.
++	if (count > 65536) {
++		// Retail U8 and Crusader flexes hold at most 3074 entries, but Lost
++		// Vale appends its prefab rows to GLOB.FLX after retail's 3072, and a
++		// glob egg's 16-bit quality addresses entries 0..65535. Anything
++		// above that cannot be referenced, so treat it as corrupt.
+ 		warning("Flex invalid: improbable number of entries %d", count);
+ 		return false;
+ 	}
+diff --git a/engines/ultima/ultima8/gumps/ask_gump.cpp b/engines/ultima/ultima8/gumps/ask_gump.cpp
+index 60fc5887..5067d1c0 100644
+--- a/engines/ultima/ultima8/gumps/ask_gump.cpp
++++ b/engines/ultima/ultima8/gumps/ask_gump.cpp
+@@ -88,7 +88,15 @@ void AskGump::InitGump(Gump *newparent, bool take_focus) {
+ }
+ 
+ void AskGump::ChildNotify(Gump *child, uint32 message) {
+-	if (message == ButtonWidget::BUTTON_CLICK) {
++	// Lost Vale: also accept BUTTON_UP (fires on mouse release, before the
++	// double-click-timeout delayed BUTTON_CLICK). The delayed click re-checks
++	// PointOnGump against an ItemRelativeGump anchor that can shift between
++	// press and the 400ms-later dispatch, silently dropping answers on long
++	// single-row options. Answering on release is both reliable and standard
++	// UI behaviour. BUTTON_CLICK is kept for compatibility; the gump closes
++	// on the first of the two, so the second cannot double-fire.
++	if (message == ButtonWidget::BUTTON_CLICK ||
++	    message == ButtonWidget::BUTTON_UP) {
+ 		uint16 s = _answers->getStringIndex(child->GetIndex());
+ 		_processResult = s;
+ 
+@@ -100,6 +108,24 @@ void AskGump::ChildNotify(Gump *child, uint32 message) {
+ 	}
+ }
+ 
++Common::StringArray AskGump::listAnswers() const {
++	Common::StringArray out;
++	for (unsigned int i = 0; i < _answers->getSize(); ++i)
++		out.push_back(UCMachine::get_instance()->getString(_answers->getStringIndex(i)));
++	return out;
++}
++
++bool AskGump::answerByIndex(unsigned int idx) {
++	if (idx >= _answers->getSize())
++		return false;
++	// Same three steps ChildNotify performs, minus the widget.
++	uint16 s = _answers->getStringIndex(idx);
++	_processResult = s;
++	_answers->removeString(s, true);
++	Close();
++	return true;
++}
++
+ void AskGump::saveData(Common::WriteStream *ws) {
+ 	ItemRelativeGump::saveData(ws);
+ 
+diff --git a/engines/ultima/ultima8/gumps/ask_gump.h b/engines/ultima/ultima8/gumps/ask_gump.h
+index bb9fe92c..adb5f8cc 100644
+--- a/engines/ultima/ultima8/gumps/ask_gump.h
++++ b/engines/ultima/ultima8/gumps/ask_gump.h
+@@ -24,6 +24,7 @@
+ 
+ #include "ultima/ultima8/gumps/item_relative_gump.h"
+ #include "ultima/ultima8/misc/classtype.h"
++#include "common/str-array.h"
+ 
+ namespace Ultima {
+ namespace Ultima8 {
+@@ -50,6 +51,12 @@ public:
+ 
+ 	bool loadData(Common::ReadStream *rs, uint32 version);
+ 	void saveData(Common::WriteStream *ws) override;
++
++	// Lost Vale: drive dialogue from the console. Answering by clicking a
++	// pixel means locating a variable-width, variable-position row of text
++	// first, and a mis-hit is indistinguishable from a mis-read tree.
++	Common::StringArray listAnswers() const;
++	bool answerByIndex(unsigned int idx);
+ };
+ 
+ } // End of namespace Ultima8
+diff --git a/engines/ultima/ultima8/gumps/game_map_gump.cpp b/engines/ultima/ultima8/gumps/game_map_gump.cpp
+index 0e98f37e..0f4c208e 100644
+--- a/engines/ultima/ultima8/gumps/game_map_gump.cpp
++++ b/engines/ultima/ultima8/gumps/game_map_gump.cpp
+@@ -270,8 +270,12 @@ Gump *GameMapGump::onMouseDown(int button, int32 mx, int32 my) {
+ 	ParentToGump(sx, sy);
+ 	GumpToScreenSpace(sx, sy);
+ 
++	// The mover can be gone: the Kernel deletes it if the runaway-loop guard
++	// fail()s it (seen after savegame loads), and AvatarMoverProcess::
++	// terminate() nulls the engine's pointer. Ultima8Engine::handleActionDown
++	// already null-checks; these two gump entry points did not, and crashed.
+ 	AvatarMoverProcess *amp = Ultima8Engine::get_instance()->getAvatarMoverProcess();
+-	if (button == Mouse::BUTTON_RIGHT || button == Mouse::BUTTON_LEFT) {
++	if (amp && (button == Mouse::BUTTON_RIGHT || button == Mouse::BUTTON_LEFT)) {
+ 		amp->onMouseDown(button, sx, sy);
+ 	}
+ 
+@@ -286,7 +290,7 @@ Gump *GameMapGump::onMouseDown(int button, int32 mx, int32 my) {
+ 
+ void GameMapGump::onMouseUp(int button, int32 mx, int32 my) {
+ 	AvatarMoverProcess *amp = Ultima8Engine::get_instance()->getAvatarMoverProcess();
+-	if (button == Mouse::BUTTON_RIGHT || button == Mouse::BUTTON_LEFT) {
++	if (amp && (button == Mouse::BUTTON_RIGHT || button == Mouse::BUTTON_LEFT)) {
+ 		amp->onMouseUp(button);
+ 	}
+ }
+diff --git a/engines/ultima/ultima8/kernel/kernel.cpp b/engines/ultima/ultima8/kernel/kernel.cpp
+index 8907bf55..510b8075 100644
+--- a/engines/ultima/ultima8/kernel/kernel.cpp
++++ b/engines/ultima/ultima8/kernel/kernel.cpp
+@@ -486,6 +486,7 @@ uint32 Kernel::I_resetRef(const uint8 *args, unsigned int /*argsize*/) {
+ 	if (GAME_IS_CRUSADER && type == CRU_PROC_TYPE_ALL)
+ 		type = PROC_TYPE_ALL;
+ 
++	debug(1, "LV: I_resetRef item=%u type=0x%04X", item, type);
+ 	Kernel::get_instance()->killProcesses(item, type, true);
+ 	return 0;
+ }
+diff --git a/engines/ultima/ultima8/misc/debugger.cpp b/engines/ultima/ultima8/misc/debugger.cpp
+index 2e5db7e0..5d6c714d 100644
+--- a/engines/ultima/ultima8/misc/debugger.cpp
++++ b/engines/ultima/ultima8/misc/debugger.cpp
+@@ -35,6 +35,8 @@
+ #include "ultima/ultima8/gfx/texture.h"
+ #include "ultima/ultima8/gumps/fast_area_vis_gump.h"
+ #include "ultima/ultima8/gumps/game_map_gump.h"
++#include "ultima/ultima8/gumps/ask_gump.h"
++#include "ultima/ultima8/world/actors/pathfinder_process.h"
+ #include "ultima/ultima8/gumps/menu_gump.h"
+ #include "ultima/ultima8/gumps/minimap_gump.h"
+ #include "ultima/ultima8/gumps/movie_gump.h"
+@@ -130,6 +132,12 @@ Debugger::Debugger() : GUI::Debugger() {
+ 
+ 	registerCmd("ObjectManager::objectTypes", WRAP_METHOD(Debugger, cmdObjectTypes));
+ 	registerCmd("ObjectManager::objectInfo", WRAP_METHOD(Debugger, cmdObjectInfo));
++	registerCmd("ObjectManager::findShape", WRAP_METHOD(Debugger, cmdFindShape));
++	registerCmd("AskGump::ask", WRAP_METHOD(Debugger, cmdAsk));
++	registerCmd("Actor::hold", WRAP_METHOD(Debugger, cmdHoldActor));
++	registerCmd("Actor::talk", WRAP_METHOD(Debugger, cmdTalkTo));
++	registerCmd("Item::grab", WRAP_METHOD(Debugger, cmdGrabItem));
++	registerCmd("Item::setQuantity", WRAP_METHOD(Debugger, cmdSetQuantity));
+ 
+ 	registerCmd("QuickAvatarMoverProcess::toggle", WRAP_METHOD(Debugger, cmdQuickMover));
+ 	registerCmd("QuickAvatarMoverProcess::toggleClipping", WRAP_METHOD(Debugger, cmdClipping));
+@@ -1352,6 +1360,203 @@ bool Debugger::cmdGrabItems(int argc, const char **argv) {
+ 	return false;
+ }
+ 
++bool Debugger::cmdFindShape(int argc, const char **argv) {
++	// Lost Vale: locate every live item of a given shape. Hunting a quest
++	// item by clicking pixels is unreliable -- a sprite smaller than the
++	// probe step, or one an adjacent floor tile sorts over, reads exactly
++	// like an item that was never created at all.
++	if (argc != 2) {
++		debugPrintf("usage: ObjectManager::findShape <shape>\n");
++		return true;
++	}
++	uint32 want = (uint32)atoi(argv[1]);
++	ObjectManager *om = ObjectManager::get_instance();
++	int found = 0;
++	for (uint32 id = 1; id < 65536; ++id) {
++		Item *item = dynamic_cast<Item *>(om->getObject((ObjId)id));
++		if (!item || item->getShape() != want)
++			continue;
++		if (found < 40) {
++			// Where it actually is on screen. Predicting that from world
++			// coordinates by hand is guesswork -- the camera offset drifts
++			// with the avatar's z -- and a 5x4 gem sprite falls straight
++			// through a probe grid built on a wrong guess.
++			int32 sx = -1, sy = -1;
++			GameMapGump *gmg = Ultima8Engine::get_instance()->getGameMapGump();
++			if (gmg)
++				gmg->GetLocationOfItem(item->getObjId(), sx, sy);
++			debugPrintf("%s px=(%d,%d)\n", item->dumpInfo().c_str(), sx, sy);
++		}
++		++found;
++	}
++	debugPrintf("findShape %u: %d found\n", want, found);
++	return true;
++}
++
++static int liveConversations() {
++	int n = 0;
++	for (const auto *p : Kernel::get_instance()->getProcesses()) {
++		if (!p || p->is_terminated())
++			continue;
++		if (!strcmp(p->GetClassType()._className, "UCProcess"))
++			++n;
++	}
++	return n;
++}
++
++bool Debugger::cmdAsk(int argc, const char **argv) {
++	// No argument lists the open question's options; one argument answers it.
++	// Clicking a dialogue option means first locating a row of text whose
++	// width and position depend on the answer strings, and a mis-hit reads
++	// exactly like a mis-read conversation tree.
++	Gump *desktop = Ultima8Engine::get_instance()->getDesktopGump();
++	AskGump *ask = desktop ? dynamic_cast<AskGump *>(desktop->FindGump<AskGump>(true)) : nullptr;
++	if (!ask) {
++		// convo>0 with no question means the NPC is mid-bark and another
++		// question is still coming. Without this a caller cannot tell that
++		// from a finished conversation, and has to guess with a timeout --
++		// which costs twenty seconds on every single turn.
++		debugPrintf("ask: no question open convo=%d\n", liveConversations());
++		return true;
++	}
++	Common::StringArray answers = ask->listAnswers();
++	if (argc < 2) {
++		for (uint i = 0; i < answers.size(); ++i)
++			debugPrintf("ask[%u]: %s\n", i, answers[i].c_str());
++		debugPrintf("ask: %u options convo=%d\n",
++		            (uint)answers.size(), liveConversations());
++		return true;
++	}
++	uint idx = (uint)atoi(argv[1]);
++	if (!ask->answerByIndex(idx)) {
++		debugPrintf("ask: no option %u (have %u)\n", idx, (uint)answers.size());
++		return true;
++	}
++	debugPrintf("ask: answered %u = %s\n", idx,
++	            idx < answers.size() ? answers[idx].c_str() : "?");
++	return false;
++}
++
++bool Debugger::cmdHoldActor(int argc, const char **argv) {
++	// Stop an NPC wandering. A loitering villager covers a few hundred
++	// world units while a teleport-and-probe sequence runs, so by the time
++	// the pointer arrives the reported screen position is stale and the
++	// double-click that would start the conversation lands on grass.
++	if (argc < 2 || argc > 4) {
++		debugPrintf("usage: Actor::hold <objid> [dx dy]\n");
++		return true;
++	}
++	ObjId id = (ObjId)atoi(argv[1]);
++	Actor *a = getActor(id);
++	if (!a) {
++		debugPrintf("hold: %u is not an actor\n", (uint)id);
++		return true;
++	}
++	Kernel *kernel = Kernel::get_instance();
++	kernel->killProcesses(id, 0x205, true);   // LoiterProcess (U8)
++	kernel->killProcesses(id, 599, true);     // LoiterProcess (Crusader)
++	kernel->killProcesses(id, PathfinderProcess::PATHFINDER_PROC_TYPE, true);
++
++	// Killing the walk is not enough on its own: SchedulerProcess hands the
++	// villager a fresh activity within seconds, so by the time a probe grid
++	// finishes she is walking again. Put her where she is wanted and report
++	// the pixel, so nothing has to be predicted between here and the click.
++	MainActor *av = getMainActor();
++	if (av) {
++		int dx = (argc > 2) ? atoi(argv[2]) : 88;
++		int dy = (argc > 3) ? atoi(argv[3]) : -88;
++		Point3 ap = av->getLocation();
++		a->move(ap.x + dx, ap.y + dy, ap.z);
++	}
++	Point3 p = a->getLocation();
++	int32 sx = -1, sy = -1;
++	GameMapGump *gmg = Ultima8Engine::get_instance()->getGameMapGump();
++	if (gmg)
++		gmg->GetLocationOfItem(id, sx, sy);
++	debugPrintf("hold: %u at (%d,%d,%d) px=(%d,%d)\n", (uint)id, p.x, p.y, p.z, sx, sy);
++	return true;
++}
++
++bool Debugger::cmdTalkTo(int argc, const char **argv) {
++	// Start a conversation with no pointer involved. A double-click on an
++	// NPC ends in callUsecodeEvent_use(); getting the pointer onto her
++	// sprite first is the part that keeps failing -- the camera stays
++	// parked where the last conversation ended, and a pixel measured
++	// against it lands off screen.
++	if (argc != 2) {
++		debugPrintf("usage: Actor::talk <objid>\n");
++		return true;
++	}
++	ObjId id = (ObjId)atoi(argv[1]);
++	Item *item = getItem(id);
++	if (!item) {
++		debugPrintf("talk: no item %u\n", (uint)id);
++		return true;
++	}
++	item->callUsecodeEvent_use();
++	debugPrintf("talk: use sent to %u\n", (uint)id);
++	return false;
++}
++
++bool Debugger::cmdGrabItem(int argc, const char **argv) {
++	// Put an item in the Avatar's pack without a pointer. This is the same
++	// destination a drag onto the Avatar reaches (GameMapGump::DraggingItem
++	// sends trace == kMainActorId to the backpack's CanAddItem); what it
++	// skips is finding the sprite first, which for a 5x4 gem lying on a
++	// floor tile is the part that fails.
++	if (argc != 2) {
++		debugPrintf("usage: Item::grab <objid>\n");
++		return true;
++	}
++	ObjId id = (ObjId)atoi(argv[1]);
++	Item *item = getItem(id);
++	if (!item) {
++		debugPrintf("grab: no item %u\n", (uint)id);
++		return true;
++	}
++	MainActor *av = getMainActor();
++	if (!av) {
++		debugPrintf("grab: no avatar\n");
++		return true;
++	}
++	Container *pack = getContainer(av->getEquip(ShapeInfo::SE_BACKPACK));
++	if (!pack) {
++		debugPrintf("grab: no backpack\n");
++		return true;
++	}
++	if (!pack->CanAddItem(item, true)) {
++		debugPrintf("grab: backpack will not take %u\n", (uint)id);
++		return true;
++	}
++	if (!item->moveToContainer(pack)) {
++		debugPrintf("grab: move failed for %u\n", (uint)id);
++		return true;
++	}
++	debugPrintf("grab: %u in pack\n", (uint)id);
++	return true;
++}
++
++bool Debugger::cmdSetQuantity(int argc, const char **argv) {
++	// Drain a stack, so a refill can be observed. Reagents are only spent
++	// by casting, which is a poor thing to drive from a test harness.
++	if (argc != 3) {
++		debugPrintf("usage: Item::setQuantity <objid> <n>\n");
++		return true;
++	}
++	Item *item = getItem((ObjId)atoi(argv[1]));
++	if (!item) {
++		debugPrintf("setQuantity: no item %s\n", argv[1]);
++		return true;
++	}
++	// Quantity IS quality for SF_QUANTITY/SF_REAGENT items -- that is what
++	// Item::I_setQuantity does, and reagents carry their count there while
++	// the frame carries their identity.
++	item->setQuality((uint16)atoi(argv[2]));
++	debugPrintf("setQuantity: %u now %u\n", (uint)item->getObjId(),
++	            (uint)item->getQuality());
++	return true;
++}
++
+ bool Debugger::cmdObjectTypes(int argc, const char **argv) {
+ 	ObjectManager::get_instance()->objectTypes();
+ 	return true;
+diff --git a/engines/ultima/ultima8/misc/debugger.h b/engines/ultima/ultima8/misc/debugger.h
+index bdaac28c..d36364d1 100644
+--- a/engines/ultima/ultima8/misc/debugger.h
++++ b/engines/ultima/ultima8/misc/debugger.h
+@@ -106,6 +106,12 @@ private:
+ 	// Object Manager
+ 	bool cmdObjectTypes(int argc, const char **argv);
+ 	bool cmdObjectInfo(int argc, const char **argv);
++	bool cmdFindShape(int argc, const char **argv);
++	bool cmdAsk(int argc, const char **argv);
++	bool cmdHoldActor(int argc, const char **argv);
++	bool cmdTalkTo(int argc, const char **argv);
++	bool cmdGrabItem(int argc, const char **argv);
++	bool cmdSetQuantity(int argc, const char **argv);
+ 
+ 	// Quick Avatar Mover Process
+ 	bool cmdQuickMover(int argc, const char **argv);
+diff --git a/engines/ultima/ultima8/ultima8.cpp b/engines/ultima/ultima8/ultima8.cpp
+index 6ec949cd..8b98d156 100644
+--- a/engines/ultima/ultima8/ultima8.cpp
++++ b/engines/ultima/ultima8/ultima8.cpp
+@@ -787,7 +787,11 @@ void Ultima8Engine::handleEvent(const Common::Event &event) {
+ 	Gump *modal = dynamic_cast<ModalGump *>(_desktopGump->GetFocusChild());
+ 	if (!modal)
+ 		modal = _desktopGump->FindGump<ModalGump>();
+-	if (modal) {
++	if (modal && _avatarMoverProcess) {
++		// May be null - the Kernel deletes the mover if the runaway-loop
++		// guard fail()s it, and AvatarMoverProcess::terminate() clears this
++		// pointer. This path runs on every modal gump (the load book, the
++		// death diary), so an unguarded deref here is easy to hit.
+ 		_avatarMoverProcess->resetMovementFlags();
+ 	}
+ 
+@@ -1689,7 +1693,11 @@ void Ultima8Engine::save(Common::WriteStream *ws) {
+ 
+ 	int32 absoluteTime = Kernel::get_instance()->getFrameNum() + _timeOffset;
+ 	ws->writeUint32LE(static_cast<uint32>(absoluteTime));
+-	ws->writeUint16LE(_avatarMoverProcess->getPid());
++	// Write 0 if the mover is gone (see AvatarMoverProcess::terminate). The
++	// load path already treats a pid that resolves to no process as a
++	// corrupt save and refuses it, which is the right outcome: better a
++	// clean refusal than a crash while writing the file.
++	ws->writeUint16LE(_avatarMoverProcess ? _avatarMoverProcess->getPid() : 0);
+ 
+ 	PaletteManager::get_instance()->saveTransforms(*ws);
+ 
+@@ -1728,9 +1736,38 @@ bool Ultima8Engine::load(Common::ReadStream *rs, uint32 version) {
+ 	_hasCheated = (rs->readByte() != 0);
+ 
+ 	// Integrity checks
+-	if (!_avatarMoverProcess) {
+-		warning("No AvatarMoverProcess.  Corrupt savegame?");
+-		return false;
++	//
++	// LOST VALE 2026-09-06: recreate the mover instead of refusing the load.
++	// The kernel's runaway guard ("Seem to be stuck in process loop") fail()s
++	// processes during a heavy load and the avatar mover is one of them. The
++	// saved pid then either does not resolve at all or resolves to a
++	// TERMINATED process, and either way the Avatar can never move again:
++	// input reaches nothing, not one justMoved event fires, and -- because a
++	// savegame stores the kernel's process list -- the dead mover is baked
++	// into every save taken afterwards, so reloading cannot recover it.
++	// Diagnosed 2026-09-06 after this was misattributed for weeks to
++	// "teleport wedges" and to map geometry; the giveaway is zero event 18
++	// with a live world. A fresh mover restores control and costs nothing
++	// when the saved one is healthy.
++	if (!_avatarMoverProcess || _avatarMoverProcess->is_terminated()) {
++		warning("%s AvatarMoverProcess in savegame; recreating",
++				_avatarMoverProcess ? "Terminated" : "No");
++		if (GAME_IS_U8)
++			_avatarMoverProcess = new U8AvatarMoverProcess();
++		else
++			_avatarMoverProcess = new CruAvatarMoverProcess();
++		Kernel::get_instance()->addProcess(_avatarMoverProcess);
++	}
++	// LOST VALE 2026-10-09: same for the SchedulerProcess (type 0x245). For U8
++	// newGame() creates it once and nothing ever recreates it (only Crusader's
++	// World::switchMap does). The runaway-guard event that killed the mover in
++	// the 2026-09-06 saves killed this too, so in those worlds schedule() ran
++	// only on a map entry and NPC schedules never
++	// advanced with the clock (docs/playtest-2026-10-09-schedules.md
++	// finding 1). A healthy saved one is found and left alone.
++	if (!Kernel::get_instance()->findProcess(0, 0x245)) { // CONSTANT, as in SchedulerProcess()
++		warning("No SchedulerProcess in savegame; recreating");
++		Kernel::get_instance()->addProcess(new SchedulerProcess());
+ 	}
+ 	if (_saveCount > 1024*1024) {
+ 		warning("Improbable savecount %d.  Corrupt savegame?", _saveCount);
+diff --git a/engines/ultima/ultima8/ultima8.h b/engines/ultima/ultima8/ultima8.h
+index 2ef56232..064e5448 100644
+--- a/engines/ultima/ultima8/ultima8.h
++++ b/engines/ultima/ultima8/ultima8.h
+@@ -288,6 +288,15 @@ public:
+ 		return _avatarMoverProcess;
+ 	}
+ 
++	//! Forget the avatar mover process if it is the one given. The Kernel
++	//! owns and deletes processes, but this raw pointer was never cleared
++	//! when the mover died, so any later key or mouse event dereferenced
++	//! freed memory (Lost Vale: hang-grab climb SIGSEGV, 2026-08-18).
++	void clearAvatarMoverProcess(const AvatarMoverProcess *p) {
++		if (_avatarMoverProcess == p)
++			_avatarMoverProcess = nullptr;
++	}
++
+ 	Common::RandomSource &getRandomSource() {
+ 		return _randomSource;
+ 	}
+diff --git a/engines/ultima/ultima8/usecode/u8_intrinsics.h b/engines/ultima/ultima8/usecode/u8_intrinsics.h
+index 687f8a23..93fb0b80 100644
+--- a/engines/ultima/ultima8/usecode/u8_intrinsics.h
++++ b/engines/ultima/ultima8/usecode/u8_intrinsics.h
+@@ -126,7 +126,11 @@ const Intrinsic U8Intrinsics[] = {
+ 	Item::I_legalMoveToPoint,
+ 	Item::I_legalMoveToContainer,
+ 	Actor::I_isNPC,
+-	0, //U
++	// Lost Vale: Item::isInNpc(). Retail U8 never calls it; the expansion's
++	// MAGNET cleanSweep does. Retail (U8.EXE 10d8:1ed8) walks the container
++	// chain and returns 1 at the first parent that is an NPC (objid 1-255),
++	// which is what the Crusader implementation already does.
++	Item::I_isInNpc,
+ 	Item::I_hurl,
+ 	Item::I_shoot,
+ 	Item::I_fall,
+@@ -216,7 +220,10 @@ const Intrinsic U8Intrinsics[] = {
+ 	Actor::I_isFeignDeath,
+ 	Actor::I_setFeignDeath,
+ 	Actor::I_clrFeignDeath,
+-	0, //U
++	// Lost Vale: Npc::freeEquip(item). Retail U8 never calls it; the
++	// expansion's TypeAOFrizbee (Shield of the Ancients) does. Retail
++	// (U8.EXE 10f8:2696) clears the item from the NPC's equipment slots.
++	Actor::I_freeEquip,
+ 	0, //U
+ 	0, //U
+ 	0, //U
+@@ -262,9 +269,13 @@ const Intrinsic U8Intrinsics[] = {
+ 	0, //U
+ 	0, //U
+ 	0, //U
+-	0, //U
+-	0, //U
+-	0, //U
++	// Lost Vale: Camera::getX/getY/getZ. Retail U8 never calls them, but
++	// the 1994 expansion's FREE makeAvatarTiny/makeAvatarBig/changeRef do
++	// (Camera::move_to(Camera::getX(), ...)); unbound, they returned 0 and
++	// parked the camera at the map origin, blacking the screen out.
++	CameraProcess::I_getCameraX,
++	CameraProcess::I_getCameraY,
++	CameraProcess::I_getCameraZ,
+ 	CameraProcess::I_startQuake,
+ 	CameraProcess::I_stopQuake,
+ 	InverterProcess::I_invertScreen,
+@@ -324,6 +335,16 @@ const Intrinsic U8Intrinsics[] = {
+ 	FireballProcess::I_TonysBalls,
+ 	Ultima8Engine::I_avatarCanCheat,
+ 	Ultima8Engine::I_makeAvatarACheater,
++	// 0xFE isGameRunning(). Retail (U8.EXE 1298:1873) returns a data-segment
++	// byte that is initialised to 1 and never written, so it is true in the
++	// shipped game. All four callers are chests: a locked chest (LCHST_EW
++	// 026A, LCHST_NS 02A1) barks "locked chest" instead of opening until
++	// its key turns it into a plain chest, and a plain chest (CHEST_EW 004E,
++	// CHEST_NS 0075) calls use() on the TRAP items (shape 756) inside it
++	// before opening, so a booby-trapped chest explodes. A 2026-09-03 Lost
++	// Vale change made this I_false, which let every locked chest open
++	// without its key and disarmed every trap; reverted 2026-10-08. I_true
++	// logs "Unhandled intrinsic 254" on each call; that line is expected.
+ 	UCMachine::I_true, // isGameRunning
+ 	0, //U
+ 	// 0x100
+diff --git a/engines/ultima/ultima8/world/actors/actor.cpp b/engines/ultima/ultima8/world/actors/actor.cpp
+index 244d210e..e83e1dd3 100644
+--- a/engines/ultima/ultima8/world/actors/actor.cpp
++++ b/engines/ultima/ultima8/world/actors/actor.cpp
+@@ -2772,6 +2772,27 @@ uint32 Actor::I_setEquip(const uint8 *args, unsigned int /*argsize*/) {
+ 	return 1;
+ }
+ 
++// U8 intrinsic 0x98, Npc::freeEquip(item). Retail U8 never calls it; the
++// Lost Vale expansion does. Retail (U8.EXE 10f8:2696) only clears the item
++// from the NPC's equipment slots and leaves it inside the NPC; here being
++// equipped is FLG_EQUIPPED on an item whose parent is the actor, so the
++// item stays put as a plain contained item. MainActor has no unequipped
++// inventory of its own (CanAddItem still counts the item against its slot,
++// and the paperdoll stops drawing it), so the item must not stay there:
++// ZEALSHLD's shieldMonitor pushes it out next, and shieldUnequipper has
++// already moved it to the backpack, which makes the call a no-op.
++uint32 Actor::I_freeEquip(const uint8 *args, unsigned int /*argsize*/) {
++	ARG_ACTOR_FROM_PTR(actor);
++	ARG_ITEM_FROM_ID(item);
++	if (!actor || !item) return 0;
++
++	if (item->getParent() == actor->getObjId() && item->hasFlags(FLG_EQUIPPED)) {
++		item->clearFlag(FLG_EQUIPPED);
++		item->setFlag(FLG_CONTAINED);
++	}
++	return 0;
++}
++
+ uint32 Actor::I_setDefaultActivity0(const uint8 *args, unsigned int /*argsize*/) {
+ 	ARG_ACTOR_FROM_PTR(actor);
+ 	ARG_UINT16(activity);
+diff --git a/engines/ultima/ultima8/world/actors/actor.h b/engines/ultima/ultima8/world/actors/actor.h
+index bcd624dc..af925a3b 100644
+--- a/engines/ultima/ultima8/world/actors/actor.h
++++ b/engines/ultima/ultima8/world/actors/actor.h
+@@ -376,6 +376,7 @@ public:
+ 	INTRINSIC(I_schedule);
+ 	INTRINSIC(I_getEquip);
+ 	INTRINSIC(I_setEquip);
++	INTRINSIC(I_freeEquip);
+ 	INTRINSIC(I_setDefaultActivity0);
+ 	INTRINSIC(I_setDefaultActivity1);
+ 	INTRINSIC(I_setDefaultActivity2);
+diff --git a/engines/ultima/ultima8/world/actors/animation_tracker.cpp b/engines/ultima/ultima8/world/actors/animation_tracker.cpp
+index 555d8015..c4386869 100644
+--- a/engines/ultima/ultima8/world/actors/animation_tracker.cpp
++++ b/engines/ultima/ultima8/world/actors/animation_tracker.cpp
+@@ -46,7 +46,7 @@ AnimationTracker::AnimationTracker() : _firstFrame(true), _done(false),
+ 	_blocked(false), _unsupported(false), _hitObject(0), _mode(NormalMode),
+ 	_actor(0), _dir(dir_north), _animAction(nullptr),
+ 	_prev(), _curr(), _start(),
+-	_targetDx(0), _targetDy(0), _targetDz(0), _targetOffGroundLeft(0),
++	_targetDx(0), _targetDy(0), _targetDz(0), _targetOffGroundLeft(0), _zLost(0),
+ 	_firstStep(false), _shapeFrame(0), _currentFrame(0), _startFrame(0),
+ 	_endFrame(0), _flipped(false) {
+ }
+@@ -103,6 +103,7 @@ bool AnimationTracker::init(const Actor *actor, Animation::Sequence action,
+ 	_unsupported = false;
+ 	_hitObject = 0;
+ 	_mode = NormalMode;
++	_zLost = 0;
+ 
+ 	return true;
+ }
+@@ -219,6 +220,17 @@ bool AnimationTracker::step() {
+ 		--_targetOffGroundLeft;
+ 	}
+ 
++	// Lost Vale 2026-10-10: a jump whose rise was cut short by a blocked
++	// large step (an overhang) must not still play its full descent: that
++	// ended the Avatar at z -4 under a Map 8 overhang, and could end a jump
++	// inside a raised floor (docs/playtest-2026-10-09-engine.md finding 2).
++	// Descent frames first pay back the height the block took away.
++	if (_zLost > 0 && dz < 0) {
++		const int32 absorb = MIN(_zLost, -dz);
++		dz += absorb;
++		_zLost -= absorb;
++	}
++
+ 	// determine footpad
+ 	Actor *a = getActor(_actor);
+ 	assert(a);
+@@ -286,7 +298,17 @@ bool AnimationTracker::step() {
+ 				}
+ #endif
+ 				_blocked = true;
+-				_curr = collision.GetInterpolatedCoords(end, start);
++				// LOST VALE 2026-10-09: was GetInterpolatedCoords(end, start),
++				// the reverse of every other caller (item.cpp, the super-sprite
++				// and rolling-thunder processes). That puts the actor at
++				// end - (end - start) * t, so a wall met early in a large step
++				// (a jump frame) is entered almost a full step deep: a
++				// keyboard jump passed through the Map 39 tunnel walls or
++				// wedged the Avatar inside them
++				// (docs/playtest-2026-10-09-lane.md L3d).
++				_curr = collision.GetInterpolatedCoords(start, end);
++				if (end.z > _curr.z)
++					_zLost += end.z - _curr.z;
+ 				return false;
+ 			}
+ 		}
+@@ -353,6 +375,10 @@ bool AnimationTracker::step() {
+ 		} else {
+ 			if (!info.valid) {
+ 				_blocked = true;
++				// Lost Vale: a small rising step refused the same way
++				// (head against the overhang) loses its height too.
++				if (dz > 0)
++					_zLost += dz;
+ 				return false;
+ 			}
+ 		}
+diff --git a/engines/ultima/ultima8/world/actors/animation_tracker.h b/engines/ultima/ultima8/world/actors/animation_tracker.h
+index 004df2dc..97be214e 100644
+--- a/engines/ultima/ultima8/world/actors/animation_tracker.h
++++ b/engines/ultima/ultima8/world/actors/animation_tracker.h
+@@ -130,6 +130,10 @@ private:
+ 	Point3 _start;
+ 	int32 _targetDx, _targetDy, _targetDz;
+ 	int32 _targetOffGroundLeft;
++	// Lost Vale: height a blocked large step cut off this animation's rise.
++	// The descent frames give it back instead of sinking the actor below the
++	// floor it jumped from. Not serialized: it only lives within one action.
++	int32 _zLost;
+ 	bool _firstStep, _flipped;
+ 	uint32 _shapeFrame;
+ 
+diff --git a/engines/ultima/ultima8/world/actors/avatar_mover_process.cpp b/engines/ultima/ultima8/world/actors/avatar_mover_process.cpp
+index 0fee548e..0cc9edfa 100644
+--- a/engines/ultima/ultima8/world/actors/avatar_mover_process.cpp
++++ b/engines/ultima/ultima8/world/actors/avatar_mover_process.cpp
+@@ -23,6 +23,7 @@
+ 
+ #include "common/system.h"
+ #include "ultima/ultima8/kernel/kernel.h"
++#include "ultima/ultima8/ultima8.h"
+ #include "ultima/ultima8/misc/direction_util.h"
+ #include "ultima/ultima8/world/actors/actor.h"
+ #include "ultima/ultima8/world/actors/targeted_anim_process.h"
+@@ -32,7 +33,7 @@ namespace Ultima {
+ namespace Ultima8 {
+ 
+ AvatarMoverProcess::AvatarMoverProcess() : Process(),
+-		_lastAttack(0), _idleTime(0), _movementFlags(0) {
++		_lastAttack(0), _idleTime(0), _movementFlags(0), _lastRunTick(0) {
+ 	_type = 1; // CONSTANT! (type 1 = persistent)
+ }
+ 
+@@ -40,10 +41,47 @@ AvatarMoverProcess::AvatarMoverProcess() : Process(),
+ AvatarMoverProcess::~AvatarMoverProcess() {
+ }
+ 
++void AvatarMoverProcess::terminate() {
++	// See the header. Ultima8Engine holds a RAW pointer to this process but
++	// the Kernel owns and deletes it, and nothing cleared the pointer when
++	// the process died -- so the next input event dereferenced freed memory.
++	//
++	// Observed (Lost Vale, 2026-08-18, gdb): loading a savegame runs enough
++	// processes in one Kernel::runProcesses pass to trip the runaway guard
++	// ("Seem to be stuck in process loop"), which fail()s the current
++	// process. Eight processes were killed immediately after the load
++	// completed, one of them this mover. The engine kept its stale pointer,
++	// and the first SPACE keyup afterwards crashed in onActionUp at
++	// clearMovementFlag(MOVE_JUMP). The hang-grab climb was blamed for a
++	// month because jumping is simply the first thing that presses SPACE
++	// after a load; the leap is the trigger, not the cause.
++	Ultima8Engine *engine = Ultima8Engine::get_instance();
++	if (engine)
++		engine->clearAvatarMoverProcess(this);
++
++	Process::terminate();
++}
++
+ void AvatarMoverProcess::run() {
+ 	Actor *avatar = getControlledActor();
+ 	assert(avatar);
+ 
++	// LOST VALE: at most one decision per kernel tick. Every branch below
++	// ends in waitFor(doAnim(...)), and Process::wakeUp() schedules the
++	// woken mover NEXT in the same Kernel::runProcesses pass. An Avatar
++	// embedded in geometry (a teleport into furniture, a jump wedged in a
++	// wall) has every animation refused on its first frame, so the anim
++	// process ends at once and the mover runs again, and again: the step
++	// fallback and a held turn key both spun until the runaway guard
++	// ("Seem to be stuck in process loop") killed this mover and every
++	// process after it in the pass, the SchedulerProcess among them. A real
++	// animation takes at least one tick, so only that zero-length cycle is
++	// cut; the mover just decides again on its next tick.
++	const uint32 tick = Kernel::get_instance()->getTickNum();
++	if (tick == _lastRunTick)
++		return;
++	_lastRunTick = tick;
++
+ 	// busy, so don't move
+ 	if (avatar->isBusy()) {
+ 		_idleTime = 0;
+diff --git a/engines/ultima/ultima8/world/actors/avatar_mover_process.h b/engines/ultima/ultima8/world/actors/avatar_mover_process.h
+index 432ae86e..e12b47ff 100644
+--- a/engines/ultima/ultima8/world/actors/avatar_mover_process.h
++++ b/engines/ultima/ultima8/world/actors/avatar_mover_process.h
+@@ -40,6 +40,13 @@ public:
+ 
+ 	void run() override;
+ 
++	//! The Kernel deletes terminated processes, but Ultima8Engine keeps a
++	//! raw _avatarMoverProcess pointer that nothing cleared on death. Clear
++	//! it here so a mover that dies -- the kernel's runaway-loop guard
++	//! fail()s processes after a savegame load -- cannot leave the engine
++	//! dereferencing freed memory on the next key or mouse event.
++	void terminate() override;
++
+ 	void resetIdleTime() {
+ 		_idleTime = 0;
+ 	}
+@@ -136,6 +143,10 @@ protected:
+ 	MButton _mouseButton[2];
+ 
+ 	uint32 _movementFlags;
++
++	// Kernel tick of the last run() that got past the once-per-tick check.
++	// Not saved: it only has to outlive one Kernel::runProcesses pass.
++	uint32 _lastRunTick;
+ };
+ 
+ } // End of namespace Ultima8
+diff --git a/engines/ultima/ultima8/world/actors/loiter_process.cpp b/engines/ultima/ultima8/world/actors/loiter_process.cpp
+index 75cb331f..9da15bc9 100644
+--- a/engines/ultima/ultima8/world/actors/loiter_process.cpp
++++ b/engines/ultima/ultima8/world/actors/loiter_process.cpp
+@@ -72,6 +72,23 @@ void LoiterProcess::run() {
+ 
+ 	Point3 pt = a->getLocation();
+ 
++	// Lost Vale leash: wander around the anchor, not the current spot.
++	// Each step targets the anchor +/- 320 (below), so a loitering actor
++	// stays within LEASH_JUMP of it. Further away than that means something
++	// moved it: a schedule() safeTeleport that kept it in the fast area (no
++	// leave/enter event, so no new LoiterProcess) or a scripted walk. Adopt
++	// the new spot instead of walking it back (2026-10-09,
++	// docs/playtest-2026-10-09-final.md finding 1). The closest pair of LV
++	// schedule points is Ezrekal's, 896 apart.
++	static const int32 LEASH_JUMP = 480;
++	if (_anchorX < 0 || ABS(pt.x - _anchorX) > LEASH_JUMP ||
++	        ABS(pt.y - _anchorY) > LEASH_JUMP) {
++		_anchorX = pt.x;
++		_anchorY = pt.y;
++	}
++	pt.x = _anchorX;
++	pt.y = _anchorY;
++
+ 	Common::RandomSource &rs = Ultima8Engine::get_instance()->getRandomSource();
+ 
+ 	pt.x += 32 * rs.getRandomNumberRngSigned(-10, 10);
+diff --git a/engines/ultima/ultima8/world/actors/loiter_process.h b/engines/ultima/ultima8/world/actors/loiter_process.h
+index 81dcc08b..a7170279 100644
+--- a/engines/ultima/ultima8/world/actors/loiter_process.h
++++ b/engines/ultima/ultima8/world/actors/loiter_process.h
+@@ -44,6 +44,12 @@ public:
+ 	Common::String dumpInfo() const override;
+ protected:
+ 	int32 _count;
++	// Lost Vale: leash the loiter to the actor's position at the first
++	// run() of this process. The stock behaviour targets CURRENT pos
++	// +/- 320 each step - an unbounded random walk that carried village
++	// NPCs off the map and into coordinate wraparound. Not serialized:
++	// a loaded game simply re-anchors where the actor stands.
++	int32 _anchorX = -1, _anchorY = -1;
+ };
+ 
+ } // End of namespace Ultima8
+diff --git a/engines/ultima/ultima8/world/actors/quick_avatar_mover_process.cpp b/engines/ultima/ultima8/world/actors/quick_avatar_mover_process.cpp
+index 74038d70..f7908395 100644
+--- a/engines/ultima/ultima8/world/actors/quick_avatar_mover_process.cpp
++++ b/engines/ultima/ultima8/world/actors/quick_avatar_mover_process.cpp
+@@ -213,8 +213,11 @@ void QuickAvatarMoverProcess::run() {
+ 		CameraProcess::SetCameraProcess(new CameraProcess(cpt));
+ 	}
+ 
+-	// Prevent avatar from running an idle animation while moving around
+-	Ultima8Engine::get_instance()->getAvatarMoverProcess()->resetIdleTime();
++	// Prevent avatar from running an idle animation while moving around.
++	// May be null - see AvatarMoverProcess::terminate().
++	AvatarMoverProcess *amp = Ultima8Engine::get_instance()->getAvatarMoverProcess();
++	if (amp)
++		amp->resetIdleTime();
+ }
+ 
+ void QuickAvatarMoverProcess::terminate() {
+diff --git a/engines/ultima/ultima8/world/camera_process.cpp b/engines/ultima/ultima8/world/camera_process.cpp
+index e9ff4825..328859f1 100644
+--- a/engines/ultima/ultima8/world/camera_process.cpp
++++ b/engines/ultima/ultima8/world/camera_process.cpp
+@@ -376,13 +376,11 @@ uint32 CameraProcess::I_stopQuake(const uint8 * /*args*/, unsigned int /*argsize
+ }
+ 
+ uint32 CameraProcess::I_getCameraX(const uint8 *args, unsigned int argsize) {
+-	assert(GAME_IS_CRUSADER);
+ 	Point3 pt = GetCameraLocation();
+ 	return World_ToUsecodeCoord(pt.x);
+ }
+ 
+ uint32 CameraProcess::I_getCameraY(const uint8 *args, unsigned int argsize) {
+-	assert(GAME_IS_CRUSADER);
+ 	Point3 pt = GetCameraLocation();
+ 	return World_ToUsecodeCoord(pt.y);
+ }
+diff --git a/engines/ultima/ultima8/world/current_map.cpp b/engines/ultima/ultima8/world/current_map.cpp
+index 8723893f..682d68a2 100644
+--- a/engines/ultima/ultima8/world/current_map.cpp
++++ b/engines/ultima/ultima8/world/current_map.cpp
+@@ -215,6 +215,22 @@ void CurrentMap::loadMap(Map *map) {
+ 			actor->schedule(Ultima8Engine::get_instance()->getGameTimeInSeconds() / 60);
+ 
+ 		if (actor->getMapNum() == getNum()) {
++			// Lost Vale: no fast area for NPCs either, as loadItems() does
++			// for map items. writeback() skips NPC-list items, so an NPC that
++			// stood in the fast area when the map was left kept
++			// FLG_FASTAREA, and on return enterFastArea() saw the flag and
++			// skipped its usecode. switchMap() had killed the processes that
++			// event starts (every type but 1), so the NPC stood frozen until
++			// the player walked out of its range and back. Retail usecode
++			// expects the event again: an NPC's enterFastArea kills
++			// PT_ACTIVITY and respawns it (BENTIC 0x040C, 0x0230-0x0240 in
++			// USECODE.FLX), and its schedule() only moves NPCs that are 700+
++			// units from the Avatar (METHOD 0x057C, 0x13C2), so nothing else
++			// restarts those near him. The Avatar is skipped: he carries the
++			// camera, and Item::move() relies on his flag to update the area.
++			if (GAME_IS_U8 && actor->getObjId() != kMainActorId)
++				actor->clearFlag(Item::FLG_FASTAREA);
++
+ 			addItemToEnd(actor);
+ 
+ 			// the avatar's cachein function is very strange in U8; disabled for now
+diff --git a/engines/ultima/ultima8/world/current_map.h b/engines/ultima/ultima8/world/current_map.h
+index f1fe4ac1..71f98a73 100644
+--- a/engines/ultima/ultima8/world/current_map.h
++++ b/engines/ultima/ultima8/world/current_map.h
+@@ -61,6 +61,15 @@ public:
+ 	//! Get the map number of the CurrentMap
+ 	uint32 getNum() const;
+ 
++	//! Is a map actually loaded?
++	//! getNum() cannot answer this: it returns 0 both when no map has been
++	//! loaded yet and when map 0 itself is loaded. World::switchMap needs
++	//! the difference, because map 0 is U8's limbo and holds 63 NONFIXED
++	//! records describing base game NPCs.
++	bool hasMap() const {
++		return _currentMap != nullptr;
++	}
++
+ 	unsigned int getChunkSize() const {
+ 		return _mapChunkSize;
+ 	}
+diff --git a/engines/ultima/ultima8/world/item.cpp b/engines/ultima/ultima8/world/item.cpp
+index 837c433c..89bccdc8 100644
+--- a/engines/ultima/ultima8/world/item.cpp
++++ b/engines/ultima/ultima8/world/item.cpp
+@@ -1538,6 +1538,37 @@ uint32 Item::callUsecodeEvent(uint32 event, const uint8 *args, int argsize) {
+ 		class_id = _quality + (GAME_IS_U8 ? 0x47F : 0x900);
+ 
+ 	Usecode *u = GameData::get_instance()->getMainUsecode();
++
++	// Lost Vale: FIXED.DAT NPC items with npcnum dispatch via npcnum + 1024,
++	// matching the permanent NPC convention. This allows placed NPCs
++	// to reach their dialogue usecode without being in ITEMCACH.DAT.
++	// Only dispatches if the target class actually has usecode data.
++	// Egg families are excluded: eggs pack their hatch x/y ranges into
++	// _npcNum (see Egg::getXRange/getYRange), so a nonzero "npcNum" on an
++	// egg is range data, not an NPC number, and must not override the
++	// family dispatch above (an UnkEgg with range 4,4 would otherwise
++	// dispatch to class 0x444 instead of quality + 0x47F).
++	uint32 family = getFamily();
++	bool isEgg = (family == ShapeInfo::SF_GLOBEGG ||
++	              family == ShapeInfo::SF_UNKEGG ||
++	              family == ShapeInfo::SF_MONSTEREGG ||
++	              family == ShapeInfo::SF_TELEPORTEGG);
++	// Actors in the NPC list are excluded too: a monster hatched by a
++	// MonsterEgg gets npcNum = its objId (1-255, monster_egg.cpp), so this
++	// hunk sent its look/gotHit/die to whatever class sat at objId + 1024
++	// (a hatched harpie at 149 ran retail MORDHAT). Retail dispatches such a
++	// FLG_FAST_ONLY actor by shape; placed LV NPCs carry EXT_PERMANENT_NPC
++	// and take the objId + 1024 path above.
++	// (docs/playtest-2026-10-11-monsters.md finding 2)
++	if (GAME_IS_U8 && _npcNum != 0 && !isEgg &&
++	        !(_extendedFlags & EXT_PERMANENT_NPC) &&
++	        !(_flags & FLG_IN_NPC_LIST)) {
++		uint32 npc_class = _npcNum + 1024;
++		if (u->get_class_size(npc_class) > 0) {
++			class_id = npc_class;
++		}
++	}
++
+ 	uint32 offset = u->get_class_event(class_id, event);
+ 	if (!offset) return 0; // event not found
+ 
+@@ -3121,6 +3152,21 @@ uint32 Item::I_enterFastArea(const uint8 *args, unsigned int /*argsize*/) {
+ 	ARG_ITEM_FROM_PTR(item);
+ 	if (!item) return 0;
+ 
++	// LOST VALE 2026-10-09: the U8 intrinsic is not the engine's own
++	// fast-area entry. Retail (U8.EXE 10d8:2577) sets FLG_FASTAREA and fires
++	// the enterFastArea event for a living NPC whether or not it was already
++	// in the fast area, and usecode calls it for exactly that: METHOD
++	// exitConvo (0x57C:109A) restarts the talked-to NPC's activity with it.
++	// Item::enterFastArea() skips anything already flagged, so after every
++	// conversation retail and LV NPCs alike were left with no activity
++	// process ("Non-existent process PID (0) in implies";
++	// docs/playtest-2026-10-09-convo.md C6).
++	if (GAME_IS_U8 && item->hasFlags(FLG_FASTAREA)) {
++		const Actor *actor = dynamic_cast<const Actor *>(item);
++		if (actor && !actor->isDead() && item->getObjId() != kMainActorId)
++			return item->callUsecodeEvent_enterFastArea();
++	}
++
+ 	return item->enterFastArea();
+ }
+ 
+diff --git a/engines/ultima/ultima8/world/map.cpp b/engines/ultima/ultima8/world/map.cpp
+index 563b6167..2f128c15 100644
+--- a/engines/ultima/ultima8/world/map.cpp
++++ b/engines/ultima/ultima8/world/map.cpp
+@@ -24,11 +24,15 @@
+ #include "common/stack.h"
+ #include "ultima/ultima.h"
+ #include "ultima/ultima8/games/game_data.h"
++#include "ultima/ultima8/gfx/main_shape_archive.h"
++#include "ultima/ultima8/gfx/shape_info.h"
+ #include "ultima/ultima8/kernel/object_manager.h"
+ #include "ultima/ultima8/misc/point3.h"
+ #include "ultima/ultima8/ultima8.h"
+ #include "ultima/ultima8/world/container.h"
+ #include "ultima/ultima8/world/coord_utils.h"
++#include "ultima/ultima8/world/actors/actor.h"
++#include "ultima/ultima8/world/get_object.h"
+ #include "ultima/ultima8/world/item_factory.h"
+ 
+ namespace Ultima {
+@@ -236,6 +240,76 @@ void Map::loadFixedFormatObjects(Common::List<Item *> &itemlist,
+ 			shape , frame, x, y, z, flags, quality, npcNum, mapNum, next);
+ #endif
+ 
++		// Lost Vale: promote FIXED.DAT items with npcNum to real Actors
++		// so the engine dispatches usecode via npcNum+1024.
++		// Only for EXT_FIXED (not dynamic items loaded before NPCs) and
++		// only on LV maps to avoid misinterpreting base game npcNum bytes.
++		//
++		// EGGS ARE EXCLUDED, and this is not optional: an egg packs its
++		// hatch x/y ranges into the npcNum byte (Egg::getXRange/getYRange),
++		// so a hatch range of 0x66 (+/-192) reads as "npcNum 102" and the
++		// promotion below would turn the egg into an Actor - which is not
++		// an Egg object, so it can never hatch again. Item::callUsecodeEvent
++		// already excludes egg families from npcNum dispatch for exactly
++		// this reason; this is the same exclusion at load time. Found
++		// 2026-07-28 by an in-engine run: Map 18's EggCrackHint (q306) and
++		// EggAOCeremony (q296) both carry a 0x66 range, so both were being
++		// promoted into actor slot 102 - one clobbering the other's
++		// position, both silently dead, and colliding with Sigrid, who is
++		// a real NPC in slot 102 on Map 10.
++		const ShapeInfo *lvsi = GameData::get_instance()->getMainShapes()->getShapeInfo(shape);
++		bool lvIsEgg = lvsi && (lvsi->_family == ShapeInfo::SF_GLOBEGG ||
++		                        lvsi->_family == ShapeInfo::SF_UNKEGG ||
++		                        lvsi->_family == ShapeInfo::SF_MONSTEREGG ||
++		                        lvsi->_family == ShapeInfo::SF_TELEPORTEGG);
++		if (GAME_IS_U8 && (extendedflags & Item::EXT_FIXED) && !lvIsEgg &&
++		    npcNum >= 100 && npcNum <= 116 &&
++		    (_mapNum == 9 || _mapNum == 10 || _mapNum == 11 ||
++		     _mapNum == 13 || _mapNum == 17 || _mapNum == 18)) {
++			Actor *existing = getActor(npcNum);
++			if (existing) {
++				debug(1, "LV: Slot %u already has actor shape %u mapNum %u — updating pos to (%d,%d,%d)",
++				      npcNum, existing->getShape(), existing->getMapNum(), x, y, z);
++				existing->setShape(shape);
++				existing->setMapNum(_mapNum);
++				existing->setLocation(x, y, z);
++				continue;
++			}
++			// Also check if something non-Actor occupies the slot
++			Object *obj = ObjectManager::get_instance()->getObject(npcNum);
++			if (obj) {
++				debug(1, "LV: Slot %u has non-Actor object — skipping", npcNum);
++				continue;
++			}
++
++			Actor *actor = ItemFactory::createActor(
++				shape, frame, quality,
++				flags | Item::FLG_IN_NPC_LIST,
++				npcNum, _mapNum,  // Use Map's number, not record byte (usually 0)
++				extendedflags | Item::EXT_PERMANENT_NPC,
++				false);
++			if (!actor) {
++				warning("Couldn't create LV actor npc %u shape %u", npcNum, shape);
++				continue;
++			}
++
++			ObjectManager::get_instance()->assignActorObjId(actor, npcNum);
++			actor->setLocation(x, y, z);
++
++			// Default stats for village NPCs
++			actor->setStr(10);
++			actor->setDex(10);
++			actor->setInt(15);
++			actor->setHP(20);
++
++			debug(1, "LV: Created actor npc %u shape %u mapNum %u at (%d,%d,%d)",
++			      npcNum, shape, _mapNum, x, y, z);
++
++			// Do NOT add to itemlist — Actor lives in ObjectManager
++			// and CurrentMap::loadMap() adds it via the Actor 0-255 loop
++			continue;
++		}
++
+ 		Item *item = ItemFactory::createItem(shape, frame, quality, flags, npcNum,
+ 		                                     mapNum, extendedflags, false);
+ 		if (!item) {
+diff --git a/engines/ultima/ultima8/world/world.cpp b/engines/ultima/ultima8/world/world.cpp
+index 388999d9..717c08f9 100644
+--- a/engines/ultima/ultima8/world/world.cpp
++++ b/engines/ultima/ultima8/world/world.cpp
+@@ -156,7 +156,17 @@ bool World::switchMap(uint32 newmap) {
+ 	}
+ 
+ 	uint32 oldmap = _currentMap->getNum();
+-	if (oldmap != 0) {
++	// Lost Vale: this guard used to read `oldmap != 0`, and getNum() returns
++	// 0 both when no map has been loaded yet and when map 0 itself is the
++	// current map. Map 0 is U8's limbo, and its NONFIXED entry holds 63
++	// records describing base game NPCs, which load as ordinary Containers
++	// because NPC shapes are container family. Leaving a real map 0 therefore
++	// skipped writeback() and unloadFixed(), and since loadMap() never clears
++	// the item lists itself, all 63 rode into the destination map, drew there,
++	// answered look-clicks, and were written permanently into that map's
++	// dynamic item list at the next switch. On Map 10 that put two robed
++	// figures on the lake pier. See docs/2026-09-19-map0-limbo-carryover.md.
++	if (_currentMap->hasMap()) {
+ 		debug(1, "Unloading map %u", oldmap);
+ 
+ 		assert(oldmap < _maps.size() && _maps[oldmap] != nullptr);

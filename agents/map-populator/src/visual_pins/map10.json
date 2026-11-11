@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "class": "exterior",
+  "sample_step": 256,
+  "inherited_black": [],
+  "occlusion_allow": [],
+  "frame_allow": [],
+  "pins": {
+    "walkable_black_specified": 0,
+    "walkable_black_prop": 32,
+    "leg_cells_below_half": 336,
+    "cells_below_half_share": 0.015632965165675448,
+    "cells_hidden_share": 0.0076465590484282074,
+    "median_min_visible": 1.0,
+    "frame_black_mean": 0.00040957339490674315,
+    "frame_black_p95": 0.0019714843749999993,
+    "frame_black_max": 0.01868359375,
+    "records": 13455,
+    "expanded_records": 51286
+  },
+  "report_step128": {
+    "walkable_black_specified": 0,
+    "walkable_black_prop": 32,
+    "leg_cells_below_half": 336,
+    "cells_below_half_share": 0.01650124069478908,
+    "cells_hidden_share": 0.00620347394540943,
+    "median_min_visible": 1.0,
+    "frame_black_mean": 0.00048237098712779154,
+    "frame_black_p95": 0.0021640625,
+    "frame_black_max": 0.02736328125,
+    "records": 13455,
+    "expanded_records": 51286
+  },
+  "frame_step": 512,
+  "report_artifact_hashes": {
+    "TYPEFLAG.DAT": "568c4a4e8ea30b132b5e86d667f13f15c9238c8c32f0900d627db31e06f69db0",
+    "U8SHAPES.FLX": "0f80f38ddfbc28aac9148a65ec0c9cea201c84f0af177f1486c70a9e074f8bde",
+    "ANIM.DAT": "97ae5fc9ddaa6ef515427103264a3095a6d42776ac51e530954fb4846b4d0443",
+    "EUSECODE.FLX": "b47c324cdad77646c27755acfdd5bca53a9d92e16268db229f18e7dd780d4205",
+    "FIXED.DAT": "70f90c1f867d5d41f605eb8444fa439f95629615af4ca1ad1636a68b37dce584",
+    "GLOB.FLX": "ddf6b8083789b7b003ce29f98c3404276fec8efa192c2432f6c6ef9722acf276"
+  }
+}

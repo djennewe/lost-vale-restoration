@@ -1,0 +1,752 @@
+{
+ "shot": "screen21",
+ "map": 10,
+ "origin_note": "screen21: lava crossing below a cliff, skull-post pen. Vignette-local coords = world-in-solve minus (1792,1664,0); x,y keep the retail 128k+127 tile lattice.",
+ "camera": {
+  "sx0": -172,
+  "sy0": 48,
+  "crop": [
+   320,
+   180
+  ],
+  "convention": "painter sign, vignette-local frame: screen_x = x/4 - y/4 - sx0, screen_y = x/8 + y/8 - z - sy0 (C division per term; x,y = footprint max corner). vignette_replay.py paints in world coordinates (origin_world + local) with the camera shifted by (ox/4 - oy/4, ox/8 + oy/8 - oz)."
+ },
+ "items": [
+  {
+   "shape": 32,
+   "frame": 1,
+   "x": 895,
+   "y": 639,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 2,
+   "x": 895,
+   "y": 511,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 0,
+   "x": 895,
+   "y": 767,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 9,
+   "x": 895,
+   "y": 895,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 895,
+   "y": 895,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 895,
+   "y": 1407,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 895,
+   "y": 511,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 895,
+   "y": 1023,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 895,
+   "y": 639,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 895,
+   "y": 767,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 3,
+   "x": 895,
+   "y": 1023,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 895,
+   "y": 383,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 895,
+   "y": 1279,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 895,
+   "y": 1151,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 3,
+   "x": 895,
+   "y": 383,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 639,
+   "y": 767,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 511,
+   "y": 767,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 6,
+   "x": 767,
+   "y": 511,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 14,
+   "x": 511,
+   "y": 639,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 383,
+   "y": 767,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 767,
+   "y": 383,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 5,
+   "x": 639,
+   "y": 511,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 14,
+   "x": 639,
+   "y": 639,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 4,
+   "x": 767,
+   "y": 767,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 157,
+   "frame": 0,
+   "x": 607,
+   "y": 1183,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 409,
+   "frame": 33,
+   "x": 1151,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 153,
+   "frame": 0,
+   "x": 799,
+   "y": 1247,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 483,
+   "frame": 0,
+   "x": 1503,
+   "y": 895,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 409,
+   "frame": 32,
+   "x": 1151,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 122,
+   "frame": 15,
+   "x": 1023,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 122,
+   "frame": 23,
+   "x": 1023,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 157,
+   "frame": 0,
+   "x": 671,
+   "y": 1023,
+   "z": 80,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 255,
+   "y": 895,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 639,
+   "y": 895,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 122,
+   "frame": 23,
+   "x": 1023,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 153,
+   "frame": 0,
+   "x": 639,
+   "y": 1183,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 153,
+   "frame": 0,
+   "x": 767,
+   "y": 1183,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 0,
+   "x": 639,
+   "y": 1183,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 383,
+   "y": 1023,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 162,
+   "frame": 0,
+   "x": 543,
+   "y": 1087,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 108,
+   "frame": 1,
+   "x": 927,
+   "y": 1247,
+   "z": 16,
+   "why": "matched"
+  },
+  {
+   "shape": 162,
+   "frame": 0,
+   "x": 671,
+   "y": 1215,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 153,
+   "frame": 0,
+   "x": 767,
+   "y": 1311,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 895,
+   "y": 1535,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 20,
+   "x": 767,
+   "y": 1023,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 157,
+   "frame": 0,
+   "x": 767,
+   "y": 1311,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 409,
+   "frame": 1,
+   "x": 1023,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 409,
+   "frame": 1,
+   "x": 1023,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 35,
+   "frame": 37,
+   "x": 767,
+   "y": 1407,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 0,
+   "x": 703,
+   "y": 1023,
+   "z": 80,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 0,
+   "x": 511,
+   "y": 1055,
+   "z": 88,
+   "why": "matched"
+  },
+  {
+   "shape": 122,
+   "frame": 24,
+   "x": 1023,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 157,
+   "frame": 0,
+   "x": 543,
+   "y": 1023,
+   "z": 80,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 383,
+   "y": 895,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 106,
+   "frame": 1,
+   "x": 959,
+   "y": 1247,
+   "z": 16,
+   "why": "matched"
+  },
+  {
+   "shape": 106,
+   "frame": 1,
+   "x": 959,
+   "y": 1151,
+   "z": 16,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 255,
+   "y": 767,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 13,
+   "x": 511,
+   "y": 511,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 102,
+   "frame": 1,
+   "x": 927,
+   "y": 1151,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 105,
+   "frame": 1,
+   "x": 991,
+   "y": 1151,
+   "z": 16,
+   "why": "matched"
+  },
+  {
+   "shape": 156,
+   "frame": 0,
+   "x": 767,
+   "y": 1311,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 102,
+   "frame": 1,
+   "x": 1279,
+   "y": 1407,
+   "z": 80,
+   "why": "matched"
+  },
+  {
+   "shape": 104,
+   "frame": 1,
+   "x": 991,
+   "y": 1247,
+   "z": 32,
+   "why": "matched"
+  },
+  {
+   "shape": 435,
+   "frame": 11,
+   "x": 1279,
+   "y": 1279,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 472,
+   "frame": 1,
+   "x": 903,
+   "y": 263,
+   "z": 63,
+   "why": "matched+OFF-LATTICE"
+  },
+  {
+   "shape": 409,
+   "frame": 33,
+   "x": 1263,
+   "y": 735,
+   "z": 0,
+   "why": "matched+OFF-LATTICE"
+  },
+  {
+   "shape": 409,
+   "frame": 32,
+   "x": 1151,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 14,
+   "x": 383,
+   "y": 639,
+   "z": 64,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 386,
+   "frame": 18,
+   "x": 639,
+   "y": 383,
+   "z": 64,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 781,
+   "frame": 0,
+   "x": 767,
+   "y": 895,
+   "z": 56,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 301,
+   "frame": 4,
+   "x": 767,
+   "y": 1471,
+   "z": 63,
+   "why": "matched-aug+OFF-LATTICE"
+  },
+  {
+   "shape": 126,
+   "frame": 13,
+   "x": 383,
+   "y": 767,
+   "z": 56,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 511,
+   "y": 895,
+   "z": 64,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 386,
+   "frame": 10,
+   "x": 511,
+   "y": 1151,
+   "z": 64,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 386,
+   "frame": 9,
+   "x": 639,
+   "y": 1023,
+   "z": 64,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 386,
+   "frame": 4,
+   "x": 639,
+   "y": 1279,
+   "z": 64,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 767,
+   "y": 255,
+   "z": 56,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 386,
+   "frame": 19,
+   "x": 767,
+   "y": 639,
+   "z": 64,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 767,
+   "y": 1151,
+   "z": 64,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 767,
+   "y": 1279,
+   "z": 64,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 511,
+   "y": 1023,
+   "z": 64,
+   "why": "lattice-fill-hidden"
+  },
+  {
+   "shape": 386,
+   "frame": 10,
+   "x": 639,
+   "y": 1151,
+   "z": 64,
+   "why": "lattice-fill-hidden"
+  },
+  {
+   "shape": 156,
+   "frame": 2,
+   "x": 863,
+   "y": 1311,
+   "z": 120,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 767,
+   "y": 320,
+   "z": 64,
+   "why": "matched-aug"
+  }
+ ],
+ "actors": [
+  {
+   "what": "avatar",
+   "shape": 1,
+   "frame": 181,
+   "x": 799,
+   "y": 959,
+   "z": 64
+  },
+  {
+   "what": "monster (retail 509 seeker, \"red eye-serpent\")",
+   "shape": 509,
+   "frame": 126,
+   "x": 895,
+   "y": 767,
+   "z": 64
+  }
+ ],
+ "art_1994": [
+  {
+   "id": 2062,
+   "frames": [
+    0
+   ],
+   "name": "skull-carved deck-edge beam of the pen",
+   "note": "1037 px L-shaped beam with skull bosses between the pen deck and its lower rails; no retail frame in 140-169 found [INFERENCE: 1994-only trim or an unsearched deck frame]"
+  }
+ ],
+ "verify": {
+  "render": "docs/research/2026-10-16-screenshot-reconstruction/screen21_render.png",
+  "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen21_diff.png",
+  "frame_px": 57600,
+  "all_frame_strict": 92.941,
+  "all_frame_class": 93.288,
+  "void_as_black_points": 0.014,
+  "excluded_actor_points": 0.0,
+  "provenance_points": {
+   "retail": 93.288,
+   "cross_shot_validated_1994": 0.0,
+   "single_shot_1994": 0.0,
+   "inferred": 0.0,
+   "unmatched": 6.712
+  },
+  "published_render_identical": true,
+  "replay": "python3 agents/map-populator/src/vignette_replay.py screen21"
+ },
+ "placement": {
+  "map": 10,
+  "origin_world": [
+   8320,
+   20608,
+   0
+  ],
+  "why": "Lava field on the cliff-gate approach (THORDIS.UNK:1497 \"cross the liquid fire to them\"; layout #8 6000-10500 x 20700-24300, pen proposed at (8960,21760)). Origin puts the pen centre at (9007,21775). The lava (409 pool, 122 crust) lands at x 9343-9583, y 21119-21503, exactly on the road-end -> gate line (9728,20992)->(7168,22784); the cobble stair (102-108 f1) climbs WEST from the lava to the 64-high knoll with the pen, so the route crosses the lava, climbs the knoll and continues SW to the gate shelf. Lava/route level z=0 = Map 10 ground; knoll z=64.",
+  "pin_moves": [],
+  "unchanged": [
+   "Cliff gate pins (pad 206 + egg (7168,23296,8), gate 114 (7168,23552,8), trigger 207 (7168,24064,8)) stay: the knoll must descend to the z=8 gate shelf west of the window (outside the vignette)"
+  ],
+  "collides_with": [
+   "137 existing items in footprint x 8447-9823, y 20735-22143 (glob-242 ground 102, cliffs 32 x10 / 26 x10, 125 x9, 564 x6)",
+   "The lava under the route needs a walkable crossing (the shot shows dark rock islands: unmatched/1994 or 122 frames) \u2014 LAVA_MARGIN/lane rules in the research doc would be violated by the shot as captured"
+  ]
+ },
+ "source": "ReconVale (2026-10-16 reconstruction)"
+}

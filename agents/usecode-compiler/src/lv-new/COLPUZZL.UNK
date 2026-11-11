@@ -1,0 +1,200 @@
+// Elemental Columns — Pillar Puzzle (quest steps 3-4)
+// Missing dialogue segment #3, rewritten 2026-07-04 to the recovered 1994
+// design (agents/npc-dialogue/docs/dialogue-elemental-columns.md): each
+// pillar is destroyed by using the OPPOSITE element's talisman on the
+// receptacle beside it (fire<->water, earth<->air — "the ancient principle
+// of balance"). Order does not matter. All four destroyed -> the sealed
+// passage to the teleporter pad crumbles open.
+//
+// DISPATCH: npcnum. The four receptacle items on Map 11 (shape 307,
+// qualities 201-204, build_map_11.py) carry npcnum 120 -> the engine's
+// npcnum+1024 patch dispatches class 1144 (0x478), manifest-pinned as
+// TYPERECEPTACLE. npcnum dispatch is byte-limited (class must be
+// 1024-1279), so this class CANNOT live in the normal 1431+ new-class
+// window; 1144 sits in the empty base-FLX gap 1088-1153 alongside the
+// dialogue NPCs (1124-1140), clear of the Actor-promotion range (100-116)
+// and unused by any base-map npcnum byte (117-128 all clean, scan
+// 2026-07-04).
+//
+// Element identity follows the MAP's frame mapping (decision 2026-07-04):
+// pillar/talisman frame 0=Earth, 1=Air, 2=Fire, 3=Water; receptacle
+// quality 201=Earth, 202=Air, 203=Fire, 204=Water; talisman quality
+// 101-104 same order. The design doc's frame order was updated to match.
+//
+// The earlier EggColumnPuzzle sketch (one-shot hatch polling frame-1
+// "activation") is retired: its egg class pin 1449 and flags
+// columnsActivated/columnCorrectOrder (bits 1812/1813) stay in the
+// manifest (append-only) but nothing references them.
+//
+// The pillars and boulders are FIXED.DAT records, which every map switch
+// re-reads, so these destroy() calls hold only until the player leaves
+// Map 11. EggReapply (REAPPLY.UNK) on both arrival pads destroys them
+// again from the five flags set here (2026-10-10, maps3 finding 1).
+
+uses "free";
+uses "flags";
+uses "item";
+
+globalflag WaterColumnDestroyed;
+globalflag FireColumnDestroyed;
+globalflag EarthColumnDestroyed;
+globalflag AirColumnDestroyed;
+globalflag allColumnsDestroyed;
+
+typeclass TypeReceptacle inherits Item {
+	process look();
+	process use();
+}
+
+// look() lives here, in class 1144, because the npcnum override sends
+// every event to this class, look() included: without it a single click
+// on a receptacle finds no handler and prints nothing (docs/art-track.md
+// contract 5, decision 2). The name is the 1994 Art List's handwritten
+// "Pillar receptacle" (story-beats.yaml:124).
+process TypeReceptacle::look() {
+	bark("pillar receptacle");
+}
+
+process TypeReceptacle::use() {
+	[[PT_DEFAULT, referent]];
+
+	item, talisman, pillar, burst : Item;
+	q : Quality = 0;
+	oppFrame : Number = 0;
+	found : Number = 0;
+	matched : Number = 0;
+
+	// getQ, NOT getQuality: the engine's I_getQuality returns 0 for any
+	// non-SF_QUALITY family (item.cpp:2837-2845), and receptacle shape
+	// 307 is container family — the first in-game run saw q=0 on all
+	// four receptacles, consumed the frame-0 Earth gem generically, and
+	// set no flags. I_getQ returns _quality unconditionally.
+	q = getQ();
+
+	// Already destroyed — the receptacle is spent.
+	if q = 201 and EarthColumnDestroyed = 1 {
+		return;
+	}
+	if q = 202 and AirColumnDestroyed = 1 {
+		return;
+	}
+	if q = 203 and FireColumnDestroyed = 1 {
+		return;
+	}
+	if q = 204 and WaterColumnDestroyed = 1 {
+		return;
+	}
+
+	// The opposite element's talisman frame (map mapping above).
+	if q = 201 {
+		oppFrame = 1;
+		matched = 1;
+	}
+	if q = 202 {
+		oppFrame = 0;
+		matched = 1;
+	}
+	if q = 203 {
+		oppFrame = 3;
+		matched = 1;
+	}
+	if q = 204 {
+		oppFrame = 2;
+		matched = 1;
+	}
+
+	// Unknown quality: never run the generic consume path (the q=0 bug
+	// above ate a gem with no flag set). Fail silent and safe.
+	if matched = 0 {
+		return;
+	}
+
+	// Does the Avatar carry the opposite talisman?
+	foreach recursive item within container Avatar {
+		if item.getType() = TypeTalisman and item.getFrame() = oppFrame {
+			if found = 0 {
+				talisman.referent = item.referent;
+				found = 1;
+			}
+		}
+	}
+
+	if found = 0 {
+		// Wrong element or no talisman. (Design doc also deals 5 damage
+		// and pushback — deferred until receiveHit/hurl are proven
+		// in-game; bark-only for the playable spine.)
+		Avatar.bark ("The column flares with energy and repels you!");
+		return;
+	}
+
+	// Consume the talisman (design note 2: one purpose each).
+	talisman.destroy();
+
+	// Destruction scene at the pillar: sparkle burst, rumble, collapse.
+	burst.create (TypeMagicSparkle, 11);
+	burst.pop (getX(), getY(), getZ() + 24);
+
+	spawn safePlaySFX (QUAKE3, 200) -> return;
+
+	if q = 201 {
+		Avatar.bark ("The air talisman howls with fury!");
+	}
+	if q = 202 {
+		Avatar.bark ("The earth talisman grows heavy with power!");
+	}
+	if q = 203 {
+		Avatar.bark ("The water talisman glows with a cold light!");
+	}
+	if q = 204 {
+		Avatar.bark ("The fire talisman blazes in my hand!");
+	}
+
+	// Remove the adjacent pillar (256 units away; nearest other pillar is
+	// 1024+, so range 300 can only match this receptacle's own pillar).
+	foreach pillar where type = TypeElementalColumn within 300 of referent {
+		pillar.destroy();
+	}
+
+	wait (30);
+	burst.destroy();
+
+	if q = 201 {
+		Avatar.bark ("The earth column has been destroyed.");
+		EarthColumnDestroyed = 1;
+	}
+	if q = 202 {
+		Avatar.bark ("The air column has been destroyed.");
+		AirColumnDestroyed = 1;
+	}
+	if q = 203 {
+		Avatar.bark ("The fire column has been destroyed.");
+		FireColumnDestroyed = 1;
+	}
+	if q = 204 {
+		Avatar.bark ("The water column has been destroyed.");
+		WaterColumnDestroyed = 1;
+	}
+
+	// All four down: unseal the passage to the teleporter pad.
+	if EarthColumnDestroyed = 1 and AirColumnDestroyed = 1 and FireColumnDestroyed = 1 and WaterColumnDestroyed = 1 {
+		allColumnsDestroyed = 1;
+
+		wait (30);
+		spawn safePlaySFX (QUAKE3, 200) -> return;
+
+		// The doorway plug: shape-66 boulders, quality 299 (build_map_11).
+		// Quality guard keeps ambient shape-66 rubble elsewhere safe.
+		// getQ, not getQuality: shape 66 is family 0 (generic), and
+		// I_getQuality returns 0 for any non-SF_QUALITY family — the
+		// same trap that broke the receptacle reads (see above).
+		foreach item where type = TypeSealingBoulder within 2200 of referent {
+			if item.getQ() = 299 {
+				item.destroy();
+			}
+		}
+
+		Avatar.bark ("The way to the Lost Vale is open!");
+	}
+
+	return;
+}

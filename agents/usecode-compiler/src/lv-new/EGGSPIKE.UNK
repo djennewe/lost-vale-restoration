@@ -1,0 +1,17 @@
+// DD-007 Spike — UnkEgg quality dispatch proof
+// Minimal test class: hatch() barks an unmissable string. Confirms the
+// engine's Egg::hatch() -> class (quality + 0x47F) dispatch reaches
+// compiled LV usecode end-to-end. See PLAN.md DD-007 and
+// shared/docs/wiring-data.md for the reachability record.
+
+uses "egg";
+
+eggclass EggSpike inherits Egg
+{
+	process hatch();
+}
+
+process EggSpike::hatch()
+{
+	Avatar.bark("DD-007 SPIKE: the egg hatched.");
+}

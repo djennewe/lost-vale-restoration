@@ -1,0 +1,1145 @@
+{
+ "shot": "screen11",
+ "map": 17,
+ "origin_note": "Phase C z=0 encoding (2026-10-17, phaseC-art.md section 3, docs/research/2026-10-16-screenshot-reconstruction/phaseC/map17/REPORT.md): cloud floor 874 (was 1994 id 2000) at z=0 on the 128 lattice (x,y = 128k+127), its built hotspot (31,32) one pixel higher than the registry's, so a z=0 tile paints what the z=1 tile did; objects (columns 875, was 2001; gems 596; obelisk pieces; skeletons; bottles; the sun Shield half 878, was 2002; the Avatar) dropped 2 in z to the pixel-identical (x,y) by resolve(): (x-1,y-1) for the 32k positions, the 31 residue; the frame-edge column at z=0 kept. Obelisk front drum (banded column) at (2847,2463,0) is the scene anchor; obelisk = retail pieces only. The z=1/z=2 scheme before it: cloud z=1 hotspot (31,31), objects z=2 on 32k.",
+ "camera": {
+  "sx0": -60,
+  "sy0": 509,
+  "crop": [
+   317,
+   183
+  ],
+  "convention": "painter sign, vignette-local frame: screen_x = x/4 - y/4 - sx0, screen_y = x/8 + y/8 - z - sy0 (C division per term; x,y = footprint max corner). vignette_replay.py paints in world coordinates (origin_world + local) with the camera shifted by (ox/4 - oy/4, ox/8 + oy/8 - oz)."
+ },
+ "items": [
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 1919,
+   "y": 2175,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2047,
+   "y": 2047,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2175,
+   "y": 1919,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2303,
+   "y": 1791,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2431,
+   "y": 1663,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2559,
+   "y": 1535,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2047,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2175,
+   "y": 2047,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2303,
+   "y": 1919,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2431,
+   "y": 1791,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2559,
+   "y": 1663,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 3,
+   "x": 2047,
+   "y": 2303,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2175,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2303,
+   "y": 2047,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2431,
+   "y": 1919,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2559,
+   "y": 1791,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 4,
+   "x": 2687,
+   "y": 1663,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2175,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2303,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2431,
+   "y": 2047,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2559,
+   "y": 1919,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2687,
+   "y": 1791,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2175,
+   "y": 2431,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2303,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2431,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2559,
+   "y": 2047,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2687,
+   "y": 1919,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2815,
+   "y": 1791,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2303,
+   "y": 2431,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2431,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2559,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2687,
+   "y": 2047,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2815,
+   "y": 1919,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2303,
+   "y": 2559,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2431,
+   "y": 2431,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2559,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2687,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2815,
+   "y": 2047,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2943,
+   "y": 1919,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2431,
+   "y": 2559,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2559,
+   "y": 2431,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2687,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2815,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2943,
+   "y": 2047,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2431,
+   "y": 2687,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2559,
+   "y": 2559,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2687,
+   "y": 2431,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2815,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2943,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3071,
+   "y": 2047,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2559,
+   "y": 2687,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2687,
+   "y": 2559,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2815,
+   "y": 2431,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2943,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 3071,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2559,
+   "y": 2815,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2687,
+   "y": 2687,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 2815,
+   "y": 2559,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2943,
+   "y": 2431,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 3071,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 3199,
+   "y": 2175,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2687,
+   "y": 2815,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2815,
+   "y": 2687,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2943,
+   "y": 2559,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3071,
+   "y": 2431,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 3199,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2687,
+   "y": 2943,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2815,
+   "y": 2815,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 2943,
+   "y": 2687,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 3071,
+   "y": 2559,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3199,
+   "y": 2431,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 3327,
+   "y": 2303,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2815,
+   "y": 2943,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 1,
+   "x": 2943,
+   "y": 2815,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 3071,
+   "y": 2687,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 2,
+   "x": 3199,
+   "y": 2559,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 874,
+   "frame": 0,
+   "x": 3327,
+   "y": 2431,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 2655,
+   "y": 2623,
+   "z": 0,
+   "why": "matched (1994 column, plain)"
+  },
+  {
+   "shape": 596,
+   "frame": 7,
+   "x": 2655,
+   "y": 2623,
+   "z": 40,
+   "why": "matched (retail gem 596 on column top)"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 2591,
+   "y": 2431,
+   "z": 0,
+   "why": "matched (1994 column, plain)"
+  },
+  {
+   "shape": 596,
+   "frame": 2,
+   "x": 2591,
+   "y": 2431,
+   "z": 40,
+   "why": "matched (retail gem 596 on column top)"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 2847,
+   "y": 2687,
+   "z": 0,
+   "why": "matched (1994 column, plain)"
+  },
+  {
+   "shape": 596,
+   "frame": 6,
+   "x": 2847,
+   "y": 2687,
+   "z": 40,
+   "why": "matched (retail gem 596 on column top)"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 3007,
+   "y": 2591,
+   "z": 0,
+   "why": "matched (1994 column, plain)"
+  },
+  {
+   "shape": 596,
+   "frame": 5,
+   "x": 3007,
+   "y": 2591,
+   "z": 40,
+   "why": "matched (retail gem 596 on column top)"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 2815,
+   "y": 2207,
+   "z": 0,
+   "why": "matched (1994 column, plain)"
+  },
+  {
+   "shape": 596,
+   "frame": 2,
+   "x": 2815,
+   "y": 2207,
+   "z": 40,
+   "why": "matched (retail gem 596 on column top)"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 3071,
+   "y": 2463,
+   "z": 0,
+   "why": "matched (1994 column, plain)"
+  },
+  {
+   "shape": 596,
+   "frame": 4,
+   "x": 3071,
+   "y": 2463,
+   "z": 40,
+   "why": "matched (retail gem 596 on column top)"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 3007,
+   "y": 2303,
+   "z": 0,
+   "why": "matched (1994 column, plain)"
+  },
+  {
+   "shape": 596,
+   "frame": 3,
+   "x": 3007,
+   "y": 2303,
+   "z": 40,
+   "why": "matched (retail gem 596 on column top)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2783,
+   "y": 2463,
+   "z": 0,
+   "why": "matched (1994 column, banded)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2847,
+   "y": 2463,
+   "z": 0,
+   "why": "matched (1994 column, banded)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2847,
+   "y": 2399,
+   "z": 0,
+   "why": "matched (1994 column, banded)"
+  },
+  {
+   "shape": 875,
+   "frame": 1,
+   "x": 2783,
+   "y": 2399,
+   "z": 0,
+   "why": "inferred (hidden 4th drum of the 2x2 ring) (1994 column, banded)"
+  },
+  {
+   "shape": 12,
+   "frame": 17,
+   "x": 2815,
+   "y": 2463,
+   "z": 40,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 12,
+   "frame": 16,
+   "x": 2847,
+   "y": 2431,
+   "z": 40,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 12,
+   "frame": 15,
+   "x": 2815,
+   "y": 2463,
+   "z": 80,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 12,
+   "frame": 14,
+   "x": 2847,
+   "y": 2431,
+   "z": 80,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 545,
+   "frame": 0,
+   "x": 2847,
+   "y": 2463,
+   "z": 120,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 814,
+   "frame": 0,
+   "x": 2847,
+   "y": 2463,
+   "z": 40,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 218,
+   "frame": 0,
+   "x": 2879,
+   "y": 2559,
+   "z": 0,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 219,
+   "frame": 0,
+   "x": 3103,
+   "y": 2463,
+   "z": 0,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 471,
+   "frame": 1,
+   "x": 2783,
+   "y": 2687,
+   "z": 0,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 471,
+   "frame": 1,
+   "x": 3039,
+   "y": 2399,
+   "z": 0,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 471,
+   "frame": 1,
+   "x": 3007,
+   "y": 2271,
+   "z": 0,
+   "why": "matched (retail)"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 2079,
+   "y": 2175,
+   "z": 0,
+   "why": "matched (1994 column, plain; frame-edge, gem if any off-screen) [z=0 under the z=1 cloud: front tile over-paints its foot as in the shot]"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 2463,
+   "y": 1695,
+   "z": 0,
+   "why": "matched (1994 column, plain; frame-edge, gem if any off-screen)"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 2591,
+   "y": 1695,
+   "z": 0,
+   "why": "matched (1994 column, plain; frame-edge, gem if any off-screen)"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 2079,
+   "y": 2335,
+   "z": 0,
+   "why": "matched (1994 column, plain; frame-edge, gem if any off-screen)"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 2751,
+   "y": 1695,
+   "z": 0,
+   "why": "matched (1994 column, plain; frame-edge, gem if any off-screen)"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 2783,
+   "y": 3039,
+   "z": 0,
+   "why": "matched (1994 column, plain; frame-edge, gem if any off-screen)"
+  },
+  {
+   "shape": 875,
+   "frame": 0,
+   "x": 3423,
+   "y": 2399,
+   "z": 0,
+   "why": "matched (1994 column, plain; frame-edge, gem if any off-screen)"
+  },
+  {
+   "shape": 878,
+   "frame": 0,
+   "x": 2979,
+   "y": 2463,
+   "z": 0,
+   "why": "matched (1994 shield half, sun; pixels from shot)"
+  }
+ ],
+ "actors": [
+  {
+   "what": "avatar",
+   "shape": 1,
+   "frame": 23,
+   "x": 2495,
+   "y": 2591,
+   "z": 0,
+   "note": "exact 789/789 px"
+  }
+ ],
+ "art_1994": [
+  {
+   "id": 2000,
+   "frames": [
+    0
+   ],
+   "name": "cloud_floor_f0",
+   "replaces": 862,
+   "note": "complete, exact; 18 unoccluded observations agree (screen11), also in screen12/13"
+  },
+  {
+   "id": 2000,
+   "frames": [
+    1
+   ],
+   "name": "cloud_floor_f1",
+   "replaces": 862,
+   "note": "complete, exact (19 observations)"
+  },
+  {
+   "id": 2000,
+   "frames": [
+    2
+   ],
+   "name": "cloud_floor_f2",
+   "replaces": 862,
+   "note": "complete, exact (18 observations)"
+  },
+  {
+   "id": 2000,
+   "frames": [
+    3
+   ],
+   "name": "cloud_floor_f3",
+   "replaces": 862,
+   "note": "partial in screen11 (288 px, cut by the frame edge); frame 3 is frame 0 mirrored (288/288), re-found in screen13 at (168,136) 288/288 and as a whole mirrored f0 there 996/1024; completed 2026-10-16 as mirror(f0) - see art_registry.json 2000:3"
+  },
+  {
+   "id": 2000,
+   "frames": [
+    4
+   ],
+   "name": "cloud_floor_f4",
+   "replaces": 862,
+   "note": "partial in screen11 (481 px, top-right cell); frame 4 is frame 2 mirrored (480/481), re-found in screen13 at (96,76) 480/481 and as a whole 1013/1024; completed 2026-10-16 as mirror(f2) - see art_registry.json 2000:4"
+  },
+  {
+   "id": 2001,
+   "frames": [
+    0
+   ],
+   "name": "white_column_plain",
+   "note": "16x47; body from 7 gem pillars (consensus), cap from screen12; gems are RETAIL 596 items (frames 2-7) at z+40 on top, not part of the sprite"
+  },
+  {
+   "id": 2001,
+   "frames": [
+    1
+   ],
+   "name": "white_column_banded",
+   "note": "same column with 3 orange bands (rows 11-16, 24-29, 36-41, 2-px notches at rows 11-12/24-25/36-37); obelisk drums here, stacked x2 for screen12 colonnade"
+  },
+  {
+   "id": 2002,
+   "frames": [
+    0
+   ],
+   "name": "shield_half_sun",
+   "replaces": 870,
+   "note": "left half of retail 828 outline with a yellow sun emblem (54/10) instead of 828s hand; 339 px, unoccluded except right edge against the column; replaces 870 frame 0 (ours = 828 left half with the hand)"
+  },
+  {
+   "id": null,
+   "name": "skull_814_green_eyes",
+   "note": "retail 814 with both eye pixels palette 8 (77,255,73) instead of 250/231/232/233; a 2-px frame recolour (or palette-cycle state at capture) [INFERENCE]",
+   "footprint": [
+    1,
+    1,
+    1
+   ],
+   "hotspot": [
+    6,
+    12
+   ]
+  }
+ ],
+ "verify": {
+  "render": "docs/research/2026-10-16-screenshot-reconstruction/screen11_render.png",
+  "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen11_diff.png",
+  "residuals": [
+   "21 px: black outline right of/below the bottle behind the column at (244,149) - not in retail 471 f1 (1994 bottle variant or shadow) [unexplained]",
+   "8 px: bottle (84,173) foot over-painted by the cloud tile in front in the shot (1994 sort; ScummVM cannot paint a z=1 flat over a z>=2 object)",
+   "2 px: skull eyes palette 8",
+   "2 px top-right corner floor/column edge",
+   "1 px 12f16 seam"
+  ],
+  "frame_px": 58011,
+  "all_frame_strict": 99.909,
+  "all_frame_class": 99.929,
+  "phase_c": "Re-solved 2026-10-17 to the z=0 encoding with the built shape ids (874 cloud, 875 columns, 878 sun half): 77 floors z-1, 37 objects/actor z-2 at resolve(), 1 kept. Scored with vignette_paint.Painter(typeflag=, shapes=) on the built TYPEFLAG.DAT/U8SHAPES.FLX and vignette_replay.score: class 99.929 / strict 99.909 (was 99.940 / 99.919 in the z=1 scheme on retail + registry art; phaseC-art.md's proof number, 6 px: the z=0 frame-edge column's foot is no longer over-painted by the front cloud tile). score() counts 874-879 as retail in provenance_points (ids < 2000); the split above is the z=1 replay's. Placed by build_map_17 with art_map {596: 880} (the gem cap, retail 596's frames on a fixed row; 596 is TypeTalisman). Built window (FIXED.DAT) equals this replay pixel for pixel.",
+  "void_as_black_points": 0.0,
+  "excluded_actor_points": 0.0,
+  "provenance_points": {
+   "retail": 7.261,
+   "cross_shot_validated_1994": 82.384,
+   "single_shot_1994": 10.295,
+   "inferred": 0.0,
+   "unmatched": 0.06
+  },
+  "published_render_identical": true,
+  "replay": "python3 agents/map-populator/src/vignette_replay.py --built screen11"
+ },
+ "placement": {
+  "map": 17,
+  "origin_world": [
+   1280,
+   4736,
+   0
+  ],
+  "note": "map position = vignette position + origin_world",
+  "pin_moves": [
+   {
+    "what": "861 magnetic obelisk q90 (custom art) -> retired; replaced by the 1994 retail composite: 12f17+12f16 (z42), 12f15+12f14 (z82), 545 cap (z122), 814 skull (z42), on four banded 1994 columns (z2)",
+    "from": [
+     4095,
+     7167,
+     16
+    ],
+    "to": [
+     4127,
+     7199,
+     0
+    ]
+   },
+   {
+    "what": "MAGNET egg 73 q281 (NOT PLACED) -> if ever placed, at the obelisk front drum",
+    "from": [
+     4095,
+     7167,
+     16
+    ],
+    "to": [
+     4127,
+     7199,
+     0
+    ]
+   },
+   {
+    "what": "870 frame 0 q81 shield half 1 -> by the obelisk (screen11); since 2026-10-17 the quest half is 878 frame 0, the 1994 sun half, at the vignette's own item",
+    "from": [
+     6208,
+     1568,
+     0
+    ],
+    "to": [
+     4259,
+     7199,
+     0
+    ]
+   },
+   {
+    "what": "Memorial Hall skeletons (SHAPE_SKELETON_SPRAWLED f0/f1, builder items, not pins) -> 218 f0 and 219 f0 beside the obelisk",
+    "from": [
+     [
+      6144,
+      1536,
+      0
+     ],
+     [
+      7168,
+      1536,
+      0
+     ]
+    ],
+    "to": [
+     [
+      4159,
+      7295,
+      0
+     ],
+     [
+      4383,
+      7199,
+      0
+     ]
+    ]
+   },
+   {
+    "what": "Main Plaza two-tier dais (113 x35 in footprint) and its two candelabras 452 -> removed: the 1994 obelisk stands on drums directly on the cloud",
+    "from": "x 3712..4351, y 6784..7423",
+    "to": null
+   }
+  ],
+  "collides_with": [
+   {
+    "what": "Main Plaza dais 113 x35 + candelabras 452 x2 + 861 + 15 (wall piece) + 249 columns x2 + shape 2 x9 in footprint",
+    "where": [
+     3072,
+     6144,
+     4607,
+     7679
+    ]
+   }
+  ]
+ },
+ "source": "ReconCloud (2026-10-16 reconstruction)"
+}

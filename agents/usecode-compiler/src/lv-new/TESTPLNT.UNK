@@ -1,0 +1,33 @@
+// The Passage Test plant: look() for shape 871.
+//
+// WHY THIS CLASS IS PINNED TO 871. The engine picks the usecode class for
+// an item's events from its SHAPE NUMBER (`uint32 class_id = _shape`,
+// item.cpp:1516), so shape 871's look() lands in class 871, as the
+// elixir's lands in 868 (ELIXIR.UNK). `lv_manifest.json` pins
+// TYPETESTPLANT to 871. Decided on 2026-10-11 (docs/art-track.md
+// contract 13).
+//
+// WHY NOT TypePoisonPlant. The 1994 class for this plant is
+// TESTPLAN.UNK's TypePoisonPlant, whose look() barks "Strange plant"
+// (LOST VALE/TESTPLAN.UNK:20). It is compiled and pinned at class 1436,
+// where no item can dispatch it, and manifest pins never renumber. Its
+// use() runs the Passage Test scene, which the restoration runs from
+// EggPlantTest instead (lv-patched/PLNTST.UNK), so a double-click on the
+// plant must not start it. This class carries the 1994 look() alone.
+//
+// THE ITEM. The Test Plant on Map 10's test grounds (quality 10) and the
+// five PLNTST pops after it, all TypeShortmushroom, which resolves to 871
+// in u8c_symbols TYPE_SHAPES. Until 2026-10-11 it was shape 126 frame 0,
+// a blue-crystal ground tile.
+
+uses "item";
+
+typeclass TypeTestPlant inherits Item
+{
+	process look();
+}
+
+process TypeTestPlant::look()
+{
+	bark("Strange plant");
+}

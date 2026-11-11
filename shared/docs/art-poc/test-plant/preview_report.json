@@ -1,0 +1,98 @@
+{
+ "A": {
+  "valid": true,
+  "footpad": [
+   3,
+   3,
+   4
+  ],
+  "box": [
+   48,
+   56
+  ],
+  "frames": [
+   {
+    "size": [
+     48,
+     46
+    ],
+    "anchor": [
+     24,
+     46
+    ],
+    "colors": 63,
+    "despill_margin": 0,
+    "fits_box": true,
+    "suggest_footpad": [
+     3,
+     3,
+     3
+    ]
+   }
+  ]
+ },
+ "B": {
+  "valid": true,
+  "footpad": [
+   3,
+   3,
+   4
+  ],
+  "box": [
+   48,
+   56
+  ],
+  "frames": [
+   {
+    "size": [
+     45,
+     48
+    ],
+    "anchor": [
+     22,
+     48
+    ],
+    "colors": 84,
+    "despill_margin": 0,
+    "fits_box": true,
+    "suggest_footpad": [
+     3,
+     3,
+     3
+    ]
+   }
+  ]
+ },
+ "C": {
+  "valid": true,
+  "footpad": [
+   3,
+   3,
+   4
+  ],
+  "box": [
+   48,
+   56
+  ],
+  "frames": [
+   {
+    "size": [
+     47,
+     48
+    ],
+    "anchor": [
+     23,
+     48
+    ],
+    "colors": 97,
+    "despill_margin": 0,
+    "fits_box": true,
+    "suggest_footpad": [
+     3,
+     3,
+     3
+    ]
+   }
+  ]
+ }
+}

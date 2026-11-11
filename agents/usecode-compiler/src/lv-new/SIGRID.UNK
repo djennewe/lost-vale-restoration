@@ -1,0 +1,191 @@
+// Sigrid — Female Hunter, Clan Hoskuld
+// Missing dialogue segment #2. New NPC for the Lost Vale.
+// Dialogue written in Elean Speak (Yoda-like inversion).
+//
+// S1 (2026-10-08, Douglas's decision): the schedule()
+//    destinations retargeted to the rebuilt Map 10. Both original points
+//    were pre-rebuild coordinates at z 64 over z-0 ground
+//    (docs/playtest-2026-10-07-wave1.md). Slot timing is unchanged;
+//    only the x/y/z literals move. Hunting grounds (daytide/firstebb):
+//    (13500,16000,64) -> (5503,16383,0), the west clearing south of
+//    Hoskuld. Home (otherwise): (12000,13500,64) -> (4895,8991,0),
+//    south of the Hoskuld Hunter/Farmer home (hut lot 3). METHOD
+//    safeTeleport/canSafeTeleport are called for real from the same day
+//    (u8c_symbols.METHOD_ROUTINES): retail teleports exactly to the
+//    point, checking only that the Avatar is over 700 units from both
+//    the NPC and the point, so
+//    agents/map-populator/src/test_schedule_destinations.py checks
+//    every compiled destination with exact_reach on the built
+//    FIXED.DAT.
+
+uses "npc";
+uses "flags";
+uses "item";
+uses "free";
+uses "snddefs";
+
+globalflag sigridMet;
+globalflag sigridName;
+globalflag sigridJob;
+globalflag sigridToldHunting;
+globalflag sigridToldHarpies;
+globalflag sigridToldHusband;
+
+npcclass Sigrid inherits Npc
+{
+	process look();
+	process use();
+	process schedule(currentTime:Long);
+	process enterFastArea();
+	process leaveFastArea();
+}
+
+process Sigrid::look()
+{
+	if isDead()
+	{
+		bark("hunter's lifeless body");
+		return;
+	}
+
+	if sigridName and sigridJob
+	{
+		bark("Sigrid the hunter");
+	}
+	else if sigridName
+	{
+		bark("Sigrid");
+	}
+	else if sigridJob
+	{
+		bark("hunter");
+	}
+	else
+	{
+		bark("woman");
+	}
+}
+
+process Sigrid::schedule(currentTime:Long)
+{
+	point:WorldPoint;
+	map:MapNum = 10;
+
+	if (getPeriod() = daytide) or (getPeriod() = firstebb)
+	{
+		// Hunting grounds
+		point.x = 5503;
+		point.y = 16383;
+		point.z = 0;
+	}
+	else
+	{
+		// Home
+		point.x = 4895;
+		point.y = 8991;
+		point.z = 0;
+	}
+
+	safeTeleport(point, map);
+}
+
+process Sigrid::enterFastArea()
+{
+	if isDead()
+	{
+		return;
+	}
+	cSetActivity(ACT_LOITER);
+}
+
+// The loiter walks her through a PathfinderProcess (0x204) that drives
+// ActorAnimProcesses (0xF0); killing only the loiter (0x205) left that
+// pathfinder walking her outside the fast area for over a minute
+// (docs/playtest-2026-10-04-convo-kill.md, finding 2). Retail's NPC
+// leaveFastArea kills all four: PESANT1 (class 0x02C3) event 10 at
+// 0x008B-0x00B9 runs resetRef with 0205, 0204, 00F0, 0200 in that order,
+// the same block THORDIS and HRODNY use here.
+process Sigrid::leaveFastArea()
+{
+	killProcess(referent, PT_ACTIVITY);
+	resetRef(referent, PT_PATHFIND);
+	resetRef(referent, PT_ANIM);
+	resetRef(referent, PT_BARK);
+}
+
+process Sigrid::use()
+{
+	enterConvo();
+
+	answer:String = "";
+	askList:String List;
+
+	if not sigridMet
+	{
+		bark("Halt! Who goes there? Ah... strange, you look. Never seen one such as you, have I. From where come you?");
+		askList = <<"What is your name?", "What do you do here?">>;
+		sigridMet = true;
+	}
+	else
+	{
+		bark("Back again, you are. What want do you?");
+		askList = <<>>;
+	}
+
+	if sigridToldHunting
+	{
+		askList += <<"Tell me about the harpies.">>;
+	}
+
+	if sigridName and not sigridToldHusband
+	{
+		askList += <<"Do you have a family?">>;
+	}
+
+	while answer != "Farewell."
+	{
+		askList -= <<"Farewell.">>;
+		askList += <<"Farewell.">>;
+		answer = ask(askList);
+
+		switch answer
+		{
+			case "What is your name?"
+			{
+				bark("Sigrid, called I am. Hunter of Clan Hoskuld. Generations of hunters, my family has been. Pass on the old ways, my grandfather did.");
+				sigridName = true;
+				askList -= <<"What is your name?">>;
+			}
+
+			case "What do you do here?"
+			{
+				bark("Hunt, I do. Feed the clan, someone must. Scarce the game is in these times. Mostly torax I track. Small and tough they are, but fill a belly they will.");
+				sigridJob = true;
+				sigridToldHunting = true;
+				askList -= <<"What do you do here?">>;
+				askList += <<"Tell me about the harpies.">>;
+			}
+
+			case "Tell me about the harpies."
+			{
+				bark("Flying terrors they are! Nasty, vicious creatures. Steal our food and attack the children they do. But I say this: a worthy challenge they would be. Track one and bring it down I could, given the chance. My grandfather told tales of great hunts. Miss those days, I do.");
+				sigridToldHarpies = true;
+				askList -= <<"Tell me about the harpies.">>;
+			}
+
+			case "Do you have a family?"
+			{
+				bark("A husband I have, and a son. Love them dearly I do. But understand my husband I cannot. Happy mucking about in the mud he is! A farmer. Bah! Still, feed the clan he does too, in his own way. And the boy? Everywhere he goes! Keep track of him, impossible it is.");
+				sigridToldHusband = true;
+				askList -= <<"Do you have a family?">>;
+			}
+
+			case "Farewell."
+			{
+				bark("Go well, stranger. Careful out there, be. Dangerous these lands are.");
+			}
+		}
+	}
+
+	exitConvo();
+}

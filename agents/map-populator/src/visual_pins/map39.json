@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "class": "town",
+  "sample_step": 256,
+  "inherited_black": [],
+  "occlusion_allow": [],
+  "frame_allow": [],
+  "pins": {
+    "walkable_black_specified": 0,
+    "walkable_black_prop": 14,
+    "leg_cells_below_half": 434,
+    "cells_below_half_share": 0.1368421052631579,
+    "cells_hidden_share": 0.042105263157894736,
+    "median_min_visible": 1.0,
+    "frame_black_mean": 0.08472957785087719,
+    "frame_black_p95": 0.47,
+    "frame_black_max": 0.6305625,
+    "records": 5118,
+    "expanded_records": 30098
+  },
+  "report_step128": {
+    "walkable_black_specified": 0,
+    "walkable_black_prop": 14,
+    "leg_cells_below_half": 434,
+    "cells_below_half_share": 0.12695069411201532,
+    "cells_hidden_share": 0.060698898994734324,
+    "median_min_visible": 1.0,
+    "frame_black_mean": 0.06691777278303015,
+    "frame_black_p95": 0.3904453125,
+    "frame_black_max": 0.758,
+    "records": 5118,
+    "expanded_records": 30098
+  },
+  "frame_step": 512,
+  "report_artifact_hashes": {
+    "TYPEFLAG.DAT": "999bc6afa6dae596a1e0062ab1fb1c882489366eadc2e9afe77432692400667a",
+    "U8SHAPES.FLX": "99ac982244eae904a61e4ff688a721a4bb86ec458dca7614661f3d2dd95529d5",
+    "ANIM.DAT": "97ae5fc9ddaa6ef515427103264a3095a6d42776ac51e530954fb4846b4d0443",
+    "EUSECODE.FLX": "b47c324cdad77646c27755acfdd5bca53a9d92e16268db229f18e7dd780d4205",
+    "FIXED.DAT": "54ff31389503124006bc91dbd915661aecb138a96fd1ef273876ec4ef39e3c2e",
+    "GLOB.FLX": "aabc1ad36f42c6bdd01cfcb7271f0765983a9914489d62a96a9bcb5e1d7c88ca"
+  }
+}

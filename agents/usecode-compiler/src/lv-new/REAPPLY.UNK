@@ -1,0 +1,350 @@
+// Re-apply — puts back the fixed-item changes a map switch undoes
+//
+// WHY. Every Lost Vale placement is a FIXED.DAT record, and
+// World::switchMap unloads the old map's fixed items and re-reads the new
+// map's from FIXED.DAT on every entry (world.cpp:170-196). A destroy() or
+// setFrame() on one of them lasts until the player leaves the map. Retail
+// U8 behaves the same way and keeps its puzzle state in globals that
+// usecode re-applies; so does this. (A save is not the problem: it carries
+// the current map's fixed items, so loading keeps the change.)
+//
+// Found 2026-10-10 (docs/playtest-2026-10-10-maps3.md finding 1): the
+// Elemental Dungeon's four pillars and the two sealing boulders came back
+// on every return to Map 11, and a player back from the Vale by 204 landed
+// in a sealed room with the talismans spent.
+//
+// WHERE. On every arrival pad of the maps it serves (build_map_10.py,
+// build_map_11.py, build_map_17.py), so it hatches the moment the player
+// lands, before anything it restores can be seen. Arrival is the only way
+// onto those maps: no usecode teleports the Avatar onto any of them.
+//
+// WHAT. One section per change, each gated on the global its own writer
+// already sets, so nothing is undone before the player has done it. The
+// searches cover the whole map and select by tag; test_uc_reentry.py
+// proves each tag names exactly the records the change touched, and that
+// no other map the egg serves carries any of them.
+//
+//   Map 11  the elemental pillars, one per element (COLPUZZL.UNK), and the
+//           quality-299 sealing boulders once all four are down.
+//   Map 10  the Test Plant, quality 10, that EggPlantTest blows away
+//           (lv-patched/PLNTST.UNK). Its five replacements are created
+//           items and survive on their own; they carry quality 0.
+//
+// CARRYABLE QUEST ITEMS (2026-10-11, docs/playtest-2026-10-11-static-art.md
+// finding 2). A record the player picks up is back on the ground at the
+// next entry. Each is removed again once the player no longer needs one:
+// when the step that consumes it is done (the flag below), or when the
+// Avatar already carries one of that frame. No new flag: a pickup has no
+// usecode event worth trusting (justMoved fires on any nudge, and a flag
+// set by it would lose an item dropped on another map for good, since the
+// fixed-item reload deletes it there). These two gates let a lost copy
+// come back.
+//
+//   Map 10  the special root (TypeWeedz frame 0) once givenRoot: Ezrekal
+//           takes it (lv-patched/EZREKAL.UNK). The Passage stone
+//           (TypeBushKey frame 0) once haveMark: EggPlantTest takes it.
+//   Map 11  each talisman once the pillar it destroys is down: the
+//           opposite element's, so frame 0 Earth goes with Air's pillar,
+//           1 Air with Earth's, 2 Fire with Water's, 3 Water with Fire's.
+//   Map 17  the Shield halves (TypeAOFrizbee frames 0 and 1) once
+//           shieldFixed: the ceremony takes both (lv-patched/SHADES.UNK).
+//           A carried pre-2026-10-17 half (870 or 539 at quality 81/82,
+//           SHADES header note 9) counts as carrying that frame.
+//
+// ONE-TIME POTIONS (2026-10-30, Douglas's option c of the b931fb4 respawn
+// audit). The same two gates, for consumables rather than quest items:
+//
+//   Map 10  Hrodny's protection and invisibility potions (TypePotion
+//           frames 5 and 7) once potionProtectionDrunk / potionInvisDrunk:
+//           drinking one sets its flag (lv-patched/POTION.UNK change 2),
+//           wherever it is drunk. Ezrekal's health and mana potions
+//           (frames 1, 2) are left to restock, and the Tiny Tars (frame 8)
+//           sit in Hrodny's chest, out of this non-recursive sweep.
+//
+// Map 18's breach and gods are re-applied by EggCrackHint and
+// EggTempleEntry, which sit on the only way into the sanctum.
+//
+// Silent and idempotent: a destroyed record is not found again. The
+// searches are not recursive, so nothing in a pack or chest is touched.
+//
+// DISPATCH: UnkEgg quality, class = quality + 0x47F (manifest-pinned).
+
+uses "egg";
+uses "item";
+
+globalflag EarthColumnDestroyed;
+globalflag AirColumnDestroyed;
+globalflag FireColumnDestroyed;
+globalflag WaterColumnDestroyed;
+globalflag allColumnsDestroyed;
+globalflag haveMark;
+globalflag givenRoot;
+globalflag shieldFixed;
+globalflag potionProtectionDrunk;
+globalflag potionInvisDrunk;
+
+eggclass EggReapply inherits Egg
+{
+	process hatch();
+}
+
+process EggReapply::hatch()
+{
+	item : Item;
+	take0, take1, take2, take3, take5, take7 : Number;
+
+	// The pillars. Frame is the element (build_map_11, 0 Earth, 1 Air,
+	// 2 Fire, 3 Water), and each element's flag is set by the receptacle
+	// that destroyed that pillar.
+	foreach item where type = TypeElementalColumn within 32000 of referent
+	{
+		if item.getFrame() = 0 and EarthColumnDestroyed = 1
+		{
+			item.destroy();
+		}
+		else if item.getFrame() = 1 and AirColumnDestroyed = 1
+		{
+			item.destroy();
+		}
+		else if item.getFrame() = 2 and FireColumnDestroyed = 1
+		{
+			item.destroy();
+		}
+		else if item.getFrame() = 3 and WaterColumnDestroyed = 1
+		{
+			item.destroy();
+		}
+	}
+
+	// The doorway plug. getQ, not getQuality: shape 66 is family 0, and
+	// I_getQuality answers 0 outside SF_QUALITY (COLPUZZL:182).
+	if allColumnsDestroyed
+	{
+		foreach item where type = TypeSealingBoulder within 32000 of referent
+		{
+			if item.getQ() = 299
+			{
+				item.destroy();
+			}
+		}
+	}
+
+	// The Test Plant. haveMark has one writer, EggPlantTest, and it sets
+	// it only after the scene that destroyed the plant.
+	if haveMark
+	{
+		foreach item where type = TypeShortmushroom within 32000 of referent
+		{
+			if item.getQ() = 10 and item.getFrame() = 0
+			{
+				item.destroy();
+			}
+		}
+	}
+
+	// ── Carryable quest items (header). takeN = remove the frame-N record:
+	// its use is over, or the Avatar already carries one of that frame.
+
+	// The special root. givenRoot has one writer, Ezrekal's "I have found
+	// the root." case, which destroys every root in the pack.
+	take0 = 0;
+	if givenRoot
+	{
+		take0 = 1;
+	}
+	foreach recursive item where type = TypeWeedz within container Avatar
+	{
+		if item.getFrame() = 0
+		{
+			take0 = 1;
+		}
+	}
+	if take0 = 1
+	{
+		foreach item where type = TypeWeedz within 32000 of referent
+		{
+			if item.getFrame() = 0
+			{
+				item.destroy();
+			}
+		}
+	}
+
+	// The Passage stone. haveMark is set by the Test that consumes it.
+	take0 = 0;
+	if haveMark
+	{
+		take0 = 1;
+	}
+	foreach recursive item where type = TypeBushKey within container Avatar
+	{
+		if item.getFrame() = 0
+		{
+			take0 = 1;
+		}
+	}
+	if take0 = 1
+	{
+		foreach item where type = TypeBushKey within 32000 of referent
+		{
+			if item.getFrame() = 0
+			{
+				item.destroy();
+			}
+		}
+	}
+
+	// The talismans. Frame is the element; COLPUZZL consumes each one at
+	// the OPPOSITE element's pillar and sets that pillar's flag.
+	take0 = 0;
+	take1 = 0;
+	take2 = 0;
+	take3 = 0;
+	if AirColumnDestroyed = 1
+	{
+		take0 = 1;
+	}
+	if EarthColumnDestroyed = 1
+	{
+		take1 = 1;
+	}
+	if WaterColumnDestroyed = 1
+	{
+		take2 = 1;
+	}
+	if FireColumnDestroyed = 1
+	{
+		take3 = 1;
+	}
+	foreach recursive item where type = TypeTalisman within container Avatar
+	{
+		if item.getFrame() = 0
+		{
+			take0 = 1;
+		}
+		else if item.getFrame() = 1
+		{
+			take1 = 1;
+		}
+		else if item.getFrame() = 2
+		{
+			take2 = 1;
+		}
+		else if item.getFrame() = 3
+		{
+			take3 = 1;
+		}
+	}
+	foreach item where type = TypeTalisman within 32000 of referent
+	{
+		if item.getFrame() = 0 and take0 = 1
+		{
+			item.destroy();
+		}
+		else if item.getFrame() = 1 and take1 = 1
+		{
+			item.destroy();
+		}
+		else if item.getFrame() = 2 and take2 = 1
+		{
+			item.destroy();
+		}
+		else if item.getFrame() = 3 and take3 = 1
+		{
+			item.destroy();
+		}
+	}
+
+	// The Shield halves, frame 0 the left and 1 the right. shieldFixed
+	// is set by the ceremony that consumes both.
+	take0 = 0;
+	take1 = 0;
+	if shieldFixed
+	{
+		take0 = 1;
+		take1 = 1;
+	}
+	foreach recursive item where type = TypeAOFrizbee within container Avatar
+	{
+		if item.getFrame() = 0
+		{
+			take0 = 1;
+		}
+		else if item.getFrame() = 1
+		{
+			take1 = 1;
+		}
+	}
+	// SAVE COMPATIBILITY (2026-10-17): a save made before then carries the
+	// halves as 870 (retired) or 539, frame 0 quality 81 and frame 1
+	// quality 82, which lv-patched/SHADES.UNK (header note 9) accepts as
+	// halves; they count here too. Pagan's own 539s (quality 0) do not.
+	foreach recursive item where type = 870 within container Avatar
+	{
+		if item.getFrame() = 0 and item.getQ() = 81
+		{
+			take0 = 1;
+		}
+		else if item.getFrame() = 1 and item.getQ() = 82
+		{
+			take1 = 1;
+		}
+	}
+	foreach recursive item where type = 539 within container Avatar
+	{
+		if item.getFrame() = 0 and item.getQ() = 81
+		{
+			take0 = 1;
+		}
+		else if item.getFrame() = 1 and item.getQ() = 82
+		{
+			take1 = 1;
+		}
+	}
+	foreach item where type = TypeAOFrizbee within 32000 of referent
+	{
+		if item.getFrame() = 0 and take0 = 1
+		{
+			item.destroy();
+		}
+		else if item.getFrame() = 1 and take1 = 1
+		{
+			item.destroy();
+		}
+	}
+
+	// The one-time potions. Frame 5 protection, 7 invisibility; each flag
+	// is set by TypePotion::use() as the potion is drunk.
+	take5 = 0;
+	take7 = 0;
+	if potionProtectionDrunk
+	{
+		take5 = 1;
+	}
+	if potionInvisDrunk
+	{
+		take7 = 1;
+	}
+	foreach recursive item where type = TypePotion within container Avatar
+	{
+		if item.getFrame() = 5
+		{
+			take5 = 1;
+		}
+		else if item.getFrame() = 7
+		{
+			take7 = 1;
+		}
+	}
+	foreach item where type = TypePotion within 32000 of referent
+	{
+		if item.getFrame() = 5 and take5 = 1
+		{
+			item.destroy();
+		}
+		else if item.getFrame() = 7 and take7 = 1
+		{
+			item.destroy();
+		}
+	}
+}

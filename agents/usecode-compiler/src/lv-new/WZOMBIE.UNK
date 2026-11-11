@@ -1,0 +1,28 @@
+// The Water Zombie: look() for shape 872.
+//
+// WHY THIS CLASS IS PINNED TO 872. The engine picks the usecode class for
+// an item's events from its SHAPE NUMBER (item.cpp:1516), and a monster is
+// an item: a double-click on one runs look() in the class equal to its
+// shape. The Lake's eggs hatch shape 872 (build_map_10.py, lv_shapes
+// SHAPE_MON_ZOMBIE) since Douglas picked its art on 2026-10-11
+// (docs/art-track.md contract 9), and retail EUSECODE has no class there,
+// so without this one the monster would say nothing where the ghoul it
+// replaces said "ghoul". `lv_manifest.json` pins TYPEWATERZOMBIE to 872.
+//
+// THE CLASS IS THE RETAIL GHOUL'S, renamed: GHOUL (class 142) has look()
+// alone and barks its name, and nothing else of a monster's behaviour lives
+// in usecode (its stats are the u8monsters.ini row, its animation the
+// ANIM.DAT entry). The name is the one the 1994 dialogue uses: Ezrekal's
+// "undead water zombies" (lv-patched/EZREKAL.UNK).
+
+uses "item";
+
+typeclass TypeWaterZombie inherits Item
+{
+	process look();
+}
+
+process TypeWaterZombie::look()
+{
+	bark("water zombie");
+}

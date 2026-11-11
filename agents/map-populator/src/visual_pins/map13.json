@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "class": "exterior",
+  "sample_step": 256,
+  "inherited_black": [],
+  "occlusion_allow": [],
+  "frame_allow": [
+    {
+      "box": [
+        0,
+        0,
+        8000,
+        1800
+      ],
+      "reason": "VQ-054 accepted north boundary, Douglas 25 October 2026, confirmed D4, 3 November 2026"
+    }
+  ],
+  "pins": {
+    "walkable_black_specified": 0,
+    "walkable_black_prop": 5,
+    "leg_cells_below_half": 0,
+    "cells_below_half_share": 0.02857142857142857,
+    "cells_hidden_share": 0.014285714285714285,
+    "median_min_visible": 1.0,
+    "frame_black_mean": 0.0019669426305970144,
+    "frame_black_p95": 0.009117968749999998,
+    "frame_black_max": 0.0228984375,
+    "records": 4496,
+    "expanded_records": 11002
+  },
+  "report_step128": {
+    "walkable_black_specified": 0,
+    "walkable_black_prop": 5,
+    "leg_cells_below_half": 0,
+    "cells_below_half_share": 0.033824804856895055,
+    "cells_hidden_share": 0.011274934952298352,
+    "median_min_visible": 1.0,
+    "frame_black_mean": 0.0014154378402903812,
+    "frame_black_p95": 0.006533984375000005,
+    "frame_black_max": 0.0257265625,
+    "records": 4496,
+    "expanded_records": 11002
+  },
+  "frame_step": 512,
+  "report_artifact_hashes": {
+    "TYPEFLAG.DAT": "8839ab2f5e6fbe5fe5d303938760a99a819204d96c4318b35269b39f52171ef0",
+    "U8SHAPES.FLX": "074e00be59d1a361fc9876c7daae2f56b6981d3a8c63c44b0ec228334a6d88c3",
+    "ANIM.DAT": "97ae5fc9ddaa6ef515427103264a3095a6d42776ac51e530954fb4846b4d0443",
+    "EUSECODE.FLX": "b47c324cdad77646c27755acfdd5bca53a9d92e16268db229f18e7dd780d4205",
+    "FIXED.DAT": "da23baed62522731f54f874423124c8cf494fc050c9dabaa3f3dd2f2aeee2be1",
+    "GLOB.FLX": "be461c342a0cecbb36146442d54e7f71c1d9bec930a29b63e748c576bc6c1475"
+  }
+}

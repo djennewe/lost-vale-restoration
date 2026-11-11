@@ -1,0 +1,1116 @@
+{
+ "shot": "screen22",
+ "map": 10,
+ "origin_note": "vignette origin = world point mapped to (0,0,0); ground dirt 4 at z=0 on lattice 128k+127; everything in this shot stands on z=0 (garden, hut walls) with the hut roof/eaves at z=40.",
+ "camera": {
+  "sx0": -189,
+  "sy0": 62,
+  "crop": [
+   320,
+   181
+  ],
+  "convention": "painter sign, vignette-local frame: screen_x = x/4 - y/4 - sx0, screen_y = x/8 + y/8 - z - sy0 (C division per term; x,y = footprint max corner). vignette_replay.py paints in world coordinates (origin_world + local) with the camera shifted by (ox/4 - oy/4, ox/8 + oy/8 - oz)."
+ },
+ "items": [
+  {
+   "shape": 650,
+   "frame": 1,
+   "x": 607,
+   "y": 703,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 639,
+   "y": 255,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 127,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 639,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 767,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 32,
+   "x": 1279,
+   "y": 895,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 26,
+   "x": 1151,
+   "y": 895,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 29,
+   "x": 1151,
+   "y": 767,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 29,
+   "x": 511,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 127,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 639,
+   "y": 1279,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 25,
+   "x": 1151,
+   "y": 1023,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 32,
+   "x": 1279,
+   "y": 1023,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 650,
+   "frame": 2,
+   "x": 479,
+   "y": 703,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 767,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 511,
+   "y": 255,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 639,
+   "y": 383,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 383,
+   "y": 383,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 767,
+   "y": 383,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 255,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 895,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 895,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 767,
+   "y": 1279,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 639,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 511,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 17,
+   "x": 607,
+   "y": 991,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 383,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 255,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 639,
+   "y": 127,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 767,
+   "y": 255,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 46,
+   "x": 1279,
+   "y": 767,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 31,
+   "x": 1151,
+   "y": 639,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 17,
+   "x": 831,
+   "y": 991,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 412,
+   "frame": 32,
+   "x": 1407,
+   "y": 895,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 15,
+   "x": 511,
+   "y": 127,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 434,
+   "frame": 4,
+   "x": 223,
+   "y": 479,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 25,
+   "x": 831,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 511,
+   "y": 383,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 56,
+   "frame": 8,
+   "x": 479,
+   "y": 319,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 25,
+   "x": 383,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 65,
+   "frame": 8,
+   "x": 351,
+   "y": 831,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 207,
+   "frame": 0,
+   "x": 831,
+   "y": 607,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 207,
+   "frame": 0,
+   "x": 831,
+   "y": 863,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 287,
+   "frame": 0,
+   "x": 479,
+   "y": 991,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 895,
+   "y": 383,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": -1,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 287,
+   "frame": 0,
+   "x": 479,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 287,
+   "frame": 0,
+   "x": 703,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 639,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 17,
+   "x": 383,
+   "y": 991,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 207,
+   "frame": 0,
+   "x": 383,
+   "y": 863,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 17,
+   "x": 607,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 207,
+   "frame": 0,
+   "x": 383,
+   "y": 607,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 895,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 17,
+   "x": 831,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 207,
+   "frame": 0,
+   "x": 831,
+   "y": 959,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 207,
+   "frame": 0,
+   "x": 831,
+   "y": 671,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 466,
+   "frame": 1,
+   "x": 543,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 20,
+   "x": 831,
+   "y": 735,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 287,
+   "frame": 0,
+   "x": 575,
+   "y": 991,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 207,
+   "frame": 0,
+   "x": 383,
+   "y": 703,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 895,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 20,
+   "x": 383,
+   "y": 735,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 516,
+   "frame": 0,
+   "x": 575,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 20,
+   "x": 511,
+   "y": 1279,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 27,
+   "x": 383,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 255,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": -1,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 383,
+   "y": 255,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 149,
+   "frame": 1,
+   "x": 1183,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 148,
+   "frame": 17,
+   "x": 383,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 207,
+   "frame": 0,
+   "x": 831,
+   "y": 719,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 287,
+   "frame": 0,
+   "x": 799,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 519,
+   "frame": 91,
+   "x": 95,
+   "y": 543,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 515,
+   "frame": 1,
+   "x": 351,
+   "y": 927,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 3,
+   "frame": 17,
+   "x": 255,
+   "y": 383,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 255,
+   "frame": 7,
+   "x": 1055,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 210,
+   "frame": 1,
+   "x": 671,
+   "y": 1439,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 410,
+   "frame": 3,
+   "x": 1247,
+   "y": 1087,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 391,
+   "frame": 1,
+   "x": 639,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 5,
+   "x": 1023,
+   "y": 639,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 5,
+   "x": 1023,
+   "y": 767,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 5,
+   "x": 1023,
+   "y": 895,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 118,
+   "frame": 5,
+   "x": 1023,
+   "y": 1023,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 391,
+   "frame": 3,
+   "x": 639,
+   "y": 703,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 391,
+   "frame": 5,
+   "x": 447,
+   "y": 735,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 410,
+   "frame": 3,
+   "x": 1183,
+   "y": 1087,
+   "z": 40,
+   "why": "matched"
+  },
+  {
+   "shape": 391,
+   "frame": 0,
+   "x": 511,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 391,
+   "frame": 5,
+   "x": 671,
+   "y": 735,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 391,
+   "frame": 7,
+   "x": 479,
+   "y": 735,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 391,
+   "frame": 8,
+   "x": 511,
+   "y": 543,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 391,
+   "frame": 2,
+   "x": 415,
+   "y": 703,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 391,
+   "frame": 6,
+   "x": 511,
+   "y": 703,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 391,
+   "frame": 6,
+   "x": 575,
+   "y": 735,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 391,
+   "frame": 6,
+   "x": 767,
+   "y": 575,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 391,
+   "frame": 7,
+   "x": 735,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 391,
+   "frame": 6,
+   "x": 671,
+   "y": 575,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 538,
+   "frame": 7,
+   "x": 691,
+   "y": 727,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 14,
+   "x": 127,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 210,
+   "frame": 23,
+   "x": 671,
+   "y": 1439,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 255,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 895,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 255,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 639,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 767,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 511,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 1023,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 383,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 767,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 383,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 23,
+   "x": 511,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 383,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 511,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 639,
+   "y": 511,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 895,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 767,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 511,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 383,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 639,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 767,
+   "y": 639,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 127,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 1023,
+   "y": 511,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 1023,
+   "y": 639,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 1023,
+   "y": 767,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 1023,
+   "y": 895,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 1151,
+   "y": 639,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 1151,
+   "y": 767,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 1151,
+   "y": 895,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 1279,
+   "y": 767,
+   "z": 0,
+   "why": "inferred: hut floor (hidden under roof)"
+  }
+ ],
+ "actors": [
+  {
+   "what": "avatar",
+   "shape": 1,
+   "frame": 51,
+   "x": 703,
+   "y": 927,
+   "z": 0,
+   "note": "retail shape 1 frame 51 (standing), exact 849/851 px, hotspot screen (133,140)"
+  }
+ ],
+ "art_1994": [
+  {
+   "id": 2045,
+   "frames": [
+    0
+   ],
+   "name": "blue stalked root plant A (in the crop bed, right of the blue 650 row)",
+   "note": "no retail frame (all shapes <500 frames) matches; partly occluded by iron fence bars (gaps in the draft are bars); footprint 32x32x8 like 538/391 proposed [INFERENCE]"
+  },
+  {
+   "id": 2045,
+   "frames": [
+    1
+   ],
+   "name": "blue stalked root plant B (right of plant A, by the east fence)",
+   "note": "as above"
+  }
+ ],
+ "verify": {
+  "render": "docs/research/2026-10-16-screenshot-reconstruction/screen22_render.png",
+  "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen22_diff.png",
+  "frame_px": 57920,
+  "all_frame_strict": 95.777,
+  "all_frame_class": 96.704,
+  "void_as_black_points": 0.0,
+  "excluded_actor_points": 0.0,
+  "provenance_points": {
+   "retail": 96.704,
+   "cross_shot_validated_1994": 0.0,
+   "single_shot_1994": 0.0,
+   "inferred": 0.0,
+   "unmatched": 3.296
+  },
+  "published_render_identical": true,
+  "replay": "python3 agents/map-populator/src/vignette_replay.py screen22"
+ },
+ "placement": {
+  "map": 10,
+  "origin_world": [
+   17408,
+   7680,
+   0
+  ],
+  "village": "Gunnar",
+  "lot": "Gunnar hut lot 3 at (18432,8192) \u2014 currently the hall lot (keep glob 573, NPC-free, flagged off-style); the 1994 hut's roof NW corner lands on the lot's min corner (18431,8191)",
+  "transform_shot_world_to_map": [
+   13184,
+   4096,
+   0
+  ],
+  "pin_moves": [],
+  "collides_with": [
+   "Gunnar hall keep (glob 573) on lot 3 \u2014 replaced by the 1994 hut",
+   "west palisade fence_y x=17439: only vignette ground flats underlie it (no conflict); garden west fence is at x=17759"
+  ]
+ },
+ "source": "ReconVillage (2026-10-16 reconstruction)"
+}

@@ -1,0 +1,392 @@
+# The Lost Vale — Character Registry
+# Sources: Character List 1.0 (05-17-94), Plot v1.1/v1.2, Walk Through,
+#          Art List v2.5, Discord analysis, interviews
+
+characters:
+
+  # === KEY NPCs ===
+
+  - name: Ezrekal
+    aliases: [Ezrakel, Ezrekel]
+    faction: independent
+    role: "High Priestess of the Zealan religion; central quest-giver"
+    writer: "SHERI"
+    description: >
+      Shunned by both Zealan communities because she can no longer bring the
+      gods to speak to their followers. She can cure the Avatar's poison if
+      she can speak to the Gods, but the Shield of the Ancients is broken.
+      She tells the Avatar the history of the Great Council attack and the
+      feud. She poisons the Avatar to ensure quest completion ("wise woman"
+      per Sheri's blog). She knows how to repair the Shield and leads the
+      restoration ceremony.
+    dialogue_style: >
+      Speaks in "Elean Speak" — inverted Yoda-like syntax. Example: "Sorry
+      I am, acted so rudely before I did. The mark of the Zealans upon you
+      see I did not."
+    art_notes: "Taken from Mythran mesh/skeleton"
+    usecode_file: "EZREKAL.UNK (118 KB, final version in LOST VALE/)"
+    sources:
+      - "Character List 1.0"
+      - "Plot v1.2, beats 9-18"
+      - "Elean Speak Exerpt.pdf"
+      - "Art List v2.5"
+      - "Sheri Graner Ray blog"
+
+  - name: Lord British
+    faction: Britannia
+    role: "Sends magical message via Nystul to begin the expansion"
+    description: >
+      Appears as a vision at the start. Nystul has broken through the
+      Guardian's veil of magic. LB reveals people on Pagan who can help
+      defeat the Titans. Sends Avatar to Mythran.
+    art_notes: "Listed in Art List as character mesh (1 day)"
+    usecode_file: "LORDBRIT.UNK (2.9 KB, in UNK files/)"
+    sources:
+      - "Plot v1.2, beat 1"
+      - "Art List v2.5"
+
+  - name: Mythran
+    faction: Pagan
+    role: "Mage who directs Avatar to the Lost Vale"
+    description: >
+      Tells the Avatar about the Zealans and about Galjeron, the explorer who
+      searched for them. Directs Avatar to the double doors in the Plateau.
+      Tells Avatar where to find the key and about the puzzle.
+    notes: "Mythran's dialogue is MISSING from the recovered usecode (confirmed by Armitage)"
+    usecode_file: "NOT IN ARCHIVE"
+    sources:
+      - "Plot v1.2, beats 2-3"
+      - "Discord analysis (Armitage): confirmed missing"
+
+  - name: Galjeron
+    faction: Pagan (explorer)
+    role: "Dead explorer whose journal starts the quest"
+    description: >
+      Searched for the Zealans. Found dead inside the double doors. His journal
+      describes his efforts and mentions the four elemental gemstones needed to
+      reach the Lost Vale. His motive was to defeat the Titans and become the
+      Ether Titan.
+    notes: "Synopsis suggests using ghost art for Galjeron's spirit apparition"
+    sources:
+      - "Plot v1.2, beats 3-4"
+      - "Plot Synopsis with Notes, beats 3-4"
+
+  # === CLAN HOSKULD (GROUP ONE in Character List) ===
+
+  - name: "Female Elder (Clan Hoskuld)"
+    aliases: []
+    faction: Clan Hoskuld
+    role: "Elder/leader of Group One"
+    writer: "LISA"
+    description: >
+      Descendant of Flossie's family. Older sister of the veteran. Hates the
+      other group because the moonshiner sells liquor to her brother. Carries
+      the torch of hatred for the other group.
+    sources:
+      - "Character List 1.0"
+
+  - name: "Male Veteran (Clan Hoskuld)"
+    aliases: ["Vietnam Vet"]
+    faction: Clan Hoskuld
+    role: "PTSD-affected veteran; brother to the elder"
+    writer: "SHERI"
+    description: >
+      Brother to the elder. Tried to climb the cliffs, fell, should have died
+      but didn't. Having trouble dealing with the fact that he lived and his
+      best buddy died. Drinks to cover it. Random generates whether drunk or
+      not, conversation changes drastically. Essentially a walking death wish.
+    notes: "Sheri's blog calls this 'a PTSD-affected veteran character requiring player assistance'"
+    sources:
+      - "Character List 1.0"
+      - "Sheri Graner Ray blog"
+
+  - name: "Female Hunter (Clan Hoskuld)"
+    faction: Clan Hoskuld
+    role: "Hunter, married to the farmer"
+    writer: "BRIAN → SHERI (reassigned, handwritten)"
+    description: >
+      Comes from generations of hunters. Remembers stories her grandfather told
+      about bigger game. Wishes for bigger game — harpies would be good challenge.
+      Loves husband dearly but can't understand why he is happy mucking about
+      in the mud.
+    sources:
+      - "Character List 1.0"
+
+  - name: "Male Farmer (Clan Hoskuld)"
+    faction: Clan Hoskuld
+    role: "Farmer, married to the hunter"
+    writer: "BRIAN → SHERI (reassigned, handwritten)"
+    description: >
+      Trying to instill in his son a love of the land, but the child has his
+      mother's wanderlust. Proud of wife for how she keeps meat on the table,
+      but also proud of how he can bring life from such poor soil.
+    sources:
+      - "Character List 1.0"
+
+  - name: "Male Child (Clan Hoskuld)"
+    faction: Clan Hoskuld
+    role: "Child of the hunter and farmer"
+    description: "This kid goes everywhere."
+    sources:
+      - "Character List 1.0"
+
+  # === CLAN GUNNAR (GROUP TWO in Character List) ===
+
+  - name: "Male Elder (Clan Gunnar)"
+    faction: Clan Gunnar
+    role: "Elder/leader of Group Two"
+    writer: "SHERI"
+    description: >
+      Very sad man. Lost his wife — his daughter is the spitting image of her.
+      Blames the other tribe for the loss of his wife. Neglecting some duties
+      as leader due to his depression. Terribly overprotective of his daughter.
+    sources:
+      - "Character List 1.0"
+
+  - name: "Female Inventor (Clan Gunnar)"
+    aliases: ["teched female inventor"]
+    faction: Clan Gunnar
+    role: "Trail blazer, atheist, positive voice for progress"
+    writer: "LISA"
+    description: >
+      "Damn it, let the feud go." Aggravated with both tribes for their
+      continuation to sit in the ashes and wail about the gods being gone.
+      Feels they must move forward to achieve anything. "Can't sit and wait
+      for gods that never existed." Atheist. Invention!!!
+    sources:
+      - "Character List 1.0"
+
+  - name: "Male Moonshiner (Clan Gunnar)"
+    faction: Clan Gunnar
+    role: "Runs the moonshine still"
+    writer: "LISA"
+    description: >
+      Handicapped, can't work in the fields so found a way to survive making
+      moonshine. Would have been left out on the rocks for the Harpies otherwise.
+      Opportunist — takes the inventor's words and twists them. Supplying a
+      commodity for a demand. "Just trying to make a living."
+    sources:
+      - "Character List 1.0"
+
+  - name: "Female Farmer (Clan Gunnar)"
+    faction: Clan Gunnar
+    role: "Conservative farmer, devout, opposes the inventor"
+    writer: "SHERI"
+    description: >
+      "We've always done it this way." Because the inventor doesn't believe,
+      thinks when the gods do come back they will punish all the Zealans.
+      Doesn't trust new technology. Wishes they would throw the inventor out
+      with Ezrekal. Preaches to the Avatar about the gods while sabotaging
+      the inventor.
+    sources:
+      - "Character List 1.0"
+
+  - name: "Female Child of Elder (Clan Gunnar)"
+    faction: Clan Gunnar
+    role: "Daughter of the male elder"
+    description: >
+      Mother died climbing the cliffs. Never far from daddy.
+    notes: "This entry is crossed out/struck through in the Character List"
+    sources:
+      - "Character List 1.0 (struck through)"
+
+  # === NPCs FROM USECODE (not in Character List) ===
+
+  - name: Atli
+    faction: Zealan (unspecified clan)
+    role: "Zealan elder or leader involved in the Passage Test"
+    usecode_file: "ATLI.UNK (89 KB, final in LOST VALE/)"
+    description: >
+      After the Avatar passes the Passage Test with the Passage Stone, they are
+      teleported to Thordis and Atli who give the Avatar the Zealan mark and
+      tell them to seek Ezrekal.
+    sources:
+      - "Discord analysis (Armitage)"
+      - "Resource Schedule: 'Convos: Atli (3d)' assigned to Sheri G. in June"
+
+  - name: Tyorvi
+    aliases: [Tjorvi]
+    faction: Zealan (unspecified clan)
+    role: "Holds the Key to the Clouds; nightmares subplot"
+    usecode_file: "TYORVI.UNK (71 KB, final in LOST VALE/) — also TJORVI.UNK (14 KB, earlier version in UNK files/)"
+    description: >
+      Has the Key to the Clouds, which unlocks the path to the Cloud Cliffs
+      and Cloud City. Will not give it to the Avatar because he suffers from
+      terrible nightmares. The Avatar asks Ezrekal for a potion to stop the
+      nightmares; she needs a special root. Avatar finds root, gets the potion,
+      gives it to Tyorvi, who falls asleep. Avatar then gets the Key.
+    notes:
+      - "Tjorvi (UNK files/) and Tyorvi (LOST VALE/) are the SAME character at different development stages"
+      - "Tjorvi = earlier version (14 KB, 1994-06-20); Tyorvi = final version (71 KB, 1994-09-13)"
+      - "Flags: tyorviMet, tyorviName, tyorviJob, tyorviDreams, tyorviDrunk, tyorviPissed, toldOfDreams, sentToTyorvi"
+      - "Related flags: hasRoot, givenRoot, justGotRoot, hasTea, givenTea, gotTheKey"
+    sources:
+      - "Discord analysis (Armitage, 2025-02-01)"
+      - "Resource Schedule: 'Convos: Tyorvi (2d)' assigned to Sheri G. in June"
+      - "LV usecode source: TypeCliffKey referenced in usecode"
+
+  - name: Thordis
+    faction: Zealan (unspecified clan)
+    role: "Zealan involved in the Passage Test ceremony"
+    usecode_file: "THORDIS.UNK (52 KB, in UNK files/)"
+    description: >
+      Together with Atli, receives the Avatar after the Passage Test and gives
+      them the Zealan mark.
+    sources:
+      - "Discord analysis (Armitage)"
+      - "Resource Schedule: 'Convos: Thordis (1d)' assigned to Lisa S. in June"
+
+  - name: Hrodny
+    faction: Zealan (unspecified clan)
+    role: "Holds the Tiny Tar potions but lost the key to the chest"
+    usecode_file: "HRODNY.UNK (27 KB, in UNK files/)"
+    description: >
+      Has Tiny Tar potions that allow the Avatar to enter the Temple, but has
+      lost the key to the chest containing them.
+    sources:
+      - "Discord analysis (Armitage)"
+      - "Resource Schedule: 'Convos: Hrodny (1d)' assigned to Lisa S. in June"
+
+  - name: Ingyald
+    faction: Zealan (unspecified clan)
+    role: "Zealan NPC"
+    usecode_file: "INGYALD.UNK (19 KB, in UNK files/)"
+    sources:
+      - "Resource Schedule: 'Convos: Ingyald (2d)' assigned to Lisa S. in June"
+
+  - name: Ragnar
+    faction: Clan Hoskuld
+    role: "Zealan NPC; key informant about the Passage Stone mystery"
+    usecode_file: "RAGNAR.UNK (27 KB, in UNK files/)"
+    description: >
+      Avatar talks to Ragnar (Clan Hoskuld). He tells the Avatar that a young
+      woman had the Passage Stone and went to take the test. She went to the lake
+      and was killed by the Gunnars. The stone was never found. Ragnar gives the
+      Avatar a bag he found. He speaks in inverted syntax like Ezrekal ("Hard to
+      understand you are"). Has a schedule between home and fields on map 10.
+    notes:
+      - "Armitage identified as one of 2 new NPCs not in base game"
+      - "Flags: ragnarMet, ragnarName, ragnarToldStone, ragnarPissed, sentToRagnar"
+    sources:
+      - "Discord analysis (Armitage, 2025-02-01)"
+      - "LV usecode source: schedule references map 10"
+
+  # NOTE: Tjorvi merged into Tyorvi entry above — they are the same character.
+  # TJORVI.UNK (14 KB, 1994-06-20) is the earlier development version;
+  # TYORVI.UNK (71 KB, 1994-09-13) is the final version in LOST VALE/ directory.
+
+  - name: Changtar
+    faction: Zealan (unspecified clan)
+    role: "Zealan NPC"
+    usecode_file: "CHANGTAR.UNK (1.7 KB, in UNK files/)"
+    sources:
+      - "Usecode archive"
+
+  # === HISTORICAL / GHOSTLY FIGURES ===
+
+  - name: Snori
+    aliases: [Flossie]
+    faction: Zealan (historical)
+    role: "One of the two boys who stole the Shield; appears as shade"
+    description: >
+      One of two young men who stole the Shield of the Ancients halves to take
+      them to the Cloud City to find the Gods and demand the Shield be repaired.
+      Set upon by wicked beasts and killed. Appears as a shade during the
+      Shield restoration ceremony to explain the truth.
+    notes: "Named 'Draesh' in Plot v1.1. Art List says 'Shades (Flossie & Snori)' so Flossie may be this character's other name"
+    sources:
+      - "Plot v1.2, beats 11, 16"
+      - "Art List v2.5"
+
+  - name: Hoskuld
+    faction: Zealan (historical)
+    role: "One of the two boys who stole the Shield; appears as shade"
+    description: >
+      The other young man involved in the Shield theft. Appears as a shade to
+      reveal the truth. His family accused Snori of being the thief; Snori's
+      family accused Ikanikar (Hoskuld's family member) of stealing.
+    notes: "Named 'Ikanikar' in Plot v1.1. Clan Hoskuld may be named after this figure."
+    sources:
+      - "Plot v1.2, beats 11, 16"
+
+  # === ZEALAN GODS ===
+
+  - name: Felicitar
+    aliases: ["Love"]
+    faction: Zealan gods
+    role: "Zealan god of Joy/Love"
+    description: "One of three gods imprisoned in the Shrine by the Titans."
+    art_notes: "Zealan God 1/2/3 — speaking (from Ancient Ones' mesh/skeleton) and encased in resin"
+    sources:
+      - "U8 base game lore"
+      - "Plot v1.2 (as 'Love')"
+
+  - name: Doloras
+    aliases: ["Hate", "Sorrow"]
+    faction: Zealan gods
+    role: "Zealan god of Sorrow"
+    description: "One of three gods imprisoned in the Shrine by the Titans."
+    sources:
+      - "U8 base game lore"
+      - "Plot v1.2 (as 'Hate')"
+
+  - name: Timyra
+    aliases: ["Apathy", "Fear"]
+    faction: Zealan gods
+    role: "Zealan god of Fear/Emotion"
+    description: "One of three gods imprisoned in the Shrine by the Titans."
+    sources:
+      - "U8 base game lore"
+      - "Plot v1.2 (as 'Apathy')"
+
+  # === REFERENCED BUT NOT LV-SPECIFIC ===
+
+  - name: Nystul
+    faction: Britannia
+    role: "Lord British's mage; creates the magical channel to reach the Avatar"
+    sources:
+      - "Plot v1.2, beat 1"
+
+  - name: Avatar
+    faction: Britannia
+    role: "Protagonist"
+    usecode_file: "AVATAR.UNK (36 KB, in UNK files/)"
+    sources:
+      - "All documents"
+
+  # === MONSTERS ===
+
+  - name: Harpie
+    type: monster
+    role: "New monster encountered on the Cliffs of Insanity"
+    art_notes: "Listed in Art List v2.5. Synopsis questions whether it should be a new Pagan monster instead."
+    sources:
+      - "Plot v1.2, beat 13"
+      - "Art List v2.5"
+
+  - name: Water Zombie
+    type: monster
+    role: "Monster (import Dicko's art)"
+    art_notes: "Art List v2.5: 'import Dicko's art'"
+    sources:
+      - "Art List v2.5"
+
+# Name evolution across document versions:
+name_history:
+  - character: "Two boys"
+    v1.1: "Draesh and Ikanikar"
+    v1.2: "Snori and Hoskuld"
+    art_list: "Flossie and Snori"
+    discord: "Clan Hoskuld, Clan Gunnar"
+
+  - character: "Shield of the Ancients"
+    v1.1: "Magic Frisbee"
+    v1.2: "Shield of the Ancients (but Magic Frisbee still used in Walk Through)"
+    art_list: "Magic Frisbee half/whole (like Zealan Ceremonial Shield)"
+
+# Writer assignments from Character List:
+writer_assignments:
+  SHERI: [Ezrekal, "Male Veteran", "Female Farmer (Gunnar)", "Male Elder (Gunnar)", Atli, Tyorvi]
+  LISA: ["Female Elder (Hoskuld)", "Female Inventor", "Male Moonshiner", Thordis, Hrodny, Ingyald]
+  BRIAN_then_SHERI: ["Female Hunter", "Male Farmer (Hoskuld)"]
+  ANDREW: [Lord British, Mythran]

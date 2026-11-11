@@ -1,0 +1,1231 @@
+{
+ "shot": "screen01",
+ "map": 13,
+ "origin_note": "Local coords: the mid-plateau 301 tile at screen (200,110) is (2047,2047,64); every 128-tile max corner is at 127 mod 128 (retail convention). world = local + origin_world. Tiers (local z): lower-left terrace courses z0 / crests 48 (top 56); east front ledge courses z8; mid plateau 301 @64 with rim crests 125 @56; ledge 1 tile wide @120 (crests 112 on 32-courses @64); top crag crests @168 (32-courses @120). The 1994 cloud floor is at local z1 (pixel parity forces an odd z offset vs the cliffs). Each tier is exactly 56 above the last: the 1994 climb is a staircase of climb56 jumps (the Avatar's frame 1:244 is the climb pose).",
+ "camera": {
+  "sx0": -200,
+  "sy0": 336,
+  "crop": [
+   320,
+   186
+  ],
+  "convention": "painter sign, vignette-local frame: screen_x = x/4 - y/4 - sx0, screen_y = x/8 + y/8 - z - sy0 (C division per term; x,y = footprint max corner). vignette_replay.py paints in world coordinates (origin_world + local) with the camera shifted by (ox/4 - oy/4, ox/8 + oy/8 - oz)."
+ },
+ "items": [
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 1791,
+   "y": 2431,
+   "z": 168,
+   "why": "matched",
+   "screen_hotspot": [
+    40,
+    22
+   ]
+  },
+  {
+   "shape": 241,
+   "frame": 0,
+   "x": 1855,
+   "y": 2015,
+   "z": 120,
+   "why": "matched",
+   "screen_hotspot": [
+    160,
+    26
+   ]
+  },
+  {
+   "shape": 367,
+   "frame": 3,
+   "x": 1823,
+   "y": 2055,
+   "z": 120,
+   "why": "matched",
+   "screen_hotspot": [
+    142,
+    27
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 6,
+   "x": 1919,
+   "y": 1919,
+   "z": 112,
+   "why": "matched",
+   "screen_hotspot": [
+    200,
+    30
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 1791,
+   "y": 2559,
+   "z": 168,
+   "why": "matched",
+   "screen_hotspot": [
+    8,
+    38
+   ]
+  },
+  {
+   "shape": 32,
+   "frame": 0,
+   "x": 1791,
+   "y": 2175,
+   "z": 120,
+   "why": "matched",
+   "screen_hotspot": [
+    104,
+    38
+   ]
+  },
+  {
+   "shape": 332,
+   "frame": 0,
+   "x": 1855,
+   "y": 2175,
+   "z": 120,
+   "why": "matched",
+   "screen_hotspot": [
+    120,
+    46
+   ]
+  },
+  {
+   "shape": 337,
+   "frame": 0,
+   "x": 1887,
+   "y": 2143,
+   "z": 120,
+   "why": "matched",
+   "screen_hotspot": [
+    136,
+    46
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 1919,
+   "y": 2047,
+   "z": 112,
+   "why": "matched",
+   "screen_hotspot": [
+    168,
+    46
+   ]
+  },
+  {
+   "shape": 32,
+   "frame": 3,
+   "x": 1791,
+   "y": 2303,
+   "z": 120,
+   "why": "matched",
+   "screen_hotspot": [
+    72,
+    54
+   ]
+  },
+  {
+   "shape": 522,
+   "frame": 1,
+   "x": 1919,
+   "y": 1983,
+   "z": 96,
+   "why": "matched",
+   "screen_hotspot": [
+    184,
+    54
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 2,
+   "x": 1919,
+   "y": 2175,
+   "z": 112,
+   "why": "matched",
+   "screen_hotspot": [
+    136,
+    62
+   ]
+  },
+  {
+   "shape": 522,
+   "frame": 1,
+   "x": 1919,
+   "y": 2079,
+   "z": 96,
+   "why": "matched",
+   "screen_hotspot": [
+    160,
+    66
+   ]
+  },
+  {
+   "shape": 32,
+   "frame": 2,
+   "x": 1791,
+   "y": 2431,
+   "z": 120,
+   "why": "matched",
+   "screen_hotspot": [
+    40,
+    70
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 1919,
+   "y": 2303,
+   "z": 112,
+   "why": "matched",
+   "screen_hotspot": [
+    104,
+    78
+   ]
+  },
+  {
+   "shape": 31,
+   "frame": 0,
+   "x": 1919,
+   "y": 1919,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    200,
+    78
+   ]
+  },
+  {
+   "shape": 32,
+   "frame": 1,
+   "x": 1791,
+   "y": 2559,
+   "z": 120,
+   "why": "matched",
+   "screen_hotspot": [
+    8,
+    86
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 10,
+   "x": 2047,
+   "y": 1791,
+   "z": 56,
+   "why": "matched",
+   "screen_hotspot": [
+    264,
+    86
+   ]
+  },
+  {
+   "shape": 358,
+   "frame": 0,
+   "x": 1919,
+   "y": 2495,
+   "z": 120,
+   "why": "matched",
+   "screen_hotspot": [
+    56,
+    94
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 2,
+   "x": 1919,
+   "y": 2431,
+   "z": 112,
+   "why": "matched",
+   "screen_hotspot": [
+    72,
+    94
+   ]
+  },
+  {
+   "shape": 32,
+   "frame": 2,
+   "x": 1919,
+   "y": 2047,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    168,
+    94
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 27,
+   "x": 2047,
+   "y": 1919,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    232,
+    94
+   ]
+  },
+  {
+   "shape": 66,
+   "frame": 8,
+   "x": 2079,
+   "y": 1887,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    248,
+    94
+   ]
+  },
+  {
+   "shape": 219,
+   "frame": 0,
+   "x": 1855,
+   "y": 2591,
+   "z": 120,
+   "why": "matched",
+   "screen_hotspot": [
+    16,
+    98
+   ]
+  },
+  {
+   "shape": 337,
+   "frame": 0,
+   "x": 1951,
+   "y": 2527,
+   "z": 120,
+   "why": "matched",
+   "screen_hotspot": [
+    56,
+    102
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 9,
+   "x": 2175,
+   "y": 1791,
+   "z": 56,
+   "why": "matched",
+   "screen_hotspot": [
+    296,
+    102
+   ]
+  },
+  {
+   "shape": 32,
+   "frame": 0,
+   "x": 1919,
+   "y": 2175,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    136,
+    110
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 2047,
+   "y": 2047,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    200,
+    110
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 2175,
+   "y": 1919,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    264,
+    110
+   ]
+  },
+  {
+   "shape": 358,
+   "frame": 0,
+   "x": 2207,
+   "y": 1951,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    264,
+    118
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 6,
+   "x": 2303,
+   "y": 1791,
+   "z": 56,
+   "why": "matched",
+   "screen_hotspot": [
+    328,
+    118
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 2,
+   "x": 1663,
+   "y": 2431,
+   "z": 48,
+   "why": "matched",
+   "screen_hotspot": [
+    8,
+    126
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 19,
+   "x": 1791,
+   "y": 2303,
+   "z": 48,
+   "why": "matched",
+   "screen_hotspot": [
+    72,
+    126
+   ]
+  },
+  {
+   "shape": 32,
+   "frame": 1,
+   "x": 1919,
+   "y": 2303,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    104,
+    126
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 2047,
+   "y": 2175,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    168,
+    126
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 2175,
+   "y": 2047,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    232,
+    126
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 2,
+   "x": 2303,
+   "y": 1919,
+   "z": 56,
+   "why": "matched",
+   "screen_hotspot": [
+    296,
+    134
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 2047,
+   "y": 2303,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    136,
+    142
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 2,
+   "x": 2175,
+   "y": 2175,
+   "z": 56,
+   "why": "matched",
+   "screen_hotspot": [
+    200,
+    150
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 0,
+   "x": 2303,
+   "y": 2047,
+   "z": 56,
+   "why": "matched",
+   "screen_hotspot": [
+    264,
+    150
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 2175,
+   "y": 2303,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    168,
+    158
+   ]
+  },
+  {
+   "shape": 349,
+   "frame": 4,
+   "x": 2111,
+   "y": 1983,
+   "z": 8,
+   "why": "matched",
+   "screen_hotspot": [
+    232,
+    166
+   ]
+  },
+  {
+   "shape": 30,
+   "frame": 0,
+   "x": 1791,
+   "y": 2271,
+   "z": 0,
+   "why": "matched",
+   "screen_hotspot": [
+    80,
+    170
+   ]
+  },
+  {
+   "shape": 32,
+   "frame": 0,
+   "x": 1663,
+   "y": 2431,
+   "z": 0,
+   "why": "matched",
+   "screen_hotspot": [
+    8,
+    174
+   ]
+  },
+  {
+   "shape": 29,
+   "frame": 0,
+   "x": 1791,
+   "y": 2303,
+   "z": 0,
+   "why": "matched",
+   "screen_hotspot": [
+    72,
+    174
+   ]
+  },
+  {
+   "shape": 30,
+   "frame": 4,
+   "x": 2303,
+   "y": 1887,
+   "z": 8,
+   "why": "matched",
+   "screen_hotspot": [
+    304,
+    178
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 6,
+   "x": 2303,
+   "y": 2303,
+   "z": 56,
+   "why": "matched",
+   "screen_hotspot": [
+    200,
+    182
+   ]
+  },
+  {
+   "shape": 31,
+   "frame": 4,
+   "x": 1663,
+   "y": 2527,
+   "z": 0,
+   "why": "matched",
+   "screen_hotspot": [
+    -16,
+    186
+   ]
+  },
+  {
+   "shape": 66,
+   "frame": 9,
+   "x": 2143,
+   "y": 2495,
+   "z": 56,
+   "why": "matched",
+   "screen_hotspot": [
+    112,
+    186
+   ]
+  },
+  {
+   "shape": 27,
+   "frame": 0,
+   "x": 2271,
+   "y": 2047,
+   "z": 8,
+   "why": "matched",
+   "screen_hotspot": [
+    256,
+    194
+   ]
+  },
+  {
+   "shape": 32,
+   "frame": 4,
+   "x": 2303,
+   "y": 2015,
+   "z": 8,
+   "why": "matched",
+   "screen_hotspot": [
+    272,
+    194
+   ]
+  },
+  {
+   "shape": 66,
+   "frame": 7,
+   "x": 2047,
+   "y": 2623,
+   "z": 48,
+   "why": "matched",
+   "screen_hotspot": [
+    56,
+    198
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 2175,
+   "y": 2559,
+   "z": 56,
+   "why": "matched",
+   "screen_hotspot": [
+    104,
+    198
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 0,
+   "x": 2303,
+   "y": 2431,
+   "z": 56,
+   "why": "matched",
+   "screen_hotspot": [
+    168,
+    198
+   ]
+  },
+  {
+   "shape": 29,
+   "frame": 13,
+   "x": 2303,
+   "y": 2047,
+   "z": 8,
+   "why": "matched",
+   "screen_hotspot": [
+    264,
+    198
+   ]
+  },
+  {
+   "shape": 29,
+   "frame": 19,
+   "x": 2271,
+   "y": 2175,
+   "z": 0,
+   "why": "matched",
+   "screen_hotspot": [
+    224,
+    218
+   ]
+  },
+  {
+   "shape": 369,
+   "frame": 15,
+   "x": 1844,
+   "y": 2640,
+   "z": 0,
+   "why": "matched",
+   "screen_hotspot": [
+    1,
+    224
+   ]
+  },
+  {
+   "shape": 167,
+   "frame": 4,
+   "x": 2271,
+   "y": 2303,
+   "z": 8,
+   "why": "matched",
+   "screen_hotspot": [
+    192,
+    226
+   ]
+  },
+  {
+   "shape": 27,
+   "frame": 0,
+   "x": 1759,
+   "y": 2303,
+   "z": 0,
+   "why": "matched",
+   "screen_hotspot": [
+    64,
+    170
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 2175,
+   "y": 2431,
+   "z": 64,
+   "why": "matched",
+   "screen_hotspot": [
+    136,
+    174
+   ]
+  },
+  {
+   "shape": 32,
+   "frame": 0,
+   "x": 1791,
+   "y": 2687,
+   "z": 120,
+   "why": "matched",
+   "screen_hotspot": [
+    -24,
+    102
+   ]
+  },
+  {
+   "shape": 349,
+   "frame": 10,
+   "x": 1592,
+   "y": 1980,
+   "z": 0,
+   "why": "matched",
+   "screen_hotspot": [
+    103,
+    110
+   ]
+  },
+  {
+   "shape": 337,
+   "frame": 1,
+   "x": 1407,
+   "y": 2079,
+   "z": 0,
+   "why": "matched",
+   "screen_hotspot": [
+    32,
+    98
+   ]
+  },
+  {
+   "shape": 2000,
+   "frame": 2,
+   "x": 1727,
+   "y": 1375,
+   "z": 1,
+   "why": "matched",
+   "screen_hotspot": [
+    288,
+    49
+   ]
+  },
+  {
+   "shape": 2000,
+   "frame": 0,
+   "x": 1599,
+   "y": 1247,
+   "z": 1,
+   "why": "matched",
+   "screen_hotspot": [
+    288,
+    17
+   ]
+  },
+  {
+   "shape": 2000,
+   "frame": 2,
+   "x": 1503,
+   "y": 1375,
+   "z": 1,
+   "why": "matched",
+   "screen_hotspot": [
+    232,
+    21
+   ]
+  },
+  {
+   "shape": 2000,
+   "frame": 1,
+   "x": 1855,
+   "y": 1375,
+   "z": 1,
+   "why": "matched",
+   "screen_hotspot": [
+    320,
+    65
+   ]
+  },
+  {
+   "shape": 2000,
+   "frame": 0,
+   "x": 1759,
+   "y": 1503,
+   "z": 1,
+   "why": "matched",
+   "screen_hotspot": [
+    264,
+    69
+   ]
+  },
+  {
+   "shape": 2000,
+   "frame": 2,
+   "x": 1599,
+   "y": 1375,
+   "z": 1,
+   "why": "matched",
+   "screen_hotspot": [
+    256,
+    33
+   ]
+  },
+  {
+   "shape": 2000,
+   "frame": 1,
+   "x": 1887,
+   "y": 1503,
+   "z": 1,
+   "why": "matched",
+   "screen_hotspot": [
+    296,
+    85
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1791,
+   "y": 2175,
+   "z": 120,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    104,
+    38
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1791,
+   "y": 2303,
+   "z": 120,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    72,
+    54
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1791,
+   "y": 2431,
+   "z": 120,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    40,
+    70
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1919,
+   "y": 1919,
+   "z": 64,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    200,
+    78
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1791,
+   "y": 2559,
+   "z": 120,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    8,
+    86
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1919,
+   "y": 2047,
+   "z": 64,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    168,
+    94
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1919,
+   "y": 2175,
+   "z": 64,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    136,
+    110
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 2303,
+   "y": 1919,
+   "z": 8,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    296,
+    182
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 2175,
+   "y": 2431,
+   "z": 56,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    136,
+    182
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 2303,
+   "y": 2047,
+   "z": 8,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    264,
+    198
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 2047,
+   "y": 2687,
+   "z": 48,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    40,
+    206
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 2303,
+   "y": 2303,
+   "z": 8,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    200,
+    230
+   ]
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 1791,
+   "y": 2687,
+   "z": 120,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    -24,
+    102
+   ]
+  },
+  {
+   "shape": 2000,
+   "frame": 2,
+   "x": 1791,
+   "y": 1311,
+   "z": 1,
+   "why": "matched",
+   "screen_hotspot": [
+    320,
+    49
+   ]
+  },
+  {
+   "shape": 2000,
+   "frame": 1,
+   "x": 1759,
+   "y": 1183,
+   "z": 1,
+   "why": "matched",
+   "screen_hotspot": [
+    344,
+    29
+   ]
+  },
+  {
+   "shape": 29,
+   "frame": 7,
+   "x": 1919,
+   "y": 1823,
+   "z": 64,
+   "why": "gap fill 2026-10-17 (verify3 4b): the blood cliff's north-east corner post, 170/170 px palette-exact where the reconstruction left a 5x50 hole between the cliff and the spire (the east face 31:0 stops 32 short of the corner); the hole drew Map 13's black north-face course through it in-engine",
+   "screen_hotspot": [
+    224,
+    66
+   ]
+  }
+ ],
+ "actors": [
+  {
+   "what": "avatar",
+   "shape": 1,
+   "frame": 244,
+   "x": 1983,
+   "y": 2175,
+   "z": 64
+  },
+  {
+   "what": "monster",
+   "shape": 119,
+   "frame": 83,
+   "x": 2207,
+   "y": 2367,
+   "z": 64
+  }
+ ],
+ "art_1994": [
+  {
+   "id": 2000,
+   "frames": [
+    0,
+    1,
+    2
+   ],
+   "name": "cloud floor (1994): 3-frame flat 128x128 tile, the sea of cloud beyond the cliff edge",
+   "replaces": 862,
+   "note": "screen01's white is NOT retail: 16px patches match screen11's cloud at 99%; 9 tiles placed with ReconCloud's frames (art_registry 2000; was vignette shape 'CLOUD1994'), two of them >=97% unoccluded in this shot. Our 862 is a different single-frame 63x34 slab texture (shared/data/lv-1994-art/ReconCliffs/previews/cmp_862_vs_1994cloud.png): replace it with these 3 frames. Placed at an odd z relative to the cliffs (pixel parity forces it); the frames are flat, so its TYPEFLAG should be zd 0 (113's 8-high slab is wrong for it).",
+   "observed_png": "shared/data/lv-1994-art/ReconCliffs/previews/screen01_cloud_observed.png"
+  }
+ ],
+ "verify": {
+  "render": "docs/research/2026-10-16-screenshot-reconstruction/screen01_render.png",
+  "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen01_diff.png",
+  "frame_px": 59520,
+  "all_frame_strict": 94.308,
+  "all_frame_class": 94.38,
+  "void_as_black_points": 0.008,
+  "excluded_actor_points": 0.0,
+  "provenance_points": {
+   "retail": 87.843,
+   "cross_shot_validated_1994": 6.537,
+   "single_shot_1994": 0.0,
+   "inferred": 0.0,
+   "unmatched": 5.62
+  },
+  "published_render_identical": true,
+  "replay": "python3 agents/map-populator/src/vignette_replay.py screen01"
+ },
+ "placement": {
+  "map": 13,
+  "origin_world": [
+   2176,
+   0,
+   56
+  ],
+  "world_bbox": [
+   3583,
+   4479,
+   1183,
+   2687,
+   56,
+   224
+  ],
+  "note": "Summit. dz=+56 so the mid plateau (local 64) IS the summit at z120 (pins 208/209 frozen at z120), the 1-tile ledge (176) and crag (232 top) become the peak above it, the east front ledge drops to 64 and the cloud sea lies north at z57. Cloud must be north of the plateau, so the summit floor north of y=767 (current summit y(0,1024]) becomes cloud: 208/209 and the group-2 harpie eggs, which stood there, move onto the vignette's mid plateau. The climb arrives from the south-east lane onto the south rim crests (top 120) at x~4352.",
+  "pin_moves": [
+   {
+    "what": "TELEPORT ARRIVAL PAD 208 (frozen)",
+    "from": [
+     4096,
+     512,
+     120
+    ],
+    "to": [
+     4351,
+     1279,
+     120
+    ],
+    "why": "(4096,512) becomes 1994 cloud at z57; the summit is now the screen01 mid plateau, tiles x (4095,4351], y (767,1407] at z120"
+   },
+   {
+    "what": "TELEPORT TRIGGER 209 -> map 17 (frozen)",
+    "from": [
+     4096,
+     128,
+     120
+    ],
+    "to": [
+     4351,
+     895,
+     120
+    ],
+    "why": "same; 384 north of the pad as now (bounce spacing); hatch box +/-416x32 fits the 3-tile plateau"
+   },
+   {
+    "what": "harpie egg group 2 (873)",
+    "from": [
+     3328,
+     512,
+     120
+    ],
+    "to": [
+     4223,
+     1151,
+     120
+    ],
+    "why": "old spot is cloud; [INFERENCE] the 1994 shot has a skeleton warrior (retail 119:83) here instead of a harpie"
+   },
+   {
+    "what": "harpie egg group 2 (873)",
+    "from": [
+     3584,
+     256,
+     120
+    ],
+    "to": [
+     4223,
+     1407,
+     120
+    ],
+    "why": "old spot is cloud"
+   },
+   {
+    "what": "MONEGG trigger group 2 (npc 97)",
+    "from": [
+     4096,
+     1152,
+     120
+    ],
+    "to": [
+     4352,
+     1664,
+     120
+    ],
+    "why": "the summit approach moves to the south rim at x~4352"
+   },
+   {
+    "what": "CLIMB_WAYPOINTS last legs",
+    "from": [
+     [
+      4096,
+      2176
+     ],
+     [
+      4096,
+      1024
+     ]
+    ],
+    "to": [
+     [
+      4864,
+      6144
+     ],
+     [
+      4864,
+      1664
+     ],
+     [
+      4352,
+      1664
+     ],
+     [
+      4352,
+      1408
+     ]
+    ],
+    "why": "the old final leg x=4096,y 1024-2176 runs through the vignette's face column and lower terrace"
+   },
+   {
+    "what": "summit floor (build_summit) + summit_edges + north rim",
+    "from": "x(2560,4608] y(0,1024] z120 + colonnade",
+    "to": "cloud floor (1994 3-frame tile) at z57 for y<=767; vignette items elsewhere",
+    "why": "the 1994 edge drops into cloud, not black (screen01)"
+   }
+  ],
+  "collides_with": [
+   "18 climb cells (z [112, 120]) inside the footprint are replaced by the vignette",
+   "128 current Map 13 items in the footprint (top shapes [(3, 76), (32, 18), (2, 8), (26, 8), (249, 6), (113, 4)]) must be removed: shape 3 path tiles, 497/498 curbs, cliff courses, glob eggs (2)",
+   "current 208/209/harpie group-2 pins all fall in the vignette footprint (see pin_moves)"
+  ]
+ },
+ "source": "ReconCliffs (2026-10-16 reconstruction)"
+}

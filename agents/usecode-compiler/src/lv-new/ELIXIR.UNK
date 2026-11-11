@@ -1,0 +1,39 @@
+// Tyorvi's nightmare elixir: look() for shape 868.
+//
+// WHY THIS CLASS IS PINNED TO 868 AND CANNOT MOVE. The engine picks the
+// usecode class for an item's events from its SHAPE NUMBER:
+//
+//     uint32 class_id = _shape;          // item.cpp:1516
+//
+// so shape 868's look() lands in class 868 and nowhere else, the way the
+// Message Scroll's lands in 864 (MSGSCRL.UNK) and the pillars' in 865
+// (ELMCOLMN.UNK). `lv_manifest.json` pins TYPEELIXIR to 868 for that
+// reason. Decided by Douglas on 2026-10-09 (docs/art-track.md contract 11):
+// the elixir gets its own shape and its own name.
+//
+// THE ITEM. Ezrekal brews it from the root and hands it over
+// (lv-patched/EZREKAL.UNK, give/createNear of TypeBottle frame 0), and
+// Tyorvi drinks it (lv-patched/TYORVI.UNK, the two drink filters destroy
+// every TypeBottle frame 0 in the pack). TypeBottle resolves to 868 in
+// u8c_symbols TYPE_SHAPES, the identifier the 1994 author used for this
+// bottle at all four sites. Until 2026-10-09 it was shape 395 frame 5, the
+// necromancy reagent Blood: it read "1 vial of blood" and merged with
+// carried blood. Shape 868 is that vial recoloured to a sea-green brew
+// (lv_art_props.py) on donor 180's TYPEFLAG row, SF_GENERIC, so it is
+// neither a reagent nor a stack.
+//
+// THE NAME is the one the 1994 dialogue gives it: Ezrekal's menu asks "Is
+// Tyorvi's elixir ready yet?" (EZREKAL.UNK). There is no German line
+// because no lv-new class carries one (MSGSCRL, ELMCOLMN).
+
+uses "item";
+
+typeclass TypeElixir inherits Item
+{
+	process look();
+}
+
+process TypeElixir::look()
+{
+	bark("Tyorvi's elixir");
+}

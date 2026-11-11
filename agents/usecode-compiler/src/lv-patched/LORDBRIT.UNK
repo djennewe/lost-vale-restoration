@@ -1,0 +1,205 @@
+// ============================================================================
+// LORDBRIT.UNK - Lost Vale restoration patched copy (lv-patched tier)
+//
+// Byte-copy of "shared/data/lv-usecode/UNK files/UNK/LORDBRIT.UNK" (the
+// recovered 1994 Lord British apparition scene, class TypeLordBritish)
+// plus the two hunks below. Line numbers in this comment refer to the
+// ORIGINAL unpatched file; this header shifts everything below it.
+//
+// THE BUG, closing TODO.md "Found 2026-09-26"
+// (docs/playtest-2026-09-26-lamps-plaques-lb.md, finding 1): the
+// apparition changed pose once and held it for the whole ~100 s bark.
+//
+// Root cause (2026-09-30, revised 2026-10-01): puppet()'s body (original
+// line 106) opens with a bare `process { ... }` block, and use() (line
+// 57) spawns it with `-> return`, which blocks use() until puppet()
+// RETURNS. Originally diagnosed as a parser/codegen gap specific to this
+// file; on 2026-10-01, disassembling retail class 0x2FE (TypePotion,
+// shared/data/USECODE.FLX) showed that `process { ... }` is a GENERAL
+// 1994 construct: retail's protection()/invisible() (offsets
+// 0x059B/0x0687) each compile their own `process { ... }` section to a
+// backward `jmp` back to its own top, taken whenever the block falls off
+// its end without an explicit `return`. Our compiler was treating EVERY
+// `process { ... }` as a single straight-through pass -- the same gap
+// that, left alone, would also have left the Avatar permanently immortal
+// from TypePotion::protection() (clrImmortal() only runs past the
+// counter-vs-limit check, which a single pass can satisfy only on its
+// very first lap). u8c_codegen.py now wraps a `kind='process'` Block in
+// that backward jmp generally (u8c_parser.py tags it, u8c_ast.py carries
+// the tag), so THIS file's patch no longer needs to touch puppet()'s
+// body at all -- it is byte-identical to the recovered original.
+//
+// THE FIX, two hunks:
+//
+// A. Original line 57: `spawn puppet(lb) -> return;` loses its arrow:
+//    `spawn puppet(lb);`. u8c_codegen.py's `_gen_spawn` reads
+//    `stmt.has_arrow_return` (parsed at u8c_parser.py:713, previously
+//    never consulted) in the same-class/cross-class resolved-function
+//    branch: without the arrow it emits the spawn alone and skips the
+//    leading `push pid` and the trailing `push retval; implies; pop
+//    temp; suspend`. uc_machine.cpp's spawn handler (case 0x57) already
+//    runs a freshly spawned process once immediately and then resumes
+//    the caller on its own -- `implies`/`suspend` exist only to make the
+//    caller wait for the child to fully RETURN, which a puppet that now
+//    genuinely loops (hunk A's prerequisite: without it, use() would
+//    deadlock waiting for a puppet that only returns once use() itself
+//    sets lbDone, two statements later) must not do. The corpus has zero
+//    other bare (arrow-less) spawns, so this changes no other compiled
+//    class.
+//
+// B. Original line 106 (`process {`), first statement: adds
+//    `[[PT_DEFAULT, referent]];`, the same statement-form pragma use()
+//    already opens with (line 16 -- see camera-intrinsics.md). puppet()
+//    now runs for the length of the whole bark, as a genuinely separate
+//    process (hunk A), so it needs the same map-switch protection use()
+//    gives itself: AVATAR.UNK's schedule() (compiled, replacing retail
+//    class 0x401) teleports to MapLBBlackness, fires lb.use() as a
+//    non-blocking intrinsic, and teleports back after only 120 ticks,
+//    long before the scene's ~100 s bark ends. That return teleport's
+//    map switch kills every process with itemNum != 0 and type != 1.
+//    The typeclass header already declares
+//    `process [[PT_DEFAULT, referent]] puppet(...)`, but header-form
+//    annotations are parsed into FunctionDef.annotations and
+//    u8c_codegen.py never reads that field, so it was inert; this
+//    statement-form copy is what actually emits the `set info` call.
+//    The egg-hatch trigger (lv-new/LBSCENE.UNK) never switches maps, so
+//    this risk was dormant until hunk A gave puppet() a lifetime worth
+//    killing.
+//
+// Verified: docs/playtest-2026-09-26-lamps-plaques-lb.md (the failure);
+// in-engine retest after this fix is still needed (see commit message).
+// ============================================================================
+
+//@@@Tranlate g f 
+uses "free";
+uses "item";
+uses "flags";
+//uses "lordbrit";
+
+globalflag lbStarted;
+globalflag lbDone;
+
+typeclass TypeLordBritish inherits Item {
+	process use();
+	process [[PT_DEFAULT, referent]] puppet( lb : Item);
+}
+
+process TypeLordBritish::use() {
+	[[PT_DEFAULT, referent]];
+
+	if lbStarted = 1 {
+		return;
+	} 
+
+	lbStarted = 1;
+
+	item, lb, red, yellow, blue, mushroom : Item;
+	mushFrame : Number = 0;
+
+	foreach item where type = TypeLordBritish within 1024 of Avatar {
+		lb.referent = item.referent;
+	}
+			
+	wait (120);
+	lb.bark ("Avatar...");
+	wait (30);
+	scrollTo(lb.getX(),lb.getY(),lb.getZ(),25);
+	
+	blue.create (TypeMagicSparkle,0);
+	blue.pop (lb.getX() + 20,lb.getY(),lb.getZ() + 40);
+
+	yellow.create (TypeMagicSparkle,20);
+	yellow.pop (lb.getX() + 24,lb.getY(),lb.getZ() + 24);
+
+	red.create (TypeMagicSparkle,11);
+	red.pop (lb.getX() - 28,lb.getY(),lb.getZ() + 28);
+
+	wait (30);
+	lb.bark ("Avatar...");
+	Avatar.turnToFace(Avatar.getDirToItem(referent),false,10);
+	
+	wait (10);
+	lb.setFrame(0);
+	wait (30);
+	blue.destroy ();
+	yellow.destroy ();
+	red.destroy ();
+
+	wait(30);
+	spawn puppet(lb);
+	
+	lb.bark ("Avatar, I have found a portal through which I can speak, yet I
+		can neither see nor hear thee. Nystul, my magiciain and trusted friend, 
+		has managed to pierce the Guardian's dark veil to locate thee and
+		send this message. Yet the tether that binds to this world grows 
+		threadbare and I fear my time here is short. Seek the counsel of 
+		the wise man known as Mythran. I feel that he is near thee and can  
+		offer much help. Ask him of the race that once thrived upon the land
+		that is now your prison. Through him thou canst find the ancient race 
+		and earn their help, for Pagan is now their prison too. Journey with 
+		great haste to Mythran. Only with his aid canst thou escape. Farewell,
+		Avatar and please hurry. Britannia is in great need of thee...");
+
+	lbDone = 1; // true
+	
+	wait (30);
+	blue.create (TypeMagicSparkle,0);
+	blue.pop (lb.getX() + 20,lb.getY(),lb.getZ() + 40);
+
+	yellow.create (TypeMagicSparkle,20);
+	yellow.pop (lb.getX() + 24,lb.getY(),lb.getZ() + 24);
+
+	red.create (TypeMagicSparkle,11);
+	red.pop (lb.getX() - 28,lb.getY(),lb.getZ() + 28);
+
+	wait (30);
+	
+//	lb.setFrame(9);
+	
+	wait (30);
+	blue.destroy ();
+	yellow.destroy ();
+	red.destroy ();
+
+	scrollBack (25);
+
+	wait (120);
+	lb.destroy();
+	return;
+}
+
+process TypeLordBritish::puppet (lb : Item) {
+	[[PT_DEFAULT, referent]];
+
+	startup	{
+		count : Number = 0;
+		fram : Frame = 0;
+		lb.setFrame(fram);
+	}
+
+	process {
+	  	
+		if lbDone = 1 {
+			lb.setFrame (9);
+			return;
+		}
+
+		if count = 4 {
+			wait (5);
+			lb.setFrame (2);
+			wait (120);
+			count = 0;
+		}
+		
+		if lb.getFrame() = 8 {
+			count++;
+			fram = 0;
+		}
+
+		fram++;
+
+		wait (5);
+		lb.setFrame (fram);
+  	}
+}
+

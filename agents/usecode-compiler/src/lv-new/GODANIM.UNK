@@ -1,0 +1,89 @@
+// Zealan god animation — the one-shot shatter-and-wake driver.
+//
+// WHY THIS CLASS IS PINNED TO 860 AND CANNOT MOVE. The engine picks the
+// usecode class for an item's events from its SHAPE NUMBER:
+//
+//     uint32 class_id = _shape;          // item.cpp:1516
+//
+// so shape 860's anim() event lands in class 860, and nowhere else. This is
+// not a manifest preference; renumbering it silently stops the gods moving.
+// `lv_manifest.json` pins TYPEZEALANGOD to 860 for that reason.
+//
+// The event is delivered because shape 860's TYPEFLAG entry carries
+// animType 5 ("call the item's usecode anim()"), written by
+// lv_god_statues.py through patch_typeflag.set_anim. The engine then runs
+//
+//     if (animType && (gametick % animSpeed) == 0) animateItem();
+//
+// every time the item is drawn (item.cpp:1778), and animateItem's case 5 is
+// a bare callUsecodeEvent_anim(). animSpeed is 1, so this handler is called
+// on every tick the god is inside the fast area.
+//
+// Seven retail shapes use the same mechanism and every one has a class at
+// its own shape number: HOURGLAS 227, DRIPS 348, FIREITEM 397, FIREFELD 400,
+// CLRLAVA 409, BUBLAST 483, DRIPS2 653. DRIPS is the five-line reference
+// implementation this is modelled on — increment the frame, wrap, fire a
+// sound on one particular frame, setFrame.
+//
+// FRAME LAYOUT (shape 860, 42 frames). 0-5 are exactly where they have
+// always been, because build_map_18.py places frames 0/1/2 and
+// test_sanctum_clearance.py asserts them:
+//
+//     0,1,2    encased  Felicitar, Doloras, Timyra   REST
+//     3,4,5    freed    Felicitar, Doloras, Timyra   REST
+//     6..17    Felicitar's run   (6 shatter, 6 wake)
+//     18..29   Doloras's run
+//     30..41   Timyra's run
+//
+// so a god's run starts at 6 + encasedFrame * 12 and ends 11 frames later on
+// the freed rest frame. Two rest bands, one run per god, and the encased
+// frame doubles as the god's identity — no quality lookup needed.
+//
+// THE GATE IS THE WHOLE DESIGN. anim() fires for every shape-860 item in the
+// fast area, which includes all three gods the moment the player walks into
+// the sanctum, years before the ceremony. Frames under 6 return immediately,
+// so a sealed god sits still until AOSCENE kicks her with setFrame().
+
+uses "item";
+
+typeclass TypeZealanGod inherits Item
+{
+	process anim();
+}
+
+process TypeZealanGod::anim()
+{
+	f:Number = 0;
+
+	f = getFrame();
+
+	// REST. Frames 0-5 are the two static states — encased and freed — and
+	// neither advances on its own. Everything the player sees before the
+	// ceremony, and everything they see after they walk away and come back,
+	// lands here.
+	if f < 6
+	{
+		return;
+	}
+
+	// END OF A RUN. Each god's 12 frames finish on her freed rest frame, so
+	// the animation stops itself and the result is a state FIXED.DAT and
+	// EggTempleEntry already know how to restore.
+	if f = 17
+	{
+		setFrame(3);
+		return;
+	}
+	if f = 29
+	{
+		setFrame(4);
+		return;
+	}
+	if f = 41
+	{
+		setFrame(5);
+		return;
+	}
+
+	setFrame(f + 1);
+}

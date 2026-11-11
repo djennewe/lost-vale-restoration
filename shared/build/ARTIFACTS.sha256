@@ -1,0 +1,23 @@
+# shared/build/ARTIFACTS.sha256 — canonical hashes of the six merged
+# game-data artifacts. The artifacts themselves are NOT tracked (M22):
+# they contain Origin-copyrighted bytes. Rebuild them from your own
+# game data with tools/build_artifacts.sh, which verifies against this
+# file. Regenerate it with --record only for a DELIBERATE artifact
+# change; the diff here is the record of that decision.
+#
+# Checkable with the standard tool, from shared/build/:
+#     shasum -a 256 -c ARTIFACTS.sha256
+#
+# TYPEFLAG.DAT        16384 bytes
+# U8SHAPES.FLX     20981062 bytes
+# ANIM.DAT           425740 bytes
+# EUSECODE.FLX      1529089 bytes
+# FIXED.DAT         2114096 bytes
+# GLOB.FLX           562686 bytes
+#
+568c4a4e8ea30b132b5e86d667f13f15c9238c8c32f0900d627db31e06f69db0  TYPEFLAG.DAT
+0f80f38ddfbc28aac9148a65ec0c9cea201c84f0af177f1486c70a9e074f8bde  U8SHAPES.FLX
+97ae5fc9ddaa6ef515427103264a3095a6d42776ac51e530954fb4846b4d0443  ANIM.DAT
+b47c324cdad77646c27755acfdd5bca53a9d92e16268db229f18e7dd780d4205  EUSECODE.FLX
+70f90c1f867d5d41f605eb8444fa439f95629615af4ca1ad1636a68b37dce584  FIXED.DAT
+ddf6b8083789b7b003ce29f98c3404276fec8efa192c2432f6c6ef9722acf276  GLOB.FLX

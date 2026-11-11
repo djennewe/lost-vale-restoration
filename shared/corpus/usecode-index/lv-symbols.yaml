@@ -1,0 +1,342 @@
+# Lost Vale Usecode Symbol Index
+# All symbol names from the recovered usecode archive (Sheri-U8-LV.zip)
+# with descriptions from Discord analysis (Armitage, Feb 2025) and design docs
+
+# NOTE: This file is consumed by the usecode-disasm agent.
+# Update it when new symbol meanings are discovered.
+
+symbols:
+
+  # === LOST VALE/ directory (final versions, Sep 1994) ===
+
+  - symbol: ATLI
+    file: "LOST VALE/ATLI.UNK"
+    size: 90613
+    date: "1994-09-12"
+    type: npc_conversation
+    description: "NPC Atli — Zealan elder. Gives the Avatar the Zealan mark after Passage Test. Works with Thordis."
+    confirmed_by: "Discord (Armitage), Resource Schedule"
+
+  - symbol: EZREKAL
+    file: "LOST VALE/EZREKAL.UNK"
+    size: 120787
+    date: "1994-09-09"
+    type: npc_conversation
+    description: >
+      NPC Ezrekal — High Priestess of the Zealans. Central quest-giver.
+      Largest LV usecode file. Dialogue uses inverted 'Elean Speak' syntax.
+      Tells backstory, poisons Avatar, leads Shield restoration, accompanies
+      Avatar to free the gods.
+    confirmed_by: "Discord (Armitage), Design docs, Elean Speak Exerpt.pdf"
+
+  - symbol: TYORVI
+    file: "LOST VALE/TYORVI.UNK"
+    size: 71524
+    date: "1994-09-13"
+    type: npc_conversation
+    description: "NPC Tyorvi — Zealan who suffers nightmares. Avatar makes a potion from a special root to help her."
+    confirmed_by: "Discord (Armitage), Resource Schedule"
+
+  - symbol: FREE
+    file: "LOST VALE/FREE.UNK"
+    size: 40924
+    date: "1994-09-09"
+    type: system_event
+    description: "System: Free the three imprisoned Zealan gods from the Shrine. End-game ceremony sequence."
+    confirmed_by: "Discord (Armitage)"
+
+  - symbol: MAGNET
+    file: "LOST VALE/MAGNET.UNK"
+    size: 10710
+    date: "1994-09-11"
+    type: system_puzzle
+    description: "System: Magnetic obelisk puzzle in Cloud City. Equipment gets magnetically sealed to it."
+    confirmed_by: "Sheri Graner Ray blog, Discord (Armitage)"
+
+  - symbol: ZCHILD
+    file: "LOST VALE/ZCHILD.UNK"
+    size: 7351
+    date: "1994-09-08"
+    type: npc_conversation
+    description: "NPC: Zealan child. Likely the 'kid who goes everywhere' from Character List (child of hunter and farmer, Clan Hoskuld)."
+    confirmed_by: "Character List 1.0 (probable match)"
+
+  - symbol: TESTPLAN
+    file: "LOST VALE/TESTPLAN.UNK"
+    size: 6983
+    date: "1994-08-25"
+    type: qa_test
+    description: "QA test plan / test framework for Lost Vale. Not game content."
+    confirmed_by: "File name and context"
+
+  - symbol: POTION
+    file: "LOST VALE/POTION.UNK"
+    size: 4630
+    date: "1994-08-19"
+    type: item
+    description: "Item: Potion — likely the Tiny-tar shrinking potion. Allows Avatar to enter small spaces in the Temple/Shrine."
+    confirmed_by: "Discord (Armitage), Sheri blog, Codex wiki"
+
+  - symbol: CANTRK
+    file: "LOST VALE/CANTRK.UNK"
+    size: 1769
+    date: "1994-09-07"
+    type: system_puzzle
+    description: "System: Candlestick rack / candlestick puzzle mechanism. Sheri called it 'the LAMEST design I've EVER done!'"
+    confirmed_by: "Sheri Graner Ray blog"
+
+  - symbol: PLNTST
+    file: "LOST VALE/PLNTST.UNK"
+    size: 1007
+    date: "1994-07-25"
+    type: system_event
+    description: "System: Passage Test (Rite of Passage). The test involving the nasty plant with fruit guarded by poisonous spines."
+    confirmed_by: "Discord (Armitage): 'Passage Test (PLNTST)'"
+
+  - symbol: MONSKUL
+    file: "LOST VALE/MONSKUL.UNK"
+    size: 750
+    date: "1994-08-11"
+    type: item
+    description: "Item: Monster skull. Function unknown."
+    confirmed_by: "File name only"
+
+  # === UNK files/UNK/ directory (development snapshot, LV-related) ===
+
+  - symbol: THORDIS
+    file: "UNK files/UNK/THORDIS.UNK"
+    size: 53195
+    date: "1994-08-25"
+    type: npc_conversation
+    description: "NPC Thordis — Zealan involved in the Passage Test ceremony. Gives Avatar the Zealan mark alongside Atli."
+    confirmed_by: "Discord (Armitage), Resource Schedule: 'Convos: Thordis (1d)' by Lisa S."
+
+  - symbol: HRODNY
+    file: "UNK files/UNK/HRODNY.UNK"
+    size: 27407
+    date: "1994-08-23"
+    type: npc_conversation
+    description: "NPC Hrodny — Zealan who has Tiny Tar potions but lost the key to the chest containing them."
+    confirmed_by: "Discord (Armitage), Resource Schedule: 'Convos: Hrodny (1d)' by Lisa S."
+
+  - symbol: RAGNAR
+    file: "UNK files/UNK/RAGNAR.UNK"
+    size: 27009
+    date: "1994-08-25"
+    type: npc_conversation
+    description: "NPC Ragnar — Clan Hoskuld Zealan who directs Avatar to the Passage Test. One of 2 new NPCs identified by Armitage."
+    confirmed_by: "Discord (Armitage)"
+
+  - symbol: INGYALD
+    file: "UNK files/UNK/INGYALD.UNK"
+    size: 19130
+    date: "1994-07-27"
+    type: npc_conversation
+    description: "NPC Ingyald — Zealan NPC. Role details unknown."
+    confirmed_by: "Resource Schedule: 'Convos: Ingyald (2d)' by Lisa S."
+
+  - symbol: SHADES
+    file: "UNK files/UNK/SHADES.UNK"
+    size: 19127
+    date: "1994-08-25"
+    type: system_event
+    description: "System: Moot / Shield Restoration ceremony. The scene where the shades of the two boys appear and the truth is revealed."
+    confirmed_by: "Discord (Armitage): 'Moot/Shield Restoration (SHADES)'"
+
+  - symbol: FLAGS
+    file: "UNK files/UNK/FLAGS.UNK"
+    size: 17096
+    date: "1994-08-24"
+    type: system
+    description: "System: Game flags / state tracking for Lost Vale quest progression."
+    confirmed_by: "File name and context"
+
+  - symbol: TJORVI
+    file: "UNK files/UNK/TJORVI.UNK"
+    size: 13695
+    date: "1994-06-20"
+    type: npc_conversation
+    description: >
+      NPC Tjorvi — EARLIER VERSION of Tyorvi (same character). Holds the Key to
+      the Clouds (TypeCliffKey). Won't give it up due to nightmares. Final version
+      is TYORVI.UNK (71 KB) in LOST VALE/ directory.
+    confirmed_by: "Discord (Armitage, 2025-02-01): Tjorvi has the key, nightmares subplot"
+    notes: "Merged with TYORVI — see LOST VALE/TYORVI.UNK for final version"
+
+  - symbol: PLAQUENS
+    file: "UNK files/UNK/PLAQUENS.UNK"
+    size: 9990
+    date: "1994-08-16"
+    type: item
+    description: "Item: Plaques. Possibly signage or informational plaques in the Lost Vale or Cloud World."
+    confirmed_by: "File name only"
+
+  - symbol: AVATAR
+    file: "UNK files/UNK/AVATAR.UNK"
+    size: 36185
+    date: "1994-08-11"
+    type: npc_conversation
+    description: "Player character (Avatar) usecode — responses, actions, state changes specific to LV."
+    confirmed_by: "File name"
+
+  - symbol: AIRSPEL
+    file: "UNK files/UNK/AIRSPEL.UNK"
+    size: 28066
+    date: "1994-07-01"
+    type: system
+    description: "System: Air spells. Possibly related to the Air section of the Elemental Dungeon."
+    confirmed_by: "File name"
+
+  - symbol: ZEALSHLD
+    file: "UNK files/UNK/ZEALSHLD.UNK"
+    size: 3378
+    date: "1994-08-09"
+    type: item
+    description: "Item: Zealan Shield — the Shield of the Ancients / Magic Frisbee. Usecode for the shield item."
+    confirmed_by: "File name + design docs"
+
+  - symbol: LORDBRIT
+    file: "UNK files/UNK/LORDBRIT.UNK"
+    size: 2899
+    date: "1994-08-11"
+    type: npc_conversation
+    description: "NPC Lord British — opening vision/message sequence."
+    confirmed_by: "Resource Schedule: 'Usecode: Lord British (1d)' by Andrew"
+
+  - symbol: CHANGTAR
+    file: "UNK files/UNK/CHANGTAR.UNK"
+    size: 1728
+    date: "1994-08-08"
+    type: npc_conversation
+    description: "NPC Changtar — Zealan NPC. Role unknown."
+    confirmed_by: "File name only"
+
+  - symbol: METHOD
+    file: "UNK files/UNK/METHOD.UNK"
+    size: 20666
+    date: "1994-06-28"
+    type: system
+    description: "System: Method. Purpose unknown — possibly a utility or framework file."
+    confirmed_by: "File name only"
+
+  - symbol: EAPUZL
+    file: "UNK files/UNK/EAPUZL.UNK"
+    size: 1822
+    date: "1994-06-15"
+    type: system_puzzle
+    description: "System: EA puzzle. Likely a self-referential puzzle or Easter egg."
+    confirmed_by: "File name only"
+
+  - symbol: ZZVFLAGS
+    file: "UNK files/UNK/ZZVFLAGS.UNK"
+    size: 4615
+    date: "1994-08-25"
+    type: system
+    description: "System: ZZV flags — additional game state flags. The ZZV prefix is unclear."
+    confirmed_by: "File name only"
+
+  - symbol: EALOGO
+    file: "UNK files/UNK/EALOGO.UNK"
+    size: 172
+    date: "1994-07-25"
+    type: system
+    description: "System: EA logo display. Possibly title screen or credits element."
+    confirmed_by: "File name only"
+
+  - symbol: FEDORA
+    file: "UNK files/UNK/FEDORA.UNK"
+    size: 131
+    date: "1994-08-11"
+    type: item
+    description: "Item: Fedora hat. Possibly an Easter egg (note: BULLWHIP.UNK also exists — Indiana Jones reference?)."
+    confirmed_by: "File name only"
+
+  - symbol: BULLWHIP
+    file: "UNK files/UNK/BULLWHIP.UNK"
+    size: 141
+    date: "1994-08-11"
+    type: item
+    description: "Item: Bullwhip. Paired with FEDORA.UNK — likely an Indiana Jones Easter egg."
+    confirmed_by: "File name only"
+
+  - symbol: BEDROLL
+    file: "UNK files/UNK/BEDROLL.UNK"
+    size: 1453
+    date: "1994-03-13"
+    type: item
+    description: "Item: Bedroll. Standard item, predates LV development (March 1994)."
+    confirmed_by: "File name only"
+
+  - symbol: ABACUS
+    file: "UNK files/UNK/ABACUS.UNK"
+    size: 759
+    date: "1994-03-01"
+    type: item
+    description: "Item: Abacus. Earliest dated file in archive (March 1994). May be base game content."
+    confirmed_by: "File name only"
+
+  - symbol: PSCEND
+    file: "UNK files/UNK/PSCEND.UNK"
+    size: 7
+    date: "1994-08-02"
+    type: system
+    description: "System: PSC end. Only 7 bytes — likely a sentinel/marker file. Purpose unknown."
+    confirmed_by: "File name only"
+
+  - symbol: ORLOK1
+    file: "UNK files/UNK/ORLOK1.UNK"
+    size: 3838
+    date: "1993-04-27"
+    type: npc_conversation
+    description: "NPC Orlok — earliest file in the entire archive (April 1993!). Predates U8 release. Base game NPC."
+    confirmed_by: "Date context"
+    notes: "Also exists as ORLOK1.DOC (7.2 KB) in U8/ directory"
+
+  # === U8/ directory (base game files from Sheri's disk, not LV-specific) ===
+  # These are included for completeness but are base game content.
+
+  base_game_symbols:
+    - {symbol: CYRRUS,   file: "U8/CYRRUS.UNK",   size: 62420, date: "1994-07-01", type: npc}
+    - {symbol: DARION,   file: "U8/DARION.UNK",   size: 96624, date: "1994-06-02", type: npc}
+    - {symbol: XAVIER,   file: "U8/XAVIER.UNK",   size: 96803, date: "1994-07-01", type: npc}
+    - {symbol: STELLOS,  file: "U8/STELLOS.UNK",  size: 76339, date: "1994-07-01", type: npc}
+    - {symbol: ARAMINA,  file: "U8/ARAMINA.UNK",  size: 72340, date: "1994-06-02", type: npc}
+    - {symbol: JENNA,    file: "U8/JENNA.UNK",    size: 65546, date: "1994-07-01", type: npc}
+    - {symbol: BENTIC,   file: "U8/BENTIC.UNK",   size: 51163, date: "1994-07-01", type: npc}
+    - {symbol: KILANDRA, file: "U8/KILANDRA.UNK", size: 48967, date: "1994-07-01", type: npc}
+    - {symbol: SGBOOK,   file: "U8/SGBOOK.UNK",   size: 42846, date: "1994-07-01", type: item}
+    - {symbol: TORWIN,   file: "U8/TORWIN.UNK",   size: 40925, date: "1994-07-01", type: npc}
+    - {symbol: SALKIND,  file: "U8/SALKIND.UNK",  size: 36357, date: "1994-07-01", type: npc}
+    - {symbol: MORDEA,   file: "U8/MORDEA.UNK",   size: 28133, date: "1994-07-01", type: npc}
+    - {symbol: STRATOS,  file: "U8/STRATOS.UNK",  size: 15095, date: "1994-07-01", type: npc}
+
+# Summary statistics:
+stats:
+  total_files: 71
+  lv_specific_files: 11
+  unk_dev_snapshot_files: 33
+  u8_base_game_files: 23
+  total_lv_related_symbols: 28  # LOST VALE/ + LV-specific UNK files/
+  confirmed_meanings: 17        # symbols with confirmed descriptions from Discord or docs
+  unconfirmed: 11               # symbols with only name-based guesses
+
+# Missing usecode (confirmed not in archive):
+missing:
+  - symbol: MYTHRAN
+    expected: "Mythran's dialogue directing Avatar to the Lost Vale"
+    status: "confirmed missing by Armitage"
+  - symbol: COLUMNS
+    expected: "Usecode for elemental dungeon columns/pillars"
+    status: "marked red X on annotated Resource Schedule"
+  - symbol: CLIFFS
+    expected: "Usecode for the Cliffs of Insanity"
+    status: "marked red X on annotated Resource Schedule"
+  - symbol: AO_SCENE
+    expected: "Ancient Ones scene (freeing gods set piece)"
+    status: "marked red X on annotated Resource Schedule"
+  - symbol: BAG_REAGENTS
+    expected: "Bag of Reagents item usecode"
+    status: "marked red X on annotated Resource Schedule"
+  - symbol: ENDGAME
+    expected: "End-game events and conclusion"
+    status: "confirmed missing by Armitage"

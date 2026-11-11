@@ -1,0 +1,999 @@
+{
+ "shot": "screen17",
+ "map": 10,
+ "origin_note": "screen17: gargoyle-flanked stair descending from a plateau between cliffs (stair rebuilt as a coherent 8-per-32 step model). Vignette-local coords = world-in-solve minus (1792,1408,-112); x,y keep the retail 128k+127 tile lattice.",
+ "camera": {
+  "sx0": -142,
+  "sy0": 3,
+  "crop": [
+   319,
+   184
+  ],
+  "convention": "painter sign, vignette-local frame: screen_x = x/4 - y/4 - sx0, screen_y = x/8 + y/8 - z - sy0 (C division per term; x,y = footprint max corner). vignette_replay.py paints in world coordinates (origin_world + local) with the camera shifted by (ox/4 - oy/4, ox/8 + oy/8 - oz)."
+ },
+ "items": [
+  {
+   "shape": 32,
+   "frame": 6,
+   "x": 671,
+   "y": 1183,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 2,
+   "x": 671,
+   "y": 1183,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 38,
+   "frame": 0,
+   "x": 767,
+   "y": 735,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 38,
+   "frame": 0,
+   "x": 1119,
+   "y": 735,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 6,
+   "x": 1279,
+   "y": 767,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 66,
+   "frame": 8,
+   "x": 639,
+   "y": 703,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 5,
+   "x": 639,
+   "y": 767,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 4,
+   "x": 511,
+   "y": 895,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 3,
+   "x": 671,
+   "y": 1055,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 3,
+   "x": 1279,
+   "y": 767,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 2,
+   "x": 511,
+   "y": 895,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 5,
+   "x": 1151,
+   "y": 767,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 3,
+   "x": 1439,
+   "y": 799,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 1,
+   "x": 511,
+   "y": 1023,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 4,
+   "x": 1023,
+   "y": 767,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 3,
+   "x": 895,
+   "y": 767,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 11,
+   "x": 895,
+   "y": 383,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 16,
+   "x": 895,
+   "y": 511,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 7,
+   "x": 1023,
+   "y": 511,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 66,
+   "frame": 8,
+   "x": 767,
+   "y": 415,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 4,
+   "x": 383,
+   "y": 767,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 511,
+   "y": 767,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 5,
+   "x": 1407,
+   "y": 767,
+   "z": 56,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 4,
+   "x": 639,
+   "y": 767,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 767,
+   "y": 511,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 15,
+   "x": 1023,
+   "y": 383,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1279,
+   "y": 639,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 21,
+   "x": 1151,
+   "y": 511,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 1151,
+   "y": 639,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 29,
+   "frame": 4,
+   "x": 543,
+   "y": 799,
+   "z": 64,
+   "why": "matched"
+  },
+  {
+   "shape": 29,
+   "frame": 4,
+   "x": 799,
+   "y": 1055,
+   "z": 72,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 3,
+   "x": 895,
+   "y": 1023,
+   "z": 72,
+   "why": "matched+frame-swap"
+  },
+  {
+   "shape": 386,
+   "frame": 3,
+   "x": 895,
+   "y": 255,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 1,
+   "x": 767,
+   "y": 1407,
+   "z": 72,
+   "why": "matched"
+  },
+  {
+   "shape": 32,
+   "frame": 5,
+   "x": 767,
+   "y": 1407,
+   "z": 120,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 895,
+   "y": 639,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 4,
+   "x": 1151,
+   "y": 767,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 6,
+   "x": 799,
+   "y": 1055,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 1055,
+   "y": 1439,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 35,
+   "frame": 37,
+   "x": 767,
+   "y": 639,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 3,
+   "x": 1407,
+   "y": 1023,
+   "z": 72,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 415,
+   "y": 639,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 255,
+   "y": 767,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 367,
+   "frame": 3,
+   "x": 800,
+   "y": 343,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 3,
+   "frame": 19,
+   "x": 1023,
+   "y": 255,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 367,
+   "frame": 3,
+   "x": 735,
+   "y": 1271,
+   "z": 49,
+   "why": "matched"
+  },
+  {
+   "shape": 782,
+   "frame": 1,
+   "x": 959,
+   "y": 664,
+   "z": 112,
+   "why": "matched+OFF-LATTICE"
+  },
+  {
+   "shape": 782,
+   "frame": 0,
+   "x": 672,
+   "y": 575,
+   "z": 112,
+   "why": "matched+OFF-LATTICE"
+  },
+  {
+   "shape": 405,
+   "frame": 103,
+   "x": 615,
+   "y": 423,
+   "z": 111,
+   "why": "matched"
+  },
+  {
+   "shape": 405,
+   "frame": 5,
+   "x": 623,
+   "y": 440,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 757,
+   "frame": 14,
+   "x": 1527,
+   "y": 847,
+   "z": 112,
+   "why": "matched"
+  },
+  {
+   "shape": 305,
+   "frame": 1,
+   "x": 288,
+   "y": 855,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 395,
+   "frame": 5,
+   "x": 831,
+   "y": 655,
+   "z": 113,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 383,
+   "y": 895,
+   "z": 112,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 386,
+   "frame": 21,
+   "x": 639,
+   "y": 511,
+   "z": 112,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 125,
+   "frame": 3,
+   "x": 767,
+   "y": 767,
+   "z": 104,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 125,
+   "frame": 3,
+   "x": 383,
+   "y": 895,
+   "z": 104,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 463,
+   "y": 687,
+   "z": 112,
+   "why": "matched-aug+OFF-LATTICE"
+  },
+  {
+   "shape": 125,
+   "frame": 4,
+   "x": 1304,
+   "y": 543,
+   "z": 48,
+   "why": "matched-aug+OFF-LATTICE"
+  },
+  {
+   "shape": 3,
+   "frame": 19,
+   "x": 1151,
+   "y": 383,
+   "z": 112,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 35,
+   "frame": 27,
+   "x": 1279,
+   "y": 511,
+   "z": 112,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 349,
+   "frame": 3,
+   "x": 1304,
+   "y": 671,
+   "z": 48,
+   "why": "matched-aug+OFF-LATTICE"
+  },
+  {
+   "shape": 125,
+   "frame": 7,
+   "x": 472,
+   "y": 1047,
+   "z": 104,
+   "why": "matched-aug+OFF-LATTICE"
+  },
+  {
+   "shape": 26,
+   "frame": 6,
+   "x": 767,
+   "y": 767,
+   "z": 56,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 367,
+   "frame": 2,
+   "x": 1055,
+   "y": 631,
+   "z": 112,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 319,
+   "y": 888,
+   "z": 112,
+   "why": "matched-aug+OFF-LATTICE"
+  },
+  {
+   "shape": 66,
+   "frame": 3,
+   "x": 639,
+   "y": 447,
+   "z": 112,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 66,
+   "frame": 7,
+   "x": 799,
+   "y": 255,
+   "z": 112,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 386,
+   "frame": 4,
+   "x": 255,
+   "y": 767,
+   "z": 112,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 107,
+   "frame": 1,
+   "x": 895,
+   "y": 735,
+   "z": 72,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 107,
+   "frame": 1,
+   "x": 895,
+   "y": 767,
+   "z": 64,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 335,
+   "frame": 0,
+   "x": 799,
+   "y": 799,
+   "z": 96,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 107,
+   "frame": 1,
+   "x": 895,
+   "y": 799,
+   "z": 56,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 107,
+   "frame": 1,
+   "x": 991,
+   "y": 799,
+   "z": 56,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 335,
+   "frame": 0,
+   "x": 799,
+   "y": 831,
+   "z": 88,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 107,
+   "frame": 1,
+   "x": 895,
+   "y": 831,
+   "z": 48,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 107,
+   "frame": 1,
+   "x": 991,
+   "y": 831,
+   "z": 48,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 335,
+   "frame": 0,
+   "x": 799,
+   "y": 863,
+   "z": 80,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 100,
+   "frame": 1,
+   "x": 895,
+   "y": 863,
+   "z": 56,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 112,
+   "frame": 1,
+   "x": 991,
+   "y": 863,
+   "z": 72,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 84,
+   "frame": 0,
+   "x": 1023,
+   "y": 863,
+   "z": 80,
+   "why": "stair-model"
+  },
+  {
+   "shape": 99,
+   "frame": 1,
+   "x": 895,
+   "y": 895,
+   "z": 56,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 99,
+   "frame": 1,
+   "x": 991,
+   "y": 895,
+   "z": 56,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 84,
+   "frame": 0,
+   "x": 1023,
+   "y": 895,
+   "z": 72,
+   "why": "stair-model"
+  },
+  {
+   "shape": 100,
+   "frame": 1,
+   "x": 895,
+   "y": 927,
+   "z": 40,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 100,
+   "frame": 1,
+   "x": 991,
+   "y": 927,
+   "z": 40,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 211,
+   "frame": 0,
+   "x": 1023,
+   "y": 927,
+   "z": 64,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 98,
+   "frame": 1,
+   "x": 991,
+   "y": 959,
+   "z": 56,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 211,
+   "frame": 0,
+   "x": 1023,
+   "y": 959,
+   "z": 56,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 107,
+   "frame": 1,
+   "x": 895,
+   "y": 991,
+   "z": 8,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 107,
+   "frame": 1,
+   "x": 991,
+   "y": 991,
+   "z": 8,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 107,
+   "frame": 1,
+   "x": 895,
+   "y": 1023,
+   "z": 0,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 107,
+   "frame": 1,
+   "x": 991,
+   "y": 1023,
+   "z": 0,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 335,
+   "frame": 0,
+   "x": 799,
+   "y": 1055,
+   "z": 32,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 112,
+   "frame": 1,
+   "x": 895,
+   "y": 1055,
+   "z": 24,
+   "why": "stair-model+stair-model"
+  },
+  {
+   "shape": 84,
+   "frame": 0,
+   "x": 1023,
+   "y": 799,
+   "z": 64,
+   "why": "stair-model-wall"
+  },
+  {
+   "shape": 355,
+   "frame": 1,
+   "x": 1023,
+   "y": 799,
+   "z": 56,
+   "why": "stair-model-wall"
+  },
+  {
+   "shape": 84,
+   "frame": 0,
+   "x": 1023,
+   "y": 799,
+   "z": 48,
+   "why": "stair-model-wall"
+  },
+  {
+   "shape": 355,
+   "frame": 1,
+   "x": 1023,
+   "y": 831,
+   "z": 64,
+   "why": "stair-model-wall"
+  },
+  {
+   "shape": 355,
+   "frame": 1,
+   "x": 1023,
+   "y": 831,
+   "z": 48,
+   "why": "stair-model-wall"
+  },
+  {
+   "shape": 356,
+   "frame": 0,
+   "x": 1023,
+   "y": 863,
+   "z": 56,
+   "why": "stair-model-wall"
+  },
+  {
+   "shape": 355,
+   "frame": 1,
+   "x": 1023,
+   "y": 959,
+   "z": 40,
+   "why": "stair-model-wall"
+  },
+  {
+   "shape": 355,
+   "frame": 1,
+   "x": 1023,
+   "y": 991,
+   "z": 48,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 335,
+   "frame": 0,
+   "x": 799,
+   "y": 991,
+   "z": 48,
+   "why": "matched-aug+stair-model"
+  },
+  {
+   "shape": 335,
+   "frame": 0,
+   "x": 799,
+   "y": 959,
+   "z": 56,
+   "why": "matched-aug+stair-model"
+  },
+  {
+   "shape": 335,
+   "frame": 16,
+   "x": 1023,
+   "y": 799,
+   "z": 96,
+   "why": "matched-aug+stair-model"
+  },
+  {
+   "shape": 335,
+   "frame": 0,
+   "x": 799,
+   "y": 927,
+   "z": 64,
+   "why": "matched-aug+stair-model"
+  },
+  {
+   "shape": 98,
+   "frame": 1,
+   "x": 895,
+   "y": 959,
+   "z": 56,
+   "why": "matched-aug+stair-model"
+  },
+  {
+   "shape": 335,
+   "frame": 0,
+   "x": 799,
+   "y": 1023,
+   "z": 40,
+   "why": "matched-aug+stair-model"
+  },
+  {
+   "shape": 84,
+   "frame": 0,
+   "x": 1055,
+   "y": 895,
+   "z": 88,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 335,
+   "frame": 0,
+   "x": 799,
+   "y": 895,
+   "z": 72,
+   "why": "matched-aug+stair-model"
+  },
+  {
+   "shape": 726,
+   "frame": 1,
+   "x": 1119,
+   "y": 927,
+   "z": 112,
+   "why": "matched-aug"
+  }
+ ],
+ "actors": [
+  {
+   "what": "avatar",
+   "shape": 1,
+   "frame": 4,
+   "x": 927,
+   "y": 735,
+   "z": 112
+  }
+ ],
+ "art_1994": [],
+ "verify": {
+  "render": "docs/research/2026-10-16-screenshot-reconstruction/screen17_render.png",
+  "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen17_diff.png",
+  "frame_px": 58696,
+  "all_frame_strict": 92.664,
+  "all_frame_class": 92.768,
+  "void_as_black_points": 0.007,
+  "excluded_actor_points": 0.0,
+  "provenance_points": {
+   "retail": 92.768,
+   "cross_shot_validated_1994": 0.0,
+   "single_shot_1994": 0.0,
+   "inferred": 0.0,
+   "unmatched": 7.232
+  },
+  "published_render_identical": true,
+  "replay": "python3 agents/map-populator/src/vignette_replay.py screen17"
+ },
+ "placement": {
+  "map": 10,
+  "origin_world": [
+   17536,
+   22016,
+   0
+  ],
+  "why": "Temple approach (map-10 doc 16384-20480 x 20480-24576; research layout #10). The shot is Vale surface material (301 rock, 386/4 dirt, 66 spires, open cliffs), not Map 18 interior; the stair descends south (+y) into a pit = the sunken temple (\"destroyed in the Great Cataclysm\", ATLI.UNK:2267); trigger 211 belongs at the pit floor south of the stair foot. Origin puts the stair centre on x=18432 (pad/trigger column) and the gargoyle line at y 22751, one step north of pad 210. Vignette z: pit floor 0, stair head/plateau 112 (two 48 courses + steps) -> Map 10 must carry a z=112 shelf north of the temple pit.",
+  "pin_moves": [
+   {
+    "what": "teleport ARRIVAL PAD 210",
+    "from": [
+     18432,
+     22784,
+     0
+    ],
+    "to": [
+     18432,
+     22719,
+     112
+    ],
+    "why": "y 22719, not the solve's 22720 (2026-10-17): the shot's top stair block 107:1 at (18431,22751,72) spans y 22720..22751 to z 120, so a 64-deep body at 22720 met it by one unit and the pad did not rest clear of solids (test_route_reach); at 22719 it stands on the shelf crest 125 (top 112) with the block flush south of it"
+   },
+   {
+    "what": "EGGENDGAME egg (q class 1450)",
+    "from": [
+     18432,
+     22784,
+     0
+    ],
+    "to": [
+     18432,
+     22719,
+     112
+    ]
+   },
+   {
+    "what": "EGGREAPPLY egg at pad 210",
+    "from": [
+     18432,
+     22784,
+     0
+    ],
+    "to": [
+     18432,
+     22719,
+     112
+    ]
+   }
+  ],
+  "unchanged": [
+   "Teleport TRIGGER 211 (18432,23552,0): stays on the pit floor 97 units south of the vignette window; extend the stair 4 rows (tops 24/16/8/0, y 23135-23231) and pit-floor tiles to it [INFERENCE]"
+  ],
+  "collides_with": [
+   "196 existing Map 10 items in footprint x 17663-19063, y 22143-23455 (glob-242 ground 121, shape 71 x49, 249 columns x8 at (18127/18639,22655) & (17871/18895,23423) z8/48, 15 x8 at y 23040, 113 x6)"
+  ]
+ },
+ "source": "ReconVale (2026-10-16 reconstruction)"
+}

@@ -1,0 +1,547 @@
+{
+  "regions": {
+    "entry hall": {
+      "kind": "temple",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          14.930555555555555
+        ],
+        "ground.seam_density": [
+          "min",
+          0.06793478260869565
+        ],
+        "props.small_per_100": [
+          "min",
+          12.32638888888889
+        ],
+        "props.dressed_share": [
+          "min",
+          0.5555555555555556
+        ],
+        "props.grouped_share": [
+          "min",
+          0.7464788732394366
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "props.stride_share": [
+          "max",
+          0.3389830508474576
+        ],
+        "ground.top1": [
+          "max",
+          0.5486111111111112
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.5486111111111112
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.08333333333333333
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.12592592592592594
+        ],
+        "records.raw": [
+          "max",
+          563
+        ]
+      }
+    },
+    "hub": {
+      "kind": "temple",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          14.409722222222221
+        ],
+        "ground.seam_density": [
+          "min",
+          0.08152173913043478
+        ],
+        "props.small_per_100": [
+          "min",
+          11.284722222222221
+        ],
+        "props.dressed_share": [
+          "min",
+          0.6302083333333334
+        ],
+        "props.grouped_share": [
+          "min",
+          0.8
+        ],
+        "props.bare_share": [
+          "max",
+          0.03125
+        ],
+        "props.stride_share": [
+          "max",
+          0.38596491228070173
+        ],
+        "ground.top1": [
+          "max",
+          0.5416666666666666
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.5416666666666666
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.1111111111111111
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.1233004385964912
+        ],
+        "records.raw": [
+          "max",
+          412
+        ]
+      }
+    },
+    "earth": {
+      "kind": "cave",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          11.0625
+        ],
+        "ground.seam_density": [
+          "min",
+          0.12051282051282051
+        ],
+        "props.small_per_100": [
+          "min",
+          7.9375
+        ],
+        "props.dressed_share": [
+          "min",
+          0.50625
+        ],
+        "props.grouped_share": [
+          "min",
+          0.5984251968503937
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "props.stride_share": [
+          "max",
+          0.20168067226890757
+        ],
+        "ground.top1": [
+          "max",
+          0.533125
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.533125
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.02
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.07291666666666667
+        ],
+        "records.raw": [
+          "max",
+          713
+        ]
+      }
+    },
+    "air": {
+      "kind": "cave",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          17.875
+        ],
+        "ground.seam_density": [
+          "min",
+          0.06666666666666667
+        ],
+        "props.small_per_100": [
+          "min",
+          14.9375
+        ],
+        "props.dressed_share": [
+          "min",
+          0.570625
+        ],
+        "props.grouped_share": [
+          "min",
+          0.8786610878661087
+        ],
+        "props.bare_share": [
+          "max",
+          0.00125
+        ],
+        "props.stride_share": [
+          "max",
+          0.2184873949579832
+        ],
+        "ground.top1": [
+          "max",
+          0.6375
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.628125
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.09
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.15746031746031744
+        ],
+        "records.raw": [
+          "max",
+          629
+        ]
+      }
+    },
+    "fire": {
+      "kind": "lava",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          8.579668348954579
+        ],
+        "ground.seam_density": [
+          "min",
+          0.14162929745889388
+        ],
+        "props.small_per_100": [
+          "min",
+          4.037490987743331
+        ],
+        "props.dressed_share": [
+          "min",
+          0.4023071377072819
+        ],
+        "props.grouped_share": [
+          "min",
+          0.6607142857142857
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "props.stride_share": [
+          "max",
+          0.3076923076923077
+        ],
+        "ground.top1": [
+          "max",
+          0.6950252343186734
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.21629416005767843
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.036585365853658534
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.08833810464220285
+        ],
+        "records.raw": [
+          "max",
+          876
+        ]
+      }
+    },
+    "water": {
+      "kind": "temple",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          10.6640625
+        ],
+        "ground.seam_density": [
+          "min",
+          0.0687799043062201
+        ],
+        "props.small_per_100": [
+          "min",
+          8.828125
+        ],
+        "props.dressed_share": [
+          "min",
+          0.427734375
+        ],
+        "props.grouped_share": [
+          "min",
+          0.6504424778761062
+        ],
+        "props.bare_share": [
+          "max",
+          0.11953125
+        ],
+        "props.stride_share": [
+          "max",
+          0.1409090909090909
+        ],
+        "ground.top1": [
+          "max",
+          0.69921875
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.69921875
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.09375
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.12124916522349372
+        ],
+        "records.raw": [
+          "max",
+          779
+        ]
+      }
+    },
+    "four pillars": {
+      "kind": "cave",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          10.794602698650674
+        ],
+        "ground.seam_density": [
+          "min",
+          0.0838079739625712
+        ],
+        "props.small_per_100": [
+          "min",
+          10.044977511244378
+        ],
+        "props.dressed_share": [
+          "min",
+          0.5772113943028486
+        ],
+        "props.grouped_share": [
+          "min",
+          0.5373134328358209
+        ],
+        "props.bare_share": [
+          "max",
+          0.014992503748125937
+        ],
+        "props.stride_share": [
+          "max",
+          0.3
+        ],
+        "ground.top1": [
+          "max",
+          0.8875562218890555
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.8785607196401799
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.030303030303030304
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.01078066390275545
+        ],
+        "records.raw": [
+          "max",
+          806
+        ]
+      }
+    },
+    "pad room": {
+      "kind": "temple",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          14.0625
+        ],
+        "ground.seam_density": [
+          "min",
+          0.17857142857142858
+        ],
+        "props.small_per_100": [
+          "min",
+          10.9375
+        ],
+        "props.dressed_share": [
+          "min",
+          0.71875
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "ground.top1": [
+          "max",
+          0.5
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.5
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.25
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.2604166666666667
+        ],
+        "records.raw": [
+          "max",
+          136
+        ]
+      }
+    }
+  },
+  "whole": {
+    "props.props_per_100": [
+      "min",
+      9.731711381436428
+    ],
+    "ground.seam_density": [
+      "min",
+      0.12371355983292426
+    ],
+    "props.small_per_100": [
+      "min",
+      7.540409931678053
+    ],
+    "props.dressed_share": [
+      "min",
+      0.522412931178137
+    ],
+    "props.grouped_share": [
+      "min",
+      0.6850828729281768
+    ],
+    "props.bare_share": [
+      "max",
+      0.027995334110981502
+    ],
+    "props.stride_share": [
+      "max",
+      0.17375886524822695
+    ],
+    "ground.top1": [
+      "max",
+      0.29695050824862523
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.14914180969838362
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.028358208955223882
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.10360394539793052
+    ],
+    "records.raw": [
+      "max",
+      9730
+    ]
+  },
+  "budget": {
+    "props.props_per_100": [
+      "min",
+      9.731711381436428
+    ],
+    "ground.seam_density": [
+      "min",
+      0.12371355983292426
+    ],
+    "props.small_per_100": [
+      "min",
+      7.540409931678053
+    ],
+    "props.dressed_share": [
+      "min",
+      0.522412931178137
+    ],
+    "props.grouped_share": [
+      "min",
+      0.6850828729281768
+    ],
+    "props.bare_share": [
+      "max",
+      0.027995334110981502
+    ],
+    "props.stride_share": [
+      "max",
+      0.17375886524822695
+    ],
+    "ground.top1": [
+      "max",
+      0.29695050824862523
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.14914180969838362
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.028358208955223882
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.10360394539793052
+    ],
+    "records.raw": [
+      "max",
+      9730
+    ]
+  },
+  "map": 11,
+  "artifact_hashes": {
+    "TYPEFLAG.DAT": "568c4a4e8ea30b132b5e86d667f13f15c9238c8c32f0900d627db31e06f69db0",
+    "U8SHAPES.FLX": "0f80f38ddfbc28aac9148a65ec0c9cea201c84f0af177f1486c70a9e074f8bde",
+    "ANIM.DAT": "97ae5fc9ddaa6ef515427103264a3095a6d42776ac51e530954fb4846b4d0443",
+    "EUSECODE.FLX": "b47c324cdad77646c27755acfdd5bca53a9d92e16268db229f18e7dd780d4205",
+    "FIXED.DAT": "b2791e8ea4a818b108fc7782439fbc80eeb3792091e7492f2dfd718b98fc871c",
+    "GLOB.FLX": "bbdf689f3bdef686b43ddc99dd1f1023cbcdb35b3d1c071f86b3d0979da4338f"
+  },
+  "allowances": [
+    {
+      "region": "four pillars",
+      "metric": "ground.top1",
+      "bound": 0.8875562218890555,
+      "reason": "Section 3.4 specifies a bare ritual cave and pebble dressing outside SCREEN07_MASK. The retained 301 floor and protected 1994 rock mask preclude replacing 35% of the floor with another material."
+    }
+  ],
+  "target_failures": [
+    {
+      "region": "four pillars",
+      "metric": "ground.top1",
+      "value": 0.8875562218890555,
+      "direction": "max",
+      "bound": 0.65
+    }
+  ],
+  "expanded_per_ground_cell": 1.9053491084819196
+}

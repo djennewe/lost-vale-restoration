@@ -1,0 +1,173 @@
+// ============================================================================
+// CANTRK.UNK - Lost Vale restoration patched copy (lv-patched tier)
+//
+// Byte-copy of "shared/data/lv-usecode/LOST VALE/CANTRK.UNK" (the
+// recovered 1994 candle-puzzle checker, class EggCandleTrick) plus one
+// fix below. Line numbers in this comment refer to the ORIGINAL
+// unpatched file; this header shifts everything below it.
+//
+// Found 2026-10-01 while generalizing the LORDBRIT.UNK fix: u8c_codegen.py
+// now compiles a bare `process { ... }` block as a loop (a backward jmp
+// to its own top, taken whenever the block falls off its end without an
+// explicit `return`), matching retail's 1994 compiler (verified against
+// retail class 0x2FE). hatch()'s process block (original line ~110-132)
+// checks the six candles' frames and sets candlesCorrect/monolithSucks,
+// then falls off the end with NO `return` anywhere inside it. Before this
+// file existed, that silently ran once per hatch and stopped (our own
+// compiler's prior single-pass bug). With process blocks correctly
+// looping, the SAME code would now spin forever re-checking the candles
+// every tick with no `wait()` to yield meaningfully between checks. This
+// is a one-shot puzzle-state recalculation, re-triggered by a fresh
+// hatch each time a candle is touched, so the fix restores the one-shot
+// behavior the file always actually had:
+// `return;` added as the process block's last statement.
+//
+// NOT PLACED: no map carries this egg (build_map_17.py records it as
+// removed and deferred; docs/playtest-2026-10-01-process-loops.md), so
+// this fix is checked in bytecode only.
+// ============================================================================
+
+
+uses "free";
+uses "item";
+uses "egg";
+
+
+
+eggclass EggCandleTrick inherits Egg
+{
+	process hatch();
+}
+
+
+process EggCandleTrick::hatch()
+{
+
+	startup
+	{
+		if monolithSucks = false
+		{
+			return;
+		}
+
+	}
+
+
+	process
+	{
+
+		candle:Item;
+
+		foreach candle where (type = TypeMagicCandle) within 50 cells of referent
+		{
+			if candle.getQuality() = 1
+			{
+				if candle.getFrame() =0
+
+				{
+					candleOne = false;
+				}
+				else
+				{
+					candleOne = true;
+				}
+			}
+
+			if candle.getQuality() = 2
+			{
+				if candle.getFrame() = 0
+				{
+					candleTwo = false;
+				}
+				else
+				{
+					candleTwo = true;
+				}
+			}
+
+			if candle.getQuality() = 3
+			{
+				if candle.getFrame() = 0
+				{
+					candleThree = false;
+				}
+				else
+				{
+					candleThree = true;
+				}
+
+			}
+
+			if candle.getQuality() = 4
+			{
+				if candle.getFrame() = 0
+				{				
+					candleFour = false;
+				}
+				else
+				{
+					candleFour = true;
+				}
+			}
+
+			if candle.getQuality() = 5
+			{
+				if candle.getFrame() = 0
+				{
+					candleFive = false;
+				}
+				else
+				{
+					candleFive = true;
+				}
+			}
+			if candle.getQuality() = 6
+			{
+				if candle.getFrame() = 0
+				{
+					candleSix = false;
+				}
+				else
+				{
+					candleSix = true;
+				}
+			}
+		}
+
+
+		if (candleOne = false) and (candleTwo = true)
+		{
+			if (candleThree = false) and (candleFour = false)
+			{
+				if (candleFive = false) and (candleSix = true)
+				{
+					candlesCorrect = true;
+					monolithSucks = false;
+				}
+				else
+				{
+					candlesCorrect = false;
+				}
+			}
+			else
+			{
+				candlesCorrect = false;
+			}
+		}
+		
+ 		else
+		{
+			candlesCorrect = false;
+		}
+		return;
+	}
+}
+					
+
+
+
+
+
+
+
+

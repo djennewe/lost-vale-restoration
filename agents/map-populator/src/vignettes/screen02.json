@@ -1,0 +1,909 @@
+{
+ "shot": "screen02",
+ "map": 10,
+ "origin_note": "screen02: lake shore (rock rim, deep water), drowned Avatar, two Water Zombies, retail fish creature 81. Vignette-local coords = world-in-solve minus (1408,1664,-8); x,y keep the retail 128k+127 tile lattice.",
+ "camera": {
+  "sx0": -175,
+  "sy0": 112,
+  "crop": [
+   309,
+   180
+  ],
+  "convention": "painter sign, vignette-local frame: screen_x = x/4 - y/4 - sx0, screen_y = x/8 + y/8 - z - sy0 (C division per term; x,y = footprint max corner). vignette_replay.py paints in world coordinates (origin_world + local) with the camera shifted by (ox/4 - oy/4, ox/8 + oy/8 - oz)."
+ },
+ "items": [
+  {
+   "shape": 128,
+   "frame": 8,
+   "x": 1279,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 14,
+   "x": 511,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 8,
+   "x": 1151,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 6,
+   "x": 511,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 6,
+   "x": 895,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 7,
+   "x": 767,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 17,
+   "x": 767,
+   "y": 1311,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 14,
+   "x": 383,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 9,
+   "x": 639,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 15,
+   "x": 1023,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 9,
+   "x": 1023,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 13,
+   "x": 511,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 70,
+   "frame": 1,
+   "x": 1151,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 70,
+   "frame": 2,
+   "x": 1151,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 12,
+   "x": 383,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 14,
+   "x": 1279,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 767,
+   "y": 511,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 767,
+   "y": 639,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 4,
+   "x": 1023,
+   "y": 639,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 895,
+   "y": 639,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 6,
+   "x": 895,
+   "y": 511,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 347,
+   "frame": 2,
+   "x": 1151,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 15,
+   "x": 1407,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 347,
+   "frame": 5,
+   "x": 639,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 14,
+   "x": 895,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 70,
+   "frame": 2,
+   "x": 767,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 3,
+   "x": 511,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 15,
+   "x": 639,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 4,
+   "x": 895,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 14,
+   "x": 383,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 639,
+   "y": 511,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 511,
+   "y": 639,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 347,
+   "frame": 7,
+   "x": 1279,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 347,
+   "frame": 0,
+   "x": 639,
+   "y": 1279,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 639,
+   "y": 639,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 12,
+   "x": 639,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 13,
+   "x": 255,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 12,
+   "x": 1407,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 13,
+   "x": 1279,
+   "y": 767,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 1023,
+   "y": 511,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 1151,
+   "y": 639,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 128,
+   "frame": 11,
+   "x": 1023,
+   "y": 895,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 9,
+   "frame": 3,
+   "x": 767,
+   "y": 895,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 16,
+   "x": 519,
+   "y": 575,
+   "z": 8,
+   "why": "matched+OFF-LATTICE"
+  },
+  {
+   "shape": 541,
+   "frame": 0,
+   "x": 639,
+   "y": 895,
+   "z": 8,
+   "why": "matched"
+  },
+  {
+   "shape": 393,
+   "frame": 6,
+   "x": 639,
+   "y": 383,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 347,
+   "frame": 19,
+   "x": 383,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 3,
+   "x": 511,
+   "y": 1279,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 1,
+   "x": 639,
+   "y": 1407,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 3,
+   "x": 767,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 9,
+   "x": 767,
+   "y": 1279,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 767,
+   "y": 1407,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 4,
+   "x": 767,
+   "y": 1535,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 895,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 15,
+   "x": 895,
+   "y": 1407,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 895,
+   "y": 1535,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 3,
+   "x": 1023,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 1023,
+   "y": 1279,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 1023,
+   "y": 1407,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 8,
+   "x": 1023,
+   "y": 1535,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 1151,
+   "y": 1279,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 8,
+   "x": 1151,
+   "y": 1407,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 8,
+   "x": 1279,
+   "y": 1279,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 6,
+   "x": 1407,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 125,
+   "frame": 14,
+   "x": 255,
+   "y": 767,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 125,
+   "frame": 14,
+   "x": 255,
+   "y": 1023,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 4,
+   "x": 383,
+   "y": 639,
+   "z": 8,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 128,
+   "frame": 13,
+   "x": 383,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 767,
+   "y": 255,
+   "z": 8,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 767,
+   "y": 383,
+   "z": 8,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 128,
+   "frame": 13,
+   "x": 895,
+   "y": 255,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 895,
+   "y": 383,
+   "z": 8,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 1023,
+   "y": 383,
+   "z": 8,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1151,
+   "y": 511,
+   "z": 8,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 1279,
+   "y": 639,
+   "z": 8,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 125,
+   "frame": 13,
+   "x": 1407,
+   "y": 767,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 128,
+   "frame": 10,
+   "x": 1407,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 125,
+   "frame": 13,
+   "x": 1535,
+   "y": 1023,
+   "z": 0,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 347,
+   "frame": 14,
+   "x": 911,
+   "y": 1392,
+   "z": 0,
+   "why": "matched-aug+OFF-LATTICE"
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 912,
+   "y": 1431,
+   "z": 0,
+   "why": "matched-aug+OFF-LATTICE"
+  },
+  {
+   "shape": 35,
+   "frame": 23,
+   "x": 767,
+   "y": 1407,
+   "z": 0,
+   "why": "lattice-fill-hidden"
+  },
+  {
+   "shape": 35,
+   "frame": 23,
+   "x": 895,
+   "y": 1279,
+   "z": 0,
+   "why": "lattice-fill-hidden"
+  },
+  {
+   "shape": 35,
+   "frame": 23,
+   "x": 895,
+   "y": 1407,
+   "z": 0,
+   "why": "lattice-fill-hidden"
+  },
+  {
+   "shape": 35,
+   "frame": 23,
+   "x": 895,
+   "y": 1535,
+   "z": 0,
+   "why": "lattice-fill-hidden"
+  },
+  {
+   "shape": 35,
+   "frame": 23,
+   "x": 1023,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill-hidden"
+  },
+  {
+   "shape": 35,
+   "frame": 23,
+   "x": 1023,
+   "y": 1279,
+   "z": 0,
+   "why": "lattice-fill-hidden"
+  },
+  {
+   "shape": 35,
+   "frame": 23,
+   "x": 1023,
+   "y": 1407,
+   "z": 0,
+   "why": "lattice-fill-hidden"
+  },
+  {
+   "shape": 35,
+   "frame": 23,
+   "x": 1151,
+   "y": 1151,
+   "z": 0,
+   "why": "lattice-fill-hidden"
+  },
+  {
+   "shape": 35,
+   "frame": 23,
+   "x": 1151,
+   "y": 1279,
+   "z": 0,
+   "why": "lattice-fill-hidden"
+  },
+  {
+   "shape": 35,
+   "frame": 13,
+   "x": 639,
+   "y": 383,
+   "z": 8,
+   "why": "matched-aug"
+  }
+ ],
+ "actors": [
+  {
+   "what": "avatar (lying, dead-frame)",
+   "shape": 1,
+   "frame": 252,
+   "x": 808,
+   "y": 895,
+   "z": 8
+  },
+  {
+   "what": "monster (retail shape 81 fish/sea creature)",
+   "shape": 81,
+   "frame": 4,
+   "x": 912,
+   "y": 1231,
+   "z": 0
+  },
+  {
+   "what": "monster (1994 Water Zombie; no retail frame matches; ours = 872)",
+   "shape": 872,
+   "frame": 40,
+   "x": 691,
+   "y": 768,
+   "z": 8,
+   "screen_feet": [
+    164,
+    59
+   ],
+   "note": "built 872 frame 40 is registry 2050:0 index for index (lv_actor_art.ZOMBIE_POSES); x,y,z solved (2026-10-25) so its pixels land on the shot's exactly, replacing the feet-pixel estimate (696,743,8). `built`: painted only from shared/build (vignette_replay.py --built, vignette_built_window.py); the retail replay leaves it out and excludes its art_1994 pixels",
+   "built": true,
+   "art_1994": {
+    "id": 2050,
+    "frame": 0
+   },
+   "screen_xy": [
+    140,
+    6
+   ]
+  },
+  {
+   "what": "monster (1994 Water Zombie; no retail frame matches; ours = 872)",
+   "shape": 872,
+   "frame": 81,
+   "x": 1008,
+   "y": 904,
+   "z": 8,
+   "screen_feet": [
+    196,
+    116
+   ],
+   "note": "built 872 frame 81 is registry 2050:1 index for index (lv_actor_art.ZOMBIE_POSES); x,y,z solved (2026-10-25) so its pixels land on the shot's exactly, replacing the feet-pixel estimate (991,904,8). `built`: painted only from shared/build (vignette_replay.py --built, vignette_built_window.py); the retail replay leaves it out and excludes its art_1994 pixels",
+   "built": true,
+   "art_1994": {
+    "id": 2050,
+    "frame": 1
+   },
+   "screen_xy": [
+    182,
+    58
+   ]
+  }
+ ],
+ "art_1994": [
+  {
+   "id": 2050,
+   "frames": [
+    0
+   ],
+   "name": "Water Zombie, front view (1994)",
+   "replaces": 872,
+   "note": "exact shot pixels not explained by the vignette render (660 px). 1994 zombie = teal skin, bright-green slime blotches, dark-green loincloth; ours (872 = ghoul 142 recolour) is pale blue-grey with no kilt. Best 872 silhouette IoU 0.64 (872.4 flipped). Recommendation: keep 872 animation set, recolour toward these pixels (teal/green palette ramp + kilt), use the three 1994 poses as the reference; full replacement needs ~all frames, only 3 poses exist. Comparison: previews/art_wzombie_vs_872.png"
+  },
+  {
+   "id": 2050,
+   "frames": [
+    1
+   ],
+   "name": "Water Zombie, back view with raised club (1994)",
+   "replaces": 872,
+   "note": "701 px; best 872 IoU 0.61 (872.1)"
+  },
+  {
+   "id": 2060,
+   "frames": [
+    0
+   ],
+   "name": "dark-water halo round the retail fish creature (81.4)",
+   "note": "427 px of deep-navy (class 158) where every 347 frame shows ripples; either 1994 creature art with a halo or a darker water frame [INFERENCE]"
+  }
+ ],
+ "verify": {
+  "render": "docs/research/2026-10-16-screenshot-reconstruction/screen02_render.png",
+  "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen02_diff.png",
+  "frame_px": 55620,
+  "all_frame_strict": 95.73,
+  "all_frame_class": 96.037,
+  "void_as_black_points": 0.0,
+  "excluded_actor_points": 2.404,
+  "provenance_points": {
+   "retail": 96.037,
+   "cross_shot_validated_1994": 0.0,
+   "single_shot_1994": 0.0,
+   "inferred": 0.0,
+   "unmatched": 3.963
+  },
+  "published_render_identical": true,
+  "replay": "python3 agents/map-populator/src/vignette_replay.py screen02",
+  "built": {
+   "render": "docs/research/2026-10-16-screenshot-reconstruction/screen02_render_built.png",
+   "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen02_diff_built.png",
+   "frame_px": 55620,
+   "all_frame_strict": 98.173,
+   "all_frame_class": 98.481,
+   "void_as_black_points": 0.0,
+   "excluded_actor_points": 0.0,
+   "provenance_points": {
+    "retail": 95.951,
+    "cross_shot_validated_1994": 0.0,
+    "single_shot_1994": 2.53,
+    "inferred": 0.0,
+    "unmatched": 1.519
+   },
+   "published_render_identical": true,
+   "replay": "python3 agents/map-populator/src/vignette_replay.py screen02 --built"
+  }
+ },
+ "placement": {
+  "map": 10,
+  "origin_world": [
+   13184,
+   17792,
+   0
+  ],
+  "why": "The Lake (11264-15360 x 15360-20480). Evidence: Water Zombies (preview-3 \"the lake with water zombies\"; our lake eggs spawn 872), the drowned Avatar-frame body \"by the waters of the southern lakes\" (RAGNAR.UNK:765), rock-rim 128 + 347 water kit. Water z 0, rim/shore z 8 = the existing bank height of the zombie eggs and the passage stone. Origin chosen by search so every egg/quest pin in the window stands on vignette land at z 8; the two 1994 zombies land at (13880,18535) and (14175,18696), between egg groups 8 and 2.",
+  "pin_moves": [
+   {
+    "what": "zombie wave 2 monster egg",
+    "from": [
+     13888,
+     19008,
+     8
+    ],
+    "to": [
+     13344,
+     19008,
+     8
+    ],
+    "why": "the shot shows open water where the old pier ran (x 13696..13951, y 18816..19327); the egg waits on the causeway (x 13184..13439) ahead of its turn"
+   },
+   {
+    "what": "wave 3 MONEGG trigger",
+    "from": [
+     13824,
+     18816,
+     8
+    ],
+    "to": [
+     13312,
+     18816,
+     8
+    ],
+    "why": "the shot shows open water where the old pier ran (x 13696..13951, y 18816..19327); the trigger fires on the causeway where it meets the island"
+   }
+  ],
+  "flags": [
+   "Window is inside the lake rectangle (13311-14719, 17919-19327): its north half becomes z=8 rock shore where the builder now has 347 water (144 cells) \u2014 the rectangle stops being all-water, by the shot's demand.",
+   "MONEGG trigger group 8 (13824,18816,8) ends up over vignette water (z 0 surface) \u2014 an invisible egg, no gameplay change expected [INFERENCE]"
+  ],
+  "collides_with": [
+   "203 existing items (347 x144, 301 x23, 498 x20, 497 x4, 500 x3 ...) in the window"
+  ]
+ },
+ "source": "ReconVale (2026-10-16 reconstruction)"
+}

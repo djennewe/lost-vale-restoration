@@ -1,0 +1,291 @@
+# The Lost Vale — Item Registry
+# Sources: Art List v2.5, Plot v1.2, Walk Through, Synopsis, Discord analysis
+
+items:
+
+  # === QUEST-CRITICAL ITEMS ===
+
+  - name: "Key to Double Doors"
+    type: key
+    function: "Opens the double doors in Bonecrusher's Cave to reach the Lost Vale path"
+    acquisition: "Avatar must solve a puzzle (details unspecified in docs)"
+    sources:
+      - "Plot v1.2, beat 3"
+
+  - name: "Galjeron's Journal"
+    type: document
+    function: "Describes Galjeron's search for the Lost Vale; mentions the four elemental gemstones needed"
+    acquisition: "Found on Galjeron's dead body beyond the double doors"
+    sources:
+      - "Plot v1.2, beat 4"
+
+  - name: "Talisman of Fire"
+    type: quest_item
+    function: "Elemental gemstone/token from the Fire section of the dungeon; used on the Water pillar"
+    acquisition: "Found in the Fire section of the Elemental Dungeon"
+    art_notes: "Listed in Art List v2.5 (crossed out — may have been completed or cut)"
+    sources:
+      - "Art List v2.5"
+      - "Plot v1.2, beats 5-6"
+
+  - name: "Talisman of Earth"
+    type: quest_item
+    function: "Elemental gemstone/token from the Earth section"
+    acquisition: "Found in the Earth section of the Elemental Dungeon"
+    art_notes: "Listed in Art List v2.5"
+    sources:
+      - "Art List v2.5"
+      - "Plot v1.2, beats 5-6"
+
+  - name: "Talisman of Water"
+    type: quest_item
+    function: "Elemental gemstone/token from the Water section; used on the Fire pillar"
+    acquisition: "Found in the Water section of the Elemental Dungeon"
+    art_notes: "Listed in Art List v2.5"
+    sources:
+      - "Art List v2.5"
+
+  - name: "Talisman of Air"
+    type: quest_item
+    function: "Elemental gemstone/token from the Air section"
+    acquisition: "Found in the Air section of the Elemental Dungeon"
+    art_notes: "Listed in Art List v2.5"
+    sources:
+      - "Art List v2.5"
+
+  - name: "Passage Stone"
+    type: quest_item
+    function: "Required to take the Passage Test / Rite of Passage"
+    notes: "Neither clan has it; tied to the mystery of the missing young woman (per MEMORY.md known beats). PLNTST usecode."
+    sources:
+      - "Discord analysis (Armitage)"
+
+  - name: "Key to the Clouds"
+    aliases: [CliffKey, TypeCliffKey]
+    type: key
+    function: "Unlocks the path to the Cloud Cliffs and Cloud City"
+    acquisition: >
+      Held by Tjorvi/Tyorvi, who will not give it up because of nightmares.
+      Avatar must get Ezrekal to brew a potion from a special root to cure
+      Tjorvi's nightmares, then receives the key.
+    usecode_evidence:
+      - "TypeCliffKey referenced in LV usecode source"
+      - "Flags: gotTheKey, tyorviDreams, toldOfDreams, givenTea"
+    notes:
+      - "Not described in design docs — discovered through Discord usecode analysis"
+      - "The nightmare/potion subplot is one of the most detailed subquests in the usecode"
+    sources:
+      - "Discord analysis (Armitage, 2025-02-01): steps 10-13"
+      - "LV usecode: TypeCliffKey, gotTheKey flag"
+
+  - name: "Ragnar's Bag"
+    type: quest_item
+    function: "Contains some sort of key needed at the Lake to find the Passage Stone"
+    acquisition: "Given by Ragnar (Clan Hoskuld) after he tells of the young woman"
+    confidence: speculation
+    notes:
+      - "Marked <speculation> by Armitage — the bag's exact contents are inferred"
+      - "Armitage: 'Bag contains some sort of key. Avatar goes to that place, full of water zombies.'"
+    sources:
+      - "Discord analysis (Armitage, 2025-02-01): steps 7-8"
+
+  - name: "Shield of the Ancients — Half 1"
+    aliases: ["Magic Frisbee half"]
+    type: quest_item
+    function: "Half of the broken Shield; found in the Cloud World near skeleton"
+    acquisition: "Found in Cloud World by the skeletons of Snori and Hoskuld"
+    art_notes: "Art List: 'Magic Frisbee half (like Zealan Ceremonial Shield)' — crossed out"
+    sources:
+      - "Plot v1.2, beats 10-14"
+      - "Art List v2.5"
+
+  - name: "Shield of the Ancients — Half 2"
+    aliases: ["Magic Frisbee other half"]
+    type: quest_item
+    function: "Other half of the broken Shield"
+    acquisition: "Found in Cloud World near the other skeleton"
+    art_notes: "Art List: 'Magic Frisbee other half (like Zealan Ceremonial Shield)' — crossed out"
+    sources:
+      - "Art List v2.5"
+
+  - name: "Shield of the Ancients — Restored"
+    aliases: ["Magic Frisbee whole"]
+    type: quest_item
+    function: "Restored Shield; essential for communicating with the gods and freeing them"
+    acquisition: "Restored during the ceremony at the Sacred Rock"
+    art_notes: "Art List: 'Magic Frisbee whole (like Zealan Ceremonial Shield)' — crossed out"
+    sources:
+      - "Plot v1.2, beat 16"
+      - "Art List v2.5"
+
+  - name: "Message Scroll"
+    type: document
+    function: "Message from one of the gods addressed to Love, Hate, and Apathy explaining the Titans' attack"
+    acquisition: "Found in the deserted Cloud World"
+    sources:
+      - "Plot v1.2, beat 14"
+
+  - name: "Tiny Tar Potion"
+    aliases: ["TinyTar", "Tiny-tar"]
+    type: consumable
+    function: "Shrinks the Avatar, allowing entry into small spaces including the Temple/Shrine"
+    acquisition: "Obtained from Hrodny (she has them but lost the key to the chest)"
+    notes:
+      - "Started as a developer joke, became plot-critical"
+      - "Programmer: John Watson"
+      - "Wiki: 'source code remnants indicated it functioned as a potion'"
+    usecode_file: "POTION.UNK"
+    sources:
+      - "Sheri Graner Ray blog"
+      - "Codex wiki"
+      - "Discord analysis (Armitage)"
+
+  - name: "Special Root"
+    type: quest_item
+    function: "Ingredient needed for Ezrekal to brew a potion for Tyorvi's nightmares"
+    acquisition: "Found somewhere in the Lost Vale"
+    sources:
+      - "Discord analysis (Armitage)"
+
+  # === REWARD ITEMS ===
+
+  - name: "Bag of Reagents"
+    aliases: ["Bottomless Bag", "Bag of Endless Reagents"]
+    type: reward
+    function: "Eliminates the need to collect reagents individually for the rest of the game"
+    acquisition: "Given by the freed gods (or by Mythran early, per Synopsis suggestion)"
+    art_notes: "Art List: 'Bottomless Bag' listed under Items (crossed out) and Gumps (crossed out)"
+    notes:
+      - "Synopsis: recommends giving this at the start via Mythran instead"
+      - "Walk Through handwritten: 'Pay off Weapon → Bag of reagents'"
+    sources:
+      - "Plot v1.2, beat 19"
+      - "Art List v2.5"
+      - "Plot Synopsis with Notes, beat 2"
+      - "Codex wiki (Trivia)"
+
+  - name: "Restored Shield (Armor)"
+    type: reward
+    function: "Symbolic rejoined shield that maxes out the Avatar's armor rating"
+    acquisition: "Given by the freed gods"
+    notes: "Synopsis: 'This would also alleviate some of the weight management problems experienced by players'"
+    sources:
+      - "Plot Synopsis with Notes, beat 18"
+      - "Codex wiki (Trivia)"
+
+  # === ENVIRONMENT ITEMS ===
+
+  - name: "Pillar of Earth"
+    type: obstacle
+    function: "Elemental barrier blocking the path to the Lost Vale; destroyed with Air talisman"
+    art_notes: "Listed in Art List v2.5"
+    sources:
+      - "Art List v2.5"
+      - "Plot v1.2, beat 6"
+
+  - name: "Pillar of Air"
+    type: obstacle
+    function: "Elemental barrier; destroyed with Earth talisman"
+    art_notes: "Listed in Art List v2.5 (crossed out)"
+    sources:
+      - "Art List v2.5"
+
+  - name: "Pillar of Fire"
+    type: obstacle
+    function: "Elemental barrier; destroyed with Water talisman"
+    art_notes: "Listed in Art List v2.5 (crossed out)"
+    sources:
+      - "Art List v2.5"
+
+  - name: "Pillar of Water"
+    type: obstacle
+    function: "Elemental barrier; destroyed with Fire talisman"
+    art_notes: "Listed in Art List v2.5 (crossed out)"
+    sources:
+      - "Art List v2.5"
+
+  - name: "Pillar Receptacle"
+    type: mechanism
+    function: "Receptacle for placing talismans against pillars"
+    art_notes: "Handwritten addition to Art List v2.5"
+    sources:
+      - "Art List v2.5 (handwritten)"
+
+  - name: "Shades"
+    aliases: ["Shades of Flossie & Snori"]
+    type: apparition
+    function: "Ghostly apparitions of the two boys who appear during Shield restoration ceremony"
+    art_notes: "Art List: 'Shades (Flossie & Snori)' — 2 days work estimated"
+    usecode_symbols: [SHADES]
+    sources:
+      - "Art List v2.5"
+      - "Plot v1.2, beat 16"
+
+  - name: "Test Tree/Plant/Fruit"
+    type: environment
+    function: "The nasty plant used in the Test of Rutabaga / Passage Test"
+    art_notes: "Listed in Art List v2.5, half-day estimate"
+    sources:
+      - "Art List v2.5"
+
+  - name: "Damn Puzzle"
+    type: mechanism
+    function: "Unknown puzzle mechanism"
+    art_notes: "Listed in Art List v2.5 with a question mark"
+    notes: "Likely refers to the candlestick puzzle that Sheri called 'the LAMEST design I've EVER done!'"
+    usecode_symbols: [CANTRK]
+    sources:
+      - "Art List v2.5"
+      - "Sheri Graner Ray blog"
+
+  - name: "Monster Skull"
+    type: item
+    function: "Unknown"
+    usecode_file: "MONSKUL.UNK (750 B)"
+    sources:
+      - "Usecode archive"
+
+  - name: "Bedroll"
+    type: item
+    function: "Standard item"
+    usecode_file: "BEDROLL.UNK (1.5 KB, in UNK files/)"
+    sources:
+      - "Usecode archive"
+
+  - name: "Abacus"
+    type: item
+    function: "Unknown"
+    usecode_file: "ABACUS.UNK (759 B, in UNK files/, dated 1994-03-01)"
+    sources:
+      - "Usecode archive"
+
+  - name: "Bullwhip"
+    type: item
+    function: "Unknown"
+    usecode_file: "BULLWHIP.UNK (141 B, in UNK files/)"
+    sources:
+      - "Usecode archive"
+
+  - name: "Fedora"
+    type: item
+    function: "A hat — possibly an Indiana Jones reference given the bullwhip"
+    usecode_file: "FEDORA.UNK (131 B, in UNK files/)"
+    sources:
+      - "Usecode archive"
+
+  # === PROPOSED ITEMS ===
+
+  - name: "Bonecrusher Hammer"
+    type: proposed
+    function: "Magic weapon with a cool effect like Slayer or Flamesting"
+    notes: "Synopsis Note 4: 'Many customers have inquired about the location of this nonexistent hammer.' Proposed but not confirmed."
+    sources:
+      - "Plot Synopsis with Notes, Note 4"
+
+  - name: "Magnetic Obelisk"
+    type: obstacle
+    function: "In Cloud City; equipment gets magnetically sealed to it"
+    usecode_symbols: [MAGNET]
+    sources:
+      - "Sheri Graner Ray blog"
+      - "Usecode archive (MAGNET.UNK)"

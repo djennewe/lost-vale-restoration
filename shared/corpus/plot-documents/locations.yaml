@@ -1,0 +1,256 @@
+# The Lost Vale — Location Registry
+# Sources: Plot v1.2, Walk Through, Plot Synopsis, Art List v2.5,
+#          Pitch Doc, Discord analysis, Dino's Guide
+
+locations:
+
+  # === PAGAN (existing base game, LV entry points) ===
+
+  - name: Plateau
+    type: existing
+    description: "Area in the base game containing the entrance to the Lost Vale"
+    connections: [Bonecrusher's Cave]
+    sources:
+      - "Plot v1.2, beat 3"
+      - "Dino's Guide"
+
+  - name: "Bonecrusher's Cave"
+    type: existing
+    description: >
+      Cavern in the Plateau containing a huge set of double doors. These locked
+      doors are the canonical entrance to the Lost Vale content.
+    connections: [Plateau, Beyond Double Doors]
+    notes: "Dino's Guide confirms: 'accessed through locked doors at Bonecrusher's cave on the Plateau'"
+    sources:
+      - "Dino's Guide"
+      - "Plot v1.2, beat 3"
+
+  - name: "Mythran's House"
+    type: existing
+    description: "Where the Avatar speaks with Mythran to learn about the Zealans"
+    sources:
+      - "Plot v1.2, beats 2-3"
+
+  # === TRANSITIONAL AREAS ===
+
+  - name: "Beyond Double Doors"
+    type: new
+    description: >
+      Area behind the double doors where Galjeron's body is found, along with
+      his journal. Synopsis suggests a guardian creature here that killed Galjeron.
+    connections: ["Bonecrusher's Cave", "Elemental Dungeon"]
+    sources:
+      - "Plot v1.2, beat 4"
+      - "Plot Synopsis with Notes, beat 4"
+
+  - name: "Elemental Dungeon"
+    type: new
+    description: >
+      Four-part dungeon, each section themed around a different element (Earth,
+      Air, Fire, Water). Contains one gemstone/talisman per section. Exits through
+      four elemental pillars that block the path to the Lost Vale.
+    connections: ["Beyond Double Doors", "Four Pillars (exit to Lost Vale)"]
+    map_notes: "Resource Schedule assigns Elemental Dungeon maps to Brian M. in May-June"
+    sub_areas:
+      - name: "Earth Section"
+        description: "Elemental dungeon section themed around earth"
+      - name: "Air Section"
+        description: "Elemental dungeon section themed around air"
+      - name: "Fire Section"
+        description: "Elemental dungeon section themed around fire"
+      - name: "Water Section"
+        description: "Elemental dungeon section themed around water"
+    notes:
+      - "Synopsis: suggests a multi-elemental agent NPC as a recurring dungeon guardian"
+      - "Synopsis: suggests teleporter pad at the exit for quick return"
+    sources:
+      - "Plot v1.2, beats 5-6"
+      - "Pitch Doc: 'approximately five new maps'"
+      - "Resource Schedule"
+
+  # === THE LOST VALE ===
+
+  - name: "Lost Vale"
+    type: new
+    description: >
+      Hidden valley — the original homeland of the Zealans. Once lush and
+      beautiful, now barren and desolate. Two spring wells remain as the only
+      water sources. The two Zealan factions each live near one of them.
+      Sealed by Lithos and Hydros during the Zealan-Pagan wars.
+    connections: ["Elemental Dungeon (via pillars)", "Clan Hoskuld Village", "Clan Gunnar Village", "Ezrekal's Dwelling", "Cliffs of Insanity", "Sacred Rock", "Shrine of the Ancient Ones"]
+    map_notes: "Lost Vale maps assigned to Brian M. in May-June (2 days) and July (8 days)"
+    sources:
+      - "Plot v1.2, beat 7"
+      - "Pitch Doc"
+      - "Dino's Guide"
+
+  - name: "Clan Hoskuld Village"
+    aliases: ["Group One village"]
+    type: new
+    description: >
+      Settlement of the first Zealan faction, near one of the two water sources.
+      Home to the female elder, the veteran, the hunter-farmer couple, and their
+      child.
+    connections: [Lost Vale]
+    sources:
+      - "Discord analysis (Armitage)"
+      - "Character List 1.0"
+
+  - name: "Clan Gunnar Village"
+    aliases: ["Group Two village"]
+    type: new
+    description: >
+      Settlement of the second Zealan faction, near the other water source.
+      Home to the male elder, the inventor, the moonshiner, the conservative
+      farmer, and the elder's daughter.
+    connections: [Lost Vale]
+    sources:
+      - "Discord analysis (Armitage)"
+      - "Character List 1.0"
+
+  - name: "Ezrekal's Dwelling"
+    type: new
+    description: >
+      Where the shunned High Priestess lives, apart from both communities.
+      The Avatar must be escorted by representatives of both factions to
+      reach her (per Synopsis).
+    connections: [Lost Vale]
+    sources:
+      - "Plot v1.2, beat 9"
+      - "Plot Synopsis with Notes, beat 7"
+
+  - name: "Sacred Rock"
+    aliases: ["Sacred Smallish Unusual-Colored Rock"]
+    type: new
+    description: >
+      Ceremonial gathering place where Ezrekal and the two clan leaders perform
+      the Shield restoration ritual. The shades of Snori and Hoskuld appear here.
+      "Sacred Smallish Unusual-Colored Rock" is a humorous placeholder name.
+    connections: [Lost Vale]
+    sources:
+      - "Plot v1.2, beats 15-16"
+
+  - name: "Test Area"
+    aliases: ["Test of Rutabaga area"]
+    type: new
+    description: >
+      Location of the Passage Test / Rite of Passage. Contains the nasty test
+      plant with delectable fruit guarded by poisonous spines.
+    connections: [Lost Vale]
+    usecode_symbols: [PLNTST]
+    sources:
+      - "Plot v1.2, beat 8"
+
+  - name: "The Lake"
+    type: new
+    description: >
+      Body of water in the Lost Vale where a young woman was killed by the
+      Gunnars while attempting to take the Passage Test. Full of water zombies.
+      The Passage Stone is found here, apparently lost when the woman was killed.
+      Ragnar gives the Avatar a bag he found; the bag contains some sort of key
+      that is used at this location.
+    connections: [Lost Vale]
+    monsters: [Water Zombie]
+    confidence:
+      location_exists: confirmed
+      water_zombies: "confirmed (Art List v2.5 lists Water Zombie)"
+      bag_as_key: "speculation (Armitage)"
+    sources:
+      - "Discord analysis (Armitage, 2025-02-01): step 7-8"
+      - "Art List v2.5: 'Water Zombie — import Dicko's art'"
+
+  - name: "Ancient Temple"
+    aliases: ["Temple of the Gods"]
+    type: new
+    description: >
+      Temple where the Zealan gods reside. Distinct from the Shrine of the
+      Ancient Ones — this may be the final location where the Avatar places
+      the restored Shield on the altar and speaks to the gods. Requires Tiny
+      Tar potions to enter (shrinking to fit through parts of the temple).
+      Hrodny has the potions but has lost the key to the chest containing them.
+    connections: [Lost Vale]
+    usecode_evidence: [templeOpen, spokeOfOpenTemple, spokeTemple, ezToTemple]
+    notes:
+      - "The coordinator prompt distinguishes 'Ancient Temple' from the Shrine"
+      - "templeOpen and ezToTemple flags suggest Ezrekal accompanies Avatar"
+      - "End-game events here are MISSING from the usecode snapshot"
+    sources:
+      - "Discord analysis (Armitage, 2025-02-01): steps 17-21"
+      - "LV usecode flags: templeOpen, ezToTemple"
+
+  # === CLIFFS AND CLOUD WORLD ===
+
+  - name: "Cliffs of Insanity"
+    aliases: ["Cloud Cliffs"]
+    type: new
+    description: >
+      Treacherous cliff path leading from the Lost Vale up to the Cloud World.
+      Bones of dead Zealans who attempted the climb litter the path. Home to
+      the Harpie monster. No living Zealan dares climb them since they believe
+      the gods abandoned them.
+    connections: [Lost Vale, "Cloud World"]
+    map_notes: "Resource Schedule: Cliffs maps assigned to Brian M. in June (1 day)"
+    sources:
+      - "Plot v1.2, beat 13"
+      - "Discord analysis: Cloud Cliffs = Cliffs of Insanity"
+
+  - name: "Cloud World"
+    aliases: ["Cloud City", "City of the Ancient Gods", "City of the Gods"]
+    type: new
+    description: >
+      Suspended city in the clouds where the Zealan gods once resided. Now
+      deserted. Architecture described as "Bob's red stone architecture turned
+      white and gold." Features cloud-like terrain and collapsing ground. Contains
+      a magnetic obelisk that seals equipment to it. The Avatar finds the message
+      scroll and the two Shield halves near the skeletons of the two boys.
+    connections: ["Cliffs of Insanity"]
+    art_notes:
+      - "Cloud World: take Bob's red stone architecture and turn it white and gold"
+      - "Cloud-like terrain"
+      - "Collapsing ground"
+      - "Avatar dying in cloud terrain"
+    map_notes: "Cloud City maps assigned to Sheri G. in July (5 days), Cloud globs (1 day), Building globs by Lisa S. (3 days)"
+    usecode_symbols: [MAGNET]
+    sources:
+      - "Plot v1.2, beat 14"
+      - "Art List v2.5"
+      - "Sheri Graner Ray blog"
+      - "Pitch Doc: 'City of the Ancient Gods suspended in clouds'"
+
+  - name: "Shrine of the Ancient Ones"
+    aliases: ["Shrine of the Wheaties", "Shrine of Kumash Ghor"]
+    type: new
+    description: >
+      The shrine where the three Zealan gods are imprisoned, encased in
+      amber-like resin ("like the shields in the movie Dune"). Located within
+      or accessible from the Cloud World. The Avatar and Ezrekal must break
+      through a wall or defeat a guardian to enter. "Shrine of the Wheaties"
+      is a humorous placeholder name.
+    connections: ["Cloud World"]
+    sources:
+      - "Plot v1.2, beats 17-18"
+      - "Walk Through, beats XI-XII"
+
+  # === PROPOSED LOCATIONS (from Synopsis notes) ===
+
+  - name: "Birthplace of Moriens"
+    type: proposed
+    description: >
+      A small ruin in the Lost Vale. Synopsis Note 5: "This would not be a
+      difficult thing to do, and would please a great number of customers."
+    status: "proposed in Synopsis, not confirmed implemented"
+    sources:
+      - "Plot Synopsis with Notes, Note 5"
+
+  - name: "Mushroom Garden"
+    type: proposed
+    description: >
+      Group One's primary mushroom garden, near which a monster has made a lair.
+      Appears only in the Synopsis version of beat 8 (alternate quest structure
+      where Avatar kills a monster to gain trust).
+    status: "Synopsis version only — Plot v1.2 uses the plant test instead"
+    sources:
+      - "Plot Synopsis with Notes, beat 8"
+
+# Map count from Pitch Doc: "approximately five new maps"
+# Likely maps: Lost Vale, Elemental Dungeon, Cliffs of Insanity, Cloud World, Cloud City interior

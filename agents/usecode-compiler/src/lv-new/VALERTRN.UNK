@@ -1,0 +1,49 @@
+// Vale return — Map 8's shortcut back to the Lost Vale, once it is open
+//
+// WHY. Teleport 212 (Map 8 -> Map 10's pad 212) is the RETURN route: the
+// way back to the Vale for a player who came out by Map 10's trigger 213.
+// As an engine TeleportEgg it fired for anyone, and TeleportEgg::hatch is
+// unconditional. Its slab lies in the doors chamber's bone field, on the
+// first-visit way in from the spitter corridor, so a player who drifted
+// east on the way to the double doors landed in the Vale with steps 3
+// (the key, the doors, Map 9) and 4 (Map 11's talismans and pillars) never
+// done (docs/playtest-2026-10-11-replay-leg2.md finding 1; repro save
+// replay1011-s02d-m8-pocket-t212-repro.sav, a mouse run E 3.54 s, N 2.5 s).
+//
+// GATE. allColumnsDestroyed, set by the last pillar's receptacle
+// (COLPUZZL.UNK). It is what unseals Map 11's way to trigger 205, the only
+// way into the Vale, so it holds for every player who has reached the
+// Vale, and for no one who has not. Unset, the hatch does nothing; there
+// is no 1994 line for "not yet", and no new text is written for one.
+// Egg::hatch latches _hatched until the egg leaves the fast area
+// (egg.cpp:40-63), but the flag can only be set on Map 11, and the switch
+// back re-reads this fixed record, so a first-visit no-op never blocks the
+// later return.
+//
+// HOW. teleportToEgg, retail's own usecode teleport (MainActor::
+// I_teleportToEgg, intrinsic 0xCC): map first, then the arrival pad's id,
+// then retail's stasis byte, as CARTHAXH (retail class 0x487) calls it.
+// It moves the Avatar exactly as TeleportEgg::hatch did (MainActor::
+// teleport(map, id)), onto Map 10's pad 212.
+//
+// WHERE. build_map_08.py, on the pale slab in the bone field, in place of
+// the engine teleporter: the same npcnum 0x11, so the same hatch box.
+//
+// DISPATCH: UnkEgg quality, class = quality + 0x47F (manifest-pinned).
+
+uses "egg";
+
+globalflag allColumnsDestroyed;
+
+eggclass EggValeReturn inherits Egg
+{
+	process hatch();
+}
+
+process EggValeReturn::hatch()
+{
+	if allColumnsDestroyed
+	{
+		teleportToEgg(MapLostVale, 212, 1);
+	}
+}

@@ -1,0 +1,767 @@
+{
+ "shot": "screen18",
+ "map": 10,
+ "origin_note": "screen18: plateau edge with cliff, giant mushroom, colonnade. Vignette-local coords = world-in-solve minus (1792,2176,24); x,y keep the retail 128k+127 tile lattice.",
+ "camera": {
+  "sx0": -185,
+  "sy0": 14,
+  "crop": [
+   319,
+   181
+  ],
+  "convention": "painter sign, vignette-local frame: screen_x = x/4 - y/4 - sx0, screen_y = x/8 + y/8 - z - sy0 (C division per term; x,y = footprint max corner). vignette_replay.py paints in world coordinates (origin_world + local) with the camera shifted by (ox/4 - oy/4, ox/8 + oy/8 - oz)."
+ },
+ "items": [
+  {
+   "shape": 566,
+   "frame": 0,
+   "x": 735,
+   "y": 831,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 66,
+   "frame": 0,
+   "x": 1279,
+   "y": 831,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 5,
+   "x": 639,
+   "y": 1023,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 5,
+   "x": 767,
+   "y": 1023,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 4,
+   "x": 415,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 14,
+   "x": 511,
+   "y": 1023,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 5,
+   "x": 1023,
+   "y": 1023,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 2,
+   "x": 639,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 3,
+   "x": 1023,
+   "y": 1023,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 4,
+   "x": 511,
+   "y": 1023,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 4,
+   "x": 639,
+   "y": 1023,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 4,
+   "x": 1151,
+   "y": 1023,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 4,
+   "x": 1279,
+   "y": 1023,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 625,
+   "frame": 0,
+   "x": 735,
+   "y": 799,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 27,
+   "frame": 1,
+   "x": 383,
+   "y": 1023,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 3,
+   "x": 383,
+   "y": 1023,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 27,
+   "frame": 0,
+   "x": 511,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 4,
+   "x": 767,
+   "y": 1023,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 4,
+   "x": 1407,
+   "y": 1023,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 125,
+   "frame": 3,
+   "x": 895,
+   "y": 1023,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 895,
+   "y": 511,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 767,
+   "y": 511,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 0,
+   "x": 895,
+   "y": 767,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 639,
+   "y": 895,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 1023,
+   "y": 895,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 6,
+   "x": 895,
+   "y": 639,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 1,
+   "x": 895,
+   "y": 895,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 8,
+   "x": 767,
+   "y": 639,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 11,
+   "x": 1023,
+   "y": 639,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 0,
+   "x": 1151,
+   "y": 1023,
+   "z": 48,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 4,
+   "x": 1151,
+   "y": 895,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 3,
+   "x": 767,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 4,
+   "x": 511,
+   "y": 895,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 16,
+   "x": 511,
+   "y": 767,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 30,
+   "x": 767,
+   "y": 383,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 16,
+   "x": 1023,
+   "y": 767,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 25,
+   "x": 639,
+   "y": 639,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 18,
+   "x": 511,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 31,
+   "x": 1023,
+   "y": 511,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 33,
+   "x": 895,
+   "y": 383,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 4,
+   "frame": 14,
+   "x": 639,
+   "y": 511,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 21,
+   "x": 767,
+   "y": 767,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 1279,
+   "y": 895,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 249,
+   "frame": 12,
+   "x": 415,
+   "y": 895,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 1,
+   "x": 511,
+   "y": 639,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 767,
+   "y": 895,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 576,
+   "frame": 0,
+   "x": 383,
+   "y": 895,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 38,
+   "frame": 0,
+   "x": 223,
+   "y": 959,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 26,
+   "frame": 1,
+   "x": 895,
+   "y": 1023,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 249,
+   "frame": 12,
+   "x": 415,
+   "y": 767,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 249,
+   "frame": 12,
+   "x": 1407,
+   "y": 895,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 301,
+   "frame": 5,
+   "x": 1407,
+   "y": 895,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 386,
+   "frame": 23,
+   "x": 383,
+   "y": 1151,
+   "z": 0,
+   "why": "matched"
+  },
+  {
+   "shape": 575,
+   "frame": 0,
+   "x": 383,
+   "y": 919,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 466,
+   "frame": 1,
+   "x": 1215,
+   "y": 703,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 626,
+   "frame": 0,
+   "x": 511,
+   "y": 639,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 799,
+   "frame": 0,
+   "x": 383,
+   "y": 607,
+   "z": 96,
+   "why": "matched"
+  },
+  {
+   "shape": 249,
+   "frame": 12,
+   "x": 255,
+   "y": 895,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 575,
+   "frame": 0,
+   "x": 383,
+   "y": 767,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 465,
+   "frame": 0,
+   "x": 991,
+   "y": 735,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 465,
+   "frame": 16,
+   "x": 543,
+   "y": 639,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 465,
+   "frame": 16,
+   "x": 1087,
+   "y": 767,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 465,
+   "frame": 1,
+   "x": 1023,
+   "y": 703,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 465,
+   "frame": 9,
+   "x": 1023,
+   "y": 735,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 465,
+   "frame": 9,
+   "x": 991,
+   "y": 703,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 465,
+   "frame": 1,
+   "x": 575,
+   "y": 639,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 458,
+   "frame": 5,
+   "x": 471,
+   "y": 536,
+   "z": 104,
+   "why": "matched"
+  },
+  {
+   "shape": 27,
+   "frame": 1,
+   "x": 1247,
+   "y": 1023,
+   "z": 48,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 26,
+   "frame": 6,
+   "x": 895,
+   "y": 1023,
+   "z": 48,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 393,
+   "frame": 9,
+   "x": 1535,
+   "y": 1023,
+   "z": 97,
+   "why": "matched-aug+OFF-LATTICE"
+  },
+  {
+   "shape": 768,
+   "frame": 1,
+   "x": 255,
+   "y": 760,
+   "z": 96,
+   "why": "matched-aug+OFF-LATTICE"
+  },
+  {
+   "shape": 767,
+   "frame": 4,
+   "x": 287,
+   "y": 1080,
+   "z": 104,
+   "why": "matched-aug+OFF-LATTICE"
+  },
+  {
+   "shape": 757,
+   "frame": 9,
+   "x": 247,
+   "y": 848,
+   "z": 104,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 465,
+   "frame": 2,
+   "x": 543,
+   "y": 671,
+   "z": 104,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 367,
+   "frame": 3,
+   "x": 319,
+   "y": 743,
+   "z": 104,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 125,
+   "frame": 7,
+   "x": 255,
+   "y": 895,
+   "z": 96,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 2,
+   "x": 383,
+   "y": 767,
+   "z": 104,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 301,
+   "frame": 3,
+   "x": 383,
+   "y": 895,
+   "z": 104,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 125,
+   "frame": 0,
+   "x": 511,
+   "y": 511,
+   "z": 96,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 15,
+   "x": 639,
+   "y": 383,
+   "z": 104,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 386,
+   "frame": 7,
+   "x": 639,
+   "y": 767,
+   "z": 104,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 32,
+   "x": 767,
+   "y": 255,
+   "z": 104,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 4,
+   "frame": 15,
+   "x": 1151,
+   "y": 639,
+   "z": 104,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 386,
+   "frame": 7,
+   "x": 1151,
+   "y": 767,
+   "z": 104,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 386,
+   "frame": 4,
+   "x": 1279,
+   "y": 767,
+   "z": 104,
+   "why": "lattice-fill"
+  },
+  {
+   "shape": 66,
+   "frame": 6,
+   "x": 575,
+   "y": 543,
+   "z": 104,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 576,
+   "frame": 0,
+   "x": 1487,
+   "y": 895,
+   "z": 104,
+   "why": "matched-aug"
+  },
+  {
+   "shape": 249,
+   "frame": 12,
+   "x": 415,
+   "y": 639,
+   "z": 104,
+   "why": "matched-aug"
+  }
+ ],
+ "actors": [
+  {
+   "what": "avatar",
+   "shape": 1,
+   "frame": 4,
+   "x": 863,
+   "y": 1023,
+   "z": 104
+  }
+ ],
+ "art_1994": [],
+ "verify": {
+  "render": "docs/research/2026-10-16-screenshot-reconstruction/screen18_render.png",
+  "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen18_diff.png",
+  "frame_px": 57739,
+  "all_frame_strict": 98.11,
+  "all_frame_class": 98.403,
+  "void_as_black_points": 0.007,
+  "excluded_actor_points": 0.0,
+  "provenance_points": {
+   "retail": 98.403,
+   "cross_shot_validated_1994": 0.0,
+   "single_shot_1994": 0.0,
+   "inferred": 0.0,
+   "unmatched": 1.597
+  },
+  "published_render_identical": true,
+  "replay": "python3 agents/map-populator/src/vignette_replay.py screen18"
+ },
+ "placement": {
+  "map": 10,
+  "origin_world": [
+   9088,
+   19584,
+   0
+  ],
+  "why": "Mushroom garden (Synopsis \"primary mushroom garden\"; layout #5 9216-10752 x 18432-20992): giant mushroom 625 + 466/465 clusters + iron-railed colonnade (249 columns, 575/576 bars). The scarp (26/27 two courses) runs east-west at world y 20607 (x 9471-10335) with the drop to the SOUTH, i.e. the garden is a mesa above the lava-field floor; the lower ground in the bottom-left corner is the lava-field level and abuts the screen21 vignette (which starts at y 20735).",
+  "pin_moves": [],
+  "conditional": [
+   "Monster egg (10500,19500,0) group 7 and its MONEGG trigger (9860,19532,0) lie 200 units north of the window: if the z=104 mesa is extended north over them, both go to z=104"
+  ],
+  "collides_with": [
+   "118 existing items in footprint x 9183-10623, y 19711-20735 (117 glob-242 ground cells, one dead tree 75)",
+   "Vignette demands a z=104 mesa (lower ground 0): Map 10 garden is currently flat z=0"
+  ]
+ },
+ "source": "ReconVale (2026-10-16 reconstruction)"
+}

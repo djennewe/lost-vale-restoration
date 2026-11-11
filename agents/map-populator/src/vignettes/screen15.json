@@ -1,0 +1,900 @@
+{
+ "shot": "screen15",
+ "map": 13,
+ "origin_note": "Local coords: water 347 plane @32 on the 127 lattice (the plain navy is 347:16); blue-lit shore tiles 128 @32 (top 40); NW bank 32-courses @40 (top 88) under a 349 slope @88. Stepping-stone causeway runs north-south at x~5119-5135: 186 pillars @32 (top 80), 796:1 @32 (top 88), 796:0 @25/33 (frame 0's hotspot needs odd z). The 710/762/671/685 'navy block' hits were spurious matches of flat navy and are dropped.",
+ "camera": {
+  "sx0": 2,
+  "sy0": 1011,
+  "crop": [
+   271,
+   184
+  ],
+  "convention": "painter sign, vignette-local frame: screen_x = x/4 - y/4 - sx0, screen_y = x/8 + y/8 - z - sy0 (C division per term; x,y = footprint max corner). vignette_replay.py paints in world coordinates (origin_world + local) with the camera shifted by (ox/4 - oy/4, ox/8 + oy/8 - oz)."
+ },
+ "items": [
+  {
+   "shape": 349,
+   "frame": 21,
+   "x": 4472,
+   "y": 4412,
+   "z": 88,
+   "why": "matched",
+   "screen_hotspot": [
+    13,
+    11
+   ]
+  },
+  {
+   "shape": 128,
+   "frame": 5,
+   "x": 4607,
+   "y": 3967,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    158,
+    27
+   ]
+  },
+  {
+   "shape": 128,
+   "frame": 7,
+   "x": 4735,
+   "y": 3839,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    222,
+    27
+   ]
+  },
+  {
+   "shape": 122,
+   "frame": 20,
+   "x": 4863,
+   "y": 3711,
+   "z": 31,
+   "why": "matched",
+   "note": "odd z for pixel-exact match; non-walkable decoration",
+   "screen_hotspot": [
+    286,
+    28
+   ]
+  },
+  {
+   "shape": 32,
+   "frame": 0,
+   "x": 4479,
+   "y": 4223,
+   "z": 40,
+   "why": "matched",
+   "screen_hotspot": [
+    62,
+    35
+   ]
+  },
+  {
+   "shape": 128,
+   "frame": 4,
+   "x": 4607,
+   "y": 4095,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    126,
+    43
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 5,
+   "x": 4735,
+   "y": 3967,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    190,
+    43
+   ]
+  },
+  {
+   "shape": 128,
+   "frame": 6,
+   "x": 4863,
+   "y": 3839,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    254,
+    43
+   ]
+  },
+  {
+   "shape": 32,
+   "frame": 1,
+   "x": 4479,
+   "y": 4351,
+   "z": 40,
+   "why": "matched",
+   "screen_hotspot": [
+    30,
+    51
+   ]
+  },
+  {
+   "shape": 128,
+   "frame": 4,
+   "x": 4607,
+   "y": 4223,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    94,
+    59
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 0,
+   "x": 4735,
+   "y": 4095,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    158,
+    59
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 2,
+   "x": 4863,
+   "y": 3967,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    222,
+    59
+   ]
+  },
+  {
+   "shape": 32,
+   "frame": 2,
+   "x": 4479,
+   "y": 4479,
+   "z": 40,
+   "why": "matched",
+   "screen_hotspot": [
+    -2,
+    67
+   ]
+  },
+  {
+   "shape": 128,
+   "frame": 4,
+   "x": 4607,
+   "y": 4351,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    62,
+    75
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 1,
+   "x": 4735,
+   "y": 4223,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    126,
+    75
+   ]
+  },
+  {
+   "shape": 128,
+   "frame": 5,
+   "x": 4607,
+   "y": 4479,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    30,
+    91
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 1,
+   "x": 4735,
+   "y": 4351,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    94,
+    91
+   ]
+  },
+  {
+   "shape": 128,
+   "frame": 5,
+   "x": 4607,
+   "y": 4607,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    -2,
+    107
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 0,
+   "x": 4735,
+   "y": 4479,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    62,
+    107
+   ]
+  },
+  {
+   "shape": 796,
+   "frame": 0,
+   "x": 5135,
+   "y": 4047,
+   "z": 25,
+   "why": "matched",
+   "note": "796:0 needs odd z for a pixel-exact match (retail frame-0 hotspot is 1 px off frame 1); build at z-1 (1 px low) so the top is walkable",
+   "screen_hotspot": [
+    270,
+    110
+   ]
+  },
+  {
+   "shape": 186,
+   "frame": 0,
+   "x": 5151,
+   "y": 4159,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    246,
+    119
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 6,
+   "x": 4735,
+   "y": 4607,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    30,
+    123
+   ]
+  },
+  {
+   "shape": 186,
+   "frame": 2,
+   "x": 5151,
+   "y": 4255,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    222,
+    131
+   ]
+  },
+  {
+   "shape": 128,
+   "frame": 3,
+   "x": 4735,
+   "y": 4735,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    -2,
+    139
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 8,
+   "x": 4863,
+   "y": 4607,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    62,
+    139
+   ]
+  },
+  {
+   "shape": 796,
+   "frame": 0,
+   "x": 5167,
+   "y": 4367,
+   "z": 33,
+   "why": "matched",
+   "note": "796:0 needs odd z for a pixel-exact match (retail frame-0 hotspot is 1 px off frame 1); build at z-1 (1 px low) so the top is walkable",
+   "screen_hotspot": [
+    198,
+    146
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 0,
+   "x": 4863,
+   "y": 4735,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    30,
+    155
+   ]
+  },
+  {
+   "shape": 796,
+   "frame": 1,
+   "x": 5167,
+   "y": 4463,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    174,
+    159
+   ]
+  },
+  {
+   "shape": 186,
+   "frame": 0,
+   "x": 5151,
+   "y": 4543,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    150,
+    167
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 18,
+   "x": 4863,
+   "y": 4863,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    -2,
+    171
+   ]
+  },
+  {
+   "shape": 796,
+   "frame": 0,
+   "x": 5167,
+   "y": 4655,
+   "z": 33,
+   "why": "matched",
+   "note": "796:0 needs odd z for a pixel-exact match (retail frame-0 hotspot is 1 px off frame 1); build at z-1 (1 px low) so the top is walkable",
+   "screen_hotspot": [
+    126,
+    182
+   ]
+  },
+  {
+   "shape": 796,
+   "frame": 1,
+   "x": 5167,
+   "y": 4751,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    102,
+    195
+   ]
+  },
+  {
+   "shape": 125,
+   "frame": 22,
+   "x": 5503,
+   "y": 4479,
+   "z": 40,
+   "why": "matched",
+   "screen_hotspot": [
+    254,
+    195
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 30,
+   "x": 5063,
+   "y": 4895,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    40,
+    200
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 14,
+   "x": 5279,
+   "y": 4695,
+   "z": 33,
+   "why": "matched",
+   "screen_hotspot": [
+    144,
+    201
+   ]
+  },
+  {
+   "shape": 186,
+   "frame": 1,
+   "x": 5159,
+   "y": 4839,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    78,
+    205
+   ]
+  },
+  {
+   "shape": 796,
+   "frame": 0,
+   "x": 5135,
+   "y": 4911,
+   "z": 25,
+   "why": "matched",
+   "note": "796:0 needs odd z for a pixel-exact match (retail frame-0 hotspot is 1 px off frame 1); build at z-1 (1 px low) so the top is walkable",
+   "screen_hotspot": [
+    54,
+    218
+   ]
+  },
+  {
+   "shape": 186,
+   "frame": 0,
+   "x": 5247,
+   "y": 4927,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    78,
+    227
+   ]
+  },
+  {
+   "shape": 186,
+   "frame": 1,
+   "x": 5344,
+   "y": 4924,
+   "z": 32,
+   "why": "matched",
+   "screen_hotspot": [
+    103,
+    240
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 4991,
+   "y": 4991,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    -2,
+    203
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 4991,
+   "y": 4863,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    30,
+    187
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 4991,
+   "y": 4735,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    62,
+    171
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 4863,
+   "y": 4479,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    94,
+    123
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 4991,
+   "y": 4607,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    94,
+    155
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5119,
+   "y": 4735,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    94,
+    187
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 4863,
+   "y": 4351,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    126,
+    107
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 4991,
+   "y": 4479,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    126,
+    139
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5119,
+   "y": 4607,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    126,
+    171
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5247,
+   "y": 4735,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    126,
+    203
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 4863,
+   "y": 4223,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    158,
+    91
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 4991,
+   "y": 4351,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    158,
+    123
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5119,
+   "y": 4479,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    158,
+    155
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5247,
+   "y": 4607,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    158,
+    187
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 4863,
+   "y": 4095,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    190,
+    75
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 4991,
+   "y": 4223,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    190,
+    107
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5119,
+   "y": 4351,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    190,
+    139
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5247,
+   "y": 4479,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    190,
+    171
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5375,
+   "y": 4607,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    190,
+    203
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 4991,
+   "y": 4095,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    222,
+    91
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5119,
+   "y": 4223,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    222,
+    123
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5247,
+   "y": 4351,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    222,
+    155
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5119,
+   "y": 4095,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    254,
+    107
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5247,
+   "y": 4223,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    254,
+    139
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 0,
+   "x": 4991,
+   "y": 3839,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    286,
+    59
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5247,
+   "y": 4095,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    286,
+    123
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5375,
+   "y": 4223,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    286,
+    155
+   ]
+  },
+  {
+   "shape": 347,
+   "frame": 16,
+   "x": 5375,
+   "y": 4479,
+   "z": 32,
+   "why": "lattice-fill",
+   "screen_hotspot": [
+    222,
+    187
+   ]
+  }
+ ],
+ "actors": [
+  {
+   "what": "avatar",
+   "shape": 1,
+   "frame": 17,
+   "x": 5119,
+   "y": 4575,
+   "z": 80
+  }
+ ],
+ "art_1994": [
+  {
+   "id": 2071,
+   "frames": [
+    0
+   ],
+   "name": "red blob at the frame's right edge (unidentified, 25 px, partly off-screen)",
+   "note": "no retail frame (0-855) matches; [INFERENCE] a red plant/gem on the south-east rock"
+  },
+  {
+   "id": 2072,
+   "frames": [
+    0
+   ],
+   "name": "white striped fragment (11 px)",
+   "note": "see screen16 white pieces"
+  }
+ ],
+ "verify": {
+  "render": "docs/research/2026-10-16-screenshot-reconstruction/screen15_render.png",
+  "diff": "docs/research/2026-10-16-screenshot-reconstruction/screen15_diff.png",
+  "frame_px": 49864,
+  "all_frame_strict": 95.702,
+  "all_frame_class": 95.933,
+  "void_as_black_points": 0.052,
+  "excluded_actor_points": 0.0,
+  "provenance_points": {
+   "retail": 95.933,
+   "cross_shot_validated_1994": 0.0,
+   "single_shot_1994": 0.0,
+   "inferred": 0.0,
+   "unmatched": 4.067
+  },
+  "published_render_identical": true,
+  "replay": "python3 agents/map-populator/src/vignette_replay.py screen15"
+ },
+ "placement": {
+  "map": 13,
+  "origin_world": [
+   -1024,
+   2688,
+   -8
+  ],
+  "world_bbox": [
+   3448,
+   4479,
+   6399,
+   7679,
+   17,
+   80
+  ],
+  "note": "Foot of the climb: the lake causeway. dz=-8 (water 24, stone tops 72/80) keeps every item at z>=0 (screen16's face starts at local 8). MOVED 128 south in phase B (2026-10-17, was origin y 2560): at the reconstruction's origin screen15's shore tile 128:6 at (3839,6399,24) lands in screen16's window where screen16 shows water, and screen16's water lands on screen15's shore; the two 1994 shots disagree about the cells they share (y 6271-6543). 128 south takes screen16 from 92.7 to 94.1 (its own 94.3) and keeps screen15 at 95.9; the causeway's gap between the two shots' stones grows by 128 (it is a jump causeway either way). The climb no longer crosses the lake: it runs east along its south shore at y 7935 (build_map_13.CLIMB_POINTS).",
+  "pin_moves": [
+   {
+    "what": "CLIMB z profile and route",
+    "from": "x 4096 straight through the lake at z~36",
+    "to": "x 4095 from the foot to y 7935 (z 0->64), east along the lake's south shore to x 5119 (64->68), north past the lake (build_map_13.CLIMB_POINTS)",
+    "why": "the causeway is the 1994 jump-climb; the walkable route goes round every shot"
+   }
+  ],
+  "collides_with": [
+   "screen15 and screen16 footprints overlap in y 6271-6543: dedupe their 347 water tiles (same lattice, same z)"
+  ]
+ },
+ "source": "ReconCliffs (2026-10-16 reconstruction)"
+}

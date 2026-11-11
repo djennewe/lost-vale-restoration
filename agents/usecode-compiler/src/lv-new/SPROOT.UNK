@@ -1,0 +1,33 @@
+// The special root: look() for shape 869.
+//
+// WHY THIS CLASS IS PINNED TO 869 AND CANNOT MOVE. The engine picks the
+// usecode class for an item's events from its SHAPE NUMBER:
+//
+//     uint32 class_id = _shape;          // item.cpp:1516
+//
+// so shape 869's look() lands in class 869 and nowhere else, as the
+// elixir's lands in 868 (ELIXIR.UNK). `lv_manifest.json` pins
+// TYPESPECIALROOT to 869 for that reason. Decided on 2026-10-11
+// (docs/art-track.md contract 12): the root gets its own shape and a name.
+//
+// THE ITEM. The root Ezrekal brews into Tyorvi's elixir, found "by the
+// standing stones" (EZREKAL.UNK:3108) at the Sacred Circle's east stone
+// (build_map_10.py). Her two filters find it as `(type = TypeWeedz) and
+// (frame = 0)` in the Avatar's pack (lv-patched/EZREKAL.UNK R2), and
+// TypeWeedz resolves to 869 in u8c_symbols TYPE_SHAPES. Until 2026-10-11
+// it was shape 399 frame 9, which the engine names "eye of newt".
+//
+// THE NAME is the record's ("Special Root", items.yaml). No use(): a
+// double-click does nothing, as before.
+
+uses "item";
+
+typeclass TypeSpecialRoot inherits Item
+{
+	process look();
+}
+
+process TypeSpecialRoot::look()
+{
+	bark("special root");
+}

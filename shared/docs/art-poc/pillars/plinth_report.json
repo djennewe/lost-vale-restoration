@@ -1,0 +1,38 @@
+{
+ "plinth": {
+  "footprint": 57882,
+  "outline": 41461,
+  "from_donors": 30931,
+  "holes": 18761,
+  "filled_top": 13979,
+  "filled_mirror": 364,
+  "filled_nearest": 4418,
+  "unfilled": 0,
+  "c2_top_mean": [
+   117,
+   121,
+   189
+  ],
+  "c3_top_rim_mean": [
+   110,
+   108,
+   151
+  ],
+  "rim_px": 9887
+ },
+ "plinth_x0": 5,
+ "frames": {
+  "C2_f0_earth_c3plinth_raw.png": {
+   "shift": 0,
+   "component": 30428,
+   "replaced": 30419,
+   "no_plinth_pixel": 9
+  },
+  "C2_f1_air_c3plinth_raw.png": {
+   "shift": 4,
+   "component": 41461,
+   "replaced": 41461,
+   "no_plinth_pixel": 0
+  }
+ }
+}

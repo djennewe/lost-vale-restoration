@@ -1,0 +1,434 @@
+{
+  "regions": {
+    "scroll court": {
+      "kind": "sky",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          23.75
+        ],
+        "ground.seam_density": [
+          "min",
+          0.23943661971830985
+        ],
+        "props.small_per_100": [
+          "min",
+          23.75
+        ],
+        "props.dressed_share": [
+          "min",
+          0.7375
+        ],
+        "props.grouped_share": [
+          "min",
+          0.5263157894736842
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "props.stride_share": [
+          "max",
+          0.8181818181818182
+        ],
+        "ground.top1": [
+          "max",
+          0.7
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.7
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.5
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.28846153846153844
+        ],
+        "records.raw": [
+          "max",
+          170
+        ]
+      }
+    },
+    "walkway field": {
+      "kind": "sky",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          13.958333333333334
+        ],
+        "ground.seam_density": [
+          "min",
+          0.1949339207048458
+        ],
+        "props.small_per_100": [
+          "min",
+          13.958333333333334
+        ],
+        "props.dressed_share": [
+          "min",
+          0.36041666666666666
+        ],
+        "props.grouped_share": [
+          "min",
+          0.9104477611940298
+        ],
+        "props.bare_share": [
+          "max",
+          0.0020833333333333333
+        ],
+        "props.stride_share": [
+          "max",
+          0.7254901960784313
+        ],
+        "ground.top1": [
+          "max",
+          0.6625
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.6583333333333333
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.037037037037037035
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.07133379485404409
+        ],
+        "records.raw": [
+          "max",
+          948
+        ]
+      }
+    },
+    "processional": {
+      "kind": "sky",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          30.76923076923077
+        ],
+        "ground.seam_density": [
+          "min",
+          0.1678832116788321
+        ],
+        "props.small_per_100": [
+          "min",
+          30.76923076923077
+        ],
+        "props.dressed_share": [
+          "min",
+          0.7051282051282052
+        ],
+        "props.grouped_share": [
+          "min",
+          0.25
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "props.stride_share": [
+          "max",
+          0.6521739130434783
+        ],
+        "ground.top1": [
+          "max",
+          0.8205128205128205
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.782051282051282
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.0
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.14141414141414144
+        ],
+        "records.raw": [
+          "max",
+          148
+        ]
+      }
+    },
+    "obelisk plaza": {
+      "kind": "sky",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          23.26388888888889
+        ],
+        "ground.seam_density": [
+          "min",
+          0.03505535055350553
+        ],
+        "props.small_per_100": [
+          "min",
+          23.26388888888889
+        ],
+        "props.dressed_share": [
+          "min",
+          0.65625
+        ],
+        "props.grouped_share": [
+          "min",
+          0.9253731343283582
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "props.stride_share": [
+          "max",
+          0.39285714285714285
+        ],
+        "ground.top1": [
+          "max",
+          0.9548611111111112
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.9548611111111112
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.08333333333333333
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.048684210526315774
+        ],
+        "records.raw": [
+          "max",
+          795
+        ]
+      }
+    },
+    "east court": {
+      "kind": "sky",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          35.45454545454545
+        ],
+        "ground.seam_density": [
+          "min",
+          0.22110552763819097
+        ],
+        "props.small_per_100": [
+          "min",
+          35.45454545454545
+        ],
+        "props.dressed_share": [
+          "min",
+          0.9363636363636364
+        ],
+        "props.grouped_share": [
+          "min",
+          0.7435897435897436
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "props.stride_share": [
+          "max",
+          0.6956521739130435
+        ],
+        "ground.top1": [
+          "max",
+          0.7727272727272727
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.45454545454545453
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.25
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.14516129032258063
+        ],
+        "records.raw": [
+          "max",
+          157
+        ]
+      }
+    },
+    "arrival": {
+      "kind": "sky",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          15.340909090909092
+        ],
+        "ground.seam_density": [
+          "min",
+          0.14285714285714285
+        ],
+        "props.small_per_100": [
+          "min",
+          15.340909090909092
+        ],
+        "props.dressed_share": [
+          "min",
+          0.5113636363636364
+        ],
+        "props.grouped_share": [
+          "min",
+          0.48148148148148145
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "props.stride_share": [
+          "max",
+          1.0
+        ],
+        "ground.top1": [
+          "max",
+          0.875
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.875
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.25
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.06363049095607232
+        ],
+        "records.raw": [
+          "max",
+          67
+        ]
+      }
+    }
+  },
+  "whole": {
+    "props.props_per_100": [
+      "min",
+      7.553299492385787
+    ],
+    "ground.seam_density": [
+      "min",
+      0.07950658235720949
+    ],
+    "props.small_per_100": [
+      "min",
+      7.553299492385787
+    ],
+    "props.dressed_share": [
+      "min",
+      0.2598984771573604
+    ],
+    "props.grouped_share": [
+      "min",
+      0.6720430107526881
+    ],
+    "props.bare_share": [
+      "max",
+      0.29197969543147206
+    ],
+    "props.stride_share": [
+      "max",
+      0.38095238095238093
+    ],
+    "ground.top1": [
+      "max",
+      0.8079187817258884
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.8002030456852792
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.007407407407407408
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.06294926883766461
+    ],
+    "records.raw": [
+      "max",
+      9211
+    ]
+  },
+  "budget": {
+    "props.props_per_100": [
+      "min",
+      11.488573193329216
+    ],
+    "ground.seam_density": [
+      "min",
+      0.11634130982367759
+    ],
+    "props.small_per_100": [
+      "min",
+      11.488573193329216
+    ],
+    "props.dressed_share": [
+      "min",
+      0.39036442248301423
+    ],
+    "props.grouped_share": [
+      "min",
+      0.6720430107526881
+    ],
+    "props.bare_share": [
+      "max",
+      0.0423100679431748
+    ],
+    "props.stride_share": [
+      "max",
+      0.38095238095238093
+    ],
+    "ground.top1": [
+      "max",
+      0.7084620135886349
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.695799876466955
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.011428571428571429
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.08666229435603609
+    ],
+    "records.raw": [
+      "max",
+      3371
+    ]
+  },
+  "map": 17,
+  "artifact_hashes": {
+    "TYPEFLAG.DAT": "568c4a4e8ea30b132b5e86d667f13f15c9238c8c32f0900d627db31e06f69db0",
+    "U8SHAPES.FLX": "0f80f38ddfbc28aac9148a65ec0c9cea201c84f0af177f1486c70a9e074f8bde",
+    "ANIM.DAT": "97ae5fc9ddaa6ef515427103264a3095a6d42776ac51e530954fb4846b4d0443",
+    "EUSECODE.FLX": "b47c324cdad77646c27755acfdd5bca53a9d92e16268db229f18e7dd780d4205",
+    "FIXED.DAT": "8120f68bfcf43915457c5e2932cf59719cdbc0f61f2444409e51ed79f4f0ac3f",
+    "GLOB.FLX": "52853f433d8d6f6508fa4754b4702abf66b9562b6d0be39aa9761ef08024739e"
+  },
+  "allowances": [],
+  "target_failures": [],
+  "expanded_per_ground_cell": 1.6275478690549723
+}

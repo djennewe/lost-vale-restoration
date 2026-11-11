@@ -1,0 +1,65 @@
+// The Message Scroll of Cloud City: look() and use() for shape 864.
+//
+// WHY THIS CLASS IS PINNED TO 864 AND CANNOT MOVE. The engine picks the
+// usecode class for an item's events from its SHAPE NUMBER:
+//
+//     uint32 class_id = _shape;          // item.cpp:1516
+//
+// so shape 864's look() and use() land in class 864, and nowhere else.
+// `lv_manifest.json` pins TYPEMESSAGESCROLL to 864 for that reason.
+// Shape 864 is the custom art landed 2026-09-21 (docs/art-track.md
+// contract 4) on the Scroll Chamber's plinth, Map 17, at
+// (3328, 1536, 8), quality 80.
+//
+// THE READ. `uses "scroll"` is load-bearing. Book::read (0x6E),
+// Scroll::read (0x6F), Grave::read (0x70) and Plaque::read (0x71) are
+// four intrinsic slots a bare `read(...)` cannot tell apart by name or
+// by arity, and the 1994 sources choose between them with the include
+// file's name: SGBOOK.UNK says `uses "books"`, PLAQUENS.UNK says
+// `uses "plaque"`. Drop the line and this compiles to Book::read, and
+// the letter opens in the two-page book gump.
+//
+// The bytecode this produces is retail SCROLL2's (class 0x579) shape:
+// push the string, push this, calli 0x6F, then the implies/suspend the
+// modal gump needs.
+//
+// THE TEXT is the one the 1994 record describes. Plot v1.2 beat 13 (shared/corpus/plot-documents/story-beats
+// .yaml:281) has the Avatar find, in the deserted Cloud World, "a message
+// from one of the gods for Apathy, Love, and Hate" revealing that the
+// Titans attacked the pantheon at the Great Council and that the three
+// are entombed at the shrine of Kumash Ghor. The three gods' Zealan names
+// are Felicitar, Doloras and Timyra, and the second trio (Amoras,
+// Apathas, Odion) are "the Ancients that did not arrive to help defend
+// the Vale" (EZREKAL.UNK:1697, the forged-shield speech). Odion is one of
+// those, which is who can address all three and still be free to write.
+// The closing paragraph plants beat 15, where Ezrekal needs the people's
+// faith behind the Shield.
+//
+// `~` is a line break and `~~` a paragraph break (font.cpp:170); the
+// gump pages on a click, so length is not capped at one screen.
+//
+// THE SIGNATURE SITS ALONE ON PAGE 3, and that is the shipped look
+// (Douglas, 2026-09-21: "keep it"). Page 2 ends on "...for that door."
+// with room under it, and the paragraph break plus one word tips into a
+// third page; a letter reads that way. Anyone shortening the body or
+// closing the break to `~Odion` is changing a decision, not tidying a
+// defect.
+
+uses "item";
+uses "scroll";
+
+typeclass TypeMessageScroll inherits Item
+{
+	process look();
+	process use();
+}
+
+process TypeMessageScroll::look()
+{
+	bark("message scroll");
+}
+
+process TypeMessageScroll::use()
+{
+	read("TO FELICITAR, TO DOLORAS, TO TIMYRA~should you ever come home to read this.~~I came late to the Great Council. The Titans were already among you. From the cliff road I saw the city standing empty and the sky burning behind it, and I came no further.~~They took you living. They carried you down to Kumash Ghor and sealed you in the shrine there, in stone that cannot be broken from within.~~I have not the strength to open it alone, and the others will not come.~~So I leave this where you would look for it, and I go back the way I came.~~If a mortal reads this instead: the Vale is without its gods and will not stand long so. Carry word to the Zealans. Their faith is the only key ever made for that door.~~Odion");
+}

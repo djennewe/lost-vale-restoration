@@ -1,0 +1,151 @@
+# The Lost Vale — Production Schedule
+# Source: Resource Schedule document (annotated), April–August 1994
+# Annotations from Armitage Discord analysis (2025-02-01) include red X marks
+# on tasks that were never completed before cancellation.
+#
+# This schedule was recovered from the GOG design documents bundle.
+# Handwritten annotations (red X, checkmarks) reflect completion status
+# as of the cancellation date (late August / early September 1994).
+
+schedule_period: "1994-04-15 to 1994-08-15"
+cancellation: "~September 1994"
+
+team:
+  - name: "Brian Martin"
+    aliases: ["Brian M."]
+    role: "Maps, plot, usecode"
+    assignments:
+      - task: "Maps: Elemental Dungeon"
+        period: "May–June 1994"
+        status: unknown
+      - task: "Maps: Lost Vale"
+        period: "May–June 1994 (2 days), July 1994 (8 days)"
+        status: unknown
+      - task: "Maps: Cliffs"
+        period: "June 1994 (1 day)"
+        status: unknown
+      - task: "Usecode: Columns"
+        status: "MISSING (red X on annotated schedule)"
+        note: "Elemental dungeon columns/pillars — never completed"
+      - task: "Usecode: Cliffs"
+        status: "MISSING (red X on annotated schedule)"
+        note: "Cloud Cliffs usecode — never completed"
+
+  - name: "Sheri Graner Ray"
+    aliases: ["Sheri G."]
+    role: "Conversations, usecode"
+    note: "This is whose diskette was recovered in 2025"
+    assignments:
+      - task: "Convos: Ezrekal"
+        period: "June 1994"
+        estimated_days: 5
+        status: "COMPLETE — EZREKAL.UNK (120 KB) in LOST VALE/"
+      - task: "Convos: Atli"
+        period: "June 1994"
+        estimated_days: 3
+        status: "COMPLETE — ATLI.UNK (90 KB) in LOST VALE/"
+      - task: "Convos: Tyorvi"
+        period: "June 1994"
+        estimated_days: 2
+        status: "COMPLETE — TYORVI.UNK (71 KB) in LOST VALE/"
+      - task: "Maps: Cloud City"
+        period: "July 1994"
+        estimated_days: 5
+        status: unknown
+      - task: "Maps: Cloud globs"
+        period: "July 1994"
+        estimated_days: 1
+        status: unknown
+
+  - name: "Jason E."
+    role: "Usecode advice, install program"
+    assignments:
+      - task: "Usecode advice"
+        status: advisory
+      - task: "Install program"
+        status: unknown
+
+  - name: "Micael P."
+    role: "NPCs, terrain/walls, items"
+    assignments:
+      - task: "NPC meshes and animations"
+        status: unknown
+      - task: "Terrain and wall assets"
+        status: unknown
+      - task: "Item art"
+        status: unknown
+
+  - name: "Andrew"
+    role: "Usecode"
+    assignments:
+      - task: "Usecode: Lord British"
+        status: "COMPLETE — LORDBRIT.UNK (2.9 KB) in UNK files/"
+        note: "Checkmark on schedule"
+      - task: "Convos: Mythran"
+        status: "MISSING (red X on annotated schedule)"
+        note: "Mythran's LV dialogue never completed — confirmed by Armitage"
+      - task: "Usecode: AO scene"
+        status: "MISSING (red X on annotated schedule)"
+        note: "Ancient Ones scene (freeing the gods set piece) — never completed"
+      - task: "Usecode: Bag o' Reagents"
+        status: "MISSING (red X on annotated schedule)"
+        note: "Bag of Reagents item implementation — never completed"
+
+  - name: "Steve P."
+    role: "NPC animations"
+    assignments:
+      - task: "NPC animation frames"
+        status: unknown
+
+  - name: "Lisa S."
+    role: "Conversations"
+    assignments:
+      - task: "Convos: Thordis"
+        period: "June 1994"
+        estimated_days: 1
+        status: "COMPLETE — THORDIS.UNK (53 KB) in UNK files/"
+        note: "Checkmark on schedule"
+      - task: "Convos: Hrodny"
+        period: "June 1994"
+        estimated_days: 1
+        status: "COMPLETE — HRODNY.UNK (27 KB) in UNK files/"
+        note: "Checkmark on schedule"
+      - task: "Convos: Ingyald"
+        period: "June 1994"
+        estimated_days: 2
+        status: "COMPLETE — INGYALD.UNK (19 KB) in UNK files/"
+      - task: "Shade scene"
+        aliases: ["Convos: Shade scene"]
+        status: "PARTIAL — SHADES.UNK (19 KB) exists but may be incomplete"
+        note: "Lisa S. assigned; Art List notes 'Shades (Flossie & Snori)'"
+      - task: "Maps: Building globs"
+        period: "July 1994"
+        estimated_days: 3
+        status: unknown
+
+  - name: "Convos: Hunter"
+    assigned_to: "Brian M."
+    status: "MISSING (red X on annotated schedule)"
+    note: "Hunter NPC conversation — never completed"
+
+# Summary of completion status:
+completion_summary:
+  confirmed_complete:
+    - "Convos: Ezrekal (Sheri G.)"
+    - "Convos: Atli (Sheri G.)"
+    - "Convos: Tyorvi (Sheri G.)"
+    - "Convos: Thordis (Lisa S.)"
+    - "Convos: Hrodny (Lisa S.)"
+    - "Convos: Ingyald (Lisa S.)"
+    - "Usecode: Lord British (Andrew)"
+  confirmed_missing:
+    - "Convos: Mythran (Andrew) — red X"
+    - "Usecode: Columns (Brian M.) — red X"
+    - "Usecode: Cliffs (Brian M.) — red X"
+    - "Usecode: AO scene (Andrew) — red X"
+    - "Usecode: Bag o' Reagents (Andrew) — red X"
+    - "Convos: Hunter (Brian M.) — red X"
+  unknown_status:
+    - "All map work (Elemental Dungeon, Lost Vale, Cloud City, Cliffs)"
+    - "All NPC mesh/animation work (Micael P., Steve P.)"
+    - "Install program (Jason E.)"

@@ -1,0 +1,43 @@
+// Quest step 1 trigger — Lord British's message (shared/docs/wiring.md
+// "Quest step 1: LORDBRIT"). A shape-73 UnkEgg (DD-007a dispatch: quality
+// = class_id - 0x47F, hatch range packed into the placed item's npcNum
+// nibbles) whose hatch() spawns the pinned TypeLordBritish class's use()
+// event — the cross-class spawn convention the codegen already emits for
+// `spawn TypeXXX() -> return;` (push this, spawn this_size=0x04, target
+// class:offset 0x0080, i.e. that class's FIRST compiled function). Manifest
+// class pre-registration (build_eusecode.py step 2, "Pre-register every
+// manifest-pinned class name") makes TypeLordBritish (pinned 0x05A3)
+// resolve here regardless of compile order — verified by test_new_dialogue
+// / build_eusecode.py's Gate 4 (QUEST_CRITICAL_CLASSES) and Gate 6
+// (disassembly). Modeled on EGGSPIKE.UNK (DD-007 spike).
+
+uses "egg";
+
+globalflag lbStarted;
+
+eggclass EggLBScene inherits Egg
+{
+	process hatch();
+}
+
+process EggLBScene::hatch()
+{
+	item : Item;
+
+	// Two placements ship (Tenebrae gate primary + Map 8 Mythran-approach
+	// backstop). The scene destroys only the apparition it runs at; the
+	// OTHER pair's ghost item would stand around forever (seen in-game
+	// 2026-07-04: the backstop ghost loitering in Mythran's house after
+	// the Tenebrae scene played). If the scene already started anywhere,
+	// this egg's one hatch is spent on cleanup instead: remove the
+	// adjacent apparition (placed 96-150 units away; 256 covers both
+	// placements with margin).
+	if lbStarted = 1 {
+		foreach item where type = TypeLordBritish within 256 of referent {
+			item.destroy();
+		}
+		return;
+	}
+
+	spawn TypeLordBritish() -> return;
+}

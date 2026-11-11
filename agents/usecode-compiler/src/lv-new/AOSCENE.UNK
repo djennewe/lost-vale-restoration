@@ -1,0 +1,258 @@
+// Ancient Ones Ceremony — God-Freeing Scene
+// Missing dialogue segment #5. The ceremony to free the Ancient Ones.
+// Based on dialogue-ao-scene.md
+
+uses "egg";
+uses "free";
+uses "flags";
+uses "item";
+uses "snddefs";
+
+globalflag godsFree;
+globalflag templeOpen;
+globalflag shieldFixed;
+
+eggclass EggAOCeremony inherits Egg
+{
+	process hatch();
+}
+
+process EggAOCeremony::hatch()
+{
+	if godsFree
+	{
+		return;
+	}
+
+	if not templeOpen
+	{
+		return;
+	}
+
+	if not shieldFixed
+	{
+		Avatar.bark("The temple altar awaits. But first, the Zealan Shield must be restored.");
+		return;
+	}
+
+	item:Item;
+	shield:Item;
+	god:Item;
+	hasArtifact:Number = 0;
+
+	// Check for the AO artifact: the restored Shield of the Ancients, shape
+	// 879 (TypeSacredShield, the 1994 art) at quality 83, as
+	// lv-patched/SHADES.UNK creates it. The type alone refuses Pagan's own
+	// 828s, the copy EZREKAL.UNK calls a forgery ("the same shape it is and
+	// the wrong symbols it has"); the quality test is kept as a second mark.
+	foreach recursive item where (type = TypeSacredShield) within container Avatar
+	{
+		if item.getQ() = 83
+		{
+			hasArtifact = true;
+			shield = item;
+		}
+	}
+
+	// SAVE COMPATIBILITY. Saves made before 2026-10-17, between the Sacred
+	// Circle ceremony and this altar, hold the restored Shield as shape 828
+	// (TypeAOArtifact) at quality 83, the form SHADES created from
+	// 2026-10-08. SHADES will not run again for them (shieldFixed is set),
+	// so without this the altar would refuse them forever. Quality 83 is
+	// what tells that Shield from Pagan's own 828s (quality 0), which stay
+	// refused. It is popped the same way; lv-new/AORTA.UNK still names it.
+	if not hasArtifact
+	{
+		foreach recursive item where (type = TypeAOArtifact) within container Avatar
+		{
+			if item.getQ() = 83
+			{
+				hasArtifact = true;
+				shield = item;
+			}
+		}
+	}
+
+	if not hasArtifact
+	{
+		Avatar.bark("I sense great power here, but I lack the artifact needed for the ceremony.");
+		return;
+	}
+
+	// Begin the ceremony
+	setAvatarInStasis(true);
+
+	spawn safePlaySFX(MAGIC3, 200) -> return;
+	wait(30);
+
+	// THE SHIELD GOES ON THE ALTAR, as the bark says (Douglas, 2026-10-09).
+	// It used to stay in the pack. push() takes it out of whatever container
+	// holds it (the search is recursive, so usually the backpack) and puts it
+	// in the ethereal void; pop(x, y, z) is popToCoords (0x36), which moves
+	// the top of the void into the world. That is how retail moves an item
+	// from a pack to the floor, and how lv-patched/AVATAR.UNK:1300 and
+	// SHADES.UNK:388-394 do it. Before the bark, because bark is waited on:
+	// the Shield lands as the line appears, not after it fades.
+	//
+	// WHERE: the altar's top face, by the engine's own box arithmetic, at
+	// the spot screen04 (the 1994 ceremony shot) shows the Shield. The
+	// altar (550, footpad 2x4x2 = 64x128x16) stands at (3127, 8175, 0) in
+	// build_map_18.py, so with Box::contains half-open it covers x
+	// 3064..3127, y 8048..8175, z 0..15, and its top is z 16. The Shield
+	// (879, on 828's TYPEFLAG row, so the same footpad 1x3x3 = 32x96x24)
+	// anchored at (3111, 8167) covers x 3080..3111 and y 8072..8167: 16
+	// units in from each long side, 24 from the north end and 8 from the
+	// south, which is altar + (-16, -8, +16) as screen04 places it. 550 is
+	// SI_LAND, so the Shield is supported there.
+	// agents/map-populator/src/test_paint_cycles.py reads these three
+	// numbers back out of this line and checks them against build_map_18's
+	// altar and the map's depth sort.
+	//
+	// It stays a world item, clickable and lookable (lv-new/SACSHLD.UNK,
+	// class 879, names it; a legacy 828 q83 is named by lv-new/AORTA.UNK).
+	// Picking it back up breaks nothing: godsFree is set below and this egg
+	// returns on it first. Nothing after this scene needs it carried.
+	shield.push();
+	shield.pop(3111, 8167, 16);
+
+	Avatar.bark("I place the artifact upon the altar. The ancient symbols begin to glow.");
+
+	wait(120);
+	// QUAKE3 (49), the rumble the 1994 sources use. This line named
+	// RUMBLE1, which is not in SOUND.FLX's name table, so it compiled as
+	// push 0 and played SFX 0: that entry is the name table itself, and
+	// decoding it as Sonarc audio read past the buffer and segfaulted the
+	// engine about one hatch in three
+	// (docs/playtest-2026-09-26-altar-segfault.md).
+	spawn safePlaySFX(QUAKE3, 255) -> return;
+
+	FadeToWhite();
+
+	// THE AMBER STAYS WHOLE UNTIL THE CAMERA IS ON IT. Each god is kicked
+	// into her own twelve-frame run at the moment the pan arrives on her —
+	// see the three sweeps below — rather than all three being
+	// swapped under the white. The shatter is the payoff; it has to be seen.
+	//
+	// Frames 0/1/2 are the gods sealed, 3/4/5 the same three freed at the
+	// same pose. A run is 6 + encasedFrame * 12, twelve frames of shatter
+	// and waking that ends by setting the freed rest frame itself
+	// (lv-new/GODANIM.UNK, usecode class 860, reached through TYPEFLAG
+	// animType 5).
+	//
+	// Range 2000 on every sweep: the egg sits at (3072, 8320) and the
+	// farthest god is Doloras at (3039, 7903), 417 units north (Felicitar
+	// at (2783, 8031) is 289 west). Only three items on the map carry this
+	// type, so it can match nothing else.
+	//
+	// Each sweep is guarded on the god's own encased frame, which doubles as
+	// her identity, so running one twice is free and a god already freed is
+	// never re-shattered.
+	//
+	// WRITTEN OUT THREE TIMES ON PURPOSE. The obvious `routine kickGod(
+	// encased, run)` compiles, emits no warning, and is WRONG: a file-local
+	// routine called from a process in a new class resolved to
+	// `call class 0000 offset 0080` — into base-game class 0, not into this
+	// one. It was the only file-local routine in lv-new/ and there is no
+	// working precedent for one. Three inlined sweeps cost nine lines and
+	// cannot mis-resolve.
+
+	wait(60);
+
+	Avatar.bark("The ground trembles. Light fills the temple. I can feel ancient presences awakening...");
+
+	wait(120);
+
+	// THE PAN. In screen04 all three gods fit one 320-pixel frame, so the
+	// pan is not there to find them; it is there so each shatter starts with
+	// the camera on that god, and the player watches each one break.
+	//
+	// SPELLING: bare `scrollTo`/`move_to`/`setCenterOn`, NOT `Camera::x`.
+	// The bare names bind to intrinsics 0xB5/0xBF/0xBE through
+	// find_intrinsic()'s Camera entries, and codegen skips the `this` push
+	// for the static Camera class (u8c_codegen.py:1889). The `Camera::`
+	// spelling half-compiles instead: `::` is a parse error, the recovery
+	// emits `Camera` as an unknown identifier (push 0) and then binds the
+	// call anyway, so it works with a stray push and a warning per site.
+	//
+	// Camera z is the god's z (16, where build_map_18 stands them for
+	// screen04) plus 20, which is what CameraProcess adds when it centres
+	// on an item — so each shot frames a god the way the engine would frame
+	// her if we could centre on her by objid.
+	//
+	// move_to is instant and fires under the white, so the cut away from the
+	// Avatar is never seen. Cover order from there: Timyra (3039, 8415),
+	// Felicitar (2783, 8031), Doloras (3039, 7903).
+	setCenterOn(0);
+	move_to(3039, 8415, 36, 0);
+
+	FadeFromWhite();
+
+	// TIMYRA breaks. Encased frame 2, so her run starts at 6 + 2*12 = 30.
+	foreach god where type = TypeZealanGod within 2000 of referent
+	{
+		if god.getFrame() = 2
+		{
+			god.setFrame(30);
+		}
+	}
+	wait(160);
+
+	// scrollTo's speed argument is DISCARDED by the engine
+	// (camera_process.cpp:354 reads it with ARG_NULL16); every scroll takes
+	// a fixed 25 frames, measured in-engine at 0.7-0.8 s. The waits below
+	// are the hold on each god, not the travel time.
+	//
+	// THE NUMBERS ARE MEASURED. FREE::wait documents its argument as 60ths
+	// of a second and that is close to right here: a 13 fps capture of the
+	// real scene timed wait(360) at 5.07 s and wait(300) at 4.21 s and
+	// 4.28 s — N/71, consistently. 145 is the two-second beat each god
+	// wants. Re-time against a capture if you change them; do not trust
+	// arithmetic on the nominal unit, because FREE's Timer::start and
+	// Timer::isDone compile to no-ops in our build (four `unknown
+	// identifier`/`no-op` warnings at FREE.UNK:117-140), so what the
+	// process actually measures is not the documented thing.
+	scrollTo(2783, 8031, 36, 6);
+	// FELICITAR breaks. Encased frame 0, run 6 + 0*12 = 6.
+	foreach god where type = TypeZealanGod within 2000 of referent
+	{
+		if god.getFrame() = 0
+		{
+			god.setFrame(6);
+		}
+	}
+	wait(145);
+
+	scrollTo(3039, 7903, 36, 6);
+	// DOLORAS breaks. Encased frame 1, run 6 + 1*12 = 18.
+	foreach god where type = TypeZealanGod within 2000 of referent
+	{
+		if god.getFrame() = 1
+		{
+			god.setFrame(18);
+		}
+	}
+	wait(145);
+
+	// BACK TO THE AVATAR, AND THIS IS MANDATORY. A finished scroll calls
+	// SetCameraProcess(nullptr), which parks a detached camera over the
+	// destination -- it does NOT resume following. Leaving it there is the
+	// shape of the Sacred Circle symptom in
+	// .claude/skills/playtest/traps.md: the Avatar freezes off the fast
+	// area and every NPC strike misses, because the sprite pixel is
+	// measured from the window centre.
+	//
+	// Scroll back first so the return is a movement rather than a snap,
+	// then re-attach by objid. Camera::getX/getY are NOT an option for
+	// reading the position back: both assert GAME_IS_CRUSADER and would
+	// abort under U8.
+	scrollTo(Avatar.getX(), Avatar.getY(), 20, 6);
+	wait(90);
+	setCenterOn(1);
+	wait(45);
+
+	Avatar.bark("It is done. The Ancient Ones are free. I can feel their gratitude -- and their power.");
+
+	godsFree = true;
+	wait(60);
+	setAvatarInStasis(false);
+}

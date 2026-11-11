@@ -1,0 +1,128 @@
+// Temple Entry — the writer for `templeOpen` (quest step 17, DD-005)
+//
+// This is the ONE thing the 1994 team never wrote. `templeOpen` is read in
+// 23 line-sites across the recovered corpus — Ezrekal, Hrodny, Ingjald,
+// Thordis, Tyorvi and Atli all have finished dialogue tiers behind it — and
+// it is assigned in ZERO. The author even ducked the question in Ezrekal's
+// own reaction line: "How managed it did you? How...oh, never mind."
+//
+// Per DD-005 the act itself is Hrodny's Tiny Tar: shrink, and creep through
+// the crack in the ruined sanctum wall. The crack is real geometry, not a
+// flag check — a 32-unit aperture at x (2848,2879) on the Inner Sanctum
+// boundary of Map 18, which the engine's canExistAt() footpad test admits
+// for the shrunken Avatar (shape 867, 32x32) and refuses for the normal one
+// (shape 1, 64x64). map_walkability's Map 18 suite proves both halves.
+//
+// So this egg does NOT gate anything. It is placed on the sanctum side of
+// the crack, and by definition the only way to stand on it is to have got
+// through. It records that fact for the six NPCs waiting on it.
+//
+// DISPATCH: UnkEgg quality, class = quality + 0x47F (manifest-pinned).
+
+uses "egg";
+uses "flags";
+uses "free";
+uses "item";
+uses "snddefs";
+
+globalflag templeOpen;
+globalflag godsFree;
+
+eggclass EggTempleEntry inherits Egg
+{
+	process hatch();
+}
+
+process EggTempleEntry::hatch()
+{
+	// RE-APPLY THE FREED FRAMES. Map 18's fixed items are re-read from
+	// FIXED.DAT on every map switch, so AOSCENE's frame swap is lost the
+	// moment the player leaves the sanctum and comes back — the gods would
+	// re-seal themselves. This egg is the only thing that fires on entering
+	// the sanctum, so it carries the repair.
+	//
+	// Range 2400, not AOSCENE's 2000: this egg sits at the crack on the
+	// north wall, (2864, 6240), rather than at the altar. The engine's
+	// areaSearch tests each item's anchor (x, y) against [x - range,
+	// x + range] and the same in y, and Timyra's anchor is (3039, 8415),
+	// 2175 south of the egg: inside the old 2200 by only 25 units. 2400
+	// holds all three with room to spare (Felicitar (2783, 8031) is 1791
+	// south, Doloras (3039, 7903) 1663).
+	// COLPUZZL:175 is the precedent for a sweep this wide; only three items
+	// on the map carry TypeZealanGod.
+	//
+	// Guarded on frame, so running it twice is free.
+	if godsFree
+	{
+		god:Item;
+		foreach god where type = TypeZealanGod within 2400 of referent
+		{
+			// Sealed (0/1/2) -> freed (3/4/5), instantly. The shatter is a
+			// one-time payoff the ceremony pays; re-entering the sanctum
+			// must NOT replay it, so this jumps straight to the rest frame.
+			if god.getFrame() < 3
+			{
+				god.setFrame(god.getFrame() + 3);
+			}
+
+			// Caught mid-run. A player who walked out of the fast area
+			// while a god was shattering leaves her parked on a run frame,
+			// and GODANIM only advances a god the engine is still drawing.
+			// Runs are 6..17, 18..29, 30..41 and each belongs to the freed
+			// frame 3, 4 or 5 in order, so this lands her on her own.
+			if god.getFrame() > 5
+			{
+				god.setFrame(3 + (god.getFrame() - 6) / 12);
+			}
+		}
+	}
+
+	first : Number = 0;
+
+	if not templeOpen
+	{
+		templeOpen = true;
+		first = 1;
+	}
+
+	// THE BREACH (2026-09-26). Opening the temple opens the crack: the six
+	// wall records build_map_18 tags BREACH_QUALITY (307) go, and the gap
+	// becomes a doorway 192 wide and 120 tall. Without it the sanctum had
+	// no exit at full size, and a player who carried one Tiny Tar in was
+	// sealed with the gods. The 1994 dialogue wants the temple open to
+	// full-size Zealans as well: "I have opened your temple!" sends
+	// Ezrekal for Atli and Thordis (EZREKAL.UNK:2048).
+	//
+	// Every hatch, not only the first: a full-size player walking back in
+	// after a map switch crosses this egg too (its x range was widened to
+	// cover the doorway), and the sweep finds nothing once the wall is
+	// gone. EggCrackHint carries the same sweep on the hall side.
+	item : Item;
+	foreach item where type = TypeTempleWallPiece within 2000 of referent
+	{
+		if item.getQ() = 307
+		{
+			item.destroy();
+		}
+	}
+	foreach item where type = TypeTempleWallStub within 2000 of referent
+	{
+		if item.getQ() = 307
+		{
+			item.destroy();
+		}
+	}
+
+	if first = 0
+	{
+		return;
+	}
+
+	spawn safePlaySFX(QUAKE3, 200) -> return;
+
+	Avatar.bark("I am through. The air in here is old, and very still.");
+	Avatar.bark("Behind me the split stone groans and slumps, and the crack
+			falls open into a gap a man could walk through.");
+	Avatar.bark("Three shapes stand in the dark ahead of me, and something
+			about them is wrong -- they do not move at all.");
+}

@@ -1,0 +1,263 @@
+{
+  "regions": {
+    "door chamber": {
+      "kind": "cave",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          38.27160493827161
+        ],
+        "ground.seam_density": [
+          "min",
+          0.21830985915492956
+        ],
+        "props.small_per_100": [
+          "min",
+          37.03703703703704
+        ],
+        "props.dressed_share": [
+          "min",
+          0.8641975308641975
+        ],
+        "props.grouped_share": [
+          "min",
+          0.8
+        ],
+        "props.bare_share": [
+          "max",
+          0.0
+        ],
+        "props.stride_share": [
+          "max",
+          0.8235294117647058
+        ],
+        "ground.top1": [
+          "max",
+          0.6666666666666666
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.5925925925925926
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          1.0
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.5681818181818182
+        ],
+        "records.raw": [
+          "max",
+          94
+        ]
+      }
+    },
+    "south shelf": {
+      "kind": "cave",
+      "pins": {
+        "props.props_per_100": [
+          "min",
+          9.180790960451978
+        ],
+        "ground.seam_density": [
+          "min",
+          0.1166298749080206
+        ],
+        "props.small_per_100": [
+          "min",
+          6.567796610169491
+        ],
+        "props.dressed_share": [
+          "min",
+          0.6497175141242938
+        ],
+        "props.grouped_share": [
+          "min",
+          0.8172043010752689
+        ],
+        "props.bare_share": [
+          "max",
+          0.024717514124293787
+        ],
+        "props.stride_share": [
+          "max",
+          0.5806451612903226
+        ],
+        "ground.top1": [
+          "max",
+          0.826271186440678
+        ],
+        "ground.largest_patch": [
+          "max",
+          0.7860169491525424
+        ],
+        "repetition.modal_chunk": [
+          "max",
+          0.06666666666666667
+        ],
+        "repetition.period_excess": [
+          "max",
+          0.19861537158971754
+        ],
+        "records.raw": [
+          "max",
+          1859
+        ]
+      }
+    }
+  },
+  "whole": {
+    "props.props_per_100": [
+      "min",
+      9.711217340056315
+    ],
+    "ground.seam_density": [
+      "min",
+      0.14740765842087428
+    ],
+    "props.small_per_100": [
+      "min",
+      7.262130836225525
+    ],
+    "props.dressed_share": [
+      "min",
+      0.5349354986575863
+    ],
+    "props.grouped_share": [
+      "min",
+      0.6257889990982868
+    ],
+    "props.bare_share": [
+      "max",
+      0.1571606312618689
+    ],
+    "props.stride_share": [
+      "max",
+      0.42045454545454547
+    ],
+    "ground.top1": [
+      "max",
+      0.3114399842839369
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.3001768057101696
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.24794359576968272
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.2634666609261592
+    ],
+    "records.raw": [
+      "max",
+      5973
+    ]
+  },
+  "budget": {
+    "props.props_per_100": [
+      "min",
+      9.711217340056315
+    ],
+    "ground.seam_density": [
+      "min",
+      0.14740765842087428
+    ],
+    "props.small_per_100": [
+      "min",
+      7.262130836225525
+    ],
+    "props.dressed_share": [
+      "min",
+      0.5349354986575863
+    ],
+    "props.grouped_share": [
+      "min",
+      0.6257889990982868
+    ],
+    "props.bare_share": [
+      "max",
+      0.1571606312618689
+    ],
+    "props.stride_share": [
+      "max",
+      0.42045454545454547
+    ],
+    "ground.top1": [
+      "max",
+      0.3114399842839369
+    ],
+    "ground.largest_patch": [
+      "max",
+      0.3001768057101696
+    ],
+    "repetition.modal_chunk": [
+      "max",
+      0.24794359576968272
+    ],
+    "repetition.period_excess": [
+      "max",
+      0.2634666609261592
+    ],
+    "records.raw": [
+      "max",
+      5973
+    ]
+  },
+  "map": 8,
+  "artifact_hashes": {
+    "TYPEFLAG.DAT": "999bc6afa6dae596a1e0062ab1fb1c882489366eadc2e9afe77432692400667a",
+    "U8SHAPES.FLX": "99ac982244eae904a61e4ff688a721a4bb86ec458dca7614661f3d2dd95529d5",
+    "ANIM.DAT": "97ae5fc9ddaa6ef515427103264a3095a6d42776ac51e530954fb4846b4d0443",
+    "EUSECODE.FLX": "b47c324cdad77646c27755acfdd5bca53a9d92e16268db229f18e7dd780d4205",
+    "FIXED.DAT": "a7c9f6cac65f0e3c83b60965b8c77e21d3d00b706387599a2a989c5dcb914363",
+    "GLOB.FLX": "aabc1ad36f42c6bdd01cfcb7271f0765983a9914489d62a96a9bcb5e1d7c88ca"
+  },
+  "allowances": [
+    {
+      "region": "door chamber",
+      "metric": "props.stride_share",
+      "bound": 1.0,
+      "reason": "Section 3.7 preserves the retail paired 394 colonnade and every pristine record outside BASE_ITEM_REMOVALS."
+    },
+    {
+      "region": "door chamber",
+      "metric": "ground.top1",
+      "bound": 0.6666666666666666,
+      "reason": "Section 3.7 retains retail floor geometry; the chamber change is the 71:9 return marker at its existing coordinates."
+    },
+    {
+      "region": "south shelf",
+      "metric": "ground.top1",
+      "bound": 0.826271186440678,
+      "reason": "Section 3.7 requires the exposed 301 shelf floor over its 894 and 895 backdrops to stay, alongside retained retail geometry."
+    }
+  ],
+  "target_failures": [
+    {
+      "region": "door chamber",
+      "metric": "props.stride_share",
+      "value": 0.8235294117647058,
+      "direction": "max",
+      "bound": 0.65
+    },
+    {
+      "region": "door chamber",
+      "metric": "ground.top1",
+      "value": 0.6666666666666666,
+      "direction": "max",
+      "bound": 0.65
+    },
+    {
+      "region": "south shelf",
+      "metric": "ground.top1",
+      "value": 0.826271186440678,
+      "direction": "max",
+      "bound": 0.65
+    }
+  ],
+  "expanded_per_ground_cell": 1.9182109881474692
+}

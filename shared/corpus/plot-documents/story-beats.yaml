@@ -1,0 +1,643 @@
+# The Lost Vale — Story Beats
+# Structured from design documents with source citations
+# Primary: Plot v1.2, Walk Through, Plot Synopsis with Notes
+# Secondary: Codex wiki, Discord analysis, interviews
+
+beats:
+
+  # === ACT 1: THE CALL ===
+
+  - id: 1
+    title: "Lord British's Message"
+    act: 1
+    summary: >
+      Upon installing the expansion, the Avatar sees a vision of Lord British.
+      LB tells the Avatar that Nystul has managed to break through the Guardian's
+      veil of magic to send a message. Nystul has determined there is a race of
+      people on Pagan who can help the Avatar overcome the Titans and escape.
+      LB sends the Avatar to Mythran for more information.
+    notes:
+      - "Synopsis suggests LB should also mention status of Britannia and the Guardian"
+      - "Synopsis suggests Mythran give 'bag of endless reagents' here (moved from endgame)"
+    npcs: [Lord British, Nystul]
+    locations: [Pagan]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 1
+      - doc: "Walk Through"
+        beat: I
+      - doc: "Plot Synopsis with Notes"
+        beat: 1
+
+  - id: 2
+    title: "Mythran's Vision"
+    act: 1
+    summary: >
+      The Avatar goes to Mythran and asks about the ancient race. Mythran explains
+      he had a vision of a strange man from another world who would come seeking
+      knowledge of the Zealans. This vision convinces Mythran to tell the Avatar
+      about the Zealans despite the risk of incurring the Titans' wrath.
+    npcs: [Mythran]
+    locations: [Mythran's House]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 2
+      - doc: "Walk Through"
+        beat: II
+
+  - id: 3
+    title: "Galjeron's Trail"
+    act: 1
+    summary: >
+      Mythran tells the Avatar about Galjeron, a man who searched for the Zealans.
+      Mythran has not seen him in a very long time. Galjeron could be found on the
+      other side of a huge set of double doors in a cavern in the Plateau.
+      Mythran tells the Avatar where the key is. The Avatar must solve a puzzle
+      to get the key.
+    notes:
+      - "Synopsis: suggests Avatar compile reagents to magically contact Galjeron (who is presumed alive). Ghost art used for apparition."
+      - "Synopsis: Galjeron's motive was desire to defeat Titans and become the Ether Titan"
+      - "Dino's Guide: double doors are at Bonecrusher's cave on the Plateau"
+    npcs: [Mythran, Galjeron]
+    locations: [Plateau, Bonecrusher's Cave]
+    items: [Key to Double Doors, Galjeron's Journal]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 3
+      - doc: "Walk Through"
+        beat: III
+      - doc: "Plot Synopsis with Notes"
+        beat: 3
+      - doc: "dinos-guide-omissions"
+
+  - id: 4
+    title: "Galjeron's Body and Journal"
+    act: 1
+    summary: >
+      Inside the doors, the Avatar finds Galjeron's dead body. Galjeron kept a
+      journal describing his efforts to find the Lost Vale. The journal mentions
+      that to reach the Lost Vale, one must find four magic coupons/gemstones,
+      each representing an element.
+    notes:
+      - "Synopsis: 'There should be some sort of guardian within this room. Something that actually killed Galjeron.'"
+      - "Synopsis clarifies these are 'four magic gemstones' not 'coupons'"
+      - "Walk Through handwritten annotation: 'Build obstacles!'"
+    npcs: [Galjeron]
+    locations: [Beyond Double Doors]
+    items: [Galjeron's Journal, Four Elemental Gemstones]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 4
+      - doc: "Plot Synopsis with Notes"
+        beat: 4
+
+  # === ACT 2: THE ELEMENTAL DUNGEON ===
+
+  - id: 5
+    title: "The Elemental Dungeon"
+    act: 2
+    summary: >
+      The Avatar enters a dungeon divided into four parts, each with a different
+      elemental theme (Earth, Air, Fire, Water). The Avatar must find one
+      gemstone/talisman in each section.
+    notes:
+      - "Synopsis: 'We need an NPC here—perhaps a guardian left behind by the Titans. A multi-elemental agent who shows up throughout.'"
+      - "Art List: Talismans of Fire, Earth, Water, Air listed as items"
+      - "Resource Schedule: Maps for Elemental Dungeon assigned to Brian M. in May-June"
+    locations: [Elemental Dungeon]
+    items: [Talisman of Fire, Talisman of Earth, Talisman of Water, Talisman of Air]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 5
+      - doc: "Plot Synopsis with Notes"
+        beat: 5
+
+  - id: 6
+    title: "The Four Pillars"
+    act: 2
+    summary: >
+      At the end of the dungeon, four elemental pillars (Earth, Air, Fire, Water)
+      block the path to the Lost Vale. The Avatar uses the opposite elemental
+      power on each pillar to destroy them (e.g., Fire talisman on Water pillar).
+    notes:
+      - "Art List: Pillars of Fire, Earth, Water, Air listed (some crossed out)"
+      - "Art List handwritten: 'Pillar receptacle' added"
+      - "Synopsis: 'Will this area have a teleporter pad so the player can return here quickly?'"
+      - "Walk Through handwritten: 'stones of all Air, Fire, and Water block'"
+    locations: [Elemental Dungeon - Exit]
+    items: [Pillar of Earth, Pillar of Air, Pillar of Fire, Pillar of Water]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 6
+      - doc: "Plot Synopsis with Notes"
+        beat: 6
+
+  # === ACT 3: THE LOST VALE ===
+
+  - id: 7
+    title: "Arrival in the Lost Vale"
+    act: 3
+    summary: >
+      The Avatar finds the Lost Vale — a place that was once lush and beautiful
+      but is now barren and desolate. The once unified Zealans have separated into
+      two factions, each living near one of the two remaining water sources.
+      Ezrekal, the High Priestess, has been shunned by both communities. A
+      destructive blood feud rages between them.
+    notes:
+      - "Synopsis: 'Barren is sometimes boring. I hope we're planning on using some cool fallen ruins.'"
+      - "Synopsis: 'Ezrekal will only agree to meet with the PC if he comes escorted by a representative from *both* rival factions'"
+      - "Discord: First community = Clan Hoskuld, Second = Clan Gunnar"
+      - "Two factions divided over whether to stay in Vale or seek out Pagans"
+    npcs: [Ezrekal]
+    locations: [Lost Vale, Clan Hoskuld Village, Clan Gunnar Village]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 7
+      - doc: "Walk Through"
+        beat: VII-VIII
+      - doc: "Discord analysis (Armitage)"
+
+  - id: 8
+    title: "Test of Rutabaga / Rite of Passage"
+    act: 3
+    summary: >
+      The Zealans treat the Avatar with hostility. They will only believe the
+      Avatar is not a Pagan if they pass the "Test of Rutabaga" — a nasty plant
+      with delectable fruit at its heart, guarded by long poisonous spines. The
+      Avatar is told they will feast if they pass; if they fail, they will be
+      poisoned. The Avatar fails the test and the poison begins to affect them.
+      The only cure comes from the High Priestess, but she can no longer speak
+      to the Gods.
+    notes:
+      - "Synopsis version differs: first group asks to kill a monster near mushroom garden (introducing Harpies). Second group captures Avatar, demands recovery of stolen item. Both quests needed to gain escorts to visit Ezrekal."
+      - "Plot v1.2: uses the plant/poison test mechanism"
+      - "Discord analysis: PLNTST = Passage Test (Rite of Passage)"
+      - "Art List: 'Test Tree/plant/fruit' listed as item"
+    npcs: [Zealans]
+    locations: [Lost Vale]
+    items: [Test Tree/Plant, Passage Stone]
+    usecode_symbols: [PLNTST]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 8
+      - doc: "Walk Through"
+        beat: VIII
+      - doc: "Discord analysis (Armitage)"
+        detail: "PLNTST = Passage Test"
+
+  - id: 9
+    title: "Ezrekal's Story"
+    act: 3
+    summary: >
+      The Avatar finds Ezrekal, who has been shunned by her former flock because
+      she can no longer bring the Zealan gods to speak. She could cure the Avatar
+      if she could speak to the Gods, but the Shield of the Ancients has been
+      broken. She tells the backstory: long ago, the Pagan Titans attacked the
+      Zealan gods during the Great Council (annual gathering). The gods were
+      sealed in the Shrine of the Wheaties. Ezrekal attempted to reach the gods
+      Love, Hate, and Apathy, but in the attack the Shield was broken.
+    notes:
+      - "Gods named Love, Hate, and Apathy in design docs (working names)"
+      - "Wiki names: Felicitar, Doloras, Timyra (from base game U8 lore)"
+      - "'Shrine of the Wheaties' is a humorous placeholder name"
+      - "Walk Through annotations: 'Alive' and 'Joan' near Ezrekal"
+      - "Elean Speak excerpt: Ezrekal speaks in inverted 'Yoda-speak' syntax"
+      - "'Magic Frisbee' = Shield of the Ancients (working name visible in v1.1)"
+    npcs: [Ezrekal]
+    locations: [Ezrekal's Dwelling]
+    items: [Shield of the Ancients]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 9
+      - doc: "Walk Through"
+        beat: IX
+      - doc: "Elean Speak Exerpt.pdf"
+
+  - id: 10
+    title: "The Stolen Shield"
+    act: 3
+    summary: >
+      The Shield of the Ancients is essential for communicating with the gods.
+      Ezrekal tried to repair it but failed. One night, the two halves were
+      stolen while she slept. The Zealans blamed her and drove her out.
+    npcs: [Ezrekal]
+    items: [Shield of the Ancients - half 1, Shield of the Ancients - half 2]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 10
+
+  - id: 11
+    title: "The Blood Feud"
+    act: 3
+    summary: >
+      Two young men — Snori and Hoskuld — went missing. Snori's family accused
+      Hoskuld's family member Ikanikar of stealing the Shield. They believe Snori
+      went after the thief and was murdered. Hoskuld's family says the opposite —
+      Snori stole the Shield and Hoskuld pursued him. This feud divided the tribe
+      in half and they have been in a blood feud ever since.
+    notes:
+      - "Plot v1.1 uses earlier names: Draesh and Ikanikar"
+      - "Art List: 'Shades (Flossie & Snori)' — name 'Flossie' appears for one of the boys"
+      - "Character List: Group One's female elder is 'descendant of Flossie's family'"
+      - "Discord: Clan Hoskuld and Clan Gunnar are the two factions"
+    npcs: [Snori, Hoskuld, Ikanikar]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 11
+      - doc: "Plot v1.1"
+        beat: 11
+        note: "Earlier names: Draesh and Ikanikar"
+
+  # === ACT 4: THE CLOUD WORLD ===
+
+  - id: 12
+    title: "Climb the Cliffs of Insanity"
+    act: 4
+    summary: >
+      Ezrekal says only the Gods can cure the Avatar. The Avatar must climb the
+      Cliffs of Insanity to the Cloud City, home of the gods. No Zealan dares
+      go there since they believe the gods abandoned them. Some have tried and
+      died — the Avatar finds their bones on the cliffs. The Avatar encounters
+      a new monster: the Harpie.
+    notes:
+      - "Discord: 'Cliffs of Insanity' = 'Cloud Cliffs' in the usecode"
+      - "Synopsis: 'This is another familiar old Britannia monster. Couldn't we come up with a cool new Pagan monster?'"
+      - "Art List: 'Harpy' listed under Character Meshes"
+    npcs: []
+    locations: [Cliffs of Insanity / Cloud Cliffs]
+    monsters: [Harpie]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 13
+      - doc: "Walk Through"
+        beat: XI
+      - doc: "Discord analysis (Armitage)"
+
+  - id: 13
+    title: "The Deserted Cloud World"
+    act: 4
+    summary: >
+      The Avatar reaches the Cloud World and finds the home of the gods deserted.
+      A message from one of the gods for Apathy, Love, and Hate reveals that the
+      Titans attacked the Zealan pantheon at the Great Council and the three gods
+      need help. Love, Hate, and Apathy have been entombed at the shrine of
+      Kumash Ghor. The Avatar also finds the two halves of the Shield of the
+      Ancients by the skeletons of two warriors — the missing boys.
+    notes:
+      - "Art List: Cloud World uses 'Bob's red stone architecture turned white and gold'"
+      - "Art List: 'Cloud-like terrain', 'Collapsing ground'"
+      - "Sheri blog: Cloud City has magnetic obelisk that seals equipment (MAGNET.UNK)"
+      - "Art List: 'Avatar dying in cloud terrain' sprite needed"
+    npcs: []
+    locations: [Cloud World / Cloud City]
+    items: [Shield of the Ancients - half 1, Shield of the Ancients - half 2, Message Scroll]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 14
+      - doc: "Walk Through"
+        beat: X
+
+  - id: 14
+    title: "Return to Ezrekal — Plan to Repair the Shield"
+    act: 4
+    summary: >
+      The Avatar returns to Ezrekal and shows her the scroll and the two halves
+      of the Shield. She believes the Gods are locked in the Shrine of Wheaties
+      by the Titans. She has studied how to repair the Shield but needs the
+      belief/faith of all the people behind it. She sends the Avatar to tell
+      both village leaders to meet at the Sacred Smallish Unusual-Colored Rock.
+    notes:
+      - "'Shrine of Wheaties' and 'Sacred Smallish Unusual-Colored Rock' are humorous placeholder names that were to be replaced"
+    npcs: [Ezrekal]
+    locations: [Ezrekal's Dwelling]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 15
+
+  # === ACT 5: REUNIFICATION AND FREEING THE GODS ===
+
+  - id: 15
+    title: "The Shield Restoration Ceremony"
+    act: 5
+    summary: >
+      At the Sacred Rock, Ezrekal and the two clan leaders join the Shield halves
+      together. When the Shield is rejoined, the shades of the two boys (Snori
+      and Hoskuld/Flossie) appear. They explain that they both stole the Shield
+      to take it to the Cloud City to find the Gods and demand it be repaired.
+      They were set upon by wicked beasts and killed. The two groups realize
+      they made a terrible mistake and reconcile.
+    notes:
+      - "Walk Through adds detail: 'a young couple, one from each side of the feud, who are in love' helps reunite the factions"
+      - "Art List: 'Shades (Flossie & Snori)' needed for this scene"
+      - "Discord: SHADES usecode symbol = Moot/Shield Restoration"
+    npcs: [Ezrekal, Clan Hoskuld Leader, Clan Gunnar Leader, Shade of Snori, Shade of Hoskuld]
+    locations: [Sacred Rock]
+    items: [Shield of the Ancients - restored]
+    usecode_symbols: [SHADES]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 16
+      - doc: "Walk Through"
+        beat: XIII
+      - doc: "Discord analysis (Armitage)"
+
+  - id: 16
+    title: "Break into the Shrine"
+    act: 5
+    summary: >
+      The Avatar and Ezrekal must break through the wall into the shrine where
+      the gods are imprisoned. Requires explosive or usecode-driven mechanism.
+    notes:
+      - "Synopsis: 'What if instead of a barrier, we use a guardian which can only be slain by someone bearing the intact shield? Reuse the multi-elemental agent from the dungeon.'"
+      - "Plot v1.2: 'Some sort of explosive and a nice piece of usecode will do very well here.'"
+    npcs: [Ezrekal]
+    locations: [Shrine of the Wheaties / Shrine of the Ancient Ones]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 17
+      - doc: "Plot Synopsis with Notes"
+        beat: 17
+
+  - id: 17
+    title: "Freeing the Gods"
+    act: 5
+    summary: >
+      Inside the shrine, the Avatar finds the three gods encased in amber-like
+      resin (described as looking like the shields in the movie Dune). If the
+      Shield of the Ancients has been rejoined, Ezrekal calls upon the new-found
+      strength of the reunited people to break the gods free. The gods give
+      wisdom to the Avatar.
+    notes:
+      - "Synopsis: 'Could we recycle the translucent blue fields from the journey to Lithos portion of U8?'"
+      - "Art List: 'Zealan God 1/2/3, encased in resin' and 'Zealan God 1/2/3, speaking'"
+      - "Discord: FREE usecode symbol = freeing the imprisoned gods"
+    npcs: [Ezrekal, Felicitar, Doloras, Timyra]
+    locations: [Shrine of the Ancient Ones]
+    usecode_symbols: [FREE]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 18
+      - doc: "Walk Through"
+        beat: XII
+      - doc: "Discord analysis (Armitage)"
+
+  - id: 18
+    title: "Resolution"
+    act: 5
+    summary: >
+      Gods released, water flows again, green plants return, the land is restored.
+      The blood feud is ended. The Avatar receives the Bag of Reagents (eliminates
+      reagent hunting for remainder of base game). The gods explain that if the
+      Avatar defeats all four Titans, they may achieve a position of great power
+      (Ether Titan). The gods give a symbolic rejoined shield as a reward (maxes
+      armor value). Gods may offer insight into what is happening in Britannia
+      (U9 teaser).
+    notes:
+      - "Synopsis: gods further explain defeating Titans and possible Ether Titan position"
+      - "Synopsis: add explanation about the 'weird endgame' that puzzled U8 players"
+      - "Walk Through handwritten: 'Pay off Weapon → Bag of reagents' and 'Cool Scenes'"
+      - "Wiki: 'bag of reagents' eliminates need to collect reagents individually"
+      - "Synopsis: shield 'maxes out the PC's armor rating' and alleviates weight management"
+    npcs: [Felicitar, Doloras, Timyra]
+    items: [Bag of Reagents, Restored Shield of the Ancients (armor)]
+    sources:
+      - doc: "Plot v1.2"
+        beat: 19
+      - doc: "Walk Through"
+        beat: XIV
+      - doc: "Plot Synopsis with Notes"
+        beat: 18-19
+
+  # === ADDITIONAL PLOT ELEMENTS (from Synopsis notes) ===
+
+  - id: 19
+    title: "Titan Agent Subplot (proposed)"
+    act: 3-5
+    summary: >
+      An NPC who lives apart from both factions, placed in the Vale by the Titans
+      to prevent Zealan reunification. At first feigns indifference, quizzes
+      Avatar about the blood feud's resolution progress. Later reveals true
+      nature and attempts to stop the Avatar. On death, either a Titan appears
+      to claim the body or the agent curses the Avatar while dying.
+    notes:
+      - "This is from Note 1 in the Plot Synopsis — it was a suggestion, not confirmed as implemented"
+      - "Would add non-linearity and a combat challenge"
+    status: "proposed, not confirmed in usecode"
+    sources:
+      - doc: "Plot Synopsis with Notes"
+        note: 1
+
+  - id: 20
+    title: "Bonecrusher Hammer (proposed)"
+    act: 2
+    summary: >
+      Synopsis Note 4 suggests including the Bonecrusher hammer mentioned but
+      nonexistent in U8. Players had been inquiring about it. Suggested as a
+      new magic weapon with a cool effect like Slayer or Flamesting.
+    status: "proposed, not confirmed in usecode"
+    sources:
+      - doc: "Plot Synopsis with Notes"
+        note: 4
+
+  - id: 21
+    title: "Birthplace of Moriens (proposed)"
+    act: 3
+    summary: >
+      Synopsis Note 5 suggests placing a small ruin in the Lost Vale labeled the
+      Birthplace of Moriens. "This would not be a difficult thing to do, and
+      would please a great number of customers."
+    status: "proposed, not confirmed in usecode"
+    sources:
+      - doc: "Plot Synopsis with Notes"
+        note: 5
+
+# === DISCORD QUESTLINE RECONSTRUCTION ===
+# Source: Armitage analysis on Ultima Dragons Discord (#ultima-8-exult), 2025-02-01
+# This 21-step reconstruction is derived from analysis of the ACTUAL RECOVERED USECODE,
+# providing a more granular step-by-step than the design docs. Items marked <speculation>
+# or <presumably> are uncertain inferences.
+
+discord_questline:
+  source: "Armitage, Ultima Dragons Discord, 2025-02-01"
+  note: >
+    This questline reconstructs the intended gameplay flow from the usecode source
+    code. It is more granular than the design doc beats and reveals subplots not
+    fully described in the surviving plot documents.
+  steps:
+    - step: 1
+      summary: "Receive LB message"
+      maps_to_beat: 1
+      confidence: confirmed
+
+    - step: 2
+      summary: "Talk to Mythran, learn of LV and how to open double doors"
+      maps_to_beat: [2, 3]
+      confidence: confirmed
+      note: "Mythran dialogue MISSING from usecode snapshot"
+
+    - step: 3
+      summary: "Find key, enter Elemental Dungeon"
+      maps_to_beat: [3, 4]
+      confidence: confirmed
+
+    - step: 4
+      summary: "Collect the 4 'tokens', open way to LV"
+      maps_to_beat: [5, 6]
+      confidence: confirmed
+
+    - step: 5
+      summary: >
+        Meet the Zealans; they refuse to talk to you until you pass the 'Rite of
+        Passage' and have the Zealan mark. Need to find the 'Passage Stone' first.
+      maps_to_beat: [7, 8]
+      confidence: confirmed
+      usecode_evidence: [PLNTST, zealanMark, haveMark, completedTest]
+
+    - step: 6
+      summary: "Neither clan has the Passage Stone; each claims the other stole it"
+      maps_to_beat: 7
+      confidence: confirmed
+      usecode_evidence: [hoskuldSpokeStone, gunnarSpokeStone]
+      note: "NEW DETAIL not in design docs — the inter-clan dispute over the Stone"
+
+    - step: 7
+      summary: >
+        Avatar talks to Ragnar (Clan Hoskuld): a young woman got the stone to take
+        the test, went to the lake, was killed by the Gunnars, stone never found.
+        Ragnar gives Avatar a bag he found.
+      maps_to_beat: 8
+      confidence: confirmed
+      usecode_evidence: [ragnarMet, ragnarToldStone, sentToRagnar]
+      note: "NEW DETAIL — Ragnar's expanded role and the young woman backstory"
+
+    - step: 8
+      summary: >
+        Bag contains some sort of key. Avatar goes to that place, full of water
+        zombies. Uses the key, finds the Passage Stone.
+      maps_to_beat: 8
+      confidence: speculation
+      note: "Marked <speculation> by Armitage. The lake location and water zombies are consistent with Art List v2.5"
+
+    - step: 9
+      summary: >
+        Avatar takes the Passage Test with the stone. Gets poisoned. Goes to
+        Thordis and Atli who give him the mark and tell him to seek Ezrekal.
+      maps_to_beat: 8
+      confidence: confirmed
+      usecode_evidence: [PLNTST, completedTest, avatarPoisoned, firstPoisoned, zealanMark]
+
+    - step: 10
+      summary: >
+        Ezrekal talks to Avatar (now that he has the mark). Tells story of clans
+        and LV. Says she cannot cure the Avatar, but the Zealan gods can. Gods are
+        at Cloud City, but Avatar needs to climb the Cloud Cliffs. Way is blocked
+        and needs to be unlocked with the 'Key to the Clouds'.
+      maps_to_beat: 9
+      confidence: confirmed
+      usecode_evidence: [ezrekalMet, spokeOfClouds, spokeOfVale, spokePoison, TypeCliffKey]
+
+    - step: 11
+      summary: >
+        Ezrekal does not have the Key to the Clouds. Tjorvi has the key, but won't
+        give it to the Avatar. Says he has nightmares.
+      maps_to_beat: 9
+      confidence: confirmed
+      usecode_evidence: [tyorviDreams, toldOfDreams, sentToTyorvi, TypeCliffKey]
+      note: "Tjorvi = Tyorvi (spelling variant). TYORVI.UNK (71KB) is the final version."
+
+    - step: 12
+      summary: >
+        Avatar asks Ezrekal for potion to stop Tjorvi's nightmares; she says she
+        needs a special root.
+      confidence: confirmed
+      usecode_evidence: [hasRoot, givenRoot, justGotRoot, hasTea, givenTea]
+
+    - step: 13
+      summary: "Avatar finds the root, gets the potion, gives it to Tjorvi, gets the Key."
+      confidence: presumably
+      usecode_evidence: [givenTea, gotTheKey]
+      note: "Marked <presumably> by Armitage"
+
+    - step: 14
+      summary: >
+        Avatar uses the key to get to Cloud City, finds the broken shield halves
+        but no gods.
+      maps_to_beat: [12, 13]
+      confidence: confirmed
+      usecode_evidence: [climbedCliffs, cloudCity, TypeAOFrizbee, mentionShield]
+
+    - step: 15
+      summary: >
+        Avatar returns to Ezrekal with the findings; she tells Avatar to meet at
+        Sacred Circle.
+      maps_to_beat: 14
+      confidence: confirmed
+      usecode_evidence: [ceremonySoon]
+
+    - step: 16
+      summary: >
+        Ritual is performed, shield is restored, clans are reconciled, Avatar is
+        cured of poison, but still needs to talk to gods to be completely healed.
+      maps_to_beat: 15
+      confidence: confirmed
+      usecode_evidence: [SHADES, doneShades, shieldFixed, inShadeScene]
+
+    - step: 17
+      summary: "Gods are at the Ancient Temple."
+      maps_to_beat: [16, 17]
+      confidence: confirmed
+      usecode_evidence: [templeOpen, spokeOfOpenTemple, spokeTemple]
+
+    - step: 18
+      summary: >
+        Hrodny has Tiny Tar potions that allow Avatar to enter the Temple, but has
+        lost the key to the chest that has them.
+      maps_to_beat: 16
+      confidence: confirmed
+      usecode_evidence: [hrodnyMet, hrodnyJob, POTION]
+      note: "NEW DETAIL — the lost-key-to-chest subplot for Hrodny"
+
+    - step: 19
+      summary: "Avatar finds the key, opens the chest and gets the potions."
+      maps_to_beat: 16
+      confidence: presumably
+      note: "Marked <presumably> by Armitage"
+
+    - step: 20
+      summary: "Potions allow Avatar to enter the Temple."
+      maps_to_beat: 17
+      confidence: confirmed
+      usecode_evidence: [templeOpen, POTION]
+
+    - step: 21
+      summary: >
+        Avatar puts restored shield on altar, talks to gods, gets bag of reagents. END.
+      maps_to_beat: [17, 18]
+      confidence: confirmed
+      usecode_evidence: [FREE, godsFree, godsSpoke, TypeBagOReagents, getPowerAO]
+      note: "End-game usecode (steps 17-21 area) is MISSING from snapshot"
+
+# === DESIGN NOTES ===
+
+design_notes:
+  travel: "Synopsis Note 3: strongly recommends allowing travel back and forth between Pagan and the Lost Vale to make it feel longer and less linear"
+  spellcasting: "Synopsis Note 2: strongly recommends keeping U8 spellcasting in Lost Vale"
+  placeholder_names:
+    - original: "Magic Frisbee"
+      replacement: "Shield of the Ancients"
+      status: "renamed in Plot v1.2"
+    - original: "Shrine of the Wheaties"
+      replacement: "Shrine of the Ancient Ones (likely)"
+      status: "placeholder, unknown final name"
+    - original: "Sacred Smallish Unusual-Colored Rock"
+      replacement: "unknown"
+      status: "placeholder"
+    - original: "Test of Rutabaga"
+      replacement: "Rite of Passage / Passage Test"
+      status: "placeholder, PLNTST in usecode"
+    - original: "Draesh and Ikanikar"
+      replacement: "Snori and Hoskuld"
+      status: "renamed between v1.1 and v1.2"
+    - original: "Apathy, Love, and Hate"
+      replacement: "Felicitar, Doloras, Timyra"
+      status: "design doc working names vs base game canon names"

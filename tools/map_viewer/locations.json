@@ -1,0 +1,83 @@
+{
+ "titles": {
+  "9": "Beyond the Double Doors (Galjeron's chamber)",
+  "10": "The Lost Vale",
+  "11": "The Elemental Dungeon",
+  "13": "The Cloud Cliffs",
+  "17": "Cloud City",
+  "18": "The Ancient Temple",
+  "8": "The Plateau (retail map, with the Double Doors)",
+  "39": "Tenebrae (retail map, Lord British's message scene)"
+ },
+ "8": [
+  {"name": "The Double Doors", "x": 20447, "y": 2751, "z": null, "note": "The sealed doors in the Bonecrusher-cave doorway, (20191..20703, 2751); z is taken from the surface", "src": "agents/map-populator/src/build_map_08.py docstring"}
+ ],
+ "9": [
+  {"name": "Arrival from Pagan (pad 201)", "x": 13696, "y": 14208, "z": 0, "note": "Teleport arrival pad 201; trigger 200 back to Map 8 is at (13759, 12031), up the guardian chamber's north-west passage", "src": "shared/build/FIXED.DAT map 9, shape 508"},
+  {"name": "Guardian chamber (screen10)", "x": 14360, "y": 12792, "z": 56, "note": "The 1994 screen10 tomb dais, the Avatar's spot on its top", "src": "agents/map-populator/src/build_map_09.py build_guardian_chamber / place_screen10"},
+  {"name": "Galjeron's chamber", "x": 13824, "y": 14336, "z": 0, "note": "Galjeron's body and journal", "src": "agents/map-populator/src/build_map_09.py:156 build_zone_2_chamber"},
+  {"name": "Passage to the dungeon", "x": 14335, "y": 16191, "z": 0, "note": "Stone passage south; pad 202 and the trigger to Map 11 (203) at its end", "src": "agents/map-populator/src/build_map_09.py:299 build_zone_3_passage"}
+ ],
+ "10": [
+  {"name": "Arrival court", "x": 12800, "y": 2560, "z": 0, "note": "Paved court: pad 205 (from Map 11) here, pad 212 (from Pagan) 1024 east; triggers to Map 11 and Pagan on its north side", "src": "agents/map-populator/src/build_map_10.py:489"},
+  {"name": "Hoskuld village", "x": 5632, "y": 8192, "z": 0, "note": "Fenced clan village: five huts, the clan hall, the spring", "src": "agents/map-populator/src/build_map_10.py:287 TERRAIN"},
+  {"name": "Hoskuld Elder's hut", "x": 4368, "y": 6944, "z": 0, "note": "Hut 1 (inside; the prefab stamped at (4096, 6656) spans 544 x 576)", "src": "agents/map-populator/src/build_map_10.py:572 hut_positions"},
+  {"name": "Hoskuld spring", "x": 6912, "y": 7936, "z": 0, "note": "Stone well on flat ground", "src": "agents/map-populator/src/build_map_10.py:589"},
+  {"name": "Gunnar village", "x": 19968, "y": 8192, "z": 0, "note": "Fenced clan village: huts, clan hall, still house, workshop", "src": "agents/map-populator/src/build_map_10.py:288 TERRAIN"},
+  {"name": "Atli's hut (Gunnar)", "x": 19216, "y": 6432, "z": 0, "note": "Hut 1, the elder's (inside)", "src": "agents/map-populator/src/build_map_10.py:707 hut_positions"},
+  {"name": "Hrodny's hut", "x": 21264, "y": 8480, "z": 0, "note": "Hut 4, the 1994 hut of screen20 (inside); her locked chest stands inside at (21216, 8768)", "src": "agents/map-populator/src/build_map_10.py Hrodny's chest (x0+3808, y0+3648)"},
+  {"name": "Moonshiner's still", "x": 21600, "y": 7700, "z": 0, "note": "Still house and the open-air still station on its south side", "src": "agents/map-populator/src/build_map_10.py:727"},
+  {"name": "Gunnar spring", "x": 18688, "y": 7424, "z": 0, "note": "Stone well", "src": "agents/map-populator/src/build_map_10.py:789"},
+  {"name": "Ezrekal's stockade", "x": 13135, "y": 12559, "z": 0, "note": "The hermit's wood-plank stockade, inside (12319..13951] x (12191..12927]", "src": "agents/map-populator/src/build_map_10.py:996"},
+  {"name": "Ezrekal's herb garden", "x": 12900, "y": 13440, "z": 0, "note": "Two rows of bushes south of the stockade", "src": "agents/map-populator/src/build_map_10.py:1031"},
+  {"name": "The lake", "x": 12544, "y": 17408, "z": 0, "note": "Lake shore; Water Zombies around the pier and island", "src": "agents/map-populator/src/build_map_10.py:1242 build_the_lake"},
+  {"name": "Lake island", "x": 13951, "y": 18431, "z": 8, "note": "3x3 slab deck at z=8", "src": "agents/map-populator/src/build_map_10.py:1287"},
+  {"name": "The pier", "x": 13887, "y": 19520, "z": 8, "note": "Two-lane pier from the south shore to the island, z=8", "src": "agents/map-populator/src/build_map_10.py:1289"},
+  {"name": "Sacred Circle", "x": 20480, "y": 16896, "z": 0, "note": "Nine standing stones on paving (the Sacred Rock is the ninth)", "src": "agents/map-populator/src/build_map_10.py:292 TERRAIN"},
+  {"name": "West clearing", "x": 6144, "y": 16896, "z": 0, "note": "Open wilderness between Hoskuld and the cliffs", "src": "agents/map-populator/src/build_map_10.py:290 TERRAIN"},
+  {"name": "Cloud approach", "x": 7168, "y": 22528, "z": 0, "note": "Terrace up to the Cloud Cliffs", "src": "agents/map-populator/src/build_map_10.py:293 TERRAIN"},
+  {"name": "Foot of the Cloud Cliffs", "x": 7168, "y": 23296, "z": 8, "note": "Arrival pad 206 (back from Map 13); the trigger up to Map 13 (207) is 768 south", "src": "shared/build/FIXED.DAT map 10, shape 508"},
+  {"name": "Moriens ruins", "x": 12800, "y": 23040, "z": 0, "note": "Stone ruins of Moriens' birthplace", "src": "agents/map-populator/src/build_map_10.py:295 TERRAIN"},
+  {"name": "Temple approach (screen17)", "x": 18463, "y": 22751, "z": 112, "note": "The 1994 shot: gargoyles over the cobble stair down into the sunken temple pit", "src": "agents/map-populator/src/vignettes/screen17.json"},
+  {"name": "Temple gate pad", "x": 18432, "y": 22719, "z": 112, "note": "Arrival pad 210 (back from Map 18) on the stair shelf; the trigger to Map 18 (211) is on the pit floor at (18432, 23552)", "src": "shared/build/FIXED.DAT map 10, shape 508"},
+  {"name": "Ragnar's cache", "x": 16896, "y": 25344, "z": 0, "note": "Ragnar's quest-bag drop", "src": "agents/map-populator/src/build_map_10.py:296 TERRAIN, :134 RAGNAR_BAG_DROP"},
+  {"name": "Passage Test ramp", "x": 12800, "y": 28799, "z": 40, "note": "Eight 128-unit rows rising 8 each from z=8 to z=64", "src": "agents/map-populator/src/build_map_10.py:339 RAMP_ROWS"},
+  {"name": "Passage Test plateau", "x": 13055, "y": 30079, "z": 64, "note": "The vision-quest site; the Avatar's teleport destination in TESTPLAN", "src": "agents/map-populator/src/build_map_10.py:264 TESTPLAN_AVATAR_TP"}
+ ],
+ "11": [
+  {"name": "Entry hall", "x": 9728, "y": 1792, "z": 0, "note": "Arrival pad 203 (from Map 9); trigger 202 back to Map 9 just north", "src": "agents/map-populator/src/build_map_11.py:267 build_entry_hall"},
+  {"name": "Central hub", "x": 9728, "y": 5632, "z": 0, "note": "Joins the four elemental sections", "src": "agents/map-populator/src/build_map_11.py:326 build_central_hub"},
+  {"name": "Earth section", "x": 3584, "y": 3584, "z": 0, "note": "Cave; Earth talisman", "src": "agents/map-populator/src/build_map_11.py:375 build_earth_section"},
+  {"name": "Air section", "x": 16896, "y": 3584, "z": 0, "note": "Terraces; Air talisman", "src": "agents/map-populator/src/build_map_11.py:504 build_air_section"},
+  {"name": "Fire section", "x": 3584, "y": 16896, "z": 0, "note": "Lava; Fire talisman", "src": "agents/map-populator/src/build_map_11.py:578 build_fire_section"},
+  {"name": "Water section", "x": 10240, "y": 16896, "z": 0, "note": "Damp stone; Water talisman", "src": "agents/map-populator/src/build_map_11.py:719 build_water_section"},
+  {"name": "Four Pillars chamber", "x": 8192, "y": 20992, "z": 0, "note": "The elemental pillars (865) and receptacles (866)", "src": "agents/map-populator/src/build_map_11.py:792 build_four_pillars"},
+  {"name": "Exit pad room", "x": 8291, "y": 22639, "z": 0, "note": "Arrival pad 204; trigger 205 to the Lost Vale (Map 10)", "src": "agents/map-populator/src/build_map_11.py:919 build_teleporter_pad"}
+ ],
+ "13": [
+  {"name": "Base gate (pad 207)", "x": 4096, "y": 11776, "z": 0, "note": "Arrival from the Lost Vale; trigger 206 back at (3328, 11520)", "src": "shared/build/FIXED.DAT map 13, shape 508"},
+  {"name": "Foot of the climb", "x": 4095, "y": 10239, "z": 0, "note": "First climb waypoint, through the ruined wall", "src": "agents/map-populator/src/build_map_13.py CLIMB_POINTS"},
+  {"name": "Lake shore (east leg)", "x": 4607, "y": 7935, "z": 64, "note": "The climb turns east along the lake's south shore", "src": "agents/map-populator/src/build_map_13.py CLIMB_POINTS"},
+  {"name": "Stepping stones (screen15)", "x": 4095, "y": 7263, "z": 72, "note": "1994 shot screen15, the Avatar's spot", "src": "agents/map-populator/src/vignettes/screen15.json"},
+  {"name": "Causeway landing (screen16)", "x": 4095, "y": 6111, "z": 72, "note": "1994 shot screen16, the Avatar's spot", "src": "agents/map-populator/src/vignettes/screen16.json"},
+  {"name": "Skull ring (screen14)", "x": 4127, "y": 4863, "z": 96, "note": "1994 shot screen14; its path joins the climb at (4735, 4607, 80)", "src": "agents/map-populator/src/vignettes/screen14.json"},
+  {"name": "Harpie rest point", "x": 5087, "y": 3039, "z": 112, "note": "Between the lane harpies and the summit ones", "src": "agents/map-populator/src/build_map_13.py HARPIE_REST"},
+  {"name": "Summit (pad 208, screen01)", "x": 5119, "y": 2303, "z": 120, "note": "Arrival pad 208 on the climb's north leg; the plateau (screen01) west of it; trigger 209 to Cloud City at (4351, 2303)", "src": "agents/map-populator/src/build_map_13.py build_summit"}
+ ],
+ "17": [
+  {"name": "Arrival landing (pad 209)", "x": 4608, "y": 9984, "z": 0, "note": "Arrival from the Cloud Cliffs on the gold landing; trigger 208 back on the pier at (4608, 11008), round the channel's east end", "src": "agents/map-populator/src/build_map_17.py:367 build_arrival"},
+  {"name": "South street", "x": 4608, "y": 8704, "z": 0, "note": "Gold street with gem pillars, landing to the obelisk plaza", "src": "agents/map-populator/src/build_map_17.py:325 build_processional"},
+  {"name": "Obelisk plaza (screen11)", "x": 3775, "y": 7327, "z": 0, "note": "The 1994 shot stamped verbatim: retail obelisk on banded drums, gem pillars, the sun Shield half (878 f0) at (4259, 7199); the shot's Avatar spot", "src": "agents/map-populator/src/vignettes/screen11.json"},
+  {"name": "Processional street", "x": 4096, "y": 5248, "z": 0, "note": "Gold street with gem pillars and plaques 69/70, plaza to the walkway", "src": "agents/map-populator/src/build_map_17.py:325 build_processional"},
+  {"name": "Walkway and throne nook (screen12)", "x": 3807, "y": 3231, "z": 0, "note": "The 1994 shot stamped verbatim: raised marble walkway, banded colonnade, throne 223, the eye Shield half (878 f1) at (3559, 3311); the shot's Avatar spot", "src": "agents/map-populator/src/vignettes/screen12.json"},
+  {"name": "East court", "x": 6271, "y": 5823, "z": 0, "note": "Gold court of gem pillars at the end of walkway strip C", "src": "agents/map-populator/src/build_map_17.py:354 build_east_court"},
+  {"name": "Scroll court", "x": 3327, "y": 1279, "z": 0, "note": "Odion's letter (864) on a marble plinth, drums and gem pillars round it", "src": "agents/map-populator/src/build_map_17.py:310 build_scroll_court"}
+ ],
+ "18": [
+  {"name": "Temple exterior (pad 211)", "x": 3072, "y": 1792, "z": 0, "note": "Arrival from the Lost Vale; trigger 210 back just north", "src": "agents/map-populator/src/build_map_18.py:212 build_temple_exterior"},
+  {"name": "Outer hall", "x": 3072, "y": 3584, "z": 0, "note": "Central hall", "src": "agents/map-populator/src/build_map_18.py:302 build_outer_hall"},
+  {"name": "Transition hall", "x": 3072, "y": 5376, "z": 0, "note": "Corridor to the sanctum wall", "src": "agents/map-populator/src/build_map_18.py:383 build_transition_hall"},
+  {"name": "The crack", "x": 2839, "y": 6363, "z": 0, "note": "Breach rubble at the crack in the sanctum wall (BREACH_Y 6143)", "src": "agents/map-populator/src/build_map_18.py:92,125 build_breach_rubble"},
+  {"name": "Inner sanctum", "x": 3072, "y": 7424, "z": 0, "note": "The three Zealan gods (860) round the ceremony triangle and the altar", "src": "agents/map-populator/src/build_map_18.py:577 build_inner_sanctum"}
+ ]
+}
