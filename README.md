@@ -78,8 +78,6 @@ pip install -r requirements.txt
 #                             (GOG macOS installer: pkgutil --expand-full <gog .pkg> /tmp/u8pkg
 #                              and copy the English game folder from inside it)
 #    shared/data/lv-usecode/  the unzipped Sheri-U8-LV.zip: LOST VALE/, U8/, UNK files/
-#    shared/data/USECODE.FLX  a copy of the retail usecode, made before anything is patched:
-cp shared/data/u8-install/USECODE/EUSECODE.FLX shared/data/USECODE.FLX
 
 # 2. Build the six game files and check them against the published hashes.
 tools/build_artifacts.sh
@@ -87,14 +85,15 @@ tools/build_artifacts.sh
 # 3. Build ScummVM with the Lost Vale patch (first time, and after engine changes).
 ./build_scummvm.sh
 
-# 4. Install and launch.
+# 4. Install and launch. Run this again whenever you want to play.
 ./install_lv.sh --run
 ```
 
-> **Known issue, being fixed before the public release:** if Ultima 8 is already
-> registered in your ScummVM configuration, `install_lv.sh` patches that game folder
-> in place (it keeps `.bak` copies of the six files it replaces). Use a ScummVM with
-> no existing Ultima 8 entry until this is fixed.
+Step 4 installs into a separate copy of your game, `shared/u8-lv-patched/`, and
+launches ScummVM on it with its own settings file and save folder inside that copy.
+Your original game folder, any Ultima 8 you already have set up in ScummVM, your
+ScummVM settings, and your existing saves are left alone. Remove the copy with
+`rm -rf shared/u8-lv-patched`.
 
 If step 2 reports a hash mismatch, your game data probably comes from a different
 release than the one the hashes were recorded against. Please open an issue with the

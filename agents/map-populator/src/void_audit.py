@@ -118,11 +118,14 @@ class Scene:
 
     def __init__(self, mapnum, fixed=None, retail_art=False):
         self.fixed = Path(fixed or Path(BUILD) / 'FIXED.DAT')
-        self.typeflag = Path(STATIC if retail_art else BUILD) / (
-            'TYPEFLAG.DAT.bak' if retail_art else 'TYPEFLAG.DAT')
-        self.shapes = self.typeflag.with_name(
-            'U8SHAPES.FLX.bak' if retail_art else 'U8SHAPES.FLX')
-        self.anim = self.typeflag.with_name('ANIM.DAT.bak' if retail_art else 'ANIM.DAT')
+        def art(name):
+            if not retail_art:
+                return Path(BUILD) / name
+            bak = Path(STATIC) / (name + '.bak')
+            return bak if bak.exists() else Path(STATIC) / name
+        self.typeflag = art('TYPEFLAG.DAT')
+        self.shapes = art('U8SHAPES.FLX')
+        self.anim = art('ANIM.DAT')
         self.painter = Painter(typeflag=str(self.typeflag), shapes=str(self.shapes))
         self.painter.info = lru_cache(maxsize=None)(self.painter.info)
         self.raw = MapArchive(str(self.fixed)).get_map_items(mapnum)

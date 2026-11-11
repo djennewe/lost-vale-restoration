@@ -31,8 +31,17 @@ import item_sorter as IS  # noqa: E402
 
 STATIC = os.path.join(REPO, 'shared/data/u8-install/STATIC')
 BUILD = os.path.join(REPO, 'shared/build')
-RETAIL_TYPEFLAG = os.path.join(STATIC, 'TYPEFLAG.DAT.bak')
-RETAIL_SHAPES = os.path.join(STATIC, 'U8SHAPES.FLX.bak')
+
+
+def retail_file(name):
+    """The retail copy of STATIC/<name>: the .bak an in-place install keeps,
+    or the file itself on an install that was never patched in place."""
+    bak = os.path.join(STATIC, name + '.bak')
+    return bak if os.path.exists(bak) else os.path.join(STATIC, name)
+
+
+RETAIL_TYPEFLAG = retail_file('TYPEFLAG.DAT')
+RETAIL_SHAPES = retail_file('U8SHAPES.FLX')
 
 
 class Painter(IS.ItemSorter):

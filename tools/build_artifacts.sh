@@ -70,7 +70,11 @@ esac
 
 cd "$REPO_DIR" || exit 2
 
-sha_of() { shasum -a 256 "$1" | awk '{print $1}'; }
+if command -v sha256sum >/dev/null 2>&1; then
+    sha_of() { sha256sum "$1" | awk '{print $1}'; }
+else
+    sha_of() { shasum -a 256 "$1" | awk '{print $1}'; }
+fi
 
 fail() { echo; echo "ERROR: $*" >&2; exit 1; }
 
@@ -78,8 +82,22 @@ fail() { echo; echo "ERROR: $*" >&2; exit 1; }
 if [ "$MODE" != "verify" ]; then
     if [ ! -d "shared/data/u8-install" ]; then
         fail "shared/data/u8-install is missing. These artifacts are built
-       FROM your own Ultima 8 install; see CLAUDE.md for what must be
-       extracted there."
+       FROM your own Ultima 8 install; see README.md (What you need) for
+       what must be extracted there."
+    fi
+    # The usecode builder reads the RETAIL usecode from shared/data/USECODE.FLX,
+    # a copy no install ever overwrites. Make it from the install on first
+    # build: prefer an --in-place install's .bak (the pre-install original),
+    # and refuse anything that is not the retail file (1,251,108 bytes).
+    if [ ! -f "shared/data/USECODE.FLX" ]; then
+        src="shared/data/u8-install/USECODE/EUSECODE.FLX"
+        [ -f "$src.bak" ] && src="$src.bak"
+        [ -f "$src" ] || fail "no retail usecode at $src; see README.md (What you need)."
+        size="$(wc -c < "$src" | tr -d ' ')"
+        [ "$size" = 1251108 ] || fail "$src is $size bytes, not the retail
+       1,251,108. Re-extract USECODE/EUSECODE.FLX from your game data."
+        cp "$src" "shared/data/USECODE.FLX"
+        echo "Copied the retail usecode: $src -> shared/data/USECODE.FLX"
     fi
     mkdir -p "$BUILD_DIR"
 

@@ -324,9 +324,9 @@ echo "   ${RESULT[engine]}"
 # ── 5. install ──────────────────────────────────────────────────────────
 # (TARGET was resolved before the preflight.)
 if [ "$INSTALL" = 1 ]; then
-    step install "./install_lv.sh ($TARGET)"
+    step install "./install_lv.sh --in-place ($TARGET)"
     busy "the install dir $TARGET" 3 "$TARGET"
-    logged ./install_lv.sh || fail "install_lv.sh failed" "read the log"
+    logged ./install_lv.sh --in-place || fail "install_lv.sh failed" "read the log"
     stale="$(stale_paths "$TARGET" "${GAME_FILES[@]}")"
     [ -z "$stale" ] || fail "installed bytes differ from ARTIFACTS: $(echo $stale)"
     RESULT[install]="all ${#GAME_FILES[@]} installed files canonical ($TARGET)"

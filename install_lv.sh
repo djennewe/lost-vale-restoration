@@ -1,19 +1,42 @@
 #!/bin/bash
-# install_lv.sh — Install Lost Vale build artifacts for ScummVM testing
+# install_lv.sh — Install Lost Vale build artifacts for ScummVM
 #
-# Creates a patched copy of the U8 game directory with LV modifications,
-# then optionally launches ScummVM pointing at it.
+# By default this installs into a SEPARATE copy of your game,
+# shared/u8-lv-patched/ (created from shared/data/u8-install/ on first run),
+# and launches ScummVM on that copy by path. It never touches the Ultima 8
+# folder registered in your ScummVM configuration, and never edits that
+# configuration: the launch uses its own config file and save folder inside
+# the copy (scummvm-lv.ini, saves/).
+#
+# --in-place is the development workflow (tools/integrate.sh uses it): it
+# installs over the folder registered as [ultima8] in your ScummVM config,
+# or over shared/data/u8-install if none is registered, keeping .bak copies,
+# and points the [ultima8] entry at that folder.
 #
 # Usage:
-#   ./install_lv.sh          # Install only
-#   ./install_lv.sh --run    # Install and launch ScummVM
-#   ./install_lv.sh --clean  # Remove the patched directory
+#   ./install_lv.sh                    # Install into shared/u8-lv-patched/
+#   ./install_lv.sh --run              # Install and launch ScummVM on it
+#   ./install_lv.sh --in-place [--run] # Development: install in place
+#   ./install_lv.sh --clean            # Restore files an --in-place install replaced
+#   (remove the separate copy with: rm -rf shared/u8-lv-patched)
 
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 BASE_GAME="$SCRIPT_DIR/shared/data/u8-install"
 BUILD_DIR="$SCRIPT_DIR/shared/build"
+PLAYER_DIR="$SCRIPT_DIR/shared/u8-lv-patched"
+
+RUN=0; IN_PLACE=0; CLEAN=0
+for arg in "$@"; do
+    case "$arg" in
+        --run)      RUN=1 ;;
+        --in-place) IN_PLACE=1 ;;
+        --clean)    CLEAN=1 ;;
+        -h|--help)  sed -n '2,22p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+        *)          echo "Unknown option: $arg (try --help)"; exit 2 ;;
+    esac
+done
 
 # ── Detect ScummVM's registered ultima8 game path ─────────────────────────
 
@@ -66,11 +89,9 @@ check_prereqs() {
         ok=false
     fi
 
-    if ! command -v scummvm &>/dev/null; then
-        echo "WARNING: scummvm not in PATH. Install via: brew install scummvm"
-    fi
-
-    if [ -z "$SCUMMVM_U8_PATH" ]; then
+    if [ "$IN_PLACE" != 1 ]; then
+        :
+    elif [ -z "$SCUMMVM_U8_PATH" ]; then
         echo "WARNING: No 'ultima8' target found in ScummVM config."
         echo "  Add Ultima 8 to ScummVM first (Add Game → browse to U8 directory)."
     elif [ ! -d "$SCUMMVM_U8_PATH" ]; then
@@ -86,7 +107,7 @@ check_prereqs() {
 
 # ── Clean ─────────────────────────────────────────────────────────────────
 
-if [ "${1:-}" = "--clean" ]; then
+if [ "$CLEAN" = 1 ]; then
     CLEAN_DIR="${SCUMMVM_U8_PATH:-$BASE_GAME}"
     if [ ! -d "$CLEAN_DIR" ]; then
         CLEAN_DIR="$BASE_GAME"
@@ -120,6 +141,10 @@ if [ "${1:-}" = "--clean" ]; then
     else
         echo "Nothing to clean (no .bak files found in $CLEAN_DIR)."
     fi
+    if [ -d "$PLAYER_DIR" ]; then
+        echo "The separate game copy is untouched: $PLAYER_DIR"
+        echo "  Remove it with: rm -rf \"$PLAYER_DIR\""
+    fi
     exit 0
 fi
 
@@ -127,11 +152,23 @@ check_prereqs
 
 # ── Install ───────────────────────────────────────────────────────────────
 
-# If ScummVM path is missing/stale, use our base game copy
-if [ -z "$SCUMMVM_U8_PATH" ]; then
-    SCUMMVM_U8_PATH="$BASE_GAME"
+if [ "$IN_PLACE" = 1 ]; then
+    # If ScummVM path is missing/stale, use our base game copy
+    if [ -z "$SCUMMVM_U8_PATH" ]; then
+        SCUMMVM_U8_PATH="$BASE_GAME"
+    fi
+    TARGET_DIR="$SCUMMVM_U8_PATH"
+else
+    TARGET_DIR="$PLAYER_DIR"
+    if [ ! -d "$TARGET_DIR/USECODE" ] || [ ! -d "$TARGET_DIR/STATIC" ]; then
+        echo "Creating a separate game copy for Lost Vale:"
+        echo "  $BASE_GAME -> $TARGET_DIR"
+        mkdir -p "$TARGET_DIR"
+        cp -R "$BASE_GAME/." "$TARGET_DIR/"
+        # An old --in-place install may have left .bak files in the base.
+        find "$TARGET_DIR" -name '*.bak' -type f -delete
+    fi
 fi
-TARGET_DIR="$SCUMMVM_U8_PATH"
 
 echo "=== Lost Vale Installer ==="
 echo ""
@@ -156,28 +193,28 @@ else
 fi
 
 # Patch EUSECODE.FLX
-echo "2. Installing EUSECODE.FLX ($(du -h "$BUILD_DIR/EUSECODE.FLX" | cut -f1) — 548 non-empty classes)..."
+echo "2. Installing EUSECODE.FLX ($(du -h "$BUILD_DIR/EUSECODE.FLX" | cut -f1) — the Lost Vale usecode)..."
 cp "$BUILD_DIR/EUSECODE.FLX" "$TARGET_DIR/USECODE/EUSECODE.FLX"
 
 # Patch FIXED.DAT
-echo "3. Installing FIXED.DAT ($(du -h "$BUILD_DIR/FIXED.DAT" | cut -f1) — 49 maps, 97,044 items)..."
+echo "3. Installing FIXED.DAT ($(du -h "$BUILD_DIR/FIXED.DAT" | cut -f1) — base maps plus the Lost Vale maps)..."
 cp "$BUILD_DIR/FIXED.DAT" "$TARGET_DIR/STATIC/FIXED.DAT"
 
-# Patch U8SHAPES.FLX (wood-plank wall shapes 856-858)
+# Patch U8SHAPES.FLX (the Lost Vale shapes)
 if [ -f "$BUILD_DIR/U8SHAPES.FLX" ]; then
     if [ ! -f "$TARGET_DIR/STATIC/U8SHAPES.FLX.bak" ]; then
         cp "$TARGET_DIR/STATIC/U8SHAPES.FLX" "$TARGET_DIR/STATIC/U8SHAPES.FLX.bak"
     fi
-    echo "4. Installing U8SHAPES.FLX ($(du -h "$BUILD_DIR/U8SHAPES.FLX" | cut -f1) — wood-plank shapes 856-858)..."
+    echo "4. Installing U8SHAPES.FLX ($(du -h "$BUILD_DIR/U8SHAPES.FLX" | cut -f1) — the Lost Vale shapes)..."
     cp "$BUILD_DIR/U8SHAPES.FLX" "$TARGET_DIR/STATIC/U8SHAPES.FLX"
 fi
 
-# Patch TYPEFLAG.DAT (3D bounding-box entries for shapes 856-858)
+# Patch TYPEFLAG.DAT (entries for the Lost Vale shapes)
 if [ -f "$BUILD_DIR/TYPEFLAG.DAT" ]; then
     if [ ! -f "$TARGET_DIR/STATIC/TYPEFLAG.DAT.bak" ]; then
         cp "$TARGET_DIR/STATIC/TYPEFLAG.DAT" "$TARGET_DIR/STATIC/TYPEFLAG.DAT.bak"
     fi
-    echo "5. Installing TYPEFLAG.DAT ($(du -h "$BUILD_DIR/TYPEFLAG.DAT" | cut -f1) — depth-sort entries for shapes 856-858)..."
+    echo "5. Installing TYPEFLAG.DAT ($(du -h "$BUILD_DIR/TYPEFLAG.DAT" | cut -f1) — entries for the Lost Vale shapes)..."
     cp "$BUILD_DIR/TYPEFLAG.DAT" "$TARGET_DIR/STATIC/TYPEFLAG.DAT"
 fi
 
@@ -232,7 +269,7 @@ if [ -f "$HOME/Library/Preferences/ScummVM Preferences" ]; then
 elif [ -f "$HOME/.config/scummvm/scummvm.ini" ]; then
     SCUMMVM_PREFS="$HOME/.config/scummvm/scummvm.ini"
 fi
-if [ -n "$SCUMMVM_PREFS" ]; then
+if [ "$IN_PLACE" = 1 ] && [ -n "$SCUMMVM_PREFS" ]; then
     # Update the path= line in the [ultima8] section
     ESCAPED_PATH=$(echo "$TARGET_DIR" | sed 's/[&/]/\\&/g')
     if grep -q '^\[ultima8\]' "$SCUMMVM_PREFS"; then
@@ -319,7 +356,7 @@ TELEPORT_HELP="ScummVM debugger (Ctrl+Option+D on Mac, then type commands):
 
 # ── Launch ────────────────────────────────────────────────────────────────
 
-if [ "${1:-}" = "--run" ]; then
+if [ "$RUN" = 1 ]; then
     # The patched ScummVM is REQUIRED (M15) — see play.sh for the same note.
     # Stock ScummVM only ever worked with a --stealth build, and stealth is
     # retired (DD-006b), so a fallback would silently launch the wrong thing.
@@ -337,23 +374,43 @@ if [ "${1:-}" = "--run" ]; then
         fi
     fi
 
-    echo "Launching ScummVM (registered 'ultima8' target)..."
+    if [ "$IN_PLACE" = 1 ]; then
+        echo "Launching ScummVM (registered 'ultima8' target)..."
+    else
+        echo "Launching ScummVM on $TARGET_DIR ..."
+    fi
     echo ""
     echo "$TELEPORT_HELP"
     echo ""
 
-    # If using patched ScummVM, point it at engine data files
-    EXTRA_ARGS=""
-    if [ "$SCUMMVM" != "scummvm" ]; then
-        LV_DIR="$(dirname "$SCUMMVM")"
-        if [ -f "$LV_DIR/ultima8.dat" ]; then
-            EXTRA_ARGS="--extrapath=$LV_DIR"
+    # Point ScummVM at the engine data files (ultima.dat, ultima8.dat). A
+    # fresh build tree keeps them in dists/engine-data/; without them the
+    # engine dies in an "Error" dialog with nothing in the log
+    # (tools/playtest-linux/session.sh has the same search).
+    EXTRA=()
+    SVM_DIR="$(dirname "$SCUMMVM")"
+    for d in "$SVM_DIR/dists/engine-data" "$SVM_DIR"; do
+        if [ -f "$d/ultima.dat" ] || [ -f "$d/ultima8.dat" ]; then
+            EXTRA=(--extrapath="$d"); break
         fi
+    done
+    if [ "$IN_PLACE" = 1 ]; then
+        "$SCUMMVM" --debuglevel=1 ${EXTRA[@]+"${EXTRA[@]}"} ultima8
+    else
+        # Its own config file and save folder: ScummVM housekeeping never
+        # touches the player's scummvm.ini, and Lost Vale saves (which stock
+        # Ultima 8 cannot load) never land beside, or over, the player's
+        # ordinary Ultima 8 saves.
+        mkdir -p "$TARGET_DIR/saves"
+        "$SCUMMVM" --debuglevel=1 ${EXTRA[@]+"${EXTRA[@]}"} \
+            --config="$TARGET_DIR/scummvm-lv.ini" --savepath="$TARGET_DIR/saves" \
+            -p "$TARGET_DIR" ultima8
     fi
-    "$SCUMMVM" --debuglevel=1 $EXTRA_ARGS ultima8
 else
     echo "To launch: ./install_lv.sh --run"
-    echo "To restore originals: ./install_lv.sh --clean"
+    if [ "$IN_PLACE" = 1 ]; then
+        echo "To restore originals: ./install_lv.sh --clean"
+    fi
     echo ""
     echo "$TELEPORT_HELP"
 fi

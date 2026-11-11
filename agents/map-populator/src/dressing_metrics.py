@@ -84,10 +84,13 @@ class Source:
 
     def __init__(self, fixed=None, typeflag=None, shapes=None, glob=None,
                  retail=False):
+        def retail_file(name):
+            bak = os.path.join(STATIC, name + '.bak')
+            return bak if os.path.exists(bak) else os.path.join(STATIC, name)
         if retail:
-            fixed = fixed or os.path.join(STATIC, 'FIXED.DAT.bak')
-            typeflag = typeflag or os.path.join(STATIC, 'TYPEFLAG.DAT.bak')
-            shapes = shapes or os.path.join(STATIC, 'U8SHAPES.FLX.bak')
+            fixed = fixed or retail_file('FIXED.DAT')
+            typeflag = typeflag or retail_file('TYPEFLAG.DAT')
+            shapes = shapes or retail_file('U8SHAPES.FLX')
         self.arch = None if fixed is False else MapArchive(fixed or os.path.join(BUILD, 'FIXED.DAT'))
         self.sorter = isort.ItemSorter(
             typeflag=typeflag or os.path.join(BUILD, 'TYPEFLAG.DAT'),
